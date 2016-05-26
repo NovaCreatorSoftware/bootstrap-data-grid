@@ -1,7 +1,7 @@
 {
     "name": "novacreator-bootstrap-data-grid",
     "namespace": "novacreator.bootstrap.datagrid",
-    "title": "Novacreator Bootstrap Datagrid",
+    "title": "Nova Creator Bootstrap Datagrid",
     "version": "1.0.0",
     "description": "Data grid based on Bootstrap.",
     "homepage": "https://github.com/NovaCreatorSoftware/bootstrap-data-grid",

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>novacreator.bootstrap.datagrid</id>
+        <version>$version$</version>
+        <title>Nova Creator Bootsrap Data Grid</title>
+        <authors>Cristi Manole</authors>
+        <owners>cristimanole</owners>
+        <licenseUrl>http://www.opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/NovaCreatorSoftware/bootstrap-data-grid</projectUrl>
+        <iconUrl></iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Data grid based on Bootstrap.</description>
+        <summary>Data grid based on Bootstrap.</summary>
+        <copyright>(c) Copyright 2015-2016, Nova Creator Software</copyright>
+        <tags>jQuery, Data, Grid, Table, Bootstrap, HTML5, UI</tags>
+        <dependencies>
+            <dependency id="jQuery" version="1.11.1" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="dist\*.js" target="Content\Scripts" />
+        <file src="dist\*.css" target="Content\Content" />
+    </files>
+</package>

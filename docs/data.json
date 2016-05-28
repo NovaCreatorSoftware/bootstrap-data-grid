@@ -1,0 +1,631 @@
+{
+    "project": {
+        "name": "novacreator-bootstrap-data-grid",
+        "description": "Data grid based on Bootstrap.",
+        "version": "1.0.0",
+        "url": "https://github.com/NovaCreatorSoftware/bootstrap-data-grid"
+    },
+    "files": {
+        "dist/novacreator.bootstrap.datagrid.js": {
+            "name": "dist/novacreator.bootstrap.datagrid.js",
+            "modules": {},
+            "classes": {
+                "Grid": 1,
+                "defaults": 1
+            },
+            "fors": {
+                "Grid": 1,
+                "defaults": 1,
+                "searchSettings": 1,
+                "ajaxSettings": 1,
+                "css": 1,
+                "statusMapping": 1
+            },
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "Grid": {
+            "name": "Grid",
+            "shortname": "Grid",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 963,
+            "description": "Represents the jQuery Bootgrid plugin.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "element",
+                    "description": "The corresponding DOM element.",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "The options to override default settings.",
+                    "type": "Object"
+                }
+            ],
+            "chainable": 1
+        },
+        "defaults": {
+            "name": "defaults",
+            "shortname": "defaults",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1004,
+            "description": "An object that represents the default settings.",
+            "static": 1,
+            "example": [
+                "\n  // Global approach\n  $.bootgrid.defaults.selection = true;",
+                "\n  // Initialization approach\n  $(\"#bootgrid\").bootgrid({ selection = true });"
+            ]
+        },
+        "searchSettings": {
+            "name": "searchSettings",
+            "shortname": "searchSettings",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": []
+        },
+        "ajaxSettings": {
+            "name": "ajaxSettings",
+            "shortname": "ajaxSettings",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": []
+        },
+        "css": {
+            "name": "css",
+            "shortname": "css",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": []
+        },
+        "statusMapping": {
+            "name": "statusMapping",
+            "shortname": "statusMapping",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": []
+        }
+    },
+    "classitems": [
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1023,
+            "description": "Enables row selection (to enable multi selection see also `multiSelect`). Default value is `false`.",
+            "itemtype": "property",
+            "name": "selection",
+            "type": "Boolean",
+            "default": "false",
+            "since": "1.0.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1034,
+            "description": "Enables multi selection (`selection` must be set to `true` as well). Default value is `false`.",
+            "itemtype": "property",
+            "name": "multiSelect",
+            "type": "Boolean",
+            "default": "false",
+            "since": "1.0.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1045,
+            "description": "Enables entire row click selection (`selection` must be set to `true` as well). Default value is `false`.",
+            "itemtype": "property",
+            "name": "rowSelect",
+            "type": "Boolean",
+            "default": "false",
+            "since": "1.1.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1056,
+            "description": "Defines whether the row selection is saved internally on filtering, paging and sorting\n(even if the selected rows are not visible).",
+            "itemtype": "property",
+            "name": "keepSelection",
+            "type": "Boolean",
+            "default": "false",
+            "since": "1.1.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1072,
+            "description": "General search settings to configure the search field behaviour.",
+            "itemtype": "property",
+            "name": "searchSettings",
+            "type": "Object",
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1081,
+            "description": "The time in milliseconds to wait before search gets executed.",
+            "itemtype": "property",
+            "name": "delay",
+            "type": "Number",
+            "default": "250",
+            "class": "searchSettings"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1091,
+            "description": "The characters to type before the search gets executed.",
+            "itemtype": "property",
+            "name": "characters",
+            "type": "Number",
+            "default": "1",
+            "class": "searchSettings"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1102,
+            "description": "Defines whether the data shall be loaded via an asynchronous HTTP (Ajax) request.",
+            "itemtype": "property",
+            "name": "ajax",
+            "type": "Boolean",
+            "default": "false",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1112,
+            "description": "Ajax request settings that shall be used for server-side communication.\nAll setting except data, error, success and url can be overridden.\nFor the full list of settings go to http://api.jquery.com/jQuery.ajax/.",
+            "itemtype": "property",
+            "name": "ajaxSettings",
+            "type": "Object",
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1123,
+            "description": "Specifies the HTTP method which shall be used when sending data to the server.\nGo to http://api.jquery.com/jQuery.ajax/ for more details.\nThis setting is overriden for backward compatibility.",
+            "itemtype": "property",
+            "name": "method",
+            "type": "String",
+            "default": "\"POST\"",
+            "class": "ajaxSettings"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1136,
+            "description": "Enriches the request object with additional properties. Either a `PlainObject` or a `Function`\nthat returns a `PlainObject` can be passed. Default value is `{}`.",
+            "itemtype": "property",
+            "name": "post",
+            "type": "Object|Function",
+            "default": "function (request) { return request; }",
+            "deprecated": true,
+            "deprecationMessage": "Use instead `requestHandler`",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1148,
+            "description": "Sets the data URL to a data service (e.g. a REST service). Either a `String` or a `Function`\nthat returns a `String` can be passed. Default value is `\"\"`.",
+            "itemtype": "property",
+            "name": "url",
+            "type": "String|Function",
+            "default": "\"\"",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1159,
+            "description": "Defines whether the search is case sensitive or insensitive.",
+            "itemtype": "property",
+            "name": "caseSensitive",
+            "type": "Boolean",
+            "default": "true",
+            "since": "1.1.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1172,
+            "description": "Transforms the JSON request object in what ever is needed on the server-side implementation.",
+            "itemtype": "property",
+            "name": "requestHandler",
+            "type": "Function",
+            "default": "function (request) { return request; }",
+            "since": "1.1.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1183,
+            "description": "Transforms the response object into the expected JSON response object.",
+            "itemtype": "property",
+            "name": "responseHandler",
+            "type": "Function",
+            "default": "function (response) { return response; }",
+            "since": "1.1.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1194,
+            "description": "A list of converters.",
+            "itemtype": "property",
+            "name": "converters",
+            "type": "Object",
+            "since": "1.0.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1214,
+            "description": "Contains all css classes.",
+            "itemtype": "property",
+            "name": "css",
+            "type": "Object",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1245,
+            "description": "CSS class to select the parent div which activates responsive mode.",
+            "itemtype": "property",
+            "name": "responsiveTable",
+            "type": "String",
+            "default": "\"table-responsive\"",
+            "since": "1.1.0",
+            "class": "css"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1262,
+            "description": "CSS class to highlight selected rows.",
+            "itemtype": "property",
+            "name": "selected",
+            "type": "String",
+            "default": "\"active\"",
+            "since": "1.1.0",
+            "class": "css"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1277,
+            "description": "A dictionary of formatters.",
+            "itemtype": "property",
+            "name": "formatters",
+            "type": "Object",
+            "since": "1.0.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1287,
+            "description": "Contains all labels.",
+            "itemtype": "property",
+            "name": "labels",
+            "type": "Object",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1303,
+            "description": "Specifies the mapping between status and contextual classes to color rows.",
+            "itemtype": "property",
+            "name": "statusMapping",
+            "type": "Object",
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1312,
+            "description": "Specifies a successful or positive action.",
+            "itemtype": "property",
+            "name": "0",
+            "type": "String",
+            "class": "statusMapping"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1321,
+            "description": "Specifies a neutral informative change or action.",
+            "itemtype": "property",
+            "name": "1",
+            "type": "String",
+            "class": "statusMapping"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1330,
+            "description": "Specifies a warning that might need attention.",
+            "itemtype": "property",
+            "name": "2",
+            "type": "String",
+            "class": "statusMapping"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1339,
+            "description": "Specifies a dangerous or potentially negative action.",
+            "itemtype": "property",
+            "name": "3",
+            "type": "String",
+            "class": "statusMapping"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1349,
+            "description": "Contains all templates.",
+            "itemtype": "property",
+            "name": "templates",
+            "type": "Object",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1380,
+            "description": "Appends rows.",
+            "itemtype": "method",
+            "name": "append",
+            "params": [
+                {
+                    "name": "rows",
+                    "description": "An array of rows to append",
+                    "type": "Array"
+                }
+            ],
+            "chainable": 1,
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1412,
+            "description": "Removes all rows.",
+            "itemtype": "method",
+            "name": "clear",
+            "chainable": 1,
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1437,
+            "description": "Removes the control functionality completely and transforms the current state to the initial HTML structure.",
+            "itemtype": "method",
+            "name": "destroy",
+            "chainable": 1,
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1460,
+            "description": "Resets the state and reloads rows.",
+            "itemtype": "method",
+            "name": "reload",
+            "chainable": 1,
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1474,
+            "description": "Removes rows by ids. Removes selected rows if no ids are provided.",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "rowsIds",
+                    "description": "An array of rows ids to remove",
+                    "type": "Array",
+                    "optional": true
+                }
+            ],
+            "chainable": 1,
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1521,
+            "description": "Searches in all rows for a specific phrase (but only in visible cells). \nThe search filter will be reseted, if no argument is provided.",
+            "itemtype": "method",
+            "name": "search",
+            "params": [
+                {
+                    "name": "phrase",
+                    "description": "The phrase to search for",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "chainable": 1,
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1546,
+            "description": "Selects rows by ids. Selects all visible rows if no ids are provided.\nIn server-side scenarios only visible rows are selectable.",
+            "itemtype": "method",
+            "name": "select",
+            "params": [
+                {
+                    "name": "rowsIds",
+                    "description": "An array of rows ids to select",
+                    "type": "Array",
+                    "optional": true
+                }
+            ],
+            "chainable": 1,
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1612,
+            "description": "Deselects rows by ids. Deselects all visible rows if no ids are provided.\nIn server-side scenarios only visible rows are deselectable.",
+            "itemtype": "method",
+            "name": "deselect",
+            "params": [
+                {
+                    "name": "rowsIds",
+                    "description": "An array of rows ids to deselect",
+                    "type": "Array",
+                    "optional": true
+                }
+            ],
+            "chainable": 1,
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1666,
+            "description": "Sorts the rows by a given sort descriptor dictionary. \nThe sort filter will be reseted, if no argument is provided.",
+            "itemtype": "method",
+            "name": "sort",
+            "params": [
+                {
+                    "name": "dictionary",
+                    "description": "A sort descriptor dictionary that contains the sort information",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "chainable": 1,
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1691,
+            "description": "Gets a list of the column settings.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
+            "itemtype": "method",
+            "name": "getColumnSettings",
+            "return": {
+                "description": "Returns a list of the column settings.",
+                "type": "Array"
+            },
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1705,
+            "description": "Gets the current page index.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
+            "itemtype": "method",
+            "name": "getCurrentPage",
+            "return": {
+                "description": "Returns the current page index.",
+                "type": "Number"
+            },
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1719,
+            "description": "Gets the current rows.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
+            "itemtype": "method",
+            "name": "getCurrentPage",
+            "return": {
+                "description": "Returns the current rows.",
+                "type": "Array"
+            },
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1733,
+            "description": "Gets a number represents the row count per page.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
+            "itemtype": "method",
+            "name": "getRowCount",
+            "return": {
+                "description": "Returns the row count per page.",
+                "type": "Number"
+            },
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1747,
+            "description": "Gets the actual search phrase.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
+            "itemtype": "method",
+            "name": "getSearchPhrase",
+            "return": {
+                "description": "Returns the actual search phrase.",
+                "type": "String"
+            },
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1761,
+            "description": "Gets the complete list of currently selected rows.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
+            "itemtype": "method",
+            "name": "getSelectedRows",
+            "return": {
+                "description": "Returns all selected rows.",
+                "type": "Array"
+            },
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1775,
+            "description": "Gets the sort dictionary which represents the state of column sorting.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
+            "itemtype": "method",
+            "name": "getSortDictionary",
+            "return": {
+                "description": "Returns the sort dictionary.",
+                "type": "Object"
+            },
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1789,
+            "description": "Gets a number represents the total page count.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
+            "itemtype": "method",
+            "name": "getTotalPageCount",
+            "return": {
+                "description": "Returns the total page count.",
+                "type": "Number"
+            },
+            "since": "1.2.0",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/novacreator.bootstrap.datagrid.js",
+            "line": 1803,
+            "description": "Gets a number represents the total row count.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
+            "itemtype": "method",
+            "name": "getTotalRowCount",
+            "return": {
+                "description": "Returns the total row count.",
+                "type": "Number"
+            },
+            "since": "1.2.0",
+            "class": "defaults"
+        }
+    ],
+    "warnings": []
+}

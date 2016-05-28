@@ -1,6 +1,5 @@
 /*jshint node:true*/
-module.exports = function (grunt)
-{
+module.exports = function (grunt) {
     "use strict";
 
     /* Hint: Using grunt-strip-code to remove comments from the release file */
@@ -51,6 +50,7 @@ module.exports = function (grunt)
                 }
             }
         },
+
         concat: {
             scripts: {
                 options: {
@@ -169,6 +169,7 @@ module.exports = function (grunt)
                 }
             }
         },
+
         uglify: {
             default: {
                 options: {
@@ -219,9 +220,18 @@ module.exports = function (grunt)
                 cmd: 'npm publish .'
             }
         },
+        
         nugetpush: {
             default: {
                 src: '<%= folders.dist %>/*.nupkg'
+            }
+        },
+
+        watch: {
+            all: {
+                files: ['<%= folders.src %>/*.*', 'demo/**.*'],
+                tasks: ['build'],
+                livereload: true
             }
         }
     });
@@ -236,6 +246,7 @@ module.exports = function (grunt)
     grunt.loadNpmTasks('grunt-contrib-yuidoc');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-nuget');
     grunt.loadNpmTasks('grunt-regex-replace');

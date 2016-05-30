@@ -174,7 +174,7 @@
         <script>
             $(function() {
                 function init() {
-                    $("#grid").bootgrid({
+                    $("#grid").novagrid({
                         formatters: {
                             "link": function(column, row) {
                                 return "<a href=\"#\">" + column.id + ": " + row.id + "</a>";
@@ -187,7 +187,7 @@
                 init();
                 
                 $("#append").on("click", function () {
-                    $("#grid").bootgrid("append", [{
+                    $("#grid").novagrid("append", [{
                             id: 0,
                             sender: "hh@derhase.de",
                             received: "Gestern",
@@ -201,53 +201,53 @@
                 });
                 
                 $("#clear").on("click", function () {
-                    $("#grid").bootgrid("clear");
+                    $("#grid").novagrid("clear");
                 });
                 
                 $("#removeSelected").on("click", function () {
-                    $("#grid").bootgrid("remove");
+                    $("#grid").novagrid("remove");
                 });
                 
                 $("#destroy").on("click", function () {
-                    $("#grid").bootgrid("destroy");
+                    $("#grid").novagrid("destroy");
                 });
                 
                 $("#init").on("click", init);
                 
                 $("#clearSearch").on("click", function () {
-                    $("#grid").bootgrid("search");
+                    $("#grid").novagrid("search");
                 });
                 
                 $("#clearSort").on("click", function () {
-                    $("#grid").bootgrid("sort");
+                    $("#grid").novagrid("sort");
                 });
                 
                 $("#getCurrentPage").on("click", function () {
-                    alert($("#grid").bootgrid("getCurrentPage"));
+                    alert($("#grid").novagrid("getCurrentPage"));
                 });
                 
                 $("#getRowCount").on("click", function () {
-                    alert($("#grid").bootgrid("getRowCount"));
+                    alert($("#grid").novagrid("getRowCount"));
                 });
                 
                 $("#getTotalPageCount").on("click", function () {
-                    alert($("#grid").bootgrid("getTotalPageCount"));
+                    alert($("#grid").novagrid("getTotalPageCount"));
                 });
                 
                 $("#getTotalRowCount").on("click", function () {
-                    alert($("#grid").bootgrid("getTotalRowCount"));
+                    alert($("#grid").novagrid("getTotalRowCount"));
                 });
                 
                 $("#getSearchPhrase").on("click", function () {
-                    alert($("#grid").bootgrid("getSearchPhrase"));
+                    alert($("#grid").novagrid("getSearchPhrase"));
                 });
                 
                 $("#getSortDictionary").on("click", function () {
-                    alert($("#grid").bootgrid("getSortDictionary"));
+                    alert($("#grid").novagrid("getSortDictionary"));
                 });
                 
                 $("#getSelectedRows").on("click", function () {
-                    alert($("#grid").bootgrid("getSelectedRows"));
+                    alert($("#grid").novagrid("getSelectedRows"));
                 });
             });
         </script>

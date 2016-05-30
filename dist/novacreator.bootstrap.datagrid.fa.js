@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 05/28/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 05/31/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -8,7 +8,7 @@
     /*jshint validthis: true */
     "use strict";
 
-$.extend($.fn.bootgrid.Constructor.defaults.css, {
+$.extend($.fn.novagrid.Constructor.defaults.css, {
     icon: "icon fa",
     iconColumns: "fa-th-list",
     iconUp: "fa-sort-asc",

@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>jQuery Bootgrid Test Suite</title>
+        <title>Nova Creator Bootstrap Data Grid Test Suite</title>
         <link rel="stylesheet" href="qunit/qunit-1.11.0.css">
     </head>
     <body>
         <h1 id="qunit-header">
-            <a href="http://rstaib.github.io/jquery-steps">jQuery Bootgrid Plugin</a> Test Suite
+            <a href="http://rstaib.github.io/jquery-steps">Nova Creator Bootstrap Data Grid/a> Test Suite
         </h1>
         <div id="qunit-banner"></div>
         <div id="qunit-testrunner-toolbar"><span>jQuery Versions: <input id="version-191" name="version" type="radio" value="1.9.1" /><label for="version-191">jQuery 1.9.1</label>
@@ -26,26 +26,18 @@
         <script src="../src/internal.js"></script>
         <script src="../src/extensions.js"></script>
         <script>
-            $(function ()
-            {
-                $("input[name='version']").click(function ()
-                {
+            $(function () {
+                $("input[name='version']").click(function () {
                     location.href = "?version=" + $(this).val();
                 });
-
-                var versionPattern = /^[\?|\&]{1}version=(\d{1,2}\.\d{1,2}\.\d{1,2}|latest)/,
-                    version = versionPattern.exec(location.search),
-                    defaultVersion = "1.11.1";
-
-                if (version != null && version.length > 0)
-                {
+                var versionPattern = /^[\?|\&]{1}version=(\d{1,2}\.\d{1,2}\.\d{1,2}|latest)/,;
+                var version = versionPattern.exec(location.search),
+                var defaultVersion = "1.11.1";
+                if(version != null && version.length > 0) {
                     version = version[1];
-                }
-                else
-                {
+                } else {
                     version = defaultVersion;
                 }
-
                 $("input[value='" + version + "']").attr("checked", "checked");
             });
         </script>

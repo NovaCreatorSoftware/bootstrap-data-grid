@@ -1,4 +1,4 @@
-$.extend($.fn.bootgrid.Constructor.defaults.css, {
+$.extend($.fn.novagrid.Constructor.defaults.css, {
     icon: "icon fa",
     iconColumns: "fa-th-list",
     iconUp: "fa-sort-asc",

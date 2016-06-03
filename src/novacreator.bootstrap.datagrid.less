@@ -1,12 +1,10 @@
-﻿.opacity(@opacity)
-{
+﻿.opacity(@opacity) {
     @percent: (@opacity*100);
     opacity: @opacity;
     filter: alpha(opacity=@percent);
 }
 
-.turncate()
-{
+.turncate() {
     overflow: hidden;
     -ms-text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
@@ -14,8 +12,7 @@
     white-space: nowrap;
 }
 
-.noTurncate()
-{
+.noTurncate() {
     overflow: inherit !important;
     -ms-text-overflow: inherit !important;
     -o-text-overflow: inherit !important;
@@ -23,100 +20,101 @@
     white-space: inherit !important;
 }
 
-.novagrid-header, .novagrid-footer
-{
+.tablear-header, .tablear-footer {
     margin: 15px 0;
 
-    a { outline: 0; }
+    a { 
+        outline: 0; 
+    }
 
-    .search
-    {
+    .search {
         display: inline-block;
         margin: 0 20px 0 0;
         vertical-align: middle;
         width: 180px;
 
-        .glyphicon { top: 0; }
-        .fa { display: table-cell; }
+        .glyphicon { 
+            top: 0; 
+        }
+        .fa { 
+            display: table-cell; 
+        }
 
-        &.search-field, .search-field
-        {
-            &::-ms-clear { display: none; }
+        &.search-field, .search-field {
+            &::-ms-clear { 
+                display: none; 
+            }
         }
     }
 
-    .pagination { margin: 0 !important; }
+    .actions  {
+        margin: 0 20px 0 0;
+    }
+
+    .pagination { 
+        margin: 0 !important; 
+    }
 }
 
-.novagrid-header .actionBar,
-.novagrid-footer .infoBar
-{
+.tablear-header .actionBar, .tablear-footer .infoBar {
     text-align: right;
 
-    .btn-group > .btn-group
-    { 
-        .dropdown-menu
-        {
+    .btn-group > .btn-group { 
+        .dropdown-menu {
             text-align: left;
 
-            .dropdown-item
-            {
+            .dropdown-item {
                 cursor: pointer;
                 display: block;
                 margin: 0;
                 padding: 3px 20px;
                 white-space: nowrap;
 
-                &:hover, &:focus
-                {
+                &:hover, &:focus {
                     color: #262626;
                     text-decoration: none;
                     background-color: #f5f5f5;
                 }
 
-                &.dropdown-item-checkbox,
-                .dropdown-item-checkbox
-                {
+                &.dropdown-item-checkbox, .dropdown-item-checkbox {
                     margin: 0 2px 4px 0;
                     vertical-align: middle;
                 }
             }
 
-            .dropdown-item.disabled
-            {
+            .dropdown-item.disabled {
                 cursor: not-allowed;
             }
         }
     }
 }
 
-.novagrid-table
-{
+.tablear-table {
     table-layout: fixed;
 
-    a { outline: 0; }
+    a { 
+        outline: 0; 
+    }
 
-    th
-    {
-        & > .column-header-anchor
-        {
+    th {
+        & > .column-header-anchor {
             color: #333;
             cursor: not-allowed;
             display: block;
             position: relative;
             text-decoration: none;
 
-            &.sortable { cursor: pointer; }
+            &.sortable { 
+                cursor: pointer; 
+            }
 
-            & > .text
-            {
+            & > .text {
                 display: block;
                 margin: 0 16px 0 0;
                 .turncate();
             }
 
-            & > .icon
-            {
+            & > .icon {
                 display: block;
                 position: absolute;
                 right: 0;
@@ -124,37 +122,43 @@
             }
         }
 
-        &:hover, &:active { background: #fafafa; }
+        &:hover, &:active { 
+            background: #fafafa; 
+        }
     }
 
-    td
-    {
+    td {
         .turncate();
 
-        &.loading, &.no-results
-        {
+        border: 0 !important;
+        line-height: 2 !important;
+
+        &.loading, &.no-results {
             background: #fff;
             text-align: center;
         }
     }
 
-    th.select-cell, td.select-cell
-    {
+    th.select-cell, td.select-cell {
         text-align: center;
         width: 30px;
 
-        .select-box { margin: 0; outline: 0; }
+        .select-box { 
+            margin: 0; outline: 0; 
+        }
     }
 }
 
-.table-responsive
-{
-    .novagrid-table
-    {
+.table-responsive {
+    .tablear-table {
         table-layout: inherit !important;
 
-        th > .column-header-anchor  > .text { .noTurncate(); }
+        th > .column-header-anchor  > .text { 
+            .noTurncate(); 
+        }
 
-        td { .noTurncate(); }
+        td { 
+            .noTurncate(); 
+        }
     }
 }

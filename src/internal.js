@@ -6,6 +6,22 @@ var namespace = ".rs.novacreator.bootstrap.datagrid";
 // GRID INTERNAL FUNCTIONS
 // =====================
 
+// it only does '%s', and return '' when arguments are undefined
+function sprintf(str) {
+    var args = arguments;
+    var flag = true;
+    var i = 1;
+    str = str.replace(/%s/g, function() {
+        var arg = args[i++];
+        if(typeof arg === 'undefined') {
+            flag = false;
+            return '';
+        }
+        return arg;
+    });
+    return flag ? str : '';
+};
+
 function appendRow(row) {
     var that = this;
     function exists(item) {
@@ -50,7 +66,7 @@ function getUrl() {
 }
 
 function init() {
-    this.element.trigger("initialize" + namespace);
+    this.$element.trigger("initialize" + namespace);
     loadColumns.call(this); // Loads columns from HTML thead tag
     this.selection = this.options.selection && this.identifier != null;
     loadRows.call(this); // Loads rows from HTML tbody tag if ajax is false
@@ -59,7 +75,7 @@ function init() {
     renderSearchField.call(this);
     renderActions.call(this);
     loadData.call(this);
-    this.element.trigger("initialized" + namespace);
+    this.$element.trigger("initialized" + namespace);
 }
 
 function highlightAppendedRows(rows) {
@@ -74,7 +90,7 @@ function isVisible(column) {
 
 function loadColumns() {
     var that = this;
-    var firstHeadRow = this.element.find("thead > tr").first();
+    var firstHeadRow = this.$element.find("thead > tr").first();
     var sorted = false;
 
     /*jshint -W018*/
@@ -120,7 +136,7 @@ function loadColumns() {
 
 function loadData() {
     var that = this;
-    this.element._mcmBusyAria(true).trigger("load" + namespace);
+    this.$element._mcmBusyAria(true).trigger("load" + namespace);
     showLoading.call(this);
 
     function containsPhrase(row) {
@@ -147,7 +163,7 @@ function loadData() {
         renderInfos.call(that);
         renderPagination.call(that);
 
-        that.element._mcmBusyAria(false).trigger("loaded" + namespace);
+        that.$element._mcmBusyAria(false).trigger("loaded" + namespace);
     }
 
     if(this.options.ajax) {
@@ -181,7 +197,7 @@ function loadData() {
 
                 if(textStatus !== "abort") {
                     renderNoResultsRow.call(that); // overrides loading mask
-                    that.element._mcmBusyAria(false).trigger("loaded" + namespace);
+                    that.$element._mcmBusyAria(false).trigger("loaded" + namespace);
                 }
             }
         };
@@ -203,7 +219,7 @@ function loadData() {
 function loadRows() {
     if(!this.options.ajax) {
         var that = this;
-        var rows = this.element.find("tbody > tr");
+        var rows = this.$element.find("tbody > tr");
         rows.each(function () {
             var $this = $(this);
             var cells = $this.children("td");
@@ -226,22 +242,22 @@ function setTotals(total) {
 
 function prepareTable() {
     var tpl = this.options.templates;
-    var wrapper = (this.element.parent().hasClass(this.options.css.responsiveTable)) ?
-            this.element.parent() : this.element;
-    this.element.addClass(this.options.css.table);
+    var wrapper = (this.$element.parent().hasClass(this.options.css.responsiveTable)) ?
+            this.$element.parent() : this.$element;
+    this.$element.addClass(this.options.css.table);
 
     // checks whether there is an tbody element; otherwise creates one
-    if(this.element.children("tbody").length === 0) {
-        this.element.append(tpl.body);
+    if(this.$element.children("tbody").length === 0) {
+        this.$element.append(tpl.body);
     }
 
     if(this.options.navigation & 1) {
-        this.header = $(tpl.header.resolve(getParams.call(this, { id: this.element._mcmId() + "-header" })));
+        this.header = $(tpl.header.resolve(getParams.call(this, { id: this.$element._mcmId() + "-header" })));
         wrapper.before(this.header);
     }
 
     if(this.options.navigation & 2) {
-        this.footer = $(tpl.footer.resolve(getParams.call(this, { id: this.element._mcmId() + "-footer" })));
+        this.footer = $(tpl.footer.resolve(getParams.call(this, { id: this.$element._mcmId() + "-footer" })));
         wrapper.after(this.footer);
     }
 }
@@ -261,8 +277,8 @@ function renderActions() {
             if(this.options.ajax) {
                 var refreshIcon = tpl.icon.resolve(getParams.call(this, { iconCss: css.iconRefresh }));
                 var refresh = $(tpl.actionButton.resolve(getParams.call(this,
-                    { content: refreshIcon, text: this.options.labels.refresh })))
-                        .on("click" + namespace, function (e) {
+                    { content: refreshIcon, text: this.options.locales.refresh }))).
+                        on("click" + namespace, function (e) {
                             // todo: prevent multiple fast clicks (fast click detection)
                             e.stopPropagation();
                             that.current = 1;
@@ -276,8 +292,14 @@ function renderActions() {
 
             // Column selection
             renderColumnSelection.call(this, actions);
-            replacePlaceHolder.call(this, actionItems, actions);
+            replacePlaceHolder.call(this, actionItems, actions);        
         }
+        
+        var selector = getCssSelector(css.extensions);
+        var extensionItems = findFooterAndHeaderItems.call(this, selector);
+        var extensions = $(tpl.extensions.resolve(getParams.call(this)));
+        replacePlaceHolder.call(this, extensionItems, extensions);
+        this.initExtensionsToolbar();
     }
 }
 
@@ -295,18 +317,18 @@ function renderColumnSelection(actions) {
         $.each(this.columns, function(i, column) {
             if(column.visibleInSelection) {
                 var item = $(tpl.actionDropDownCheckboxItem.resolve(getParams.call(that,
-                    { name: column.id, label: column.text, checked: column.visible })))
-                        .on("click" + namespace, selector, function (e) {
+                    { name: column.id, label: column.text, checked: column.visible }))).
+                        on("click" + namespace, selector, function (e) {
                             e.stopPropagation();
                             var $this = $(this);
                             var checkbox = $this.find(checkboxSelector);
                             if(!checkbox.prop("disabled")) {
                                 column.visible = checkbox.prop("checked");
                                 var enable = that.columns.where(isVisible).length > 1;
-                                $this.parents(itemsSelector).find(selector + ":has(" + checkboxSelector + ":checked)")
-                                    ._mcmEnableAria(enable).find(checkboxSelector)._mcmEnableField(enable);
+                                $this.parents(itemsSelector).find(selector + ":has(" + checkboxSelector + ":checked)").
+                                    _mcmEnableAria(enable).find(checkboxSelector)._mcmEnableField(enable);
     
-                                that.element.find("tbody").empty(); // Fixes an column visualization bug
+                                that.$element.find("tbody").empty(); // Fixes an column visualization bug
                                 renderTableHeader.call(that);
                                 loadData.call(that);
                             }
@@ -337,7 +359,7 @@ function renderInfos() {
 }
 
 function renderNoResultsRow() {
-    var tbody = this.element.children("tbody").first();
+    var tbody = this.$element.children("tbody").first();
     var tpl = this.options.templates;
     var count = this.columns.where(isVisible).length;
     if(this.selection) {
@@ -417,7 +439,7 @@ function _getText(value, allLabels) {
 }
 function renderRowCountSelection(actions) {
     var that = this;
-    var allLabels = that.options.labels.all;
+    var allLabels = that.options.locales.all;
     var rowCountList = this.options.rowCount;
 
     if($.isArray(rowCountList)) {
@@ -459,7 +481,7 @@ function renderRows(rows) {
         var that = this;
         var css = this.options.css;
         var tpl = this.options.templates;
-        var tbody = this.element.children("tbody").first();
+        var tbody = this.$element.children("tbody").first();
         var allRowsSelected = true;
         var html = "";
 
@@ -505,7 +527,7 @@ function renderRows(rows) {
         });
 
         // sets or clears multi selectbox state
-        that.element.find("thead " + getCssSelector(that.options.css.selectBox)).prop("checked", allRowsSelected);
+        that.$element.find("thead " + getCssSelector(that.options.css.selectBox)).prop("checked", allRowsSelected);
         tbody.html(html);
         registerRowEvents.call(this, tbody);
     } else {
@@ -544,7 +566,7 @@ function registerRowEvents(tbody) {
                 that.select([id]);
             }
         }
-        that.element.trigger("click" + namespace, [that.columns, row]);
+        that.$element.trigger("click" + namespace, [that.columns, row]);
     });
 }
 
@@ -591,7 +613,7 @@ function executeSearch(phrase) {
 
 function renderTableHeader() {
     var that = this;
-    var headerRow = this.element.find("thead > tr");
+    var headerRow = this.$element.find("thead > tr");
     var css = this.options.css;
     var tpl = this.options.templates;
     var html = "";
@@ -677,7 +699,7 @@ function setTableHeaderSortDirection(element) {
 }
 
 function replacePlaceHolder(placeholder, element) {
-    placeholder.each(function (index, item) {
+    placeholder.each(function(index, item) {
         // todo: check how append is implemented. Perhaps cloning here is superfluous.
         $(item).before(element.clone(true)).remove();
     });
@@ -686,12 +708,12 @@ function replacePlaceHolder(placeholder, element) {
 function showLoading() {
     var that = this;
     window.setTimeout(function() {
-        if(that.element._mcmAria("busy") === "true") {
+        if(that.$element._mcmAria("busy") === "true") {
             var tpl = that.options.templates;
-            var thead = that.element.children("thead").first();
-            var tbody = that.element.children("tbody").first();
+            var thead = that.$element.children("thead").first();
+            var tbody = that.$element.children("tbody").first();
             var firstCell = tbody.find("tr > td").first();
-            var padding = (that.element.height() - thead.height()) - (firstCell.height() + 20);
+            var padding = (that.$element.height() - thead.height()) - (firstCell.height() + 20);
             var count = that.columns.where(isVisible).length;
 
             if(that.selection) {

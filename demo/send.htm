@@ -123,7 +123,7 @@
     <script>
         $(function () {
             var data = [];
-            var grid = $("#grid").novagrid({
+            var grid = $("#grid").tablear({
                 pagination: 3,
                 selection: true,
                 multiSelect: true,
@@ -137,7 +137,7 @@
                 data = [];
                 grid.on("keyup", "input.quantity", function () {
                     e.stopPropagation();
-                    // Array.first is an extension of novagrid
+                    // Array.first is an extension of tablear
                     var $this = $(this);
                     var rowId = +$this.attr("id").split("-")[0]; // "+" to convert the a string to an integer
                     var item = data.first(function (item) { return item.id === rowId; });

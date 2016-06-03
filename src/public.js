@@ -11,18 +11,20 @@
  * @chainable
  **/
 var Grid = function(element, options) {
-    this.element = $(element);
-    this.origin = this.element.clone();
-    this.options = $.extend(true, {}, Grid.defaults, this.element.data(), options);
+    this.$element = $(element);
+
+    this.origin = this.$element.clone();
+    this.options = $.extend(true, {}, Grid.defaults, this.$element.data(), options);
+
     // overrides rowCount explicitly because deep copy ($.extend) leads to strange behaviour
-    var rowCount = this.options.rowCount = this.element.data().rowCount || options.rowCount || this.options.rowCount;
+    this.options.rowCount = this.$element.data().rowCount || options.rowCount || this.options.rowCount;
     this.columns = [];
     this.current = 1;
     this.currentRows = [];
     this.identifier = null; // The first column ID that is marked as identifier
     this.selection = false;
     this.converter = null; // The converter for the column that is marked as identifier
-    this.rowCount = ($.isArray(rowCount)) ? rowCount[0] : rowCount;
+    this.rowCount = ($.isArray(this.options.rowCount)) ? this.options.rowCount[0] : this.options.rowCount;
     this.rows = [];
     this.searchPhrase = "";
     this.selectedRows = [];
@@ -30,7 +32,7 @@ var Grid = function(element, options) {
     this.total = 0;
     this.totalPages = 0;
     this.cachedParams = {
-        lbl: this.options.labels,
+        lbl: this.options.locales,
         css: this.options.css,
         ctx: {}
     };
@@ -38,6 +40,8 @@ var Grid = function(element, options) {
     this.footer = null;
     this.xqr = null;
     // todo: implement cache
+
+    this.initLocale();
 };
 
 /**
@@ -48,10 +52,10 @@ var Grid = function(element, options) {
  * @for Grid
  * @example
  *   // Global approach
- *   $.novagrid.defaults.selection = true;
+ *   $.tablear.defaults.selection = true;
  * @example
  *   // Initialization approach
- *   $("#novagrid").novagrid({ selection = true });
+ *   $("#tablear").tablear({ selection = true });
  **/
 Grid.defaults = {
     navigation: 3, // it's a flag: 0 = none, 1 = top, 2 = bottom, 3 = both (top and bottom)
@@ -209,7 +213,7 @@ Grid.defaults = {
     // note: The following properties should not be used via data-api attributes
 
     /**
-     * Transforms the JSON request object in what ever is needed on the server-side implementation.
+     * Transforms the JSON request object in whatever is needed on the server-side implementation.
      *
      * @property requestHandler
      * @type Function
@@ -259,6 +263,7 @@ Grid.defaults = {
      **/
     css: {
         actions: "actions btn-group", // must be a unique class name or constellation of class names within the header and footer
+        extensions: "extensions btn-group", 
         center: "text-center",
         columnHeaderAnchor: "column-header-anchor", // must be a unique class name or constellation of class names within the column header cell
         columnHeaderText: "text",
@@ -268,8 +273,8 @@ Grid.defaults = {
         dropDownMenu: "dropdown btn-group", // must be a unique class name or constellation of class names within the actionDropDown
         dropDownMenuItems: "dropdown-menu pull-right", // must be a unique class name or constellation of class names within the actionDropDown
         dropDownMenuText: "dropdown-text", // must be a unique class name or constellation of class names within the actionDropDown
-        footer: "novagrid-footer container-fluid",
-        header: "novagrid-header container-fluid",
+        footer: "tablear-footer container-fluid",
+        header: "tablear-header container-fluid",
         icon: "icon glyphicon",
         iconColumns: "glyphicon-th-list",
         iconDown: "glyphicon-chevron-down",
@@ -281,6 +286,11 @@ Grid.defaults = {
         pagination: "pagination", // must be a unique class name or constellation of class names within the header and footer
         paginationButton: "button", // must be a unique class name or constellation of class names within the pagination
 
+        iconToggle: 'glyphicon-list-alt icon-list-alt',
+        iconDetailOpen: 'glyphicon-plus icon-plus',
+        iconDetailClose: 'glyphicon-minus icon-minus',
+        iconSize: undefined,
+        
         /**
          * CSS class to select the parent div which activates responsive mode.
          *
@@ -310,7 +320,7 @@ Grid.defaults = {
         selected: "active",
 
         sortable: "sortable",
-        table: "novagrid-table table"
+        table: "tablear-table table"
     },
 
     /**
@@ -322,22 +332,6 @@ Grid.defaults = {
      * @since 1.0.0
      **/
     formatters: {},
-
-    /**
-     * Contains all labels.
-     *
-     * @property labels
-     * @type Object
-     * @for defaults
-     **/
-    labels: {
-        all: "All",
-        infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} entries",
-        loading: "Loading...",
-        noResults: "No results found!",
-        refresh: "Refresh",
-        search: "Search"
-    },
 
     /**
      * Specifies the mapping between status and contextual classes to color rows.
@@ -385,6 +379,8 @@ Grid.defaults = {
         3: "danger"
     },
 
+    locales: {},
+
     /**
      * Contains all templates.
      *
@@ -398,10 +394,11 @@ Grid.defaults = {
         actionDropDownItem: "<li><a data-action=\"{{ctx.action}}\" class=\"{{css.dropDownItem}} {{css.dropDownItemButton}}\">{{ctx.text}}</a></li>",
         actionDropDownCheckboxItem: "<li><label class=\"{{css.dropDownItem}}\"><input name=\"{{ctx.name}}\" type=\"checkbox\" value=\"1\" class=\"{{css.dropDownItemCheckbox}}\" {{ctx.checked}} /> {{ctx.label}}</label></li>",
         actions: "<div class=\"{{css.actions}}\"></div>",
+        extensions: "<div class=\"{{css.extensions}}\"></div>",
         body: "<tbody></tbody>",
         cell: "<td class=\"{{ctx.css}}\" style=\"{{ctx.style}}\">{{ctx.content}}</td>",
         footer: "<div id=\"{{ctx.id}}\" class=\"{{css.footer}}\"><div class=\"row\"><div class=\"col-sm-6\"><p class=\"{{css.pagination}}\"></p></div><div class=\"col-sm-6 infoBar\"><p class=\"{{css.infos}}\"></p></div></div></div>",
-        header: "<div id=\"{{ctx.id}}\" class=\"{{css.header}}\"><div class=\"row\"><div class=\"col-sm-12 actionBar\"><p class=\"{{css.search}}\"></p><p class=\"{{css.actions}}\"></p></div></div></div>",
+        header: "<div id=\"{{ctx.id}}\" class=\"{{css.header}}\"><div class=\"row\"><div class=\"col-sm-12 actionBar\"><p class=\"{{css.search}}\"></p><p class=\"{{css.actions}}\"></p><p class=\"{{css.extensions}}\"></p></div></div></div>",
         headerCell: "<th data-column-id=\"{{ctx.column.id}}\" class=\"{{ctx.css}}\" style=\"{{ctx.style}}\"><a href=\"javascript:void(0);\" class=\"{{css.columnHeaderAnchor}} {{ctx.sortable}}\"><span class=\"{{css.columnHeaderText}}\">{{ctx.column.text}}</span>{{ctx.icon}}</a></th>",
         icon: "<span class=\"{{css.icon}} {{ctx.iconCss}}\"></span>",
         infos: "<div class=\"{{css.infos}}\">{{lbl.infos}}</div>",
@@ -414,6 +411,38 @@ Grid.defaults = {
         search: "<div class=\"{{css.search}}\"><div class=\"input-group\"><span class=\"{{css.icon}} input-group-addon {{css.iconSearch}}\"></span> <input type=\"text\" class=\"{{css.searchField}}\" placeholder=\"{{lbl.search}}\" /></div></div>",
         select: "<input name=\"select\" type=\"{{ctx.type}}\" class=\"{{css.selectBox}}\" value=\"{{ctx.value}}\" {{ctx.checked}} />"
     }
+};
+
+Grid.locales = [];
+Grid.locales['en-US'] = Grid.locales['en'] = {
+    all: "All",
+    infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} entries",
+    loading: "Loading...",
+    noResults: "No results found!",
+    refresh: "Refresh",
+    search: "Search" 
+};
+$.extend(Grid.defaults.locales, Grid.locales['en-US']);
+Grid.prototype.initLocale = function() {
+    if(this.options.locale) {
+        var parts = this.options.locale.split(/-|_/);
+        parts[0].toLowerCase();
+        parts[1] && parts[1].toUpperCase();
+        if(this.locales[this.options.locale]) {
+            // locale as requested
+            $.extend(this.options, this.locales[this.options.locale]);
+        } else if(this.locales[parts.join('-')]) {
+            // locale with sep set to - (in case original was specified with _)
+            $.extend(this.options, this.locales[parts.join('-')]);
+        } else if(this.locales[parts[0]]) {
+            // short locale language code (i.e. 'en')
+            $.extend(this.options, this.locales[parts[0]]);
+        }
+    }
+};
+
+Grid.prototype.initExtensionsToolbar = function() {
+    this.$extensionsToolbar = $('.extensions.btn-group');
 };
 
 /**
@@ -436,7 +465,7 @@ Grid.prototype.append = function(rows) {
         sortRows.call(this);
         highlightAppendedRows.call(this, appendedRows);
         loadData.call(this);
-        this.element.trigger("appended" + namespace, [appendedRows]);
+        this.$element.trigger("appended" + namespace, [appendedRows]);
     }
     return this;
 };
@@ -456,7 +485,7 @@ Grid.prototype.clear = function() {
         this.current = 1;
         this.total = 0;
         loadData.call(this);
-        this.element.trigger("cleared" + namespace, [removedRows]);
+        this.$element.trigger("cleared" + namespace, [removedRows]);
     }
 
     return this;
@@ -477,7 +506,7 @@ Grid.prototype.destroy = function() {
     if(this.options.navigation & 2) {
         this.footer.remove();
     }
-    this.element.before(this.origin).remove();
+    this.$element.before(this.origin).remove();
     return this;
 };
 
@@ -521,7 +550,7 @@ Grid.prototype.remove = function(rowIds) {
             }
             this.current = 1; // reset
             loadData.call(this);
-            this.element.trigger("removed" + namespace, [removedRows]);
+            this.$element.trigger("removed" + namespace, [removedRows]);
         }
     }
     return this;
@@ -579,19 +608,19 @@ Grid.prototype.select = function(rowIds) {
             while(!this.options.keepSelection && selectMultiSelectBox && i < this.currentRows.length) {
                 selectMultiSelectBox = ($.inArray(this.currentRows[i++][this.identifier], this.selectedRows) !== -1);
             }
-            this.element.find("thead " + selectBoxSelector).prop("checked", selectMultiSelectBox);
+            this.$element.find("thead " + selectBoxSelector).prop("checked", selectMultiSelectBox);
 
             if(!this.options.multiSelect) {
-                this.element.find("tbody > tr " + selectBoxSelector + ":checked").trigger("click" + namespace);
+                this.$element.find("tbody > tr " + selectBoxSelector + ":checked").trigger("click" + namespace);
             }
 
             for(i = 0; i < this.selectedRows.length; i++) {
-                this.element.find("tbody > tr[data-row-id=\"" + this.selectedRows[i] + "\"]").
+                this.$element.find("tbody > tr[data-row-id=\"" + this.selectedRows[i] + "\"]").
                     addClass(this.options.css.selected)._mcmAria("selected", "true").
                     find(selectBoxSelector).prop("checked", true);
             }
 
-            this.element.trigger("selected" + namespace, [selectedRows]);
+            this.$element.trigger("selected" + namespace, [selectedRows]);
         }
     }
 
@@ -629,13 +658,13 @@ Grid.prototype.deselect = function(rowIds) {
 
         if(deselectedRows.length > 0) {
             var selectBoxSelector = getCssSelector(this.options.css.selectBox);
-            this.element.find("thead " + selectBoxSelector).prop("checked", false);
+            this.$element.find("thead " + selectBoxSelector).prop("checked", false);
             for(i = 0; i < deselectedRows.length; i++) {
-                this.element.find("tbody > tr[data-row-id=\"" + deselectedRows[i][this.identifier] + "\"]").
+                this.$element.find("tbody > tr[data-row-id=\"" + deselectedRows[i][this.identifier] + "\"]").
                     removeClass(this.options.css.selected)._mcmAria("selected", "false").
                     find(selectBoxSelector).prop("checked", false);
             }
-            this.element.trigger("deselected" + namespace, [deselectedRows]);
+            this.$element.trigger("deselected" + namespace, [deselectedRows]);
         }
     }
 

@@ -167,27 +167,29 @@
 
         <script src="https://use.fontawesome.com/18e1e569fb.js"></script>
         <script src="js/moderniz.2.8.1.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+        <script src="../dist/dependencies.js"></script>
         <script src="../dist/novacreator.bootstrap.datagrid.js"></script>
         <script src="../dist/novacreator.bootstrap.datagrid.fa.js"></script>
         <script>
             $(function() {
                 function init() {
-                    $("#grid").novagrid({
+                    $("#grid").tablear({
                         formatters: {
                             "link": function(column, row) {
                                 return "<a href=\"#\">" + column.id + ": " + row.id + "</a>";
                             }
                         },
-                        rowCount: [-1, 10, 50, 75]
+                        rowCount: [-1, 10, 50, 75],
+                        showExport: true
                     });
                 }
                 
                 init();
                 
                 $("#append").on("click", function () {
-                    $("#grid").novagrid("append", [{
+                    $("#grid").tablear("append", [{
                             id: 0,
                             sender: "hh@derhase.de",
                             received: "Gestern",
@@ -201,53 +203,53 @@
                 });
                 
                 $("#clear").on("click", function () {
-                    $("#grid").novagrid("clear");
+                    $("#grid").tablear("clear");
                 });
                 
                 $("#removeSelected").on("click", function () {
-                    $("#grid").novagrid("remove");
+                    $("#grid").tablear("remove");
                 });
                 
                 $("#destroy").on("click", function () {
-                    $("#grid").novagrid("destroy");
+                    $("#grid").tablear("destroy");
                 });
                 
                 $("#init").on("click", init);
                 
                 $("#clearSearch").on("click", function () {
-                    $("#grid").novagrid("search");
+                    $("#grid").tablear("search");
                 });
                 
                 $("#clearSort").on("click", function () {
-                    $("#grid").novagrid("sort");
+                    $("#grid").tablear("sort");
                 });
                 
                 $("#getCurrentPage").on("click", function () {
-                    alert($("#grid").novagrid("getCurrentPage"));
+                    alert($("#grid").tablear("getCurrentPage"));
                 });
                 
                 $("#getRowCount").on("click", function () {
-                    alert($("#grid").novagrid("getRowCount"));
+                    alert($("#grid").tablear("getRowCount"));
                 });
                 
                 $("#getTotalPageCount").on("click", function () {
-                    alert($("#grid").novagrid("getTotalPageCount"));
+                    alert($("#grid").tablear("getTotalPageCount"));
                 });
                 
                 $("#getTotalRowCount").on("click", function () {
-                    alert($("#grid").novagrid("getTotalRowCount"));
+                    alert($("#grid").tablear("getTotalRowCount"));
                 });
                 
                 $("#getSearchPhrase").on("click", function () {
-                    alert($("#grid").novagrid("getSearchPhrase"));
+                    alert($("#grid").tablear("getSearchPhrase"));
                 });
                 
                 $("#getSortDictionary").on("click", function () {
-                    alert($("#grid").novagrid("getSortDictionary"));
+                    alert($("#grid").tablear("getSortDictionary"));
                 });
                 
                 $("#getSelectedRows").on("click", function () {
-                    alert($("#grid").novagrid("getSelectedRows"));
+                    alert($("#grid").tablear("getSelectedRows"));
                 });
             });
         </script>

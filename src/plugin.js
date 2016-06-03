@@ -1,8 +1,8 @@
 // GRID PLUGIN DEFINITION
 // =====================
-var old = $.fn.novagrid;
+var old = $.fn.tablear;
 
-$.fn.novagrid = function(option) {
+$.fn.tablear = function(option) {
     var args = Array.prototype.slice.call(arguments, 1);
     var returnValue = null;
     var elements = this.each(function (index) {
@@ -27,15 +27,18 @@ $.fn.novagrid = function(option) {
     return (typeof option === "string" && option.indexOf("get") === 0) ? returnValue : elements;
 };
 
-$.fn.novagrid.Constructor = Grid;
+//to easily access the Grid object. It's a convention
+$.fn.tablear.Constructor = Grid; 
+$.fn.tablear.defaults = Grid.defaults;
+$.fn.tablear.locales = Grid.locales;
 
 // GRID NO CONFLICT
 // ===============
-$.fn.novagrid.noConflict = function () {
-    $.fn.novagrid = old;
+$.fn.tablear.noConflict = function() {
+    $.fn.tablear = old;
     return this;
 };
 
 // GRID DATA-API
 // ============
-$("[data-toggle=\"novagrid\"]").novagrid();
+$("[data-toggle=\"tablear\"]").tablear();

@@ -51,6 +51,13 @@ module.exports = function (grunt) {
             }
         },
 
+        bower_concat: {
+            all: {
+                dest: '<%= folders.dist %>/dependencies.js',
+                destCss: '<%= folders.dist %>/dependencies.css'
+            }            
+        },
+
         concat: {
             scripts: {
                 options: {
@@ -76,7 +83,8 @@ module.exports = function (grunt) {
                         '<%= folders.src %>/internal.js',
                         '<%= folders.src %>/public.js',
                         '<%= folders.src %>/extensions.js',
-                        '<%= folders.src %>/plugin.js'
+                        '<%= folders.src %>/plugin.js',
+                        '<%= folders.src %>/extensions/**/*.js'
                     ],
                     '<%= folders.dist %>/<%= pkg.namespace %>.<%= fontawesome %>.js': [
                         '<%= folders.src %>/fontawesome.js'
@@ -247,6 +255,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-nuget');
     grunt.loadNpmTasks('grunt-regex-replace');
@@ -259,7 +268,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['build']);
     grunt.registerTask('api', ['clean:api', 'yuidoc']);
     grunt.registerTask('test', ['qunit']);
-    grunt.registerTask('build', ['clean:build', 'version', 'less', 'concat', 'csslint', /*'jshint'*/, 'test']); //TODO
+    grunt.registerTask('build', ['clean:build', 'version', 'less', 'bower_concat', 'concat', 'csslint', /*'jshint'*/, 'test']); //TODO
     grunt.registerTask('release', ['build', 'api', 'cssmin', 'uglify', 'compress', 'nugetpack']);
     grunt.registerTask('publish', ['nugetpush', 'exec:publish']);
 };

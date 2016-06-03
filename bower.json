@@ -13,7 +13,8 @@
         "Grid",
         "Table",
         "Sorting",
-        "HTML5"
+        "HTML5",
+        "Tablear"
     ],
     "version": "1.0.0",
     "author": {
@@ -43,12 +44,13 @@
         ".gitattributes",
         ".gitignore",
         ".travis.yml",
-        "novagrid.jquery.json",
+        "tablear.jquery.json",
         "Gruntfile.js",
         "package.json"
     ],
     "dependencies": {
         "jquery": ">=1.12.4",
-        "bootstrap": ">=3.3.6"
+        "bootstrap": ">=3.3.6",
+        "tableExport.jquery.plugin": "^1.5.1"
     }
 }

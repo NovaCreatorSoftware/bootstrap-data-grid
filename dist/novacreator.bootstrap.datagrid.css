@@ -1,93 +1,97 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 05/31/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/04/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
-.novagrid-header,
-.novagrid-footer {
+.tablear-header,
+.tablear-footer {
   margin: 15px 0;
 }
-.novagrid-header a,
-.novagrid-footer a {
+.tablear-header a,
+.tablear-footer a {
   outline: 0;
 }
-.novagrid-header .search,
-.novagrid-footer .search {
+.tablear-header .search,
+.tablear-footer .search {
   display: inline-block;
   margin: 0 20px 0 0;
   vertical-align: middle;
   width: 180px;
 }
-.novagrid-header .search .glyphicon,
-.novagrid-footer .search .glyphicon {
+.tablear-header .search .glyphicon,
+.tablear-footer .search .glyphicon {
   top: 0;
 }
-.novagrid-header .search .fa,
-.novagrid-footer .search .fa {
+.tablear-header .search .fa,
+.tablear-footer .search .fa {
   display: table-cell;
 }
-.novagrid-header .search.search-field::-ms-clear,
-.novagrid-footer .search.search-field::-ms-clear,
-.novagrid-header .search .search-field::-ms-clear,
-.novagrid-footer .search .search-field::-ms-clear {
+.tablear-header .search.search-field::-ms-clear,
+.tablear-footer .search.search-field::-ms-clear,
+.tablear-header .search .search-field::-ms-clear,
+.tablear-footer .search .search-field::-ms-clear {
   display: none;
 }
-.novagrid-header .pagination,
-.novagrid-footer .pagination {
+.tablear-header .actions,
+.tablear-footer .actions {
+  margin: 0 20px 0 0;
+}
+.tablear-header .pagination,
+.tablear-footer .pagination {
   margin: 0 !important;
 }
-.novagrid-header .actionBar,
-.novagrid-footer .infoBar {
+.tablear-header .actionBar,
+.tablear-footer .infoBar {
   text-align: right;
 }
-.novagrid-header .actionBar .btn-group > .btn-group .dropdown-menu,
-.novagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu {
   text-align: left;
 }
-.novagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item,
-.novagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item {
   cursor: pointer;
   display: block;
   margin: 0;
   padding: 3px 20px;
   white-space: nowrap;
 }
-.novagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
-.novagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
-.novagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
-.novagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
   color: #262626;
   text-decoration: none;
   background-color: #f5f5f5;
 }
-.novagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
-.novagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
-.novagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox,
-.novagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox {
   margin: 0 2px 4px 0;
   vertical-align: middle;
 }
-.novagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled,
-.novagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled {
   cursor: not-allowed;
 }
-.novagrid-table {
+.tablear-table {
   table-layout: fixed;
 }
-.novagrid-table a {
+.tablear-table a {
   outline: 0;
 }
-.novagrid-table th > .column-header-anchor {
+.tablear-table th > .column-header-anchor {
   color: #333;
   cursor: not-allowed;
   display: block;
   position: relative;
   text-decoration: none;
 }
-.novagrid-table th > .column-header-anchor.sortable {
+.tablear-table th > .column-header-anchor.sortable {
   cursor: pointer;
 }
-.novagrid-table th > .column-header-anchor > .text {
+.tablear-table th > .column-header-anchor > .text {
   display: block;
   margin: 0 16px 0 0;
   overflow: hidden;
@@ -96,49 +100,51 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.novagrid-table th > .column-header-anchor > .icon {
+.tablear-table th > .column-header-anchor > .icon {
   display: block;
   position: absolute;
   right: 0;
   top: 2px;
 }
-.novagrid-table th:hover,
-.novagrid-table th:active {
+.tablear-table th:hover,
+.tablear-table th:active {
   background: #fafafa;
 }
-.novagrid-table td {
+.tablear-table td {
   overflow: hidden;
   -ms-text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
+  border: 0 !important;
+  line-height: 2 !important;
 }
-.novagrid-table td.loading,
-.novagrid-table td.no-results {
+.tablear-table td.loading,
+.tablear-table td.no-results {
   background: #fff;
   text-align: center;
 }
-.novagrid-table th.select-cell,
-.novagrid-table td.select-cell {
+.tablear-table th.select-cell,
+.tablear-table td.select-cell {
   text-align: center;
   width: 30px;
 }
-.novagrid-table th.select-cell .select-box,
-.novagrid-table td.select-cell .select-box {
+.tablear-table th.select-cell .select-box,
+.tablear-table td.select-cell .select-box {
   margin: 0;
   outline: 0;
 }
-.table-responsive .novagrid-table {
+.table-responsive .tablear-table {
   table-layout: inherit !important;
 }
-.table-responsive .novagrid-table th > .column-header-anchor > .text {
+.table-responsive .tablear-table th > .column-header-anchor > .text {
   overflow: inherit !important;
   -ms-text-overflow: inherit !important;
   -o-text-overflow: inherit !important;
   text-overflow: inherit !important;
   white-space: inherit !important;
 }
-.table-responsive .novagrid-table td {
+.table-responsive .tablear-table td {
   overflow: inherit !important;
   -ms-text-overflow: inherit !important;
   -o-text-overflow: inherit !important;

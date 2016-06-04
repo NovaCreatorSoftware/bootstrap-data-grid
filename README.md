@@ -16,3 +16,10 @@ http://www.trirand.com/blog/
 http://www.pontikis.net/labs/bs_grid/demo/
 http://www.jquery-bootgrid.com/
 https://ace.c9.io 
+
+extensions
+    editable
+    filter
+    reorder columns
+    reorder rows
+    fixed columns

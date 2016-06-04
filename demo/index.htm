@@ -60,10 +60,11 @@
                      <table id="grid" class="table table-condensed table-hover table-striped" data-selection="true" data-multi-select="true" data-row-select="true" data-keep-selection="true">
                         <thead>
                             <tr>
-                                <th data-column-id="id" data-identifier="true" data-type="numeric" data-align="right" data-width="100px">ID</th>
-                                <th data-column-id="sender" data-order="asc" data-align="center" data-header-align="center" data-width="50%">Sender</th>
-                                <th data-column-id="received" data-css-class="cell" data-header-css-class="column" data-filterable="true">Received</th>
+                                <th data-column-id="id" data-identifier="true" data-type="numeric" data-align="left" data-width="50px">ID</th>
+                                <th data-column-id="sender" data-order="asc" data-align="center" data-header-align="center">Sender</th>
+                                <th data-column-id="received" data-css-class="cell" data-header-css-class="column" data-filterable="true" data-width="200px">Received</th>
                                 <th data-column-id="link" data-formatter="link" data-sortable="false" data-width="75px">Link</th>
+                                <th data-column-id="commands" data-formatter="commands" data-sortable="false" data-width="150px">Commands</th>
                                 <th data-column-id="status" data-type="numeric" data-visible="false">Status</th>
                                 <th data-column-id="hidden" data-visible="false" data-visible-in-selection="false">Hidden</th>
                             </tr>
@@ -175,16 +176,28 @@
         <script>
             $(function() {
                 function init() {
-                    $("#grid").tablear({
+                    var grid = $("#grid").tablear({
                         formatters: {
                             "link": function(column, row) {
                                 return "<a href=\"#\">" + column.id + ": " + row.id + "</a>";
+                            },
+                            "commands": function(column, row) {
+                                return "<button type=\"button\" class=\"btn btn-sm btn-default command-edit\" data-row-id=\"" + 
+                                    row.id + "\"><span class=\"fa fa-pencil\"></span></button> " + 
+                                    "<button type=\"button\" class=\"btn btn-sm btn-default command-delete\" data-row-id=\"" + 
+                                    row.id + "\"><span class=\"fa fa-trash-o\"></span></button>";
                             }
                         },
                         rowCount: [-1, 10, 50, 75],
                         showExport: true
+                    }).on("loaded.rs.novacreator.bootstrap.datagrid", function() {
+                        grid.find(".command-edit").on("click", function(e) {
+                            alert("You pressed edit on row: " + $(this).data("row-id"));
+                        }).end().find(".command-delete").on("click", function(e) {
+                            alert("You pressed delete on row: " + $(this).data("row-id"));
+                        });
                     });
-                }
+                };
                 
                 init();
                 

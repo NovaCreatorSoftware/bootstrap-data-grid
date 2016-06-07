@@ -31,19 +31,18 @@
         minWidth: 15,
         hoverCursor: 'e-resize',
         dragCursor: 'e-resize',
-        onResizableResize: function() {
+        onResizableResize: function (e) {
             return false;
         },
-        onResizableDrag: function() {
+        onResizableDrag: function (e) {
             return false;
         }
     });
 
     var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
-    $.fn.tablear.Constructor.prototype.initHeader = function() {
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         var that = this;
-        _resetView.apply(this, Array.prototype.slice.apply(arguments));
         if(this.options.resizable) {
             // because in fitHeader function, we use setTimeout(func, 100);
             setTimeout(function () {

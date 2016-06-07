@@ -36,26 +36,20 @@
         'reorder-row.bs.table': 'onReorderRow'
     });
 
-    var _init = $.fn.tablear.Constructor.prototype.init;
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
     var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
-    $.fn.tablear.Constructor.prototype.init = function () {
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.reorderableRows) {
-            _init.apply(this, Array.prototype.slice.apply(arguments));
             return;
         }
         var that = this;
         if(this.options.useRowAttrFunc) {
             this.options.rowAttributes = rowAttr;
         }
-        var onPostBody = this.options.onPostBody;
-        this.options.onPostBody = function() {
-            setTimeout(function() {
-                that.makeRowsReorderable();
-                onPostBody.apply();
-            }, 1);
-        };
-
-        _init.apply(this, Array.prototype.slice.apply(arguments));
+        setTimeout(function() {
+            that.makeRowsReorderable();
+        }, 100);
     };
 
     $.fn.tablear.Constructor.prototype.initSearch = function () {
@@ -69,10 +63,6 @@
     };
 
     $.fn.tablear.Constructor.prototype.makeRowsReorderable = function() {
-        if(this.options.cardView) {
-            return;
-        }
-
         var that = this;
         this.$element.tableDnD({
             onDragStyle: that.options.onDragStyle,

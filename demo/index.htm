@@ -203,7 +203,9 @@
                         showExport: true,
                         showFilter: true,
                         reorderableColumns: true,
-                        resizable: true
+                        reorderableRows: true,
+                        resizable: true,
+                        stickyHeader: true
                     }).on("loaded.rs.novacreator.bootstrap.datagrid", function() {
                         grid.find(".command-edit").on("click", function(e) {
                             alert("You pressed edit on row: " + $(this).data("row-id"));

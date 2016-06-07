@@ -21,6 +21,6 @@ extensions
     editable x
     filter x
     reorder columns x
-    reorder rows
+    reorder rows x
     resize columns x
-    sticky columns
+    sticky columns - aici am ramas si nu prea ma prind ce tre facut!

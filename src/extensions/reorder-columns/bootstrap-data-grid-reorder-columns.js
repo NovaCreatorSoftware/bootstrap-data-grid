@@ -29,22 +29,20 @@
         if(!this.options.reorderableColumns) {
             return;
         }
-        this.makeRowsReorderable();
+        this.makeColumnsReorderable();
     };
 
     $.fn.tablear.Constructor.prototype.toggleColumn = function () {
         _toggleColumn.apply(this, Array.prototype.slice.apply(arguments));
-
         if(!this.options.reorderableColumns) {
             return;
         }
 
-        this.makeRowsReorderable();
+        this.makeColumnsReorderable();
     };
 
     $.fn.tablear.Constructor.prototype.toggleView = function () {
         _toggleView.apply(this, Array.prototype.slice.apply(arguments));
-
         if(!this.options.reorderableColumns) {
             return;
         }
@@ -53,7 +51,7 @@
             return;
         }
 
-        this.makeRowsReorderable();
+        this.makeColumnsReorderable();
     };
 
     $.fn.tablear.Constructor.prototype.resetView = function () {
@@ -62,10 +60,10 @@
             return;
         }
 
-        this.makeRowsReorderable();
+        this.makeColumnsReorderable();
     };
 
-    $.fn.tablear.Constructor.prototype.makeRowsReorderable = function () {
+    $.fn.tablear.Constructor.prototype.makeColumnsReorderable = function () {
         var that = this;
         try {
             $(this.$element).dragtable('destroy');

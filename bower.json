@@ -1,60 +1,60 @@
 {
-  "name": "novacreator-bootstrap-data-grid",
-  "description": "Nova Creator Bootstrap Datagrid",
-  "keywords": [
-    "Bootstrap",
-    "jQuery",
-    "Plugin",
-    "jquery-plugin",
-    "Component",
-    "Control",
-    "UI",
-    "Data",
-    "Grid",
-    "Table",
-    "Sorting",
-    "HTML5",
-    "Tablear"
-  ],
-  "version": "1.0.0",
-  "author": {
-    "name": "Nova Creator Software",
-    "email": "cristimanole@novacreator.com",
-    "url": "http://www.novacreator.com"
-  },
-  "homepage": "https://github.com/NovaCreatorSoftware/bootstrap-data-grid",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/NovaCreatorSoftware/bootstrap-data-grid.git"
-  },
-  "license": "MIT",
-  "main": [
-    "dist/novacreator.bootstrap.datagrid.js",
-    "dist/novacreator.bootstrap.datagrid.css"
-  ],
-  "ignore": [
-    "build",
-    "demo",
-    "dist/*.nupkg",
-    "dist/*.zip",
-    "docs",
-    "lib",
-    "test",
-    "*.nuspec",
-    ".gitattributes",
-    ".gitignore",
-    ".travis.yml",
-    "tablear.jquery.json",
-    "Gruntfile.js",
-    "package.json"
-  ],
-  "dependencies": {
-    "jquery": ">=1.12.4",
-    "jquery-ui": "jqueryui#^1.11.4",
-    "bootstrap": ">=3.3.6",
-    "tableExport.jquery.plugin": "^1.5.1",
-    "dragtable": "^2.0.14",
-    "col-resizable": "*",
-    "TableDnD": "^0.9.1"
-  }
+    "name": "novacreator-bootstrap-data-grid",
+    "description": "Nova Creator Bootstrap Datagrid",
+    "keywords": [
+        "Bootstrap",
+        "jQuery",
+        "Plugin",
+        "jquery-plugin",
+        "Component",
+        "Control",
+        "UI",
+        "Data",
+        "Grid",
+        "Table",
+        "Sorting",
+        "HTML5",
+        "Tablear"
+    ],
+    "version": "1.0.0",
+    "author": {
+        "name": "Nova Creator Software",
+        "email": "cristimanole@novacreator.com",
+        "url": "http://www.novacreator.com"
+    },
+    "homepage": "https://github.com/NovaCreatorSoftware/bootstrap-data-grid",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NovaCreatorSoftware/bootstrap-data-grid.git"
+    },
+    "license": "MIT",
+    "main": [
+        "dist/novacreator.bootstrap.datagrid.js",
+        "dist/novacreator.bootstrap.datagrid.css"
+    ],
+    "ignore": [
+        "build",
+        "demo",
+        "dist/*.nupkg",
+        "dist/*.zip",
+        "docs",
+        "lib",
+        "test",
+        "*.nuspec",
+        ".gitattributes",
+        ".gitignore",
+        ".travis.yml",
+        "tablear.jquery.json",
+        "Gruntfile.js",
+        "package.json"
+    ],
+    "dependencies": {
+        "jquery": ">=1.12.4",
+        "jquery-ui": "jqueryui#^1.11.4",
+        "bootstrap": ">=3.3.6",
+        "tableExport.jquery.plugin": "^1.5.1",
+        "dragtable": "^2.0.14",
+        "col-resizable": "*",
+        "TableDnD": "^0.9.1"
+    }
 }

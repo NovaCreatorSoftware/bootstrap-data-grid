@@ -53,9 +53,15 @@ module.exports = function (grunt) {
 
         bower_concat: {
             all: {
-                dest: '<%= folders.dist %>/dependencies.js',
-                destCss: '<%= folders.dist %>/dependencies.css'
-            }            
+                dest: {
+                    js: '<%= folders.dist %>/dependencies.js',
+                    css: '<%= folders.dist %>/dependencies.css'
+                },
+
+                dependencies: {
+                    'dragtable': ['jquery', 'jquery-ui']
+                },
+            }
         },
 
         concat: {

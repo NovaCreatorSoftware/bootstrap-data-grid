@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/04/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/08/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -145,12 +145,12 @@ function loadColumns() {
     var firstHeadRow = this.$element.find("thead > tr").first();
     var sorted = false;
 
-    /*jshint -W018*/
     firstHeadRow.children().each(function () {
         var $this = $(this);
         var data = $this.data();
-        var column = {
+        var column = $.extend({}, data, {
             id: data.columnId,
+            field: data.columnId,
             identifier: that.identifier == null && data.identifier || false,
             converter: that.options.converters[data.converter || data.type] || that.options.converters["string"],
             text: $this.text(),
@@ -166,7 +166,7 @@ function loadColumns() {
             visibleInSelection: !(data.visibleInSelection === false), // default: true
             width: ($.isNumeric(data.width)) ? data.width + "px" : 
                 (typeof(data.width) === "string") ? data.width : null
-        };
+        });
         that.columns.push(column);
         if(column.order != null) {
             that.sortDictionary[column.id] = column.order;
@@ -546,7 +546,7 @@ function renderRows(rows) {
                 var selected = ($.inArray(row[that.identifier], that.selectedRows) !== -1);
                 var selectBox = tpl.select.resolve(getParams.call(that,
                         { type: "checkbox", value: row[that.identifier], checked: selected }));
-                cells += tpl.cell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell }));
+                cells += tpl.cell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell, style: 'selectCellTdStyle' }));
                 allRowsSelected = (allRowsSelected && selected);
                 if(selected) {
                     rowCss += css.selected;
@@ -673,7 +673,7 @@ function renderTableHeader() {
     if(this.selection) {
         var selectBox = (this.options.multiSelect) ?
             tpl.select.resolve(getParams.call(that, { type: "checkbox", value: "all" })) : "";
-        html += tpl.rawHeaderCell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell }));
+        html += tpl.rawHeaderCell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell, style: 'selectCellThStyle' }));
     }
 
     $.each(this.columns, function(index, column) {
@@ -715,6 +715,8 @@ function renderTableHeader() {
             }
         });
     }
+
+    this.initHeader();
 }
 
 function setTableHeaderSortDirection(element) {
@@ -810,6 +812,91 @@ function sortRows() {
             this.rows.sort(_sort);
         }
     }
+}
+
+function isIEBrowser() {
+    return !!(navigator.userAgent.indexOf("MSIE ") > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./));
+}
+
+function getFieldIndex(columns, field) {
+    var index = -1;
+    $.each(columns, function(i, column) {
+        if(column.field === field) {
+            index = i;
+            return false;
+        }
+        return true;
+    });
+    return index;
+}
+
+function setFieldIndex(columns) {
+    var i;
+    var j;
+    var k;
+    var totalCol = 0;
+    var flag = [];
+
+    for(i = 0; i < columns[0].length; i++) {
+        totalCol += columns[0][i].colspan || 1;
+    }
+
+    for(i = 0; i < columns.length; i++) {
+        flag[i] = [];
+        for(j = 0; j < totalCol; j++) {
+            flag[i][j] = false;
+        }
+    }
+
+    for(i = 0; i < columns.length; i++) {
+        for(j = 0; j < columns[i].length; j++) {
+            var r = columns[i][j];
+            var rowspan = r.rowspan || 1;
+            var colspan = r.colspan || 1;
+            var index = $.inArray(false, flag[i]);
+
+            if(colspan === 1) {
+                r.fieldIndex = index;
+                // when field is undefined, use index instead
+                if(typeof r.field === 'undefined') {
+                    r.field = index;
+                }
+            }
+
+            for(k = 0; k < rowspan; k++) {
+                flag[i + k][index] = true;
+            }
+            for(k = 0; k < colspan; k++) {
+                flag[i][index + k] = true;
+            }
+        }
+    }
+}
+
+function calculateObjectValue(self, name, args, defaultValue) {
+    var func = name;
+    if(typeof name === 'string') {
+        // support obj.func1.func2
+        var names = name.split('.');
+        if(names.length > 1) {
+            func = window;
+            $.each(names, function (i, f) {
+                func = func[f];
+            });
+        } else {
+            func = window[name];
+        }
+    }
+    if(typeof func === 'object') {
+        return func;
+    }
+    if(typeof func === 'function') {
+        return func.apply(self, args);
+    }
+    if(!func && typeof name === 'string' && sprintf.apply(this, [name].concat(args))) {
+        return sprintf.apply(this, [name].concat(args));
+    }
+    return defaultValue;
     }
 
 // GRID PUBLIC CLASS DEFINITION
@@ -1257,6 +1344,10 @@ Grid.prototype.initLocale = function() {
 
 Grid.prototype.initExtensionsToolbar = function() {
     this.$extensionsToolbar = $('.extensions.btn-group');
+};
+
+Grid.prototype.initHeader = function() {
+    this.$header = $('thead');
 };
 
 /**
@@ -1970,7 +2061,7 @@ $("[data-toggle=\"tablear\"]").tablear();
 
     var getCurrentHeader = function(that) {
         var header = that.$header;
-        if (that.options.height) {
+        if(that.options.height) {
             header = that.$tableHeader;
         }
 
@@ -1979,7 +2070,7 @@ $("[data-toggle=\"tablear\"]").tablear();
 
     var getCurrentSearchControls = function(that) {
         var searchControls = 'select, input';
-        if (that.options.height) {
+        if(that.options.height) {
             searchControls = 'table select, table input';
         }
 
@@ -1987,17 +2078,17 @@ $("[data-toggle=\"tablear\"]").tablear();
     };
 
     var getCursorPosition = function(el) {
-        if ($.fn.bootstrapTable.utils.isIEBrowser()) {
+        if(isIEBrowser()) {
             if ($(el).is('input')) {
                 var pos = 0;
                 if ('selectionStart' in el) {
                     pos = el.selectionStart;
                 } else if ('selection' in document) {
                     el.focus();
-                    var Sel = document.selection.createRange();
-                    var SelLength = document.selection.createRange().text.length;
-                    Sel.moveStart('character', -el.value.length);
-                    pos = Sel.text.length - SelLength;
+                    var sel = document.selection.createRange();
+                    var selLength = document.selection.createRange().text.length;
+                    sel.moveStart('character', -el.value.length);
+                    pos = sel.text.length - selLength;
                 }
                 return pos;
             } else {
@@ -2009,7 +2100,7 @@ $("[data-toggle=\"tablear\"]").tablear();
     };
 
     var setCursorPosition = function (el, index) {
-        if ($.fn.bootstrapTable.utils.isIEBrowser()) {
+        if(isIEBrowser()) {
             if(el.setSelectionRange !== undefined) {
                 el.setSelectionRange(index, index);
             } else {
@@ -2019,35 +2110,34 @@ $("[data-toggle=\"tablear\"]").tablear();
     };
 
     var copyValues = function (that) {
-        var header = getCurrentHeader(that),
-            searchControls = getCurrentSearchControls(that);
+        var header = getCurrentHeader(that);
+        var searchControls = getCurrentSearchControls(that);
 
-        that.options.valuesFilterControl = [];
+        that.options.valuesShowFilter = [];
 
         header.find(searchControls).each(function () {
-            that.options.valuesFilterControl.push(
-                {
-                    field: $(this).closest('[data-field]').data('field'),
-                    value: $(this).val(),
-                    position: getCursorPosition($(this).get(0))
-                });
+            that.options.valuesShowFilter.push({
+                field: $(this).closest('[data-field]').data('field'),
+                value: $(this).val(),
+                position: getCursorPosition($(this).get(0))
+            });
         });
     };
 
     var setValues = function(that) {
-        var field = null,
-            result = [],
-            header = getCurrentHeader(that),
-            searchControls = getCurrentSearchControls(that);
+        var field = null;
+        var result = [];
+        var header = getCurrentHeader(that);
+        var searchControls = getCurrentSearchControls(that);
 
-        if (that.options.valuesFilterControl.length > 0) {
+        if(that.options.valuesShowFilter.length > 0) {
             header.find(searchControls).each(function (index, ele) {
                 field = $(this).closest('[data-field]').data('field');
-                result = $.grep(that.options.valuesFilterControl, function (valueObj) {
+                result = $.grep(that.options.valuesShowFilter, function(valueObj) {
                     return valueObj.field === field;
                 });
 
-                if (result.length > 0) {
+                if(result.length > 0) {
                     $(this).val(result[0].value);
                     setCursorPosition($(this).get(0), result[0].position);
                 }
@@ -2056,16 +2146,16 @@ $("[data-toggle=\"tablear\"]").tablear();
     };
 
     var collectBootstrapCookies = function cookiesRegex() {
-        var cookies = [],
-            foundCookies = document.cookie.match(/(?:bs.table.)(\w*)/g);
+        var cookies = [];
+        var foundCookies = document.cookie.match(/(?:bs.table.)(\w*)/g);
 
-        if (foundCookies) {
+        if(foundCookies) {
             $.each(foundCookies, function (i, cookie) {
-                if (/./.test(cookie)) {
+                if(/./.test(cookie)) {
                     cookie = cookie.split(".").pop();
                 }
 
-                if ($.inArray(cookie, cookies) === -1) {
+                if($.inArray(cookie, cookies) === -1) {
                     cookies.push(cookie);
                 }
             });
@@ -2073,114 +2163,109 @@ $("[data-toggle=\"tablear\"]").tablear();
         }
     };
 
-    var initFilterSelectControls = function (that) {
-        var data = that.options.data,
-            itemsPerPage = that.pageTo < that.options.data.length ? that.options.data.length : that.pageTo,
+    var initFilterSelectControls = function(that) {
+        var data = that.options.data;
+        //var itemsPerPage = that.pageTo < that.options.data.length ? that.options.data.length : that.pageTo;
 
-            isColumnSearchableViaSelect = function (column) {
-                return column.filterControl && column.filterControl.toLowerCase() === 'select' && column.searchable;
-            },
+        var isColumnSearchableViaSelect = function (column) {
+            return column.showFilter && column.showFilter.toLowerCase() === 'select' && column.searchable;
+        };
 
-            isFilterDataNotGiven = function (column) {
-                return column.filterData === undefined || column.filterData.toLowerCase() === 'column';
-            },
+        var isFilterDataNotGiven = function (column) {
+            return column.filterData === undefined || column.filterData.toLowerCase() === 'column';
+        };
 
-            hasSelectControlElement = function (selectControl) {
-                return selectControl && selectControl.length > 0;
-            };
+        var hasSelectControlElement = function (selectControl) {
+            return selectControl && selectControl.length > 0;
+        };
 
-        var z = that.options.pagination ?
-            (that.options.sidePagination === 'server' ? that.pageTo : that.options.totalRows) :
-            that.pageTo;
+        var z = that.options.pagination ? (that.options.sidePagination === 'server' ? that.pageTo : that.options.totalRows) : that.pageTo;
 
-        $.each(that.header.fields, function (j, field) {
-            var column = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, field)],
-                selectControl = $('.bootstrap-table-filter-control-' + escapeID(column.field));
+        $.each(that.header.fields, function(j, field) {
+            var column = that.columns[getFieldIndex(that.columns, field)];
+            var selectControl = $('.tablear-filter-control-' + escapeID(column.field));
 
-            if (isColumnSearchableViaSelect(column) && isFilterDataNotGiven(column) && hasSelectControlElement(selectControl)) {
-                if (selectControl.get(selectControl.length - 1).options.length === 0) {
+            if(isColumnSearchableViaSelect(column) && isFilterDataNotGiven(column) && hasSelectControlElement(selectControl)) {
+                if(selectControl.get(selectControl.length - 1).options.length === 0) {
                     //Added the default option
                     addOptionToSelectControl(selectControl, '', '');
                 }
-
                 var uniqueValues = {};
-                for (var i = 0; i < z; i++) {
+                for(var i = 0; i < z; i++) {
                     //Added a new value
-                    var fieldValue = data[i][field],
-                        formattedValue = $.fn.bootstrapTable.utils.calculateObjectValue(that.header, that.header.formatters[j], [fieldValue, data[i], i], fieldValue);
-
+                    var fieldValue = data[i][field];
+                    var formattedValue = calculateObjectValue(that.header, that.header.formatters[j], [fieldValue, data[i], i], fieldValue);
                     uniqueValues[formattedValue] = fieldValue;
                 }
-                for (var key in uniqueValues) {
+                for(var key in uniqueValues) {
                     addOptionToSelectControl(selectControl, uniqueValues[key], key);
                 }
-
                 sortSelectControl(selectControl);
             }
         });
     };
 
-    var escapeID = function( id ) {
-       return String(id).replace( /(:|\.|\[|\]|,)/g, "\\$1" );
-   };
+    var escapeID = function(id) {
+        return String(id).replace( /(:|\.|\[|\]|,)/g, "\\$1" );
+    };
 
-    var createControls = function (that, header) {
-        var addedFilterControl = false,
-            isVisible,
-            html,
-            timeoutId = 0;
+    var createControls = function(that, header) {
+        var addedShowFilter = false;
+        var isVisible;
+        var html;
+        var timeoutId = 0;
 
-        $.each(that.columns, function (i, column) {
+        $.each(that.columns, function(i, column) {
             isVisible = 'hidden';
             html = [];
 
-            if (!column.visible) {
+            if(!column.visible) {
                 return;
             }
 
-            if (!column.filterControl) {
+            if(!column.showFilter) {
                 html.push('<div style="height: 34px;"></div>');
             } else {
-                html.push('<div style="margin: 0 2px 2px 2px;" class="filterControl">');
-
-                var nameControl = column.filterControl.toLowerCase();
-                if (column.searchable && that.options.filterTemplate[nameControl]) {
-                    addedFilterControl = true;
+                html.push('<div style="margin: 0 2px 2px 2px;" class="showFilter">');
+                var nameControl = column.showFilter.toLowerCase();
+                if(column.searchable && that.options.filterTemplate[nameControl]) {
+                    addedShowFilter = true;
                     isVisible = 'visible';
                     html.push(that.options.filterTemplate[nameControl](that, column.field, isVisible));
                 }
             }
 
-            $.each(header.children().children(), function (i, tr) {
+            $.each(header.children().children(), function(i, tr) {
                 tr = $(tr);
-                if (tr.data('field') === column.field) {
-                    tr.find('.fht-cell').append(html.join(''));
+                if(tr.data('columnId') === column.id) {
+                    tr.append(html.join(''));
                     return false;
                 }
             });
 
-            if (column.filterData !== undefined && column.filterData.toLowerCase() !== 'column') {
+            if(column.filterData !== undefined && column.filterData.toLowerCase() !== 'column') {
                 var filterDataType = getFilterDataMethod(filterDataMethods, column.filterData.substring(0, column.filterData.indexOf(':')));
-                var filterDataSource, selectControl;
+                var filterDataSource;
+                var selectControl;
 
-                if (filterDataType !== null) {
+                if(filterDataType !== null) {
                     filterDataSource = column.filterData.substring(column.filterData.indexOf(':') + 1, column.filterData.length);
-                    selectControl = $('.bootstrap-table-filter-control-' + escapeID(column.field));
-
+                    selectControl = $('.tablear-filter-control-' + escapeID(column.field));
                     addOptionToSelectControl(selectControl, '', '');
                     filterDataType(filterDataSource, selectControl);
                 } else {
                     throw new SyntaxError('Error. You should use any of these allowed filter data methods: var, json, url.' + ' Use like this: var: {key: "value"}');
                 }
 
-                var variableValues, key;
-                switch (filterDataType) {
+                var variableValues;
+                var key;
+                switch(filterDataType) {
                     case 'url':
                         $.ajax({
                             url: filterDataSource,
                             dataType: 'json',
-                            success: function (data) {
-                                for (var key in data) {
+                            success: function(data) {
+                                for(var key in data) {
                                     addOptionToSelectControl(selectControl, key, data[key]);
                                 }
                                 sortSelectControl(selectControl);
@@ -2189,14 +2274,14 @@ $("[data-toggle=\"tablear\"]").tablear();
                         break;
                     case 'var':
                         variableValues = window[filterDataSource];
-                        for (key in variableValues) {
+                        for(key in variableValues) {
                             addOptionToSelectControl(selectControl, key, variableValues[key]);
                         }
                         sortSelectControl(selectControl);
                         break;
-                    case 'jso':
+                    case 'json':
                         variableValues = JSON.parse(filterDataSource);
-                        for (key in variableValues) {
+                        for(key in variableValues) {
                             addOptionToSelectControl(selectControl, key, variableValues[key]);
                         }
                         sortSelectControl(selectControl);
@@ -2205,46 +2290,45 @@ $("[data-toggle=\"tablear\"]").tablear();
             }
         });
 
-        if (addedFilterControl) {
-            header.off('keyup', 'input').on('keyup', 'input', function (event) {
-                clearTimeout(timeoutId);
-                timeoutId = setTimeout(function () {
+        if(addedShowFilter) {
+            header.off('keyup', 'input').on('keyup', 'input', function(event) {
+            clearTimeout(timeoutId);
+                timeoutId = setTimeout(function() {
                     that.onColumnSearch(event);
                 }, that.options.searchTimeOut);
             });
 
-            header.off('change', 'select').on('change', 'select', function (event) {
+            header.off('change', 'select').on('change', 'select', function(event) {
                 clearTimeout(timeoutId);
-                timeoutId = setTimeout(function () {
+                timeoutId = setTimeout(function() {
                     that.onColumnSearch(event);
                 }, that.options.searchTimeOut);
             });
 
-            header.off('mouseup', 'input').on('mouseup', 'input', function (event) {
+            header.off('mouseup', 'input').on('mouseup', 'input', function(event) {
                 var $input = $(this),
                 oldValue = $input.val();
 
-                if (oldValue === "") {
+                if(oldValue === "") {
                     return;
                 }
 
-                setTimeout(function(){
+                setTimeout(function() {
                     var newValue = $input.val();
-
-                    if (newValue === "") {
+                    if(newValue === ""){
                         clearTimeout(timeoutId);
-                        timeoutId = setTimeout(function () {
+                        timeoutId = setTimeout(function() {
                             that.onColumnSearch(event);
                         }, that.options.searchTimeOut);
                     }
                 }, 1);
             });
 
-            if (header.find('.date-filter-control').length > 0) {
-                $.each(that.columns, function (i, column) {
-                    if (column.filterControl !== undefined && column.filterControl.toLowerCase() === 'datepicker') {
-                        header.find('.date-filter-control.bootstrap-table-filter-control-' + column.field).datepicker(column.filterDatepickerOptions)
-                            .on('changeDate', function (e) {
+            if(header.find('.date-filter-control').length > 0) {
+                $.each(that.columns, function(i, column) {
+                    if(column.showFilter !== undefined && column.showFilter.toLowerCase() === 'datepicker') {
+                        header.find('.date-filter-control.tablear-filter-control-' + 
+                            column.field).datepicker(column.filterDatepickerOptions).on('changeDate', function (e) {
                                 //Fired the keyup event
                                 $(e.currentTarget).keyup();
                             });
@@ -2252,13 +2336,12 @@ $("[data-toggle=\"tablear\"]").tablear();
                 });
             }
         } else {
-            header.find('.filterControl').hide();
+            header.find('.showFilter').hide();
         }
     };
 
-    var getDirectionOfSelectOptions = function (alignment) {
+    var getDirectionOfSelectOptions = function(alignment) {
         alignment = alignment === undefined ? 'left' : alignment.toLowerCase();
-
         switch (alignment) {
             case 'left':
                 return 'ltr';
@@ -2271,128 +2354,124 @@ $("[data-toggle=\"tablear\"]").tablear();
         }
     };
 
-    var filterDataMethods =
-        {
-            'var': function (filterDataSource, selectControl) {
-                var variableValues = window[filterDataSource];
-                for (var key in variableValues) {
-                    addOptionToSelectControl(selectControl, key, variableValues[key]);
-                }
-                sortSelectControl(selectControl);
-            },
-            'url': function (filterDataSource, selectControl) {
-                $.ajax({
-                    url: filterDataSource,
-                    dataType: 'json',
-                    success: function (data) {
-                        for (var key in data) {
-                            addOptionToSelectControl(selectControl, key, data[key]);
-                        }
-                        sortSelectControl(selectControl);
-                    }
-                });
-            },
-            'json':function (filterDataSource, selectControl) {
-                var variableValues = JSON.parse(filterDataSource);
-                for (var key in variableValues) {
-                    addOptionToSelectControl(selectControl, key, variableValues[key]);
-                }
-                sortSelectControl(selectControl);
+    var filterDataMethods = {
+        'var': function(filterDataSource, selectControl) {
+            var variableValues = window[filterDataSource];
+            for(var key in variableValues) {
+                addOptionToSelectControl(selectControl, key, variableValues[key]);
             }
-        };
+            sortSelectControl(selectControl);
+        },
+        'url': function(filterDataSource, selectControl) {
+            $.ajax({
+                url: filterDataSource,
+                dataType: 'json',
+                success: function (data) {
+                    for(var key in data) {
+                        addOptionToSelectControl(selectControl, key, data[key]);
+                    }
+                    sortSelectControl(selectControl);
+                }
+            });
+        },
+        'json': function(filterDataSource, selectControl) {
+            var variableValues = JSON.parse(filterDataSource);
+            for(var key in variableValues) {
+                addOptionToSelectControl(selectControl, key, variableValues[key]);
+            }
+            sortSelectControl(selectControl);
+        }
+    };
 
-    var getFilterDataMethod = function (objFilterDataMethod, searchTerm) {
+    var getFilterDataMethod = function(objFilterDataMethod, searchTerm) {
         var keys = Object.keys(objFilterDataMethod);
-        for (var i = 0; i < keys.length; i++) {
-            if (keys[i] === searchTerm) {
+        for(var i = 0; i < keys.length; i++) {
+            if(keys[i] === searchTerm) {
                 return objFilterDataMethod[searchTerm];
             }
         }
         return null;
     };
 
-    $.extend($.fn.bootstrapTable.defaults, {
-        filterControl: false,
-        onColumnSearch: function (field, text) {
+    $.extend($.fn.tablear.Constructor.defaults, {
+        showFilter: false,
+        onColumnSearch: function(field, text) {
             return false;
         },
         filterShowClear: false,
         alignmentSelectControlOptions: undefined,
         filterTemplate: {
-            input: function (that, field, isVisible) {
-                return sprintf('<input type="text" class="form-control bootstrap-table-filter-control-%s" style="width: 100%; visibility: %s">', field, isVisible);
+            input: function(that, field, isVisible) {
+                return sprintf('<input type="text" class="form-control tablear-filter-control-%s" style="width: 100%; visibility: %s">', field, isVisible);
             },
-            select: function (that, field, isVisible) {
-                return sprintf('<select class="form-control bootstrap-table-filter-control-%s" style="width: 100%; visibility: %s" dir="%s"></select>',
+            select: function(that, field, isVisible) {
+                return sprintf('<select class="form-control tablear-filter-control-%s" style="width: 100%; visibility: %s" dir="%s"></select>',
                     field, isVisible, getDirectionOfSelectOptions(that.options.alignmentSelectControlOptions));
             },
-            datepicker: function (that, field, isVisible) {
-                return sprintf('<input type="text" class="form-control date-filter-control bootstrap-table-filter-control-%s" style="width: 100%; visibility: %s">', field, isVisible);
+            datepicker: function(that, field, isVisible) {
+                return sprintf('<input type="text" class="form-control date-filter-control tablear-filter-control-%s" style="width: 100%; visibility: %s">', field, isVisible);
             }
         },
         //internal variables
-        valuesFilterControl: []
+        valuesShowFilter: []
     });
 
-    $.extend($.fn.bootstrapTable.COLUMN_DEFAULTS, {
-        filterControl: undefined,
+    $.extend($.fn.tablear.Constructor.columnDefaults, {
+        showFilter: undefined,
         filterData: undefined,
         filterDatepickerOptions: undefined,
         filterStrictSearch: false,
         filterStartsWithSearch: false
     });
 
-    $.extend($.fn.bootstrapTable.Constructor.EVENTS, {
+    $.extend($.fn.tablear.Constructor.EVENTS, {
         'column-search.bs.table': 'onColumnSearch'
     });
 
-    $.extend($.fn.bootstrapTable.defaults.icons, {
-        clear: 'glyphicon-trash icon-clear'
+    $.extend($.fn.tablear.Constructor.defaults.css, {
+        clearFilter: 'glyphicon-trash icon-clear'
     });
 
-    $.extend($.fn.bootstrapTable.locales, {
+    $.extend($.fn.tablear.Constructor.locales, {
         formatClearFilters: function () {
             return 'Clear Filters';
         }
     });
-    $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales);
+    $.extend($.fn.tablear.Constructor.defaults, $.fn.tablear.Constructor.locales);
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
-        _init = BootstrapTable.prototype.init,
-        _initToolbar = BootstrapTable.prototype.initToolbar,
-        _initHeader = BootstrapTable.prototype.initHeader,
-        _initBody = BootstrapTable.prototype.initBody,
-        _initSearch = BootstrapTable.prototype.initSearch;
+    var _init = $.fn.tablear.Constructor.prototype.init;
+    var _initExtensionsToolbar = $.fn.tablear.Constructor.prototype.initExtensionsToolbar;
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    var _initBody = $.fn.tablear.Constructor.prototype.initBody;
+    var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
 
-    BootstrapTable.prototype.init = function () {
-        //Make sure that the filterControl option is set
-        if (this.options.filterControl) {
+    $.fn.tablear.Constructor.prototype.init = function () {
+        //Make sure that the showFilter option is set
+        if(this.options.showFilter) {
             var that = this;
 
             // Compatibility: IE < 9 and old browsers
-            if (!Object.keys) {
+            if(!Object.keys) {
                 objectKeys();
             }
 
             //Make sure that the internal variables are set correctly
-            this.options.valuesFilterControl = [];
+            this.options.valuesShowFilter = [];
 
-            this.$el.on('reset-view.bs.table', function () {
+            this.$element.on('reset-view.bs.table', function () {
                 //Create controls on $tableHeader if the height is set
-                if (!that.options.height) {
+                if(!that.options.height) {
                     return;
                 }
-
                 //Avoid recreate the controls
-                if (that.$tableHeader.find('select').length > 0 || that.$tableHeader.find('input').length > 0) {
+                if(that.$tableHeader.find('select').length > 0 || that.$tableHeader.find('input').length > 0) {
                     return;
                 }
-
                 createControls(that, that.$tableHeader);
             }).on('post-header.bs.table', function () {
                 setValues(that);
             }).on('post-body.bs.table', function () {
-                if (that.options.height) {
+                if(that.options.height) {
                     fixHeaderCSS(that);
                 }
             }).on('column-switch.bs.table', function() {
@@ -2402,83 +2481,71 @@ $("[data-toggle=\"tablear\"]").tablear();
         _init.apply(this, Array.prototype.slice.apply(arguments));
     };
 
-    BootstrapTable.prototype.initToolbar = function () {
-        this.showToolbar = this.options.filterControl && this.options.filterShowClear;
+    $.fn.tablear.Constructor.prototype.initExtensionsToolbar = function () {
+        this.showToolbar = this.options.showFilter;
+        _initExtensionsToolbar.apply(this, Array.prototype.slice.apply(arguments));
+        if(this.options.showFilter) {
+            var $btnGroup = this.$extensionsToolbar;
+            var $btnClear = $btnGroup.find('.filter-show-clear');
 
-        _initToolbar.apply(this, Array.prototype.slice.apply(arguments));
-
-        if (this.options.filterControl && this.options.filterShowClear) {
-            var $btnGroup = this.$toolbar.find('>.btn-group'),
-                $btnClear = $btnGroup.find('.filter-show-clear');
-
-            if (!$btnClear.length) {
+            if(!$btnClear.length) {
                 $btnClear = $([
+                    '<div class="filter btn-group">',
                     '<button class="btn btn-default filter-show-clear" ',
                     sprintf('type="button" title="%s">', this.options.formatClearFilters()),
-                    sprintf('<i class="%s %s"></i> ', this.options.iconsPrefix, this.options.icons.clear),
-                    '</button>'
+                    sprintf('<i class="%s %s"></i> ', this.options.css.icon, this.options.css.clearFilter),
+                    '</button>',
+                    '</div>'                    
                 ].join('')).appendTo($btnGroup);
 
-                $btnClear.off('click').on('click', $.proxy(this.clearFilterControl, this));
+                $btnClear.off('click').on('click', $.proxy(this.clearShowFilter, this));
             }
         }
     };
 
-    BootstrapTable.prototype.initHeader = function () {
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
-
-        if (!this.options.filterControl) {
+        if(!this.options.showFilter) {
             return;
         }
         createControls(this, this.$header);
-    };
-
-    BootstrapTable.prototype.initBody = function () {
-        _initBody.apply(this, Array.prototype.slice.apply(arguments));
-
+        //initSearch.call(this);
         initFilterSelectControls(this);
     };
 
-    BootstrapTable.prototype.initSearch = function () {
-        _initSearch.apply(this, Array.prototype.slice.apply(arguments));
-
-        if (this.options.sidePagination === 'server') {
+    var initSearch = function () {
+        if(this.options.sidePagination === 'server') {
             return;
         }
 
         var that = this;
-        var fp = $.isEmptyObject(this.filterColumnsPartial) ? null : this.filterColumnsPartial;
-
-        //Check partial column filter
-        this.data = fp ? $.grep(this.data, function (item, i) {
-            for (var key in fp) {
+        this.data = fp ? $.grep(this.data, function(item, i) {
+            for(var key in fp) {
                 var thisColumn = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, key)];
                 var fval = fp[key].toLowerCase();
                 var value = item[key];
 
-                // Fix #142: search use formated data
-                if (thisColumn && thisColumn.searchFormatter) {
-                    value = $.fn.bootstrapTable.utils.calculateObjectValue(that.header,
-                    that.header.formatters[$.inArray(key, that.header.fields)],
-                    [value, item, i], value);
+                if(thisColumn && thisColumn.searchFormatter) {
+                    value = calculateObjectValue(that.header,
+                        that.header.formatters[$.inArray(key, that.header.fields)], [value, item, i], value);
                 }
 
-                if (thisColumn.filterStrictSearch) {
-                    if (!($.inArray(key, that.header.fields) !== -1 &&
-                        (typeof value === 'string' || typeof value === 'number') &&
-                        value.toString().toLowerCase() === fval.toString().toLowerCase())) {
+                if(thisColumn.filterStrictSearch) {
+                    if(!($.inArray(key, that.header.fields) !== -1 &&
+                            (typeof value === 'string' || typeof value === 'number') &&
+                            value.toString().toLowerCase() === fval.toString().toLowerCase())) {
                         return false;
                     }
-                } else if (thisColumn.filterStartsWithSearch) {
-                  if (!($.inArray(key, that.header.fields) !== -1 &&
-                      (typeof value === 'string' || typeof value === 'number') &&
-                      (value + '').toLowerCase().indexOf(fval) === 0)) {
-                      return false;
-                  }
-                } else {
-                    if (!($.inArray(key, that.header.fields) !== -1 &&
+                } else if(thisColumn.filterStartsWithSearch) {
+                    if(!($.inArray(key, that.header.fields) !== -1 &&
                         (typeof value === 'string' || typeof value === 'number') &&
-                        (value + '').toLowerCase().indexOf(fval) !== -1)) {
+                        (value + '').toLowerCase().indexOf(fval) === 0)) {
+                      return false;
+                    }
+                } else {
+                    if(!($.inArray(key, that.header.fields) !== -1 &&
+                            (typeof value === 'string' || typeof value === 'number') &&
+                            (value + '').toLowerCase().indexOf(fval) !== -1)) {
                         return false;
                     }
                 }
@@ -2487,21 +2554,21 @@ $("[data-toggle=\"tablear\"]").tablear();
         }) : this.data;
     };
 
-    BootstrapTable.prototype.initColumnSearch = function(filterColumnsDefaults) {
+    $.fn.tablear.Constructor.prototype.initColumnSearch = function(filterColumnsDefaults) {
         copyValues(this);
 
-        if (filterColumnsDefaults) {
+        if(filterColumnsDefaults) {
             this.filterColumnsPartial = filterColumnsDefaults;
             this.updatePagination();
 
-            for (var filter in filterColumnsDefaults) {
-              this.trigger('column-search', filter, filterColumnsDefaults[filter]);
+            for(var filter in filterColumnsDefaults) {
+                this.trigger('column-search', filter, filterColumnsDefaults[filter]);
             }
         }
     };
 
-    BootstrapTable.prototype.onColumnSearch = function (event) {
-        if ($.inArray(event.keyCode, [37, 38, 39, 40]) > -1) {
+    $.fn.tablear.Constructor.prototype.onColumnSearch = function (event) {
+        if($.inArray(event.keyCode, [37, 38, 39, 40]) > -1) {
             return;
         }
 
@@ -2509,10 +2576,10 @@ $("[data-toggle=\"tablear\"]").tablear();
         var text = $.trim($(event.currentTarget).val());
         var $field = $(event.currentTarget).closest('[data-field]').data('field');
 
-        if ($.isEmptyObject(this.filterColumnsPartial)) {
+        if($.isEmptyObject(this.filterColumnsPartial)) {
             this.filterColumnsPartial = {};
         }
-        if (text) {
+        if(text) {
             this.filterColumnsPartial[$field] = text;
         } else {
             delete this.filterColumnsPartial[$field];
@@ -2526,21 +2593,22 @@ $("[data-toggle=\"tablear\"]").tablear();
         this.searchText += "randomText";
 
         this.options.pageNumber = 1;
-        this.onSearch(event);
-        this.trigger('column-search', $field, text);
+        //this.onSearch(event);
+        executeSearch.call(this, text);
+        //this.trigger('column-search', $field, text);
     };
 
-    BootstrapTable.prototype.clearFilterControl = function () {
-        if (this.options.filterControl && this.options.filterShowClear) {
-            var that = this,
-                cookies = collectBootstrapCookies(),
-                header = getCurrentHeader(that),
-                table = header.closest('table'),
-                controls = header.find(getCurrentSearchControls(that)),
-                search = that.$toolbar.find('.search input'),
-                timeoutId = 0;
+    $.fn.tablear.Constructor.prototype.clearShowFilter = function () {
+        if(this.options.showFilter) {
+            var that = this;
+            var cookies = collectBootstrapCookies();
+            var header = getCurrentHeader(that);
+            var table = header.closest('table');
+            var controls = header.find(getCurrentSearchControls(that));
+            var search = that.$toolbar.find('.search input');
+            var timeoutId = 0;
 
-            $.each(that.options.valuesFilterControl, function (i, item) {
+            $.each(that.options.valuesShowFilter, function (i, item) {
                 item.value = '';
             });
 
@@ -2549,21 +2617,21 @@ $("[data-toggle=\"tablear\"]").tablear();
             // Clear each type of filter if it exists.
             // Requires the body to reload each time a type of filter is found because we never know
             // which ones are going to be present.
-            if (controls.length > 0) {
+            if(controls.length > 0) {
                 this.filterColumnsPartial = {};
                 $(controls[0]).trigger(controls[0].tagName === 'INPUT' ? 'keyup' : 'change');
             } else {
                 return;
             }
 
-            if (search.length > 0) {
+            if(search.length > 0) {
                 that.resetSearch();
             }
 
             // use the default sort order if it exists. do nothing if it does not
-            if (that.options.sortName !== table.data('sortName') || that.options.sortOrder !== table.data('sortOrder')) {
+            if(that.options.sortName !== table.data('sortName') || that.options.sortOrder !== table.data('sortOrder')) {
                 var sorter = header.find(sprintf('[data-field="%s"]', $(controls[0]).closest('table').data('sortName')));
-                if (sorter.length > 0) {
+                if(sorter.length > 0) {
                     that.onSort(table.data('sortName'), table.data('sortName'));
                     $(sorter).find('.sortable').trigger('click');
                 }
@@ -2572,14 +2640,294 @@ $("[data-toggle=\"tablear\"]").tablear();
             // clear cookies once the filters are clean
             clearTimeout(timeoutId);
             timeoutId = setTimeout(function () {
-                if (cookies && cookies.length > 0) {
+                if(cookies && cookies.length > 0) {
                     $.each(cookies, function (i, item) {
-                        if (that.deleteCookie !== undefined) {
+                        if(that.deleteCookie !== undefined) {
                             that.deleteCookie(item);
                         }
                     });
                 }
             }, that.options.searchTimeOut);
+        }
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: reorder-columns
+ *
+ */
+
+(function ($) {
+    'use strict';
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        reorderableColumns: false,
+        maxMovingRows: 10,
+        onReorderColumn: function (headerFields) {
+            return false;
+        },
+        dragaccept: null
+    });
+
+    $.extend($.fn.tablear.Constructor.EVENTS, {
+        'reorder-column.bs.table': 'onReorderColumn'
+    });
+
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    var _toggleColumn = $.fn.tablear.Constructor.prototype.toggleColumn;
+    var _toggleView = $.fn.tablear.Constructor.prototype.toggleView;
+    var _resetView = $.fn.tablear.Constructor.prototype.resetView;
+
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.reorderableColumns) {
+            return;
+        }
+        this.makeRowsReorderable();
+    };
+
+    $.fn.tablear.Constructor.prototype.toggleColumn = function () {
+        _toggleColumn.apply(this, Array.prototype.slice.apply(arguments));
+
+        if(!this.options.reorderableColumns) {
+            return;
+        }
+
+        this.makeRowsReorderable();
+    };
+
+    $.fn.tablear.Constructor.prototype.toggleView = function () {
+        _toggleView.apply(this, Array.prototype.slice.apply(arguments));
+
+        if(!this.options.reorderableColumns) {
+            return;
+        }
+
+        if(this.options.cardView) {
+            return;
+        }
+
+        this.makeRowsReorderable();
+    };
+
+    $.fn.tablear.Constructor.prototype.resetView = function () {
+       // _resetView.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.reorderableColumns) {
+            return;
+        }
+
+        this.makeRowsReorderable();
+    };
+
+    $.fn.tablear.Constructor.prototype.makeRowsReorderable = function () {
+        var that = this;
+        try {
+            $(this.$element).dragtable('destroy');
+        } catch (e) {}
+        $(this.$element).dragtable({
+            maxMovingRows: that.options.maxMovingRows,
+            dragaccept: that.options.dragaccept,
+            clickDelay:200,
+            beforeStop: function() {
+                var ths = [],
+                    formatters = [],
+                    columns = [],
+                    columnsHidden = [],
+                    columnIndex = -1;
+                that.$header.find('th').each(function (i) {
+                    ths.push($(this).data('field'));
+                    formatters.push($(this).data('formatter'));
+                });
+
+                //Exist columns not shown
+                if (ths.length < that.columns.length) {
+                    columnsHidden = $.grep(that.columns, function (column) {
+                       return !column.visible;
+                    });
+                    for (var i = 0; i < columnsHidden.length; i++) {
+                        ths.push(columnsHidden[i].field);
+                        formatters.push(columnsHidden[i].formatter);
+                    }
+                }
+
+                for (var i = 0; i < ths.length; i++ ) {
+                    columnIndex = getFieldIndex(that.columns, ths[i]);
+                    if (columnIndex !== -1) {
+                        columns.push(that.columns[columnIndex]);
+                        that.columns.splice(columnIndex, 1);
+                    }
+                }
+
+                that.columns = that.columns.concat(columns);
+                that.header.fields = ths;
+                that.header.formatters = formatters;
+                that.resetView();
+                //that.trigger('reorder-column', ths);
+            }
+        });
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: reorder-rows
+ *
+ */
+
+(function($) {
+    'use strict';
+
+    var isSearch = false;
+
+    var rowAttr = function (row, index) {
+        return {
+            id: 'customId_' + index
+        };
+    };
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        reorderableRows: false,
+        onDragStyle: null,
+        onDropStyle: null,
+        onDragClass: "reorder_rows_onDragClass",
+        dragHandle: null,
+        useRowAttrFunc: false,
+        onReorderRowsDrag: function(table, row) {
+            return false;
+        },
+        onReorderRowsDrop: function(table, row) {
+            return false;
+        },
+        onReorderRow: function(newData) {
+             return false;
+        }
+    });
+
+    $.extend($.fn.tablear.Constructor.EVENTS, {
+        'reorder-row.bs.table': 'onReorderRow'
+    });
+
+    var _init = $.fn.tablear.Constructor.prototype.init;
+    var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
+    $.fn.tablear.Constructor.prototype.init = function () {
+        if(!this.options.reorderableRows) {
+            _init.apply(this, Array.prototype.slice.apply(arguments));
+            return;
+        }
+        var that = this;
+        if(this.options.useRowAttrFunc) {
+            this.options.rowAttributes = rowAttr;
+        }
+        var onPostBody = this.options.onPostBody;
+        this.options.onPostBody = function() {
+            setTimeout(function() {
+                that.makeRowsReorderable();
+                onPostBody.apply();
+            }, 1);
+        };
+
+        _init.apply(this, Array.prototype.slice.apply(arguments));
+    };
+
+    $.fn.tablear.Constructor.prototype.initSearch = function () {
+        _initSearch.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.reorderableRows) {
+            return;
+        }
+
+        //Known issue after search if you reorder the rows the data is not display properly
+        //isSearch = true;
+    };
+
+    $.fn.tablear.Constructor.prototype.makeRowsReorderable = function() {
+        if(this.options.cardView) {
+            return;
+        }
+
+        var that = this;
+        this.$element.tableDnD({
+            onDragStyle: that.options.onDragStyle,
+            onDropStyle: that.options.onDropStyle,
+            onDragClass: that.options.onDragClass,
+            onDrop: that.onDrop,
+            onDragStart: that.options.onReorderRowsDrag,
+            dragHandle: that.options.dragHandle
+        });
+    };
+
+    $.fn.tablear.Constructor.prototype.onDrop = function(table, droppedRow) {
+        var tableBs = $(table);
+        var tableBsData = tableBs.data('bootstrap.table');
+        var tableBsOptions = tableBs.data('bootstrap.table').options;
+        var row = null;
+        var newData = [];
+
+        for(var i = 0; i < table.tBodies[0].rows.length; i++) {
+            row = $(table.tBodies[0].rows[i]);
+            newData.push(tableBsOptions.data[row.data('index')]);
+            row.data('index', i).attr('data-index', i);
+        }
+
+        tableBsOptions.data = newData;
+
+        //Call the user defined function
+        tableBsOptions.onReorderRowsDrop.apply(table, [table, droppedRow]);
+
+        //Call the event reorder-row
+        tableBsData.trigger('reorder-row', newData);
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: resizable
+ *
+ */
+
+(function ($) {
+    'use strict';
+
+    var initResizable = function (that) {
+        //Deletes the plugin to re-create it
+        that.$element.colResizable({disable: true});
+
+        //Creates the plugin
+        that.$element.colResizable({
+            liveDrag: that.options.liveDrag,
+            fixed: that.options.fixed,
+            headerOnly: that.options.headerOnly,
+            minWidth: that.options.minWidth,
+            hoverCursor: that.options.hoverCursor,
+            dragCursor: that.options.dragCursor,
+            onResize: that.onResize,
+            onDrag: that.options.onResizableDrag
+        });
+    };
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        resizable: false,
+        liveDrag: false,
+        fixed: true,
+        headerOnly: false,
+        minWidth: 15,
+        hoverCursor: 'e-resize',
+        dragCursor: 'e-resize',
+        onResizableResize: function() {
+            return false;
+        },
+        onResizableDrag: function() {
+            return false;
+        }
+    });
+
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    $.fn.tablear.Constructor.prototype.initHeader = function() {
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        var that = this;
+        _resetView.apply(this, Array.prototype.slice.apply(arguments));
+        if(this.options.resizable) {
+            // because in fitHeader function, we use setTimeout(func, 100);
+            setTimeout(function () {
+                initResizable(that);
+            }, 100);
         }
     };
 })(jQuery);

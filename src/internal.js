@@ -135,12 +135,12 @@ function loadColumns() {
     var firstHeadRow = this.$element.find("thead > tr").first();
     var sorted = false;
 
-    /*jshint -W018*/
     firstHeadRow.children().each(function () {
         var $this = $(this);
         var data = $this.data();
-        var column = {
+        var column = $.extend({}, data, {
             id: data.columnId,
+            field: data.columnId,
             identifier: that.identifier == null && data.identifier || false,
             converter: that.options.converters[data.converter || data.type] || that.options.converters["string"],
             text: $this.text(),
@@ -156,7 +156,7 @@ function loadColumns() {
             visibleInSelection: !(data.visibleInSelection === false), // default: true
             width: ($.isNumeric(data.width)) ? data.width + "px" : 
                 (typeof(data.width) === "string") ? data.width : null
-        };
+        });
         that.columns.push(column);
         if(column.order != null) {
             that.sortDictionary[column.id] = column.order;
@@ -536,7 +536,7 @@ function renderRows(rows) {
                 var selected = ($.inArray(row[that.identifier], that.selectedRows) !== -1);
                 var selectBox = tpl.select.resolve(getParams.call(that,
                         { type: "checkbox", value: row[that.identifier], checked: selected }));
-                cells += tpl.cell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell }));
+                cells += tpl.cell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell, style: 'selectCellTdStyle' }));
                 allRowsSelected = (allRowsSelected && selected);
                 if(selected) {
                     rowCss += css.selected;
@@ -663,7 +663,7 @@ function renderTableHeader() {
     if(this.selection) {
         var selectBox = (this.options.multiSelect) ?
             tpl.select.resolve(getParams.call(that, { type: "checkbox", value: "all" })) : "";
-        html += tpl.rawHeaderCell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell }));
+        html += tpl.rawHeaderCell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell, style: 'selectCellThStyle' }));
     }
 
     $.each(this.columns, function(index, column) {
@@ -705,6 +705,8 @@ function renderTableHeader() {
             }
         });
     }
+
+    this.initHeader();
 }
 
 function setTableHeaderSortDirection(element) {
@@ -800,4 +802,89 @@ function sortRows() {
             this.rows.sort(_sort);
         }
     }
+}
+
+function isIEBrowser() {
+    return !!(navigator.userAgent.indexOf("MSIE ") > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./));
+}
+
+function getFieldIndex(columns, field) {
+    var index = -1;
+    $.each(columns, function(i, column) {
+        if(column.field === field) {
+            index = i;
+            return false;
+        }
+        return true;
+    });
+    return index;
+}
+
+function setFieldIndex(columns) {
+    var i;
+    var j;
+    var k;
+    var totalCol = 0;
+    var flag = [];
+
+    for(i = 0; i < columns[0].length; i++) {
+        totalCol += columns[0][i].colspan || 1;
+    }
+
+    for(i = 0; i < columns.length; i++) {
+        flag[i] = [];
+        for(j = 0; j < totalCol; j++) {
+            flag[i][j] = false;
+        }
+    }
+
+    for(i = 0; i < columns.length; i++) {
+        for(j = 0; j < columns[i].length; j++) {
+            var r = columns[i][j];
+            var rowspan = r.rowspan || 1;
+            var colspan = r.colspan || 1;
+            var index = $.inArray(false, flag[i]);
+
+            if(colspan === 1) {
+                r.fieldIndex = index;
+                // when field is undefined, use index instead
+                if(typeof r.field === 'undefined') {
+                    r.field = index;
+                }
+            }
+
+            for(k = 0; k < rowspan; k++) {
+                flag[i + k][index] = true;
+            }
+            for(k = 0; k < colspan; k++) {
+                flag[i][index + k] = true;
+            }
+        }
+    }
+}
+
+function calculateObjectValue(self, name, args, defaultValue) {
+    var func = name;
+    if(typeof name === 'string') {
+        // support obj.func1.func2
+        var names = name.split('.');
+        if(names.length > 1) {
+            func = window;
+            $.each(names, function (i, f) {
+                func = func[f];
+            });
+        } else {
+            func = window[name];
+        }
+    }
+    if(typeof func === 'object') {
+        return func;
+    }
+    if(typeof func === 'function') {
+        return func.apply(self, args);
+    }
+    if(!func && typeof name === 'string' && sprintf.apply(this, [name].concat(args))) {
+        return sprintf.apply(this, [name].concat(args));
+    }
+    return defaultValue;
 }

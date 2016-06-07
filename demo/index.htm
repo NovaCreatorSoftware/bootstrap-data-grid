@@ -61,9 +61,9 @@
                         <thead>
                             <tr>
                                 <th data-column-id="id" data-identifier="true" data-type="numeric" data-align="left" data-width="50px">ID</th>
-                                <th data-column-id="sender" data-order="asc" data-align="center" data-header-align="center">Sender</th>
-                                <th data-column-id="received" data-css-class="cell" data-header-css-class="column" data-filterable="true" data-width="200px">Received</th>
-                                <th data-column-id="link" data-formatter="link" data-sortable="false" data-width="75px">Link</th>
+                                <th data-show-filter="input" data-column-id="sender" data-order="asc" data-align="center" data-header-align="center">Sender</th>
+                                <th data-show-filter="select" data-column-id="received" data-css-class="cell" data-header-css-class="column" data-filterable="true" data-width="200px">Received</th>
+                                <th data-show-filter="select" data-column-id="link" data-formatter="link" data-sortable="false" data-width="75px">Link</th>
                                 <th data-column-id="commands" data-formatter="commands" data-sortable="false" data-width="150px">Commands</th>
                                 <th data-column-id="status" data-type="numeric" data-visible="false">Status</th>
                                 <th data-column-id="hidden" data-visible="false" data-visible-in-selection="false">Hidden</th>
@@ -75,6 +75,7 @@
                                 <td>Some value</td>
                                 <td>11.12.2014</td>
                                 <td>Link</td>
+                                <td></td>
                                 <td>999</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -83,6 +84,7 @@
                                 <td>Some value</td>
                                 <td>12.12.2014</td>
                                 <td>Link</td>
+                                <td></td>
                                 <td>999</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -91,6 +93,7 @@
                                 <td>Some value</td>
                                 <td>10.12.2014</td>
                                 <td>Link</td>
+                                <td></td>
                                 <td>2</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -99,6 +102,7 @@
                                 <td>Some value</td>
                                 <td>12.08.2014</td>
                                 <td>Link</td>
+                                <td></td>
                                 <td>999</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -107,6 +111,7 @@
                                 <td>Some value</td>
                                 <td>12.06.2014</td>
                                 <td>Link</td>
+                                <td></td>
                                 <td>3</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -115,6 +120,7 @@
                                 <td>Some value</td>
                                 <td>12.12.2014</td>
                                 <td>Link</td>
+                                <td></td>
                                 <td>999</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -123,6 +129,7 @@
                                 <td>Some value</td>
                                 <td>12.11.2014</td>
                                 <td>Link</td>
+                                <td></td>                                
                                 <td>999</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -131,6 +138,7 @@
                                 <td>Some value</td>
                                 <td>15.12.2014</td>
                                 <td>Link</td>
+                                <td></td>                                
                                 <td>999</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -139,6 +147,7 @@
                                 <td>Some value</td>
                                 <td>24.12.2014</td>
                                 <td>Link</td>
+                                <td></td>                                
                                 <td>0</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -147,6 +156,7 @@
                                 <td>Some value</td>
                                 <td>14.12.2014</td>
                                 <td>Link</td>
+                                <td></td>                                
                                 <td>1</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -155,6 +165,7 @@
                                 <td>Some value</td>
                                 <td>12.12.2014</td>
                                 <td>Link</td>
+                                <td></td>                                
                                 <td>999</td>
                                 <td>Hidden value 1</td>
                             </tr>
@@ -189,7 +200,10 @@
                             }
                         },
                         rowCount: [-1, 10, 50, 75],
-                        showExport: true
+                        showExport: true,
+                        showFilter: true,
+                        reorderableColumns: true,
+                        resizable: true
                     }).on("loaded.rs.novacreator.bootstrap.datagrid", function() {
                         grid.find(".command-edit").on("click", function(e) {
                             alert("You pressed edit on row: " + $(this).data("row-id"));

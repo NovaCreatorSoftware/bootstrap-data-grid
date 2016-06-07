@@ -18,8 +18,9 @@ http://www.jquery-bootgrid.com/
 https://ace.c9.io 
 
 extensions
-    editable
-    filter
-    reorder columns
+    editable x
+    filter x
+    reorder columns x
     reorder rows
-    fixed columns
+    resize columns x
+    sticky columns

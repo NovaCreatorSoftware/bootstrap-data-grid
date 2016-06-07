@@ -445,6 +445,10 @@ Grid.prototype.initExtensionsToolbar = function() {
     this.$extensionsToolbar = $('.extensions.btn-group');
 };
 
+Grid.prototype.initHeader = function() {
+    this.$header = $('thead');
+};
+
 /**
  * Appends rows.
  *

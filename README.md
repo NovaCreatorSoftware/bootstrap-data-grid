@@ -17,11 +17,11 @@ Jetstrap
 [JQuery Bootgrid)] (http://www.jquery-bootgrid.com/)
 [Ace] (https://ace.c9.io)
 
-#extensions
-    ##editable
-    ##filter
-    ##reorder columns
-    ##reorder rows
-    ##resize columns
-    ##sticky columns
-    ##inline edit.
+##extensions
+###editable
+###filter
+###reorder columns
+###reorder rows
+###resize columns
+###sticky columns
+###inline edit.

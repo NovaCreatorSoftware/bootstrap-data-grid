@@ -18,10 +18,10 @@ Jetstrap
 [Ace] (https://ace.c9.io)
 
 ##extensions
-###editable
-###filter
-###reorder columns
-###reorder rows
-###resize columns
-###sticky columns
-###inline edit.
+#####editable
+#####filter
+#####reorder columns
+#####reorder rows
+#####resize columns
+#####sticky columns
+#####inline edit.

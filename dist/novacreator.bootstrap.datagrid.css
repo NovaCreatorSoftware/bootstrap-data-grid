@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/08/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/09/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -204,18 +204,4 @@
   -webkit-box-shadow: 1px 8px 6px -4px #555555, 0 1px 0 #cccccc inset, 0 -1px 0 #cccccc inset;
   -moz-box-shadow: 0 9px 4px -4px #555555, 0 1px 0 #cccccc inset, 0 -1px 0 #cccccc inset, -1px 0 0 #cccccc inset;
   box-shadow: 0 9px 4px -4px #555555, 0 1px 0 #cccccc inset, 0 -1px 0 #cccccc inset, -1px 0 0 #cccccc inset;
-}
-.fix-sticky {
-  position: fixed;
-  z-index: 100;
-}
-.fix-sticky thead {
-  background: #fff;
-}
-.fix-sticky thead th,
-.fix-sticky thead th:first-child {
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 1px solid #eee;
-  border-radius: 0;
 }

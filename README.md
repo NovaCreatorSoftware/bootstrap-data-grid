@@ -4,23 +4,24 @@ TableAr - Nova Creator Bootstrap Data Grid
 
 Based on / Loosely inspired by:
 
-https://github.com/handsontable/handsontable
-https://github.com/hootsuite/grid
-http://issues.wenzhixin.net.cn/bootstrap-table/
-http://js-grid.com/
-https://github.com/neokoenig/jQuery-gridmanager 
-http://www.layoutit.com/build
-https://github.com/justjavac/layoutit
+[handsontable] (https://github.com/handsontable/handsontable)
+[hootsuite grid] (https://github.com/hootsuite/grid)
+[bootsrap table] (http://issues.wenzhixin.net.cn/bootstrap-table/)
+[jsGrid] (http://js-grid.com/)
+[JQuery Gridmanager] (https://github.com/neokoenig/jQuery-gridmanager)
+[LayoutIt Build] (http://www.layoutit.com/build)
+[LayoutIt Build] (https://github.com/justjavac/layoutit)
 Jetstrap
-http://www.trirand.com/blog/
-http://www.pontikis.net/labs/bs_grid/demo/
-http://www.jquery-bootgrid.com/
-https://ace.c9.io 
+[JQGrid] (http://www.trirand.com/blog/)
+[BS Grid] (http://www.pontikis.net/labs/bs_grid/demo/)
+[JQuery Bootgrid)] (http://www.jquery-bootgrid.com/)
+[Ace] (https://ace.c9.io)
 
-extensions
-    editable x
-    filter x
-    reorder columns x
-    reorder rows x
-    resize columns x
-    sticky columns - aici am ramas si nu prea ma prind ce tre facut!
+#extensions
+    ##editable
+    ##filter
+    ##reorder columns
+    ##reorder rows
+    ##resize columns
+    ##sticky columns
+    ##inline edit.

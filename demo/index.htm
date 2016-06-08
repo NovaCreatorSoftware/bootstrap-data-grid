@@ -57,11 +57,11 @@
                     <button id="getSelectedRows" type="button" class="btn btn-default">Selected Rows</button><br/>  
                 </div>
                 <div class="col-md-9">
-                     <table id="grid" class="table table-condensed table-hover table-striped" data-selection="true" data-multi-select="true" data-row-select="true" data-keep-selection="true">
+                    <table id="grid" class="table table-condensed table-hover table-striped" data-selection="true" data-multi-select="true" data-row-select="true" data-keep-selection="true">
                         <thead>
                             <tr>
                                 <th data-column-id="id" data-identifier="true" data-type="numeric" data-align="left" data-width="50px">ID</th>
-                                <th data-show-filter="input" data-column-id="sender" data-order="asc" data-align="center" data-header-align="center">Sender</th>
+                                <th data-show-filter="input" data-column-id="sender" data-order="asc" data-align="center" data-header-align="center" data-editable="true" Sender</th>
                                 <th data-show-filter="select" data-column-id="received" data-css-class="cell" data-header-css-class="column" data-filterable="true" data-width="200px">Received</th>
                                 <th data-show-filter="select" data-column-id="link" data-formatter="link" data-sortable="false" data-width="75px">Link</th>
                                 <th data-column-id="commands" data-formatter="commands" data-sortable="false" data-width="150px">Commands</th>
@@ -184,6 +184,7 @@
         <script src="../dist/dependencies.js"></script>
         <script src="../dist/novacreator.bootstrap.datagrid.js"></script>
         <script src="../dist/novacreator.bootstrap.datagrid.fa.js"></script>
+        <script src="../bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script> <!--MCM TAKE IT OUT, SHOULD BE A DEPENDENCY-->
         <script>
             $(function() {
                 function init() {
@@ -205,7 +206,7 @@
                         reorderableColumns: true,
                         reorderableRows: true,
                         resizable: true,
-                        stickyHeader: true
+                        editable: true
                     }).on("loaded.rs.novacreator.bootstrap.datagrid", function() {
                         grid.find(".command-edit").on("click", function(e) {
                             alert("You pressed edit on row: " + $(this).data("row-id"));

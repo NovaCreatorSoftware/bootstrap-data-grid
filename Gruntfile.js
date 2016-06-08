@@ -61,6 +61,13 @@ module.exports = function (grunt) {
                 dependencies: {
                     'dragtable': ['jquery', 'jquery-ui']
                 },
+
+                mainFiles: {
+                    'x-editable': [
+                        'bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js',
+                        'bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css'
+                    ]
+                }
             }
         },
 

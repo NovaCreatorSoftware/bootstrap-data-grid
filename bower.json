@@ -55,6 +55,7 @@
         "tableExport.jquery.plugin": "^1.5.1",
         "dragtable": "^2.0.14",
         "col-resizable": "*",
-        "TableDnD": "^0.9.1"
+        "TableDnD": "^0.9.1",
+        "x-editable": "^1.5.1"
     }
 }

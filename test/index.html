@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1 id="qunit-header">
-            <a href="http://rstaib.github.io/jquery-steps">Nova Creator Bootstrap Data Grid/a> Test Suite
+            <a href="https://github.com/NovaCreatorSoftware/bootstrap-data-grid">Nova Creator Bootstrap Data Grid/a> Test Suite
         </h1>
         <div id="qunit-banner"></div>
         <div id="qunit-testrunner-toolbar"><span>jQuery Versions: <input id="version-191" name="version" type="radio" value="1.9.1" /><label for="version-191">jQuery 1.9.1</label>
@@ -30,8 +30,8 @@
                 $("input[name='version']").click(function () {
                     location.href = "?version=" + $(this).val();
                 });
-                var versionPattern = /^[\?|\&]{1}version=(\d{1,2}\.\d{1,2}\.\d{1,2}|latest)/,;
-                var version = versionPattern.exec(location.search),
+                var versionPattern = /^[\?|\&]{1}version=(\d{1,2}\.\d{1,2}\.\d{1,2}|latest)/;
+                var version = versionPattern.exec(location.search);
                 var defaultVersion = "1.11.1";
                 if(version != null && version.length > 0) {
                     version = version[1];

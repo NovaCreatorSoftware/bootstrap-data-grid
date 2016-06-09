@@ -155,7 +155,8 @@ module.exports = function (grunt) {
                     console: true
                 }
             },
-            files: ['<%= folders.dist %>/<%= pkg.namespace %>.js'],
+            //files: ['<%= folders.dist %>/js/<%= pkg.namespace %>.js'],
+            files: ['<%= folders.src %>/**.js'],
             test: {
                 options: {
                     globals: {
@@ -196,7 +197,7 @@ module.exports = function (grunt) {
                     report: 'gzip'
                 },
                 files: {
-                    '<%= folders.dist %>/<%= pkg.namespace %>.min.css': ['<%= folders.dist %>/<%= pkg.namespace %>.css']
+                    '<%= folders.dist %>/css/<%= pkg.namespace %>.min.css': ['<%= folders.dist %>/css/<%= pkg.namespace %>.css']
                 }
             }
         },
@@ -292,7 +293,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['build']);
     grunt.registerTask('api', ['clean:api', 'yuidoc']);
     grunt.registerTask('test', ['qunit']);
-    grunt.registerTask('build', ['clean:build', 'version', 'less', 'copy', 'bower_concat', 'concat', 'csslint', /*'jshint'*/, 'test']); //TODO
+    grunt.registerTask('build', ['clean:build', 'version', 'less', 'copy', 'bower_concat', 'concat', 'csslint', 'jshint', 'test']); //TODO
     grunt.registerTask('release', ['build', 'api', 'cssmin', 'uglify', 'compress', 'nugetpack']);
     grunt.registerTask('publish', ['nugetpush', 'exec:publish']);
 };

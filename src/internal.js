@@ -62,7 +62,7 @@ function objectKeys() {
             };
         }());
     }
-};
+}
 
 function appendRow(row) {
     var that = this;
@@ -107,19 +107,6 @@ function getUrl() {
     return ($.isFunction(url)) ? url() : url;
 }
 
-function init() {
-    this.$element.trigger("initialize" + namespace);
-    loadColumns.call(this); // Loads columns from HTML thead tag
-    this.selection = this.options.selection && this.identifier != null;
-    loadRows.call(this); // Loads rows from HTML tbody tag if ajax is false
-    prepareTable.call(this);
-    renderTableHeader.call(this);
-    renderSearchField.call(this);
-    renderActions.call(this);
-    loadData.call(this);
-    this.$element.trigger("initialized" + namespace);
-}
-
 function highlightAppendedRows(rows) {
     if(this.options.highlightRows) {
         // todo: implement
@@ -150,10 +137,10 @@ function loadColumns() {
             headerCssClass: data.headerCssClass || "",
             formatter: that.options.formatters[data.formatter] || null,
             order: (!sorted && (data.order === "asc" || data.order === "desc")) ? data.order : null,
-            searchable: !(data.searchable === false), // default: true
-            sortable: !(data.sortable === false), // default: true
-            visible: !(data.visible === false), // default: true
-            visibleInSelection: !(data.visibleInSelection === false), // default: true
+            searchable: data.searchable !== false, // default: true
+            sortable: data.sortable !== false, // default: true
+            visible: data.visible !== false, // default: true
+            visibleInSelection: data.visibleInSelection !== false, // default: true
             width: ($.isNumeric(data.width)) ? data.width + "px" : 
                 (typeof(data.width) === "string") ? data.width : null
         });
@@ -176,7 +163,106 @@ function loadColumns() {
     /*jshint +W018*/
 }
 
-function loadData() {
+function renderInfos() {
+    if(this.options.navigation !== 0) {
+        var selector = getCssSelector(this.options.css.infos);
+        var infoItems = findFooterAndHeaderItems.call(this, selector);
+
+        if(infoItems.length > 0) {
+            var end = (this.current * this.rowCount);
+            var infos = $(this.options.templates.infos.resolve(getParams.call(this, {
+                end: (this.total === 0 || end === -1 || end > this.total) ? this.total : end,
+                start: (this.total === 0) ? 0 : (end - this.rowCount + 1),
+                total: this.total
+            })));
+
+            replacePlaceHolder.call(this, infoItems, infos);
+        }
+    }
+}
+
+function renderNoResultsRow() {
+    var tbody = this.$element.children("tbody").first();
+    var tpl = this.options.templates;
+    var count = this.columns.where(isVisible).length;
+    if(this.selection) {
+        count++;
+    }
+    tbody.html(tpl.noResults.resolve(getParams.call(this, { columns: count })));
+}
+
+function setTotals(total) {
+    this.total = total;
+    this.totalPages = (this.rowCount === -1) ? 1 : Math.ceil(this.total / this.rowCount);
+}
+
+function renderPaginationItem(list, page, text, markerCss) {
+    var that = this;
+    var tpl = this.options.templates;
+    var css = this.options.css;
+    var values = getParams.call(this, { css: markerCss, text: text, page: page });
+    var item = $(tpl.paginationItem.resolve(values)).on("click" + namespace, getCssSelector(css.paginationButton), function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var $this = $(this);
+        var parent = $this.parent();
+        if(!parent.hasClass("active") && !parent.hasClass("disabled")) {
+            var commandList = {
+                first: 1,
+                prev: that.current - 1,
+                next: that.current + 1,
+                last: that.totalPages
+            };
+            var command = $this.data("page");
+            that.current = commandList[command] || command;
+            loadData.call(that);
+        }
+        $this.trigger("blur");
+    });
+
+    list.append(item);
+    return item;
+}
+
+function renderPagination() {
+    if(this.options.navigation !== 0) {
+        var selector = getCssSelector(this.options.css.pagination);
+        var paginationItems = findFooterAndHeaderItems.call(this, selector)._mcmShowAria(this.rowCount !== -1);
+
+        if(this.rowCount !== -1 && paginationItems.length > 0) {
+            var tpl = this.options.templates;
+            var current = this.current;
+            var totalPages = this.totalPages;
+            var pagination = $(tpl.pagination.resolve(getParams.call(this)));
+            var offsetRight = totalPages - current;
+            var offsetLeft = (this.options.padding - current) * -1;
+            var startWith = ((offsetRight >= this.options.padding) ?
+                Math.max(offsetLeft, 1) :
+                Math.max((offsetLeft - this.options.padding + offsetRight), 1));
+            var maxCount = this.options.padding * 2 + 1;
+            var count = (totalPages >= maxCount) ? maxCount : totalPages;
+
+            renderPaginationItem.call(this, pagination, "first", "&laquo;", "first")._mcmEnableAria(current > 1);
+            renderPaginationItem.call(this, pagination, "prev", "&lt;", "prev")._mcmEnableAria(current > 1);
+
+            for(var i = 0; i < count; i++) {
+                var pos = i + startWith;
+                renderPaginationItem.call(this, pagination, pos, pos, "page-" + pos)._mcmEnableAria()._mcmSelectAria(pos === current);
+            }
+
+            if(count === 0) {
+                renderPaginationItem.call(this, pagination, 1, 1, "page-" + 1)._mcmEnableAria(false)._mcmSelectAria();
+            }
+
+            renderPaginationItem.call(this, pagination, "next", "&gt;", "next")._mcmEnableAria(totalPages > current);
+            renderPaginationItem.call(this, pagination, "last", "&raquo;", "last")._mcmEnableAria(totalPages > current);
+
+            replacePlaceHolder.call(this, paginationItems, pagination);
+        }
+    }
+}
+
+function loadData() { // jshint ignore:line
     var that = this;
     this.$element._mcmBusyAria(true).trigger("load" + namespace);
     showLoading.call(this);
@@ -258,6 +344,39 @@ function loadData() {
     }
 }
 
+function _sortOrder(order, value) {
+    return (order === "asc") ? value : value * -1;
+}
+function sortRows() {
+    var sortArray = [];
+
+    function _sort(x, y, current) {
+        current = current || 0;
+        var next = current + 1;
+        var item = sortArray[current];
+
+        return (x[item.id] > y[item.id]) ? _sortOrder(item.order, 1) :
+            (x[item.id] < y[item.id]) ? _sortOrder(item.order, -1) :
+                (sortArray.length > next) ? _sort(x, y, next) : 0;
+    }
+
+    if(!this.options.ajax) {
+        var that = this;
+        for(var key in this.sortDictionary) {
+            if(this.options.multiSort || sortArray.length === 0) {
+                sortArray.push({
+                    id: key,
+                    order: this.sortDictionary[key]
+                });
+            }
+        }
+
+        if(sortArray.length > 0) {
+            this.rows.sort(_sort);
+        }
+    }
+}
+
 function loadRows() {
     if(!this.options.ajax) {
         var that = this;
@@ -275,11 +394,6 @@ function loadRows() {
         setTotals.call(this, this.rows.length);
         sortRows.call(this);
     }
-}
-
-function setTotals(total) {
-    this.total = total;
-    this.totalPages = (this.rowCount === -1) ? 1 : Math.ceil(this.total / this.rowCount);
 }
 
 function prepareTable() {
@@ -301,47 +415,6 @@ function prepareTable() {
     if(this.options.navigation & 2) {
         this.footer = $(tpl.footer.resolve(getParams.call(this, { id: this.$element._mcmId() + "-footer" })));
         wrapper.after(this.footer);
-    }
-}
-
-function renderActions() {
-    if(this.options.navigation !== 0) {
-        var css = this.options.css;
-        var selector = getCssSelector(css.actions);
-        var actionItems = findFooterAndHeaderItems.call(this, selector);
-
-        if(actionItems.length > 0) {
-            var that = this;
-            var tpl = this.options.templates;
-            var actions = $(tpl.actions.resolve(getParams.call(this)));
-
-            // Refresh Button
-            if(this.options.ajax) {
-                var refreshIcon = tpl.icon.resolve(getParams.call(this, { iconCss: css.iconRefresh }));
-                var refresh = $(tpl.actionButton.resolve(getParams.call(this,
-                    { content: refreshIcon, text: this.options.locales.refresh }))).
-                        on("click" + namespace, function (e) {
-                            // todo: prevent multiple fast clicks (fast click detection)
-                            e.stopPropagation();
-                            that.current = 1;
-                            loadData.call(that);
-                        });
-                actions.append(refresh);
-            }
-
-            // Row count selection
-            renderRowCountSelection.call(this, actions);
-
-            // Column selection
-            renderColumnSelection.call(this, actions);
-            replacePlaceHolder.call(this, actionItems, actions);        
-        }
-        
-        var selector = getCssSelector(css.extensions);
-        var extensionItems = findFooterAndHeaderItems.call(this, selector);
-        var extensions = $(tpl.extensions.resolve(getParams.call(this)));
-        replacePlaceHolder.call(this, extensionItems, extensions);
-        this.initExtensionsToolbar();
     }
 }
 
@@ -380,100 +453,6 @@ function renderColumnSelection(actions) {
         });
         actions.append(dropDown);
     }
-}
-
-function renderInfos() {
-    if(this.options.navigation !== 0) {
-        var selector = getCssSelector(this.options.css.infos);
-        var infoItems = findFooterAndHeaderItems.call(this, selector);
-
-        if(infoItems.length > 0) {
-            var end = (this.current * this.rowCount);
-            var infos = $(this.options.templates.infos.resolve(getParams.call(this, {
-                end: (this.total === 0 || end === -1 || end > this.total) ? this.total : end,
-                start: (this.total === 0) ? 0 : (end - this.rowCount + 1),
-                total: this.total
-            })));
-
-            replacePlaceHolder.call(this, infoItems, infos);
-        }
-    }
-}
-
-function renderNoResultsRow() {
-    var tbody = this.$element.children("tbody").first();
-    var tpl = this.options.templates;
-    var count = this.columns.where(isVisible).length;
-    if(this.selection) {
-        count++;
-    }
-    tbody.html(tpl.noResults.resolve(getParams.call(this, { columns: count })));
-}
-
-function renderPagination() {
-    if(this.options.navigation !== 0) {
-        var selector = getCssSelector(this.options.css.pagination);
-        var paginationItems = findFooterAndHeaderItems.call(this, selector)._mcmShowAria(this.rowCount !== -1);
-
-        if(this.rowCount !== -1 && paginationItems.length > 0) {
-            var tpl = this.options.templates;
-            var current = this.current;
-            var totalPages = this.totalPages;
-            var pagination = $(tpl.pagination.resolve(getParams.call(this)));
-            var offsetRight = totalPages - current;
-            var offsetLeft = (this.options.padding - current) * -1;
-            var startWith = ((offsetRight >= this.options.padding) ?
-                Math.max(offsetLeft, 1) :
-                Math.max((offsetLeft - this.options.padding + offsetRight), 1));
-            var maxCount = this.options.padding * 2 + 1;
-            var count = (totalPages >= maxCount) ? maxCount : totalPages;
-
-            renderPaginationItem.call(this, pagination, "first", "&laquo;", "first")._mcmEnableAria(current > 1);
-            renderPaginationItem.call(this, pagination, "prev", "&lt;", "prev")._mcmEnableAria(current > 1);
-
-            for(var i = 0; i < count; i++) {
-                var pos = i + startWith;
-                renderPaginationItem.call(this, pagination, pos, pos, "page-" + pos)._mcmEnableAria()._mcmSelectAria(pos === current);
-            }
-
-            if(count === 0) {
-                renderPaginationItem.call(this, pagination, 1, 1, "page-" + 1)._mcmEnableAria(false)._mcmSelectAria();
-            }
-
-            renderPaginationItem.call(this, pagination, "next", "&gt;", "next")._mcmEnableAria(totalPages > current);
-            renderPaginationItem.call(this, pagination, "last", "&raquo;", "last")._mcmEnableAria(totalPages > current);
-
-            replacePlaceHolder.call(this, paginationItems, pagination);
-        }
-    }
-}
-
-function renderPaginationItem(list, page, text, markerCss) {
-    var that = this;
-    var tpl = this.options.templates;
-    var css = this.options.css;
-    var values = getParams.call(this, { css: markerCss, text: text, page: page });
-    var item = $(tpl.paginationItem.resolve(values)).on("click" + namespace, getCssSelector(css.paginationButton), function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        var $this = $(this);
-        var parent = $this.parent();
-        if(!parent.hasClass("active") && !parent.hasClass("disabled")) {
-            var commandList = {
-                first: 1,
-                prev: that.current - 1,
-                next: that.current + 1,
-                last: that.totalPages
-            };
-            var command = $this.data("page");
-            that.current = commandList[command] || command;
-            loadData.call(that);
-        }
-        $this.trigger("blur");
-    });
-
-    list.append(item);
-    return item;
 }
 
 function _getText(value, allLabels) {
@@ -518,7 +497,7 @@ function renderRowCountSelection(actions) {
     }
 }
 
-function renderRows(rows) {
+function renderRows(rows) { // jshint ignore:line
     if(rows.length > 0) {
         var that = this;
         var css = this.options.css;
@@ -577,7 +556,7 @@ function renderRows(rows) {
     }
 }
 
-function registerRowEvents(tbody) {
+function registerRowEvents(tbody) { // jshint ignore:line
     var that = this;
     var selectBoxSelector = getCssSelector(this.options.css.selectBox);
 
@@ -610,6 +589,45 @@ function registerRowEvents(tbody) {
         }
         that.$element.trigger("click" + namespace, [that.columns, row]);
     });
+}
+
+function renderActions() {
+    if(this.options.navigation !== 0) {
+        var css = this.options.css;
+        var actionItems = findFooterAndHeaderItems.call(this, getCssSelector(css.actions));
+
+        var tpl = this.options.templates;
+        if(actionItems.length > 0) {
+            var that = this;
+            var actions = $(tpl.actions.resolve(getParams.call(this)));
+
+            // Refresh Button
+            if(this.options.ajax) {
+                var refreshIcon = tpl.icon.resolve(getParams.call(this, { iconCss: css.iconRefresh }));
+                var refresh = $(tpl.actionButton.resolve(getParams.call(this,
+                    { content: refreshIcon, text: this.options.locales.refresh }))).
+                        on("click" + namespace, function (e) {
+                            // todo: prevent multiple fast clicks (fast click detection)
+                            e.stopPropagation();
+                            that.current = 1;
+                            loadData.call(that);
+                        });
+                actions.append(refresh);
+            }
+
+            // Row count selection
+            renderRowCountSelection.call(this, actions);
+
+            // Column selection
+            renderColumnSelection.call(this, actions);
+            replacePlaceHolder.call(this, actionItems, actions);        
+        }
+        
+        var extensionItems = findFooterAndHeaderItems.call(this, getCssSelector(css.extensions));
+        var extensions = $(tpl.extensions.resolve(getParams.call(this)));
+        replacePlaceHolder.call(this, extensionItems, extensions);
+        this.initExtensionsToolbar();
+    }
 }
 
 function renderSearchField() {
@@ -645,7 +663,7 @@ function renderSearchField() {
     }
 }
 
-function executeSearch(phrase) {
+function executeSearch(phrase) { // jshint ignore:line
     if(this.searchPhrase !== phrase) {
         this.current = 1;
         this.searchPhrase = phrase;
@@ -653,7 +671,7 @@ function executeSearch(phrase) {
     }
 }
 
-function renderTableHeader() {
+function renderTableHeader() { // jshint ignore:line
     var that = this;
     var headerRow = this.$element.find("thead > tr");
     var css = this.options.css;
@@ -709,7 +727,7 @@ function renderTableHeader() {
     this.initHeader();
 }
 
-function setTableHeaderSortDirection(element) {
+function setTableHeaderSortDirection(element) { // jshint ignore:line
     var css = this.options.css;
     var iconSelector = getCssSelector(css.icon);
     var columnId = element.data("column-id") || element.parents("th").first().data("column-id");
@@ -742,14 +760,14 @@ function setTableHeaderSortDirection(element) {
     }
 }
 
-function replacePlaceHolder(placeholder, element) {
+function replacePlaceHolder(placeholder, element) { // jshint ignore:line
     placeholder.each(function(index, item) {
         // todo: check how append is implemented. Perhaps cloning here is superfluous.
         $(item).before(element.clone(true)).remove();
     });
 }
 
-function showLoading() {
+function showLoading() { // jshint ignore:line
     var that = this;
     window.setTimeout(function() {
         if(that.$element._mcmAria("busy") === "true") {
@@ -769,39 +787,6 @@ function showLoading() {
             }
         }
     }, 250);
-}
-
-function _sortOrder(order, value) {
-    return (order === "asc") ? value : value * -1;
-}
-function sortRows() {
-    var sortArray = [];
-
-    function _sort(x, y, current) {
-        current = current || 0;
-        var next = current + 1;
-        var item = sortArray[current];
-
-        return (x[item.id] > y[item.id]) ? _sortOrder(item.order, 1) :
-            (x[item.id] < y[item.id]) ? _sortOrder(item.order, -1) :
-                (sortArray.length > next) ? _sort(x, y, next) : 0;
-    }
-
-    if(!this.options.ajax) {
-        var that = this;
-        for(var key in this.sortDictionary) {
-            if(this.options.multiSort || sortArray.length === 0) {
-                sortArray.push({
-                    id: key,
-                    order: this.sortDictionary[key]
-                });
-            }
-        }
-
-        if(sortArray.length > 0) {
-            this.rows.sort(_sort);
-        }
-    }
 }
 
 function isIEBrowser() {
@@ -887,4 +872,17 @@ function calculateObjectValue(self, name, args, defaultValue) {
         return sprintf.apply(this, [name].concat(args));
     }
     return defaultValue;
+}
+
+function init() {
+    this.$element.trigger("initialize" + namespace);
+    loadColumns.call(this); // Loads columns from HTML thead tag
+    this.selection = this.options.selection && this.identifier != null;
+    loadRows.call(this); // Loads rows from HTML tbody tag if ajax is false
+    prepareTable.call(this);
+    renderTableHeader.call(this);
+    renderSearchField.call(this);
+    renderActions.call(this);
+    loadData.call(this);
+    this.$element.trigger("initialized" + namespace);
 }

@@ -4,7 +4,7 @@
  */
 
 (function ($) {
-    'use strict';
+    'use strict'; // jshint ignore:line
 
     $.extend($.fn.tablear.Constructor.defaults, {
         editable: true,

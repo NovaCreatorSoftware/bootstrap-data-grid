@@ -7,14 +7,14 @@ $.fn.tablear = function(option) {
     var returnValue = null;
     var elements = this.each(function (index) {
             var $this = $(this);
-            var instance = $this.data(namespace);
+            var instance = $this.data(namespace); // jshint ignore:line
             var options = typeof option === "object" && option;
             if(!instance && option === "destroy") {
                 return;
             }
             if(!instance) {
-                $this.data(namespace, (instance = new Grid(this, options)));
-                init.call(instance);
+                $this.data(namespace, (instance = new Grid(this, options))); // jshint ignore:line
+                init.call(instance); // jshint ignore:line
             }
             if(typeof option === "string") {
                 if(option.indexOf("get") === 0 && index === 0) {
@@ -28,9 +28,9 @@ $.fn.tablear = function(option) {
 };
 
 //to easily access the Grid object. It's a convention
-$.fn.tablear.Constructor = Grid; 
-$.fn.tablear.defaults = Grid.defaults;
-$.fn.tablear.locales = Grid.locales;
+$.fn.tablear.Constructor = Grid; // jshint ignore:line
+$.fn.tablear.defaults = Grid.defaults; // jshint ignore:line
+$.fn.tablear.locales = Grid.locales; // jshint ignore:line
 
 // GRID NO CONFLICT
 // ===============

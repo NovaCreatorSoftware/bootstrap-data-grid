@@ -4,7 +4,7 @@
  */
 
 (function ($) {
-    'use strict';
+    'use strict'; // jshint ignore:line
 
     var TYPE_NAME = {
         json: 'JSON',

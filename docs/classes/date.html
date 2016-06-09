@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>date - novacreator-bootstrap-data-grid</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="novacreator-bootstrap-data-grid" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/abstractinput.html">abstractinput</a></li>
+                                <li><a href="../classes/ajaxSettings.html">ajaxSettings</a></li>
+                                <li><a href="../classes/checklist.html">checklist</a></li>
+                                <li><a href="../classes/combodate.html">combodate</a></li>
+                                <li><a href="../classes/css.html">css</a></li>
+                                <li><a href="../classes/date.html">date</a></li>
+                                <li><a href="../classes/datefield.html">datefield</a></li>
+                                <li><a href="../classes/datetime.html">datetime</a></li>
+                                <li><a href="../classes/datetimefield.html">datetimefield</a></li>
+                                <li><a href="../classes/defaults.html">defaults</a></li>
+                                <li><a href="../classes/editable.html">editable</a></li>
+                                <li><a href="../classes/editableContainer.html">editableContainer</a></li>
+                                <li><a href="../classes/editableform.html">editableform</a></li>
+                                <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/html5types.html">html5types</a></li>
+                                <li><a href="../classes/list.html">list</a></li>
+                                <li><a href="../classes/searchSettings.html">searchSettings</a></li>
+                                <li><a href="../classes/select.html">select</a></li>
+                                <li><a href="../classes/select2.html">select2</a></li>
+                                <li><a href="../classes/statusMapping.html">statusMapping</a></li>
+                                <li><a href="../classes/text.html">text</a></li>
+                                <li><a href="../classes/textarea.html">textarea</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>date Class</h1>
+<div class="box meta">
+
+        <div class="extends">
+            Extends Abstractinput
+        </div>
+
+        <div class="foundat">
+            Defined in: <a href="../files/dist_js_dependencies.js.html#l39807"><code>dist&#x2F;js&#x2F;dependencies.js:39807</code></a>
+        </div>
+
+
+</div>
+
+
+<div class="box intro">
+    <p>Bootstrap-datepicker.<br>
+Description and examples: <a href="https://github.com/eternicode/bootstrap-datepicker">https://github.com/eternicode/bootstrap-datepicker</a>.<br>
+For <strong>i18n</strong> you should include js file from here: <a href="https://github.com/eternicode/bootstrap-datepicker/tree/master/js/locales">https://github.com/eternicode/bootstrap-datepicker/tree/master/js/locales</a>
+and set <code>language</code> option.<br>
+Since 1.4.0 date has different appearance in <strong>popup</strong> and <strong>inline</strong> modes.</p>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods extends">
+                            <li class="index-item method inherited">
+                                <a href="#method_activate()">activate()</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_clear()">clear()</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_html2value(html)">html2value(html)</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_init()">init()</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_input2value()">input2value()</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_render()">render()</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_str2value(str)">str2value(str)</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_value2html(value, element)">value2html(value, element)</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_value2input(value)">value2input(value)</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_value2str(value)">value2str(value)</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_value2submit(value)">value2submit(value)</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties extends">
+                            <li class="index-item property">
+                                <a href="#property_clear">clear</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_datepicker">datepicker</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_escape">escape</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_format">format</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_inputclass">inputclass</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_tpl">tpl</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_viewformat">viewformat</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_activate()" class="method item inherited">
+    <h3 class="name"><code>activate()</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_activate()">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l36071"><code>dist&#x2F;js&#x2F;dependencies.js:36071</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Activates input. For text it sets focus.</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_clear()" class="method item inherited">
+    <h3 class="name"><code>clear()</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_clear()">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l36082"><code>dist&#x2F;js&#x2F;dependencies.js:36082</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Creates input.</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_html2value(html)" class="method item inherited">
+    <h3 class="name"><code>html2value(html)</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>html</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Mixed</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_html2value(html)">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l36008"><code>dist&#x2F;js&#x2F;dependencies.js:36008</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Converts element's html to value</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">html</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Mixed</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_init()" class="method item inherited">
+    <h3 class="name"><code>init()</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_init()">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l35967"><code>dist&#x2F;js&#x2F;dependencies.js:35967</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Initializes input</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_input2value()" class="method item inherited">
+    <h3 class="name"><code>input2value()</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_input2value()">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l36062"><code>dist&#x2F;js&#x2F;dependencies.js:36062</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Returns value of input. Value can be object (e.g. datepicker)</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_render()" class="method item inherited">
+    <h3 class="name"><code>render()</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_render()">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l35987"><code>dist&#x2F;js&#x2F;dependencies.js:35987</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Renders input from tpl. Can return jQuery deferred object.
+Can be overwritten in child objects</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_str2value(str)" class="method item inherited">
+    <h3 class="name"><code>str2value(str)</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>str</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Mixed</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_str2value(str)">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l36030"><code>dist&#x2F;js&#x2F;dependencies.js:36030</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Converts string received from server into value. Usually from <code>data-value</code> attribute.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">str</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Mixed</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_value2html(value, element)" class="method item inherited">
+    <h3 class="name"><code>value2html(value, element)</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>value</code>
+                </li>
+                <li class="arg">
+                        <code>element</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_value2html(value, element)">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l35997"><code>dist&#x2F;js&#x2F;dependencies.js:35997</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets element's html by value.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Mixed</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">element</code>
+                        <span class="type">DOMElement</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_value2input(value)" class="method item inherited">
+    <h3 class="name"><code>value2input(value)</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_value2input(value)">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l36052"><code>dist&#x2F;js&#x2F;dependencies.js:36052</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets value of input.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Mixed</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_value2str(value)" class="method item inherited">
+    <h3 class="name"><code>value2str(value)</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_value2str(value)">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l36019"><code>dist&#x2F;js&#x2F;dependencies.js:36019</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Converts value to string (for internal compare). For submitting to server used value2submit().</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Mixed</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">String</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_value2submit(value)" class="method item inherited">
+    <h3 class="name"><code>value2submit(value)</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Mixed</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#method_value2submit(value)">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l36041"><code>dist&#x2F;js&#x2F;dependencies.js:36041</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Converts value for submitting to server. Result can be string or object.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Mixed</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Mixed</span>:
+            </div>
+        </div>
+
+
+</div>
+            </div>
+
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+<div id="property_clear" class="property item">
+    <h3 class="name"><code>clear</code></h3>
+    <span class="type">Boolean | String</span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/dist_js_dependencies.js.html#l40022"><code>dist&#x2F;js&#x2F;dependencies.js:40022</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>Text shown as clear date button.
+If <code>false</code> clear button will not be rendered.</p>
+
+    </div>
+
+        <p><strong>Default:</strong> &#x27;x clear&#x27;</p>
+
+
+</div>
+<div id="property_datepicker" class="property item">
+    <h3 class="name"><code>datepicker</code></h3>
+    <span class="type">Object</span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/dist_js_dependencies.js.html#l40003"><code>dist&#x2F;js&#x2F;dependencies.js:40003</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>Configuration of datepicker.
+Full list of options: <a href="http://bootstrap-datepicker.readthedocs.org/en/latest/options.html">http://bootstrap-datepicker.readthedocs.org/en/latest/options.html</a></p>
+
+    </div>
+
+        <p><strong>Default:</strong> {
+    weekStart: 0,
+    startView: 0,
+    minViewMode: 0,
+    autoclose: false
+}</p>
+
+
+</div>
+<div id="property_escape" class="property item inherited">
+    <h3 class="name"><code>escape</code></h3>
+    <span class="type">Boolean</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Abstractinput.html#property_escape">abstractinput</a>:
+        <a href="../files/dist_js_dependencies.js.html#l36148"><code>dist&#x2F;js&#x2F;dependencies.js:36148</code></a>
+        </p>
+
+
+            <p>Available since 1.5.0</p>
+    </div>
+
+    <div class="description">
+        <p>If <code>true</code> - html will be escaped in content of element via $.text() method.<br>
+If <code>false</code> - html will not be escaped, $.html() used.<br>
+When you use own <code>display</code> function, this option obviosly has no effect.</p>
+
+    </div>
+
+        <p><strong>Default:</strong> true</p>
+
+
+</div>
+<div id="property_format" class="property item">
+    <h3 class="name"><code>format</code></h3>
+    <span class="type">String</span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/dist_js_dependencies.js.html#l39985"><code>dist&#x2F;js&#x2F;dependencies.js:39985</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>
+Possible tokens are: <code>d, dd, m, mm, yy, yyyy</code></p>
+
+    </div>
+
+        <p><strong>Default:</strong> yyyy-mm-dd</p>
+
+
+</div>
+<div id="property_inputclass" class="property item">
+    <h3 class="name"><code>inputclass</code></h3>
+    <span class="type">Unknown</span>
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/Abstractinput.html#property_inputclass">
+                abstractinput
+            </a>
+            but overwritten in
+        <a href="../files/dist_js_dependencies.js.html#l39980"><code>dist&#x2F;js&#x2F;dependencies.js:39980</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <p><strong>Default:</strong> null</p>
+
+
+</div>
+<div id="property_tpl" class="property item">
+    <h3 class="name"><code>tpl</code></h3>
+    <span class="type">Unknown</span>
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/Abstractinput.html#property_tpl">
+                abstractinput
+            </a>
+            but overwritten in
+        <a href="../files/dist_js_dependencies.js.html#l39975"><code>dist&#x2F;js&#x2F;dependencies.js:39975</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <p><strong>Default:</strong> &lt;div&gt;&lt;/div&gt;</p>
+
+
+</div>
+<div id="property_viewformat" class="property item">
+    <h3 class="name"><code>viewformat</code></h3>
+    <span class="type">String</span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/dist_js_dependencies.js.html#l39994"><code>dist&#x2F;js&#x2F;dependencies.js:39994</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>Format used for displaying date. Also applied when converting date from element's text on init.<br>
+If not specified equals to <code>format</code></p>
+
+    </div>
+
+        <p><strong>Default:</strong> null</p>
+
+
+</div>
+            </div>
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -426,8 +426,8 @@ $.extend(Grid.defaults.locales, Grid.locales['en-US']);
 Grid.prototype.initLocale = function() {
     if(this.options.locale) {
         var parts = this.options.locale.split(/-|_/);
-        parts[0].toLowerCase();
-        parts[1] && parts[1].toUpperCase();
+        parts[0] = parts[0].toLowerCase();
+        parts[1] = parts[1] && parts[1].toUpperCase();
         if(this.locales[this.options.locale]) {
             // locale as requested
             $.extend(this.options, this.locales[this.options.locale]);
@@ -462,14 +462,14 @@ Grid.prototype.append = function(rows) {
     } else {
         var appendedRows = [];
         for(var i = 0; i < rows.length; i++) {
-            if(appendRow.call(this, rows[i])) {
-                appendedRows.push(rows[i]);
+            if(appendRow.call(this, rows[i])) { // jshint ignore:line
+                appendedRows.push(rows[i]); // jshint ignore:line
             }
         }
-        sortRows.call(this);
-        highlightAppendedRows.call(this, appendedRows);
-        loadData.call(this);
-        this.$element.trigger("appended" + namespace, [appendedRows]);
+        sortRows.call(this); // jshint ignore:line
+        highlightAppendedRows.call(this, appendedRows); // jshint ignore:line
+        loadData.call(this); // jshint ignore:line
+        this.$element.trigger("appended" + namespace, [appendedRows]); // jshint ignore:line
     }
     return this;
 };
@@ -488,8 +488,8 @@ Grid.prototype.clear = function() {
         this.rows = [];
         this.current = 1;
         this.total = 0;
-        loadData.call(this);
-        this.$element.trigger("cleared" + namespace, [removedRows]);
+        loadData.call(this); // jshint ignore:line
+        this.$element.trigger("cleared" + namespace, [removedRows]); // jshint ignore:line
     }
 
     return this;
@@ -503,7 +503,7 @@ Grid.prototype.clear = function() {
  **/
 Grid.prototype.destroy = function() {
     // todo: this method has to be optimized (the complete initial state must be restored)
-    $(window).off(namespace);
+    $(window).off(namespace); // jshint ignore:line
     if(this.options.navigation & 1) {
         this.header.remove();
     }
@@ -522,7 +522,7 @@ Grid.prototype.destroy = function() {
  **/
 Grid.prototype.reload = function() {
     this.current = 1; // reset
-    loadData.call(this);
+    loadData.call(this); // jshint ignore:line
     return this;
 };
 
@@ -553,8 +553,8 @@ Grid.prototype.remove = function(rowIds) {
                 }
             }
             this.current = 1; // reset
-            loadData.call(this);
-            this.$element.trigger("removed" + namespace, [removedRows]);
+            loadData.call(this); // jshint ignore:line
+            this.$element.trigger("removed" + namespace, [removedRows]); // jshint ignore:line
         }
     }
     return this;
@@ -571,11 +571,11 @@ Grid.prototype.remove = function(rowIds) {
 Grid.prototype.search = function(phrase) {
     phrase = phrase || "";
     if(this.searchPhrase !== phrase) {
-        var selector = getCssSelector(this.options.css.searchField);
-        var searchFields = findFooterAndHeaderItems.call(this, selector);
+        var selector = getCssSelector(this.options.css.searchField); // jshint ignore:line
+        var searchFields = findFooterAndHeaderItems.call(this, selector); // jshint ignore:line
         searchFields.val(phrase);
     }
-    executeSearch.call(this, phrase);
+    executeSearch.call(this, phrase); // jshint ignore:line
     return this;
 };
 
@@ -590,12 +590,13 @@ Grid.prototype.search = function(phrase) {
 Grid.prototype.select = function(rowIds) {
     if(this.selection) {
         rowIds = rowIds || this.currentRows.propValues(this.identifier);
+        var i;
         var id;
         var selectedRows = [];
         while(rowIds.length > 0 && !(!this.options.multiSelect && selectedRows.length === 1)) {
             id = rowIds.pop();
             if($.inArray(id, this.selectedRows) === -1) {
-                for(var i = 0; i < this.currentRows.length; i++) {
+                for(i = 0; i < this.currentRows.length; i++) {
                     if(this.currentRows[i][this.identifier] === id) {
                         selectedRows.push(this.currentRows[i]);
                         this.selectedRows.push(id);
@@ -606,16 +607,16 @@ Grid.prototype.select = function(rowIds) {
         }
 
         if(selectedRows.length > 0) {
-            var selectBoxSelector = getCssSelector(this.options.css.selectBox);
+            var selectBoxSelector = getCssSelector(this.options.css.selectBox); // jshint ignore:line
             var selectMultiSelectBox = this.selectedRows.length >= this.currentRows.length;
-            var i = 0;
+            i = 0;
             while(!this.options.keepSelection && selectMultiSelectBox && i < this.currentRows.length) {
                 selectMultiSelectBox = ($.inArray(this.currentRows[i++][this.identifier], this.selectedRows) !== -1);
             }
             this.$element.find("thead " + selectBoxSelector).prop("checked", selectMultiSelectBox);
 
             if(!this.options.multiSelect) {
-                this.$element.find("tbody > tr " + selectBoxSelector + ":checked").trigger("click" + namespace);
+                this.$element.find("tbody > tr " + selectBoxSelector + ":checked").trigger("click" + namespace); // jshint ignore:line
             }
 
             for(i = 0; i < this.selectedRows.length; i++) {
@@ -624,7 +625,7 @@ Grid.prototype.select = function(rowIds) {
                     find(selectBoxSelector).prop("checked", true);
             }
 
-            this.$element.trigger("selected" + namespace, [selectedRows]);
+            this.$element.trigger("selected" + namespace, [selectedRows]); // jshint ignore:line
         }
     }
 
@@ -661,14 +662,14 @@ Grid.prototype.deselect = function(rowIds) {
         }
 
         if(deselectedRows.length > 0) {
-            var selectBoxSelector = getCssSelector(this.options.css.selectBox);
+            var selectBoxSelector = getCssSelector(this.options.css.selectBox); // jshint ignore:line
             this.$element.find("thead " + selectBoxSelector).prop("checked", false);
             for(i = 0; i < deselectedRows.length; i++) {
                 this.$element.find("tbody > tr[data-row-id=\"" + deselectedRows[i][this.identifier] + "\"]").
                     removeClass(this.options.css.selected)._mcmAria("selected", "false").
                     find(selectBoxSelector).prop("checked", false);
             }
-            this.$element.trigger("deselected" + namespace, [deselectedRows]);
+            this.$element.trigger("deselected" + namespace, [deselectedRows]); // jshint ignore:line
         }
     }
 
@@ -690,9 +691,9 @@ Grid.prototype.sort = function(dictionary) {
     }
 
     this.sortDictionary = values;
-    renderTableHeader.call(this);
-    sortRows.call(this);
-    loadData.call(this);
+    renderTableHeader.call(this); // jshint ignore:line
+    sortRows.call(this); // jshint ignore:line
+    loadData.call(this); // jshint ignore:line
 
     return this;
 };

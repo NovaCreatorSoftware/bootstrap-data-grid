@@ -1,0 +1,3175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>dist/js/novacreator.bootstrap.datagrid.js - novacreator-bootstrap-data-grid</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="novacreator-bootstrap-data-grid" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/abstractinput.html">abstractinput</a></li>
+                                <li><a href="../classes/ajaxSettings.html">ajaxSettings</a></li>
+                                <li><a href="../classes/checklist.html">checklist</a></li>
+                                <li><a href="../classes/combodate.html">combodate</a></li>
+                                <li><a href="../classes/css.html">css</a></li>
+                                <li><a href="../classes/date.html">date</a></li>
+                                <li><a href="../classes/datefield.html">datefield</a></li>
+                                <li><a href="../classes/datetime.html">datetime</a></li>
+                                <li><a href="../classes/datetimefield.html">datetimefield</a></li>
+                                <li><a href="../classes/defaults.html">defaults</a></li>
+                                <li><a href="../classes/editable.html">editable</a></li>
+                                <li><a href="../classes/editableContainer.html">editableContainer</a></li>
+                                <li><a href="../classes/editableform.html">editableform</a></li>
+                                <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/html5types.html">html5types</a></li>
+                                <li><a href="../classes/list.html">list</a></li>
+                                <li><a href="../classes/searchSettings.html">searchSettings</a></li>
+                                <li><a href="../classes/select.html">select</a></li>
+                                <li><a href="../classes/select2.html">select2</a></li>
+                                <li><a href="../classes/statusMapping.html">statusMapping</a></li>
+                                <li><a href="../classes/text.html">text</a></li>
+                                <li><a href="../classes/textarea.html">textarea</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: dist/js/novacreator.bootstrap.datagrid.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*! 
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/09/2016
+ * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
+ * Licensed under MIT http://www.opensource.org/licenses/MIT
+ */
+;(function ($, window, undefined)
+{
+    /*jshint validthis: true */
+    &quot;use strict&quot;;
+
+// GRID INTERNAL FIELDS
+// ====================
+
+var namespace = &quot;.rs.novacreator.bootstrap.datagrid&quot;;
+
+// GRID INTERNAL FUNCTIONS
+// =====================
+
+// it only does &#x27;%s&#x27;, and return &#x27;&#x27; when arguments are undefined
+function sprintf(str) {
+    var args = arguments;
+    var flag = true;
+    var i = 1;
+    str = str.replace(/%s/g, function() {
+        var arg = args[i++];
+        if(typeof arg === &#x27;undefined&#x27;) {
+            flag = false;
+            return &#x27;&#x27;;
+        }
+        return arg;
+    });
+    return flag ? str : &#x27;&#x27;;
+}
+
+function objectKeys() {
+    if(!Object.keys) {
+        Object.keys = (function() {
+            var hasOwnProperty = Object.prototype.hasOwnProperty,
+                hasDontEnumBug = !({ toString: null }).propertyIsEnumerable(&#x27;toString&#x27;),
+            dontEnums = [
+                &#x27;toString&#x27;,
+                &#x27;toLocaleString&#x27;,
+                &#x27;valueOf&#x27;,
+                &#x27;hasOwnProperty&#x27;,
+                &#x27;isPrototypeOf&#x27;,
+                &#x27;propertyIsEnumerable&#x27;,
+                &#x27;constructor&#x27;
+            ],
+            dontEnumsLength = dontEnums.length;
+
+            return function(obj) {
+                if(typeof obj !== &#x27;object&#x27; &amp;&amp; (typeof obj !== &#x27;function&#x27; || obj === null)) {
+                    throw new TypeError(&#x27;Object.keys called on non-object&#x27;);
+                }
+
+                var result = [], prop, i;
+
+                for(prop in obj) {
+                    if(hasOwnProperty.call(obj, prop)) {
+                        result.push(prop);
+                    }
+                }
+
+                if(hasDontEnumBug) {
+                    for (i = 0; i &lt; dontEnumsLength; i++) {
+                        if(hasOwnProperty.call(obj, dontEnums[i])) {
+                            result.push(dontEnums[i]);
+                        }
+                    }
+                }
+                return result;
+            };
+        }());
+    }
+}
+
+function appendRow(row) {
+    var that = this;
+    function exists(item) {
+        return that.identifier &amp;&amp; item[that.identifier] === row[that.identifier];
+    }
+
+    if(!this.rows.contains(exists)) {
+        this.rows.push(row);
+        return true;
+    }
+
+    return false;
+}
+
+function findFooterAndHeaderItems(selector) {
+    return $.merge((this.footer) ? this.footer.find(selector) : $(), (this.header) ? this.header.find(selector) : $());
+}
+
+function getParams(context) {
+    return (context) ? $.extend({}, this.cachedParams, { ctx: context }) : this.cachedParams;
+}
+
+function getRequest() {
+    var request = {
+        current: this.current,
+        rowCount: this.rowCount,
+        sort: this.sortDictionary,
+        searchPhrase: this.searchPhrase
+    };
+    var post = this.options.post;
+    post = ($.isFunction(post)) ? post() : post;
+    return this.options.requestHandler($.extend(true, request, post));
+}
+
+function getCssSelector(css) {
+    return &quot;.&quot; + $.trim(css).replace(/\s+/gm, &quot;.&quot;);
+}
+
+function getUrl() {
+    var url = this.options.url;
+    return ($.isFunction(url)) ? url() : url;
+}
+
+function highlightAppendedRows(rows) {
+    if(this.options.highlightRows) {
+        // todo: implement
+    }
+}
+
+function isVisible(column) {
+    return column.visible;
+}
+
+function loadColumns() {
+    var that = this;
+    var firstHeadRow = this.$element.find(&quot;thead &gt; tr&quot;).first();
+    var sorted = false;
+
+    firstHeadRow.children().each(function () {
+        var $this = $(this);
+        var data = $this.data();
+        var column = $.extend({}, data, {
+            id: data.columnId,
+            field: data.columnId,
+            identifier: that.identifier == null &amp;&amp; data.identifier || false,
+            converter: that.options.converters[data.converter || data.type] || that.options.converters[&quot;string&quot;],
+            text: $this.text(),
+            align: data.align || &quot;left&quot;,
+            headerAlign: data.headerAlign || &quot;left&quot;,
+            cssClass: data.cssClass || &quot;&quot;,
+            headerCssClass: data.headerCssClass || &quot;&quot;,
+            formatter: that.options.formatters[data.formatter] || null,
+            order: (!sorted &amp;&amp; (data.order === &quot;asc&quot; || data.order === &quot;desc&quot;)) ? data.order : null,
+            searchable: data.searchable !== false, // default: true
+            sortable: data.sortable !== false, // default: true
+            visible: data.visible !== false, // default: true
+            visibleInSelection: data.visibleInSelection !== false, // default: true
+            width: ($.isNumeric(data.width)) ? data.width + &quot;px&quot; : 
+                (typeof(data.width) === &quot;string&quot;) ? data.width : null
+        });
+        that.columns.push(column);
+        if(column.order != null) {
+            that.sortDictionary[column.id] = column.order;
+        }
+
+        // Prevents multiple identifiers
+        if(column.identifier) {
+            that.identifier = column.id;
+            that.converter = column.converter;
+        }
+
+        // ensures that only the first order will be applied in case of multi sorting is disabled
+        if(!that.options.multiSort &amp;&amp; column.order !== null) {
+            sorted = true;
+        }
+    });
+    /*jshint +W018*/
+}
+
+function renderInfos() {
+    if(this.options.navigation !== 0) {
+        var selector = getCssSelector(this.options.css.infos);
+        var infoItems = findFooterAndHeaderItems.call(this, selector);
+
+        if(infoItems.length &gt; 0) {
+            var end = (this.current * this.rowCount);
+            var infos = $(this.options.templates.infos.resolve(getParams.call(this, {
+                end: (this.total === 0 || end === -1 || end &gt; this.total) ? this.total : end,
+                start: (this.total === 0) ? 0 : (end - this.rowCount + 1),
+                total: this.total
+            })));
+
+            replacePlaceHolder.call(this, infoItems, infos);
+        }
+    }
+}
+
+function renderNoResultsRow() {
+    var tbody = this.$element.children(&quot;tbody&quot;).first();
+    var tpl = this.options.templates;
+    var count = this.columns.where(isVisible).length;
+    if(this.selection) {
+        count++;
+    }
+    tbody.html(tpl.noResults.resolve(getParams.call(this, { columns: count })));
+}
+
+function setTotals(total) {
+    this.total = total;
+    this.totalPages = (this.rowCount === -1) ? 1 : Math.ceil(this.total / this.rowCount);
+}
+
+function renderPaginationItem(list, page, text, markerCss) {
+    var that = this;
+    var tpl = this.options.templates;
+    var css = this.options.css;
+    var values = getParams.call(this, { css: markerCss, text: text, page: page });
+    var item = $(tpl.paginationItem.resolve(values)).on(&quot;click&quot; + namespace, getCssSelector(css.paginationButton), function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var $this = $(this);
+        var parent = $this.parent();
+        if(!parent.hasClass(&quot;active&quot;) &amp;&amp; !parent.hasClass(&quot;disabled&quot;)) {
+            var commandList = {
+                first: 1,
+                prev: that.current - 1,
+                next: that.current + 1,
+                last: that.totalPages
+            };
+            var command = $this.data(&quot;page&quot;);
+            that.current = commandList[command] || command;
+            loadData.call(that);
+        }
+        $this.trigger(&quot;blur&quot;);
+    });
+
+    list.append(item);
+    return item;
+}
+
+function renderPagination() {
+    if(this.options.navigation !== 0) {
+        var selector = getCssSelector(this.options.css.pagination);
+        var paginationItems = findFooterAndHeaderItems.call(this, selector)._mcmShowAria(this.rowCount !== -1);
+
+        if(this.rowCount !== -1 &amp;&amp; paginationItems.length &gt; 0) {
+            var tpl = this.options.templates;
+            var current = this.current;
+            var totalPages = this.totalPages;
+            var pagination = $(tpl.pagination.resolve(getParams.call(this)));
+            var offsetRight = totalPages - current;
+            var offsetLeft = (this.options.padding - current) * -1;
+            var startWith = ((offsetRight &gt;= this.options.padding) ?
+                Math.max(offsetLeft, 1) :
+                Math.max((offsetLeft - this.options.padding + offsetRight), 1));
+            var maxCount = this.options.padding * 2 + 1;
+            var count = (totalPages &gt;= maxCount) ? maxCount : totalPages;
+
+            renderPaginationItem.call(this, pagination, &quot;first&quot;, &quot;&amp;laquo;&quot;, &quot;first&quot;)._mcmEnableAria(current &gt; 1);
+            renderPaginationItem.call(this, pagination, &quot;prev&quot;, &quot;&amp;lt;&quot;, &quot;prev&quot;)._mcmEnableAria(current &gt; 1);
+
+            for(var i = 0; i &lt; count; i++) {
+                var pos = i + startWith;
+                renderPaginationItem.call(this, pagination, pos, pos, &quot;page-&quot; + pos)._mcmEnableAria()._mcmSelectAria(pos === current);
+            }
+
+            if(count === 0) {
+                renderPaginationItem.call(this, pagination, 1, 1, &quot;page-&quot; + 1)._mcmEnableAria(false)._mcmSelectAria();
+            }
+
+            renderPaginationItem.call(this, pagination, &quot;next&quot;, &quot;&amp;gt;&quot;, &quot;next&quot;)._mcmEnableAria(totalPages &gt; current);
+            renderPaginationItem.call(this, pagination, &quot;last&quot;, &quot;&amp;raquo;&quot;, &quot;last&quot;)._mcmEnableAria(totalPages &gt; current);
+
+            replacePlaceHolder.call(this, paginationItems, pagination);
+        }
+    }
+}
+
+function loadData() { // jshint ignore:line
+    var that = this;
+    this.$element._mcmBusyAria(true).trigger(&quot;load&quot; + namespace);
+    showLoading.call(this);
+
+    function containsPhrase(row) {
+        var column;
+        var searchPattern = new RegExp(that.searchPhrase, (that.options.caseSensitive) ? &quot;g&quot; : &quot;gi&quot;);
+        for(var i = 0; i &lt; that.columns.length; i++) {
+            column = that.columns[i];
+            if(column.searchable &amp;&amp; column.visible &amp;&amp; column.converter.to(row[column.id]).search(searchPattern) &gt; -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function update(rows, total) {
+        that.currentRows = rows;
+        setTotals.call(that, total);
+
+        if(!that.options.keepSelection) {
+            that.selectedRows = [];
+        }
+
+        renderRows.call(that, rows);
+        renderInfos.call(that);
+        renderPagination.call(that);
+
+        that.$element._mcmBusyAria(false).trigger(&quot;loaded&quot; + namespace);
+    }
+
+    if(this.options.ajax) {
+        var request = getRequest.call(this);
+        var url = getUrl.call(this);
+
+        if(url == null || typeof url !== &quot;string&quot; || url.length === 0) {
+            throw new Error(&quot;Url setting must be a none empty string or a function that returns one.&quot;);
+        }
+
+        // aborts the previous ajax request if not already finished or failed
+        if(this.xqr) {
+            this.xqr.abort();
+        }
+
+        var settings = {
+            url: url,
+            data: request,
+            success: function(response) {
+                that.xqr = null;
+                if(typeof (response) === &quot;string&quot;) {
+                    response = $.parseJSON(response);
+                }
+
+                response = that.options.responseHandler(response);
+                that.current = response.current;
+                update(response.rows, response.total);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                that.xqr = null;
+
+                if(textStatus !== &quot;abort&quot;) {
+                    renderNoResultsRow.call(that); // overrides loading mask
+                    that.$element._mcmBusyAria(false).trigger(&quot;loaded&quot; + namespace);
+                }
+            }
+        };
+        settings = $.extend(this.options.ajaxSettings, settings);
+        this.xqr = $.ajax(settings);
+    } else {
+        var rows = (this.searchPhrase.length &gt; 0) ? this.rows.where(containsPhrase) : this.rows;
+        var total = rows.length;
+        if(this.rowCount !== -1) {
+            rows = rows.page(this.current, this.rowCount);
+        }
+
+        // todo: improve the following comment
+        // setTimeout decouples the initialization so that adding event handlers happens before
+        window.setTimeout(function () { update(rows, total); }, 10);
+    }
+}
+
+function _sortOrder(order, value) {
+    return (order === &quot;asc&quot;) ? value : value * -1;
+}
+function sortRows() {
+    var sortArray = [];
+
+    function _sort(x, y, current) {
+        current = current || 0;
+        var next = current + 1;
+        var item = sortArray[current];
+
+        return (x[item.id] &gt; y[item.id]) ? _sortOrder(item.order, 1) :
+            (x[item.id] &lt; y[item.id]) ? _sortOrder(item.order, -1) :
+                (sortArray.length &gt; next) ? _sort(x, y, next) : 0;
+    }
+
+    if(!this.options.ajax) {
+        var that = this;
+        for(var key in this.sortDictionary) {
+            if(this.options.multiSort || sortArray.length === 0) {
+                sortArray.push({
+                    id: key,
+                    order: this.sortDictionary[key]
+                });
+            }
+        }
+
+        if(sortArray.length &gt; 0) {
+            this.rows.sort(_sort);
+        }
+    }
+}
+
+function loadRows() {
+    if(!this.options.ajax) {
+        var that = this;
+        var rows = this.$element.find(&quot;tbody &gt; tr&quot;);
+        rows.each(function () {
+            var $this = $(this);
+            var cells = $this.children(&quot;td&quot;);
+            var row = {};
+            $.each(that.columns, function (i, column) {
+                row[column.id] = column.converter.from(cells.eq(i).text());
+            });
+            appendRow.call(that, row);
+        });
+
+        setTotals.call(this, this.rows.length);
+        sortRows.call(this);
+    }
+}
+
+function prepareTable() {
+    var tpl = this.options.templates;
+    var wrapper = (this.$element.parent().hasClass(this.options.css.responsiveTable)) ?
+            this.$element.parent() : this.$element;
+    this.$element.addClass(this.options.css.table);
+
+    // checks whether there is an tbody element; otherwise creates one
+    if(this.$element.children(&quot;tbody&quot;).length === 0) {
+        this.$element.append(tpl.body);
+    }
+
+    if(this.options.navigation &amp; 1) {
+        this.header = $(tpl.header.resolve(getParams.call(this, { id: this.$element._mcmId() + &quot;-header&quot; })));
+        wrapper.before(this.header);
+    }
+
+    if(this.options.navigation &amp; 2) {
+        this.footer = $(tpl.footer.resolve(getParams.call(this, { id: this.$element._mcmId() + &quot;-footer&quot; })));
+        wrapper.after(this.footer);
+    }
+}
+
+function renderColumnSelection(actions) {
+    if(this.options.columnSelection &amp;&amp; this.columns.length &gt; 1) {
+        var that = this;
+        var css = this.options.css;
+        var tpl = this.options.templates;
+        var icon = tpl.icon.resolve(getParams.call(this, { iconCss: css.iconColumns }));
+        var dropDown = $(tpl.actionDropDown.resolve(getParams.call(this, { content: icon })));
+        var selector = getCssSelector(css.dropDownItem);
+        var checkboxSelector = getCssSelector(css.dropDownItemCheckbox);
+        var itemsSelector = getCssSelector(css.dropDownMenuItems);
+
+        $.each(this.columns, function(i, column) {
+            if(column.visibleInSelection) {
+                var item = $(tpl.actionDropDownCheckboxItem.resolve(getParams.call(that,
+                    { name: column.id, label: column.text, checked: column.visible }))).
+                        on(&quot;click&quot; + namespace, selector, function (e) {
+                            e.stopPropagation();
+                            var $this = $(this);
+                            var checkbox = $this.find(checkboxSelector);
+                            if(!checkbox.prop(&quot;disabled&quot;)) {
+                                column.visible = checkbox.prop(&quot;checked&quot;);
+                                var enable = that.columns.where(isVisible).length &gt; 1;
+                                $this.parents(itemsSelector).find(selector + &quot;:has(&quot; + checkboxSelector + &quot;:checked)&quot;).
+                                    _mcmEnableAria(enable).find(checkboxSelector)._mcmEnableField(enable);
+    
+                                that.$element.find(&quot;tbody&quot;).empty(); // Fixes an column visualization bug
+                                renderTableHeader.call(that);
+                                loadData.call(that);
+                            }
+                        });
+                dropDown.find(getCssSelector(css.dropDownMenuItems)).append(item);
+            }
+        });
+        actions.append(dropDown);
+    }
+}
+
+function _getText(value, allLabels) {
+    return (value === -1) ? allLabels : value;
+}
+function renderRowCountSelection(actions) {
+    var that = this;
+    var allLabels = that.options.locales.all;
+    var rowCountList = this.options.rowCount;
+
+    if($.isArray(rowCountList)) {
+        var css = this.options.css;
+        var tpl = this.options.templates;
+        var dropDown = $(tpl.actionDropDown.resolve(getParams.call(this, { content: _getText(this.rowCount, allLabels) })));
+        var menuSelector = getCssSelector(css.dropDownMenu);
+        var menuTextSelector = getCssSelector(css.dropDownMenuText);
+        var menuItemsSelector = getCssSelector(css.dropDownMenuItems);
+        var menuItemSelector = getCssSelector(css.dropDownItemButton);
+
+        $.each(rowCountList, function(index, value) {
+            var item = $(tpl.actionDropDownItem.resolve(getParams.call(that,{ text: _getText(value, allLabels), action: value }))).
+                _mcmSelectAria(value === that.rowCount).on(&quot;click&quot; + namespace, menuItemSelector, function (e) {
+                    e.preventDefault();
+                    var $this = $(this);
+                    var newRowCount = $this.data(&quot;action&quot;);
+                    if(newRowCount !== that.rowCount) {
+                        // todo: sophisticated solution needed for calculating which page is selected
+                        that.current = 1; // that.rowCount === -1 ---&gt; All
+                        that.rowCount = newRowCount;
+                        $this.parents(menuItemsSelector).children().each(function () {
+                            var $item = $(this);
+                            var currentRowCount = $item.find(menuItemSelector).data(&quot;action&quot;);
+                            $item._mcmSelectAria(currentRowCount === newRowCount);
+                        });
+                        $this.parents(menuSelector).find(menuTextSelector).text(_getText(newRowCount, allLabels));
+                        loadData.call(that);
+                    }
+                });
+            dropDown.find(menuItemsSelector).append(item);
+        });
+        actions.append(dropDown);
+    }
+}
+
+function renderRows(rows) { // jshint ignore:line
+    if(rows.length &gt; 0) {
+        var that = this;
+        var css = this.options.css;
+        var tpl = this.options.templates;
+        var tbody = this.$element.children(&quot;tbody&quot;).first();
+        var allRowsSelected = true;
+        var html = &quot;&quot;;
+
+        $.each(rows, function(index, row) {
+            var cells = &quot;&quot;;
+            var rowAttr = &quot; data-row-id=\&quot;&quot; + ((that.identifier == null) ? index : row[that.identifier]) + &quot;\&quot;&quot;;
+            var rowCss = &quot;&quot;;
+
+            if(that.selection) {
+                var selected = ($.inArray(row[that.identifier], that.selectedRows) !== -1);
+                var selectBox = tpl.select.resolve(getParams.call(that,
+                        { type: &quot;checkbox&quot;, value: row[that.identifier], checked: selected }));
+                cells += tpl.cell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell, style: &#x27;selectCellTdStyle&#x27; }));
+                allRowsSelected = (allRowsSelected &amp;&amp; selected);
+                if(selected) {
+                    rowCss += css.selected;
+                    rowAttr += &quot; aria-selected=\&quot;true\&quot;&quot;;
+                }
+            }
+
+            var status = row.status != null &amp;&amp; that.options.statusMapping[row.status];
+            if(status) {
+                rowCss += status;
+            }
+
+            $.each(that.columns, function (j, column) {
+                if(column.visible) {
+                    var value = ($.isFunction(column.formatter)) ?
+                        column.formatter.call(that, column, row) : column.converter.to(row[column.id]);
+                    var cssClass = (column.cssClass.length &gt; 0) ? &quot; &quot; + column.cssClass : &quot;&quot;;
+                    cells += tpl.cell.resolve(getParams.call(that, {
+                        content: (value == null || value === &quot;&quot;) ? &quot;&amp;nbsp;&quot; : value,
+                        css: ((column.align === &quot;right&quot;) ? css.right : (column.align === &quot;center&quot;) ?
+                            css.center : css.left) + cssClass,
+                        style: (column.width == null) ? &quot;&quot; : &quot;width:&quot; + column.width + &quot;;&quot; }));
+                }
+            });
+
+            if(rowCss.length &gt; 0) {
+                rowAttr += &quot; class=\&quot;&quot; + rowCss + &quot;\&quot;&quot;;
+            }
+            html += tpl.row.resolve(getParams.call(that, { attr: rowAttr, cells: cells }));
+        });
+
+        // sets or clears multi selectbox state
+        that.$element.find(&quot;thead &quot; + getCssSelector(that.options.css.selectBox)).prop(&quot;checked&quot;, allRowsSelected);
+        tbody.html(html);
+        registerRowEvents.call(this, tbody);
+    } else {
+        renderNoResultsRow.call(this);
+    }
+}
+
+function registerRowEvents(tbody) { // jshint ignore:line
+    var that = this;
+    var selectBoxSelector = getCssSelector(this.options.css.selectBox);
+
+    if(this.selection) {
+        tbody.off(&quot;click&quot; + namespace, selectBoxSelector).on(&quot;click&quot; + namespace, selectBoxSelector, function(e) {
+            e.stopPropagation();
+            var $this = $(this);
+            var id = that.converter.from($this.val());
+
+            if($this.prop(&quot;checked&quot;)) {
+                that.select([id]);
+            } else {
+                that.deselect([id]);
+            }
+        });
+    }
+
+    tbody.off(&quot;click&quot; + namespace, &quot;&gt; tr&quot;).on(&quot;click&quot; + namespace, &quot;&gt; tr&quot;, function(e) {
+        e.stopPropagation();
+        var $this = $(this);
+        var id = (that.identifier == null) ? $this.data(&quot;row-id&quot;) : that.converter.from($this.data(&quot;row-id&quot;) + &quot;&quot;);
+        var row = (that.identifier == null) ? that.currentRows[id] :
+            that.currentRows.first(function (item) { return item[that.identifier] === id; });
+        if(that.selection &amp;&amp; that.options.rowSelect) {
+            if($this.hasClass(that.options.css.selected)) {
+                that.deselect([id]);
+            } else {
+                that.select([id]);
+            }
+        }
+        that.$element.trigger(&quot;click&quot; + namespace, [that.columns, row]);
+    });
+}
+
+function renderActions() {
+    if(this.options.navigation !== 0) {
+        var css = this.options.css;
+        var actionItems = findFooterAndHeaderItems.call(this, getCssSelector(css.actions));
+
+        var tpl = this.options.templates;
+        if(actionItems.length &gt; 0) {
+            var that = this;
+            var actions = $(tpl.actions.resolve(getParams.call(this)));
+
+            // Refresh Button
+            if(this.options.ajax) {
+                var refreshIcon = tpl.icon.resolve(getParams.call(this, { iconCss: css.iconRefresh }));
+                var refresh = $(tpl.actionButton.resolve(getParams.call(this,
+                    { content: refreshIcon, text: this.options.locales.refresh }))).
+                        on(&quot;click&quot; + namespace, function (e) {
+                            // todo: prevent multiple fast clicks (fast click detection)
+                            e.stopPropagation();
+                            that.current = 1;
+                            loadData.call(that);
+                        });
+                actions.append(refresh);
+            }
+
+            // Row count selection
+            renderRowCountSelection.call(this, actions);
+
+            // Column selection
+            renderColumnSelection.call(this, actions);
+            replacePlaceHolder.call(this, actionItems, actions);        
+        }
+        
+        var extensionItems = findFooterAndHeaderItems.call(this, getCssSelector(css.extensions));
+        var extensions = $(tpl.extensions.resolve(getParams.call(this)));
+        replacePlaceHolder.call(this, extensionItems, extensions);
+        this.initExtensionsToolbar();
+    }
+}
+
+function renderSearchField() {
+    if(this.options.navigation !== 0) {
+        var css = this.options.css;
+        var selector = getCssSelector(css.search);
+        var searchItems = findFooterAndHeaderItems.call(this, selector);
+
+        if(searchItems.length &gt; 0) {
+            var that = this;
+            var tpl = this.options.templates;
+            var timer = null; // fast keyup detection
+            var currentValue = &quot;&quot;;
+            var searchFieldSelector = getCssSelector(css.searchField);
+            var search = $(tpl.search.resolve(getParams.call(this)));
+            var searchField = (search.is(searchFieldSelector)) ? search : search.find(searchFieldSelector);
+            searchField.on(&quot;keyup&quot; + namespace, function(e) {
+                e.stopPropagation();
+                var newValue = $(this).val();
+                if(currentValue !== newValue || (e.which === 13 &amp;&amp; newValue !== &quot;&quot;)) {
+                    currentValue = newValue;
+                    if(e.which === 13 || newValue.length === 0 || newValue.length &gt;= that.options.searchSettings.characters) {
+                        window.clearTimeout(timer);
+                        timer = window.setTimeout(function () {
+                            executeSearch.call(that, newValue);
+                        }, that.options.searchSettings.delay);
+                    }
+                }
+            });
+
+            replacePlaceHolder.call(this, searchItems, search);
+        }
+    }
+}
+
+function executeSearch(phrase) { // jshint ignore:line
+    if(this.searchPhrase !== phrase) {
+        this.current = 1;
+        this.searchPhrase = phrase;
+        loadData.call(this);
+    }
+}
+
+function renderTableHeader() { // jshint ignore:line
+    var that = this;
+    var headerRow = this.$element.find(&quot;thead &gt; tr&quot;);
+    var css = this.options.css;
+    var tpl = this.options.templates;
+    var html = &quot;&quot;;
+    var sorting = this.options.sorting;
+    if(this.selection) {
+        var selectBox = (this.options.multiSelect) ?
+            tpl.select.resolve(getParams.call(that, { type: &quot;checkbox&quot;, value: &quot;all&quot; })) : &quot;&quot;;
+        html += tpl.rawHeaderCell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell, style: &#x27;selectCellThStyle&#x27; }));
+    }
+
+    $.each(this.columns, function(index, column) {
+        if(column.visible) {
+            var sortOrder = that.sortDictionary[column.id];
+            var iconCss = ((sorting &amp;&amp; sortOrder &amp;&amp; sortOrder === &quot;asc&quot;) ? css.iconUp :
+                    (sorting &amp;&amp; sortOrder &amp;&amp; sortOrder === &quot;desc&quot;) ? css.iconDown : &quot;&quot;);
+            var icon = tpl.icon.resolve(getParams.call(that, { iconCss: iconCss }));
+            var align = column.headerAlign;
+            var cssClass = (column.headerCssClass.length &gt; 0) ? &quot; &quot; + column.headerCssClass : &quot;&quot;;
+            html += tpl.headerCell.resolve(getParams.call(that, {
+                column: column, icon: icon, sortable: sorting &amp;&amp; column.sortable &amp;&amp; css.sortable || &quot;&quot;,
+                css: ((align === &quot;right&quot;) ? css.right : (align === &quot;center&quot;) ? css.center : css.left) + cssClass,
+                style: (column.width == null) ? &quot;&quot; : &quot;width:&quot; + column.width + &quot;;&quot; }));
+            }
+    });
+
+    headerRow.html(html);
+
+    if(sorting) {
+        var sortingSelector = getCssSelector(css.sortable);
+        headerRow.off(&quot;click&quot; + namespace, sortingSelector).on(&quot;click&quot; + namespace, sortingSelector, function(e) {
+            e.preventDefault();
+            setTableHeaderSortDirection.call(that, $(this));
+            sortRows.call(that);
+            loadData.call(that);
+        });
+    }
+
+    // todo: create a own function for that piece of code
+    if(this.selection &amp;&amp; this.options.multiSelect) {
+        var selectBoxSelector = getCssSelector(css.selectBox);
+        headerRow.off(&quot;click&quot; + namespace, selectBoxSelector).on(&quot;click&quot; + namespace, selectBoxSelector, function(e) {
+            e.stopPropagation();
+            if($(this).prop(&quot;checked&quot;)) {
+                that.select();
+            } else {
+                that.deselect();
+            }
+        });
+    }
+
+    this.initHeader();
+}
+
+function setTableHeaderSortDirection(element) { // jshint ignore:line
+    var css = this.options.css;
+    var iconSelector = getCssSelector(css.icon);
+    var columnId = element.data(&quot;column-id&quot;) || element.parents(&quot;th&quot;).first().data(&quot;column-id&quot;);
+    var sortOrder = this.sortDictionary[columnId];
+    var icon = element.find(iconSelector);
+    if(!this.options.multiSort) {
+        element.parents(&quot;tr&quot;).first().find(iconSelector).removeClass(css.iconDown + &quot; &quot; + css.iconUp);
+        this.sortDictionary = {};
+    }
+    if(sortOrder &amp;&amp; sortOrder === &quot;asc&quot;) {
+        this.sortDictionary[columnId] = &quot;desc&quot;;
+        icon.removeClass(css.iconUp).addClass(css.iconDown);
+    } else if(sortOrder &amp;&amp; sortOrder === &quot;desc&quot;) {
+        if(this.options.multiSort) {
+            var newSort = {};
+            for(var key in this.sortDictionary) {
+                if(key !== columnId) {
+                    newSort[key] = this.sortDictionary[key];
+                }
+            }
+            this.sortDictionary = newSort;
+            icon.removeClass(css.iconDown);
+        } else {
+            this.sortDictionary[columnId] = &quot;asc&quot;;
+            icon.removeClass(css.iconDown).addClass(css.iconUp);
+        }
+    } else {
+        this.sortDictionary[columnId] = &quot;asc&quot;;
+        icon.addClass(css.iconUp);
+    }
+}
+
+function replacePlaceHolder(placeholder, element) { // jshint ignore:line
+    placeholder.each(function(index, item) {
+        // todo: check how append is implemented. Perhaps cloning here is superfluous.
+        $(item).before(element.clone(true)).remove();
+    });
+}
+
+function showLoading() { // jshint ignore:line
+    var that = this;
+    window.setTimeout(function() {
+        if(that.$element._mcmAria(&quot;busy&quot;) === &quot;true&quot;) {
+            var tpl = that.options.templates;
+            var thead = that.$element.children(&quot;thead&quot;).first();
+            var tbody = that.$element.children(&quot;tbody&quot;).first();
+            var firstCell = tbody.find(&quot;tr &gt; td&quot;).first();
+            var padding = (that.$element.height() - thead.height()) - (firstCell.height() + 20);
+            var count = that.columns.where(isVisible).length;
+
+            if(that.selection) {
+                count = count + 1;
+            }
+            tbody.html(tpl.loading.resolve(getParams.call(that, { columns: count })));
+            if(that.rowCount !== -1 &amp;&amp; padding &gt; 0) {
+                tbody.find(&quot;tr &gt; td&quot;).css(&quot;padding&quot;, &quot;20px 0 &quot; + padding + &quot;px&quot;);
+            }
+        }
+    }, 250);
+}
+
+function isIEBrowser() {
+    return !!(navigator.userAgent.indexOf(&quot;MSIE &quot;) &gt; 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./));
+}
+
+function getFieldIndex(columns, field) {
+    var index = -1;
+    $.each(columns, function(i, column) {
+        if(column.field === field) {
+            index = i;
+            return false;
+        }
+        return true;
+    });
+    return index;
+}
+
+function setFieldIndex(columns) {
+    var i;
+    var j;
+    var k;
+    var totalCol = 0;
+    var flag = [];
+
+    for(i = 0; i &lt; columns[0].length; i++) {
+        totalCol += columns[0][i].colspan || 1;
+    }
+
+    for(i = 0; i &lt; columns.length; i++) {
+        flag[i] = [];
+        for(j = 0; j &lt; totalCol; j++) {
+            flag[i][j] = false;
+        }
+    }
+
+    for(i = 0; i &lt; columns.length; i++) {
+        for(j = 0; j &lt; columns[i].length; j++) {
+            var r = columns[i][j];
+            var rowspan = r.rowspan || 1;
+            var colspan = r.colspan || 1;
+            var index = $.inArray(false, flag[i]);
+
+            if(colspan === 1) {
+                r.fieldIndex = index;
+                // when field is undefined, use index instead
+                if(typeof r.field === &#x27;undefined&#x27;) {
+                    r.field = index;
+                }
+            }
+
+            for(k = 0; k &lt; rowspan; k++) {
+                flag[i + k][index] = true;
+            }
+            for(k = 0; k &lt; colspan; k++) {
+                flag[i][index + k] = true;
+            }
+        }
+    }
+}
+
+function calculateObjectValue(self, name, args, defaultValue) {
+    var func = name;
+    if(typeof name === &#x27;string&#x27;) {
+        // support obj.func1.func2
+        var names = name.split(&#x27;.&#x27;);
+        if(names.length &gt; 1) {
+            func = window;
+            $.each(names, function (i, f) {
+                func = func[f];
+            });
+        } else {
+            func = window[name];
+        }
+    }
+    if(typeof func === &#x27;object&#x27;) {
+        return func;
+    }
+    if(typeof func === &#x27;function&#x27;) {
+        return func.apply(self, args);
+    }
+    if(!func &amp;&amp; typeof name === &#x27;string&#x27; &amp;&amp; sprintf.apply(this, [name].concat(args))) {
+        return sprintf.apply(this, [name].concat(args));
+    }
+    return defaultValue;
+}
+
+function init() {
+    this.$element.trigger(&quot;initialize&quot; + namespace);
+    loadColumns.call(this); // Loads columns from HTML thead tag
+    this.selection = this.options.selection &amp;&amp; this.identifier != null;
+    loadRows.call(this); // Loads rows from HTML tbody tag if ajax is false
+    prepareTable.call(this);
+    renderTableHeader.call(this);
+    renderSearchField.call(this);
+    renderActions.call(this);
+    loadData.call(this);
+    this.$element.trigger(&quot;initialized&quot; + namespace);
+    }
+
+// GRID PUBLIC CLASS DEFINITION
+// ====================
+
+/**
+ * Represents the jQuery Bootgrid plugin.
+ *
+ * @class Grid
+ * @constructor
+ * @param element {Object} The corresponding DOM element.
+ * @param options {Object} The options to override default settings.
+ * @chainable
+ **/
+var Grid = function(element, options) {
+    this.$element = $(element);
+
+    this.origin = this.$element.clone();
+    this.options = $.extend(true, {}, Grid.defaults, this.$element.data(), options);
+
+    // overrides rowCount explicitly because deep copy ($.extend) leads to strange behaviour
+    this.options.rowCount = this.$element.data().rowCount || options.rowCount || this.options.rowCount;
+    this.columns = [];
+    this.current = 1;
+    this.currentRows = [];
+    this.identifier = null; // The first column ID that is marked as identifier
+    this.selection = false;
+    this.converter = null; // The converter for the column that is marked as identifier
+    this.rowCount = ($.isArray(this.options.rowCount)) ? this.options.rowCount[0] : this.options.rowCount;
+    this.rows = [];
+    this.searchPhrase = &quot;&quot;;
+    this.selectedRows = [];
+    this.sortDictionary = {};
+    this.total = 0;
+    this.totalPages = 0;
+    this.cachedParams = {
+        lbl: this.options.locales,
+        css: this.options.css,
+        ctx: {}
+    };
+    this.header = null;
+    this.footer = null;
+    this.xqr = null;
+    // todo: implement cache
+
+    this.initLocale();
+};
+
+/**
+ * An object that represents the default settings.
+ *
+ * @static
+ * @class defaults
+ * @for Grid
+ * @example
+ *   // Global approach
+ *   $.tablear.defaults.selection = true;
+ * @example
+ *   // Initialization approach
+ *   $(&quot;#tablear&quot;).tablear({ selection = true });
+ **/
+Grid.defaults = {
+    navigation: 3, // it&#x27;s a flag: 0 = none, 1 = top, 2 = bottom, 3 = both (top and bottom)
+    padding: 2, // page padding (pagination)
+    columnSelection: true,
+    rowCount: [10, 25, 50, -1], // rows per page int or array of int (-1 represents &quot;All&quot;)
+
+    /**
+     * Enables row selection (to enable multi selection see also &#x60;multiSelect&#x60;). Default value is &#x60;false&#x60;.
+     *
+     * @property selection
+     * @type Boolean
+     * @default false
+     * @for defaults
+     * @since 1.0.0
+     **/
+    selection: false,
+
+    /**
+     * Enables multi selection (&#x60;selection&#x60; must be set to &#x60;true&#x60; as well). Default value is &#x60;false&#x60;.
+     *
+     * @property multiSelect
+     * @type Boolean
+     * @default false
+     * @for defaults
+     * @since 1.0.0
+     **/
+    multiSelect: false,
+
+    /**
+     * Enables entire row click selection (&#x60;selection&#x60; must be set to &#x60;true&#x60; as well). Default value is &#x60;false&#x60;.
+     *
+     * @property rowSelect
+     * @type Boolean
+     * @default false
+     * @for defaults
+     * @since 1.0.0
+     **/
+    rowSelect: false,
+
+    /**
+     * Defines whether the row selection is saved internally on filtering, paging and sorting
+     * (even if the selected rows are not visible).
+     *
+     * @property keepSelection
+     * @type Boolean
+     * @default false
+     * @for defaults
+     * @since 1.0.0
+     **/
+    keepSelection: false,
+
+    highlightRows: false, // highlights new rows (find the page of the first new row)
+    sorting: true,
+    multiSort: false,
+
+    /**
+     * General search settings to configure the search field behaviour.
+     *
+     * @property searchSettings
+     * @type Object
+     * @for defaults
+     * @since 1.0.0
+     **/
+    searchSettings: {
+        /**
+         * The time in milliseconds to wait before search gets executed.
+         *
+         * @property delay
+         * @type Number
+         * @default 250
+         * @for searchSettings
+         **/
+        delay: 250,
+        
+        /**
+         * The characters to type before the search gets executed.
+         *
+         * @property characters
+         * @type Number
+         * @default 1
+         * @for searchSettings
+         **/
+        characters: 1
+    },
+
+    /**
+     * Defines whether the data shall be loaded via an asynchronous HTTP (Ajax) request.
+     *
+     * @property ajax
+     * @type Boolean
+     * @default false
+     * @for defaults
+     **/
+    ajax: false,
+
+    /**
+     * Ajax request settings that shall be used for server-side communication.
+     * All setting except data, error, success and url can be overridden.
+     * For the full list of settings go to http://api.jquery.com/jQuery.ajax/.
+     *
+     * @property ajaxSettings
+     * @type Object
+     * @for defaults
+     * @since 1.0.0
+     **/
+    ajaxSettings: {
+        /**
+         * Specifies the HTTP method which shall be used when sending data to the server.
+         * Go to http://api.jquery.com/jQuery.ajax/ for more details.
+         * This setting is overriden for backward compatibility.
+         *
+         * @property method
+         * @type String
+         * @default &quot;POST&quot;
+         * @for ajaxSettings
+         **/
+        method: &quot;POST&quot;
+    },
+
+    /**
+     * Enriches the request object with additional properties. Either a &#x60;PlainObject&#x60; or a &#x60;Function&#x60;
+     * that returns a &#x60;PlainObject&#x60; can be passed. Default value is &#x60;{}&#x60;.
+     *
+     * @property post
+     * @type Object|Function
+     * @default function (request) { return request; }
+     * @for defaults
+     * @deprecated Use instead &#x60;requestHandler&#x60;
+     **/
+    post: {}, // or use function () { return {}; } (reserved properties are &quot;current&quot;, &quot;rowCount&quot;, &quot;sort&quot; and &quot;searchPhrase&quot;)
+
+    /**
+     * Sets the data URL to a data service (e.g. a REST service). Either a &#x60;String&#x60; or a &#x60;Function&#x60;
+     * that returns a &#x60;String&#x60; can be passed. Default value is &#x60;&quot;&quot;&#x60;.
+     *
+     * @property url
+     * @type String|Function
+     * @default &quot;&quot;
+     * @for defaults
+     **/
+    url: &quot;&quot;, // or use function () { return &quot;&quot;; }
+
+    /**
+     * Defines whether the search is case sensitive or insensitive.
+     *
+     * @property caseSensitive
+     * @type Boolean
+     * @default true
+     * @for defaults
+     * @since 1.0.0
+     **/
+    caseSensitive: true,
+
+    // note: The following properties should not be used via data-api attributes
+
+    /**
+     * Transforms the JSON request object in whatever is needed on the server-side implementation.
+     *
+     * @property requestHandler
+     * @type Function
+     * @default function (request) { return request; }
+     * @for defaults
+     * @since 1.0.0
+     **/
+    requestHandler: function(request) { return request; },
+
+    /**
+     * Transforms the response object into the expected JSON response object.
+     *
+     * @property responseHandler
+     * @type Function
+     * @default function (response) { return response; }
+     * @for defaults
+     * @since 1.0.0
+     **/
+    responseHandler: function(response) { return response; },
+
+    /**
+     * A list of converters.
+     *
+     * @property converters
+     * @type Object
+     * @for defaults
+     * @since 1.0.0
+     **/
+    converters: {
+        numeric: {
+            from: function (value) { return +value; }, // converts from string to numeric
+            to: function (value) { return value + &quot;&quot;; } // converts from numeric to string
+        },
+        string: {
+            // default converter
+            from: function (value) { return value; },
+            to: function (value) { return value; }
+        }
+    },
+
+    /**
+     * Contains all css classes.
+     *
+     * @property css
+     * @type Object
+     * @for defaults
+     **/
+    css: {
+        actions: &quot;actions btn-group&quot;, // must be a unique class name or constellation of class names within the header and footer
+        extensions: &quot;extensions btn-group&quot;, 
+        center: &quot;text-center&quot;,
+        columnHeaderAnchor: &quot;column-header-anchor&quot;, // must be a unique class name or constellation of class names within the column header cell
+        columnHeaderText: &quot;text&quot;,
+        dropDownItem: &quot;dropdown-item&quot;, // must be a unique class name or constellation of class names within the actionDropDown,
+        dropDownItemButton: &quot;dropdown-item-button&quot;, // must be a unique class name or constellation of class names within the actionDropDown
+        dropDownItemCheckbox: &quot;dropdown-item-checkbox&quot;, // must be a unique class name or constellation of class names within the actionDropDown
+        dropDownMenu: &quot;dropdown btn-group&quot;, // must be a unique class name or constellation of class names within the actionDropDown
+        dropDownMenuItems: &quot;dropdown-menu pull-right&quot;, // must be a unique class name or constellation of class names within the actionDropDown
+        dropDownMenuText: &quot;dropdown-text&quot;, // must be a unique class name or constellation of class names within the actionDropDown
+        footer: &quot;tablear-footer container-fluid&quot;,
+        header: &quot;tablear-header container-fluid&quot;,
+        icon: &quot;icon glyphicon&quot;,
+        iconColumns: &quot;glyphicon-th-list&quot;,
+        iconDown: &quot;glyphicon-chevron-down&quot;,
+        iconRefresh: &quot;glyphicon-refresh&quot;,
+        iconSearch: &quot;glyphicon-search&quot;,
+        iconUp: &quot;glyphicon-chevron-up&quot;,
+        infos: &quot;infos&quot;, // must be a unique class name or constellation of class names within the header and footer,
+        left: &quot;text-left&quot;,
+        pagination: &quot;pagination&quot;, // must be a unique class name or constellation of class names within the header and footer
+        paginationButton: &quot;button&quot;, // must be a unique class name or constellation of class names within the pagination
+
+        iconToggle: &#x27;glyphicon-list-alt icon-list-alt&#x27;,
+        iconDetailOpen: &#x27;glyphicon-plus icon-plus&#x27;,
+        iconDetailClose: &#x27;glyphicon-minus icon-minus&#x27;,
+        iconSize: undefined,
+        
+        /**
+         * CSS class to select the parent div which activates responsive mode.
+         *
+         * @property responsiveTable
+         * @type String
+         * @default &quot;table-responsive&quot;
+         * @for css
+         * @since 1.0.0
+         **/
+        responsiveTable: &quot;table-responsive&quot;,
+
+        right: &quot;text-right&quot;,
+        search: &quot;search form-group&quot;, // must be a unique class name or constellation of class names within the header and footer
+        searchField: &quot;search-field form-control&quot;,
+        selectBox: &quot;select-box&quot;, // must be a unique class name or constellation of class names within the entire table
+        selectCell: &quot;select-cell&quot;, // must be a unique class name or constellation of class names within the entire table
+
+        /**
+         * CSS class to highlight selected rows.
+         *
+         * @property selected
+         * @type String
+         * @default &quot;active&quot;
+         * @for css
+         * @since 1.0.0
+         **/
+        selected: &quot;active&quot;,
+
+        sortable: &quot;sortable&quot;,
+        table: &quot;tablear-table table&quot;
+    },
+
+    /**
+     * A dictionary of formatters.
+     *
+     * @property formatters
+     * @type Object
+     * @for defaults
+     * @since 1.0.0
+     **/
+    formatters: {},
+
+    /**
+     * Specifies the mapping between status and contextual classes to color rows.
+     *
+     * @property statusMapping
+     * @type Object
+     * @for defaults
+     * @since 1.0.0
+     **/
+    statusMapping: {
+        /**
+         * Specifies a successful or positive action.
+         *
+         * @property 0
+         * @type String
+         * @for statusMapping
+         **/
+        0: &quot;success&quot;,
+
+        /**
+         * Specifies a neutral informative change or action.
+         *
+         * @property 1
+         * @type String
+         * @for statusMapping
+         **/
+        1: &quot;info&quot;,
+
+        /**
+         * Specifies a warning that might need attention.
+         *
+         * @property 2
+         * @type String
+         * @for statusMapping
+         **/
+        2: &quot;warning&quot;,
+        
+        /**
+         * Specifies a dangerous or potentially negative action.
+         *
+         * @property 3
+         * @type String
+         * @for statusMapping
+         **/
+        3: &quot;danger&quot;
+    },
+
+    locales: {},
+
+    /**
+     * Contains all templates.
+     *
+     * @property templates
+     * @type Object
+     * @for defaults
+     **/
+    templates: {
+        actionButton: &quot;&lt;button class=\&quot;btn btn-default\&quot; type=\&quot;button\&quot; title=\&quot;{{ctx.text}}\&quot;&gt;{{ctx.content}}&lt;/button&gt;&quot;,
+        actionDropDown: &quot;&lt;div class=\&quot;{{css.dropDownMenu}}\&quot;&gt;&lt;button class=\&quot;btn btn-default dropdown-toggle\&quot; type=\&quot;button\&quot; data-toggle=\&quot;dropdown\&quot;&gt;&lt;span class=\&quot;{{css.dropDownMenuText}}\&quot;&gt;{{ctx.content}}&lt;/span&gt; &lt;span class=\&quot;caret\&quot;&gt;&lt;/span&gt;&lt;/button&gt;&lt;ul class=\&quot;{{css.dropDownMenuItems}}\&quot; role=\&quot;menu\&quot;&gt;&lt;/ul&gt;&lt;/div&gt;&quot;,
+        actionDropDownItem: &quot;&lt;li&gt;&lt;a data-action=\&quot;{{ctx.action}}\&quot; class=\&quot;{{css.dropDownItem}} {{css.dropDownItemButton}}\&quot;&gt;{{ctx.text}}&lt;/a&gt;&lt;/li&gt;&quot;,
+        actionDropDownCheckboxItem: &quot;&lt;li&gt;&lt;label class=\&quot;{{css.dropDownItem}}\&quot;&gt;&lt;input name=\&quot;{{ctx.name}}\&quot; type=\&quot;checkbox\&quot; value=\&quot;1\&quot; class=\&quot;{{css.dropDownItemCheckbox}}\&quot; {{ctx.checked}} /&gt; {{ctx.label}}&lt;/label&gt;&lt;/li&gt;&quot;,
+        actions: &quot;&lt;div class=\&quot;{{css.actions}}\&quot;&gt;&lt;/div&gt;&quot;,
+        extensions: &quot;&lt;div class=\&quot;{{css.extensions}}\&quot;&gt;&lt;/div&gt;&quot;,
+        body: &quot;&lt;tbody&gt;&lt;/tbody&gt;&quot;,
+        cell: &quot;&lt;td class=\&quot;{{ctx.css}}\&quot; style=\&quot;{{ctx.style}}\&quot;&gt;{{ctx.content}}&lt;/td&gt;&quot;,
+        footer: &quot;&lt;div id=\&quot;{{ctx.id}}\&quot; class=\&quot;{{css.footer}}\&quot;&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-sm-6\&quot;&gt;&lt;p class=\&quot;{{css.pagination}}\&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;div class=\&quot;col-sm-6 infoBar\&quot;&gt;&lt;p class=\&quot;{{css.infos}}\&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&quot;,
+        header: &quot;&lt;div id=\&quot;{{ctx.id}}\&quot; class=\&quot;{{css.header}}\&quot;&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-sm-12 actionBar\&quot;&gt;&lt;p class=\&quot;{{css.search}}\&quot;&gt;&lt;/p&gt;&lt;p class=\&quot;{{css.actions}}\&quot;&gt;&lt;/p&gt;&lt;p class=\&quot;{{css.extensions}}\&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&quot;,
+        headerCell: &quot;&lt;th data-column-id=\&quot;{{ctx.column.id}}\&quot; class=\&quot;{{ctx.css}}\&quot; style=\&quot;{{ctx.style}}\&quot;&gt;&lt;a href=\&quot;javascript:void(0);\&quot; class=\&quot;{{css.columnHeaderAnchor}} {{ctx.sortable}}\&quot;&gt;&lt;span class=\&quot;{{css.columnHeaderText}}\&quot;&gt;{{ctx.column.text}}&lt;/span&gt;{{ctx.icon}}&lt;/a&gt;&lt;/th&gt;&quot;,
+        icon: &quot;&lt;span class=\&quot;{{css.icon}} {{ctx.iconCss}}\&quot;&gt;&lt;/span&gt;&quot;,
+        infos: &quot;&lt;div class=\&quot;{{css.infos}}\&quot;&gt;{{lbl.infos}}&lt;/div&gt;&quot;,
+        loading: &quot;&lt;tr&gt;&lt;td colspan=\&quot;{{ctx.columns}}\&quot; class=\&quot;loading\&quot;&gt;{{lbl.loading}}&lt;/td&gt;&lt;/tr&gt;&quot;,
+        noResults: &quot;&lt;tr&gt;&lt;td colspan=\&quot;{{ctx.columns}}\&quot; class=\&quot;no-results\&quot;&gt;{{lbl.noResults}}&lt;/td&gt;&lt;/tr&gt;&quot;,
+        pagination: &quot;&lt;ul class=\&quot;{{css.pagination}}\&quot;&gt;&lt;/ul&gt;&quot;,
+        paginationItem: &quot;&lt;li class=\&quot;{{ctx.css}}\&quot;&gt;&lt;a data-page=\&quot;{{ctx.page}}\&quot; class=\&quot;{{css.paginationButton}}\&quot;&gt;{{ctx.text}}&lt;/a&gt;&lt;/li&gt;&quot;,
+        rawHeaderCell: &quot;&lt;th class=\&quot;{{ctx.css}}\&quot;&gt;{{ctx.content}}&lt;/th&gt;&quot;, // Used for the multi select box
+        row: &quot;&lt;tr{{ctx.attr}}&gt;{{ctx.cells}}&lt;/tr&gt;&quot;,
+        search: &quot;&lt;div class=\&quot;{{css.search}}\&quot;&gt;&lt;div class=\&quot;input-group\&quot;&gt;&lt;span class=\&quot;{{css.icon}} input-group-addon {{css.iconSearch}}\&quot;&gt;&lt;/span&gt; &lt;input type=\&quot;text\&quot; class=\&quot;{{css.searchField}}\&quot; placeholder=\&quot;{{lbl.search}}\&quot; /&gt;&lt;/div&gt;&lt;/div&gt;&quot;,
+        select: &quot;&lt;input name=\&quot;select\&quot; type=\&quot;{{ctx.type}}\&quot; class=\&quot;{{css.selectBox}}\&quot; value=\&quot;{{ctx.value}}\&quot; {{ctx.checked}} /&gt;&quot;
+    }
+};
+
+Grid.locales = [];
+Grid.locales[&#x27;en-US&#x27;] = Grid.locales[&#x27;en&#x27;] = {
+    all: &quot;All&quot;,
+    infos: &quot;Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} entries&quot;,
+    loading: &quot;Loading...&quot;,
+    noResults: &quot;No results found!&quot;,
+    refresh: &quot;Refresh&quot;,
+    search: &quot;Search&quot; 
+};
+$.extend(Grid.defaults.locales, Grid.locales[&#x27;en-US&#x27;]);
+Grid.prototype.initLocale = function() {
+    if(this.options.locale) {
+        var parts = this.options.locale.split(/-|_/);
+        parts[0] = parts[0].toLowerCase();
+        parts[1] = parts[1] &amp;&amp; parts[1].toUpperCase();
+        if(this.locales[this.options.locale]) {
+            // locale as requested
+            $.extend(this.options, this.locales[this.options.locale]);
+        } else if(this.locales[parts.join(&#x27;-&#x27;)]) {
+            // locale with sep set to - (in case original was specified with _)
+            $.extend(this.options, this.locales[parts.join(&#x27;-&#x27;)]);
+        } else if(this.locales[parts[0]]) {
+            // short locale language code (i.e. &#x27;en&#x27;)
+            $.extend(this.options, this.locales[parts[0]]);
+        }
+    }
+};
+
+Grid.prototype.initExtensionsToolbar = function() {
+    this.$extensionsToolbar = $(&#x27;.extensions.btn-group&#x27;);
+};
+
+Grid.prototype.initHeader = function() {
+    this.$header = $(&#x27;thead&#x27;);
+};
+
+/**
+ * Appends rows.
+ *
+ * @method append
+ * @param rows {Array} An array of rows to append
+ * @chainable
+ **/
+Grid.prototype.append = function(rows) {
+    if(this.options.ajax) {
+        // todo: implement ajax PUT
+    } else {
+        var appendedRows = [];
+        for(var i = 0; i &lt; rows.length; i++) {
+            if(appendRow.call(this, rows[i])) { // jshint ignore:line
+                appendedRows.push(rows[i]); // jshint ignore:line
+            }
+        }
+        sortRows.call(this); // jshint ignore:line
+        highlightAppendedRows.call(this, appendedRows); // jshint ignore:line
+        loadData.call(this); // jshint ignore:line
+        this.$element.trigger(&quot;appended&quot; + namespace, [appendedRows]); // jshint ignore:line
+    }
+    return this;
+};
+
+/**
+ * Removes all rows.
+ *
+ * @method clear
+ * @chainable
+ **/
+Grid.prototype.clear = function() {
+    if(this.options.ajax) {
+        // todo: implement ajax POST
+    } else {
+        var removedRows = $.extend([], this.rows);
+        this.rows = [];
+        this.current = 1;
+        this.total = 0;
+        loadData.call(this); // jshint ignore:line
+        this.$element.trigger(&quot;cleared&quot; + namespace, [removedRows]); // jshint ignore:line
+    }
+
+    return this;
+};
+
+/**
+ * Removes the control functionality completely and transforms the current state to the initial HTML structure.
+ *
+ * @method destroy
+ * @chainable
+ **/
+Grid.prototype.destroy = function() {
+    // todo: this method has to be optimized (the complete initial state must be restored)
+    $(window).off(namespace); // jshint ignore:line
+    if(this.options.navigation &amp; 1) {
+        this.header.remove();
+    }
+    if(this.options.navigation &amp; 2) {
+        this.footer.remove();
+    }
+    this.$element.before(this.origin).remove();
+    return this;
+};
+
+/**
+ * Resets the state and reloads rows.
+ *
+ * @method reload
+ * @chainable
+ **/
+Grid.prototype.reload = function() {
+    this.current = 1; // reset
+    loadData.call(this); // jshint ignore:line
+    return this;
+};
+
+/**
+ * Removes rows by ids. Removes selected rows if no ids are provided.
+ *
+ * @method remove
+ * @param [rowsIds] {Array} An array of rows ids to remove
+ * @chainable
+ **/
+Grid.prototype.remove = function(rowIds) {
+    if(this.identifier != null) {
+        var that = this;
+        if(this.options.ajax) {
+            // todo: implement ajax DELETE
+        } else {
+            rowIds = rowIds || this.selectedRows;
+            var id;
+            var removedRows = [];
+            for(var i = 0; i &lt; rowIds.length; i++) {
+                id = rowIds[i];
+                for(var j = 0; j &lt; this.rows.length; j++){
+                    if(this.rows[j][this.identifier] === id) {
+                        removedRows.push(this.rows[j]);
+                        this.rows.splice(j, 1);
+                        break;
+                    }
+                }
+            }
+            this.current = 1; // reset
+            loadData.call(this); // jshint ignore:line
+            this.$element.trigger(&quot;removed&quot; + namespace, [removedRows]); // jshint ignore:line
+        }
+    }
+    return this;
+};
+
+/**
+ * Searches in all rows for a specific phrase (but only in visible cells). 
+ * The search filter will be reseted, if no argument is provided.
+ *
+ * @method search
+ * @param [phrase] {String} The phrase to search for
+ * @chainable
+ **/
+Grid.prototype.search = function(phrase) {
+    phrase = phrase || &quot;&quot;;
+    if(this.searchPhrase !== phrase) {
+        var selector = getCssSelector(this.options.css.searchField); // jshint ignore:line
+        var searchFields = findFooterAndHeaderItems.call(this, selector); // jshint ignore:line
+        searchFields.val(phrase);
+    }
+    executeSearch.call(this, phrase); // jshint ignore:line
+    return this;
+};
+
+/**
+ * Selects rows by ids. Selects all visible rows if no ids are provided.
+ * In server-side scenarios only visible rows are selectable.
+ *
+ * @method select
+ * @param [rowsIds] {Array} An array of rows ids to select
+ * @chainable
+ **/
+Grid.prototype.select = function(rowIds) {
+    if(this.selection) {
+        rowIds = rowIds || this.currentRows.propValues(this.identifier);
+        var i;
+        var id;
+        var selectedRows = [];
+        while(rowIds.length &gt; 0 &amp;&amp; !(!this.options.multiSelect &amp;&amp; selectedRows.length === 1)) {
+            id = rowIds.pop();
+            if($.inArray(id, this.selectedRows) === -1) {
+                for(i = 0; i &lt; this.currentRows.length; i++) {
+                    if(this.currentRows[i][this.identifier] === id) {
+                        selectedRows.push(this.currentRows[i]);
+                        this.selectedRows.push(id);
+                        break;
+                    }
+                }
+            }
+        }
+
+        if(selectedRows.length &gt; 0) {
+            var selectBoxSelector = getCssSelector(this.options.css.selectBox); // jshint ignore:line
+            var selectMultiSelectBox = this.selectedRows.length &gt;= this.currentRows.length;
+            i = 0;
+            while(!this.options.keepSelection &amp;&amp; selectMultiSelectBox &amp;&amp; i &lt; this.currentRows.length) {
+                selectMultiSelectBox = ($.inArray(this.currentRows[i++][this.identifier], this.selectedRows) !== -1);
+            }
+            this.$element.find(&quot;thead &quot; + selectBoxSelector).prop(&quot;checked&quot;, selectMultiSelectBox);
+
+            if(!this.options.multiSelect) {
+                this.$element.find(&quot;tbody &gt; tr &quot; + selectBoxSelector + &quot;:checked&quot;).trigger(&quot;click&quot; + namespace); // jshint ignore:line
+            }
+
+            for(i = 0; i &lt; this.selectedRows.length; i++) {
+                this.$element.find(&quot;tbody &gt; tr[data-row-id=\&quot;&quot; + this.selectedRows[i] + &quot;\&quot;]&quot;).
+                    addClass(this.options.css.selected)._mcmAria(&quot;selected&quot;, &quot;true&quot;).
+                    find(selectBoxSelector).prop(&quot;checked&quot;, true);
+            }
+
+            this.$element.trigger(&quot;selected&quot; + namespace, [selectedRows]); // jshint ignore:line
+        }
+    }
+
+    return this;
+};
+
+/**
+ * Deselects rows by ids. Deselects all visible rows if no ids are provided.
+ * In server-side scenarios only visible rows are deselectable.
+ *
+ * @method deselect
+ * @param [rowsIds] {Array} An array of rows ids to deselect
+ * @chainable
+ **/
+Grid.prototype.deselect = function(rowIds) {
+    if(this.selection) {
+        rowIds = rowIds || this.currentRows.propValues(this.identifier);
+        var id;
+        var i;
+        var pos;
+        var deselectedRows = [];
+        while(rowIds.length &gt; 0) {
+            id = rowIds.pop();
+            pos = $.inArray(id, this.selectedRows);
+            if(pos !== -1) {
+                for(i = 0; i &lt; this.currentRows.length; i++) {
+                    if(this.currentRows[i][this.identifier] === id) {
+                        deselectedRows.push(this.currentRows[i]);
+                        this.selectedRows.splice(pos, 1);
+                        break;
+                    }
+                }
+            }
+        }
+
+        if(deselectedRows.length &gt; 0) {
+            var selectBoxSelector = getCssSelector(this.options.css.selectBox); // jshint ignore:line
+            this.$element.find(&quot;thead &quot; + selectBoxSelector).prop(&quot;checked&quot;, false);
+            for(i = 0; i &lt; deselectedRows.length; i++) {
+                this.$element.find(&quot;tbody &gt; tr[data-row-id=\&quot;&quot; + deselectedRows[i][this.identifier] + &quot;\&quot;]&quot;).
+                    removeClass(this.options.css.selected)._mcmAria(&quot;selected&quot;, &quot;false&quot;).
+                    find(selectBoxSelector).prop(&quot;checked&quot;, false);
+            }
+            this.$element.trigger(&quot;deselected&quot; + namespace, [deselectedRows]); // jshint ignore:line
+        }
+    }
+
+    return this;
+};
+
+/**
+ * Sorts the rows by a given sort descriptor dictionary. 
+ * The sort filter will be reseted, if no argument is provided.
+ *
+ * @method sort
+ * @param [dictionary] {Object} A sort descriptor dictionary that contains the sort information
+ * @chainable
+ **/
+Grid.prototype.sort = function(dictionary) {
+    var values = (dictionary) ? $.extend({}, dictionary) : {};
+    if(values === this.sortDictionary) {
+        return this;
+    }
+
+    this.sortDictionary = values;
+    renderTableHeader.call(this); // jshint ignore:line
+    sortRows.call(this); // jshint ignore:line
+    loadData.call(this); // jshint ignore:line
+
+    return this;
+};
+
+/**
+ * Gets a list of the column settings.
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is catched by your selector.
+ *
+ * @method getColumnSettings
+ * @return {Array} Returns a list of the column settings.
+ * @since 1.0.0
+ **/
+Grid.prototype.getColumnSettings = function() {
+    return $.merge([], this.columns);
+};
+
+/**
+ * Gets the current page index.
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is catched by your selector.
+ *
+ * @method getCurrentPage
+ * @return {Number} Returns the current page index.
+ * @since 1.0.0
+ **/
+Grid.prototype.getCurrentPage = function() {
+    return this.current;
+};
+
+/**
+ * Gets the current rows.
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is catched by your selector.
+ *
+ * @method getCurrentPage
+ * @return {Array} Returns the current rows.
+ * @since 1.0.0
+ **/
+Grid.prototype.getCurrentRows = function() {
+    return $.merge([], this.currentRows);
+};
+
+/**
+ * Gets a number represents the row count per page.
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is catched by your selector.
+ *
+ * @method getRowCount
+ * @return {Number} Returns the row count per page.
+ * @since 1.0.0
+ **/
+Grid.prototype.getRowCount = function() {
+    return this.rowCount;
+};
+
+/**
+ * Gets the actual search phrase.
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is catched by your selector.
+ *
+ * @method getSearchPhrase
+ * @return {String} Returns the actual search phrase.
+ * @since 1.0.0
+ **/
+Grid.prototype.getSearchPhrase = function() {
+    return this.searchPhrase;
+};
+
+/**
+ * Gets the complete list of currently selected rows.
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is catched by your selector.
+ *
+ * @method getSelectedRows
+ * @return {Array} Returns all selected rows.
+ * @since 1.0.0
+ **/
+Grid.prototype.getSelectedRows = function() {
+    return $.merge([], this.selectedRows);
+};
+
+/**
+ * Gets the sort dictionary which represents the state of column sorting.
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is catched by your selector.
+ *
+ * @method getSortDictionary
+ * @return {Object} Returns the sort dictionary.
+ * @since 1.0.0
+ **/
+Grid.prototype.getSortDictionary = function() {
+    return $.extend({}, this.sortDictionary);
+};
+
+/**
+ * Gets a number represents the total page count.
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is catched by your selector.
+ *
+ * @method getTotalPageCount
+ * @return {Number} Returns the total page count.
+ * @since 1.0.0
+ **/
+Grid.prototype.getTotalPageCount = function() {
+    return this.totalPages;
+};
+
+/**
+ * Gets a number represents the total row count.
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is catched by your selector.
+ *
+ * @method getTotalRowCount
+ * @return {Number} Returns the total row count.
+ * @since 1.0.0
+ **/
+Grid.prototype.getTotalRowCount = function() {
+    return this.total;
+    };
+
+// GRID COMMON TYPE EXTENSIONS
+// ============
+
+$.fn.extend({
+    _mcmAria: function (name, value) {
+        return (value) ? this.attr(&quot;aria-&quot; + name, value) : this.attr(&quot;aria-&quot; + name);
+    },
+
+    _mcmBusyAria: function(busy) {
+        return (busy == null || busy) ? 
+            this._mcmAria(&quot;busy&quot;, &quot;true&quot;) : 
+            this._mcmAria(&quot;busy&quot;, &quot;false&quot;);
+    },
+
+    _mcmRemoveAria: function(name) {
+        return this.removeAttr(&quot;aria-&quot; + name);
+    },
+
+    _mcmEnableAria: function(enable) {
+        return (enable == null || enable) ? 
+            this.removeClass(&quot;disabled&quot;)._mcmAria(&quot;disabled&quot;, &quot;false&quot;) : 
+            this.addClass(&quot;disabled&quot;)._mcmAria(&quot;disabled&quot;, &quot;true&quot;);
+    },
+
+    _mcmEnableField: function(enable) {
+        return (enable == null || enable) ? 
+            this.removeAttr(&quot;disabled&quot;) : 
+            this.attr(&quot;disabled&quot;, &quot;disable&quot;);
+    },
+
+    _mcmShowAria: function(show) {
+        return (show == null || show) ? 
+            this.show()._mcmAria(&quot;hidden&quot;, &quot;false&quot;) :
+            this.hide()._mcmAria(&quot;hidden&quot;, &quot;true&quot;);
+    },
+
+    _mcmSelectAria: function(select) {
+        return (select == null || select) ? 
+            this.addClass(&quot;active&quot;)._mcmAria(&quot;selected&quot;, &quot;true&quot;) : 
+            this.removeClass(&quot;active&quot;)._mcmAria(&quot;selected&quot;, &quot;false&quot;);
+    },
+
+    _mcmId: function(id) {
+        return (id) ? this.attr(&quot;id&quot;, id) : this.attr(&quot;id&quot;);
+    }
+});
+
+if(!String.prototype.resolve) {
+    var formatter = {
+        &quot;checked&quot;: function(value) {
+            if(typeof value === &quot;boolean&quot;) {
+                return (value) ? &quot;checked=\&quot;checked\&quot;&quot; : &quot;&quot;;
+            }
+            return value;
+        }
+    };
+
+    String.prototype.resolve = function(substitutes, prefixes) {
+        var result = this;
+        $.each(substitutes, function(key, value) {
+            if(value != null &amp;&amp; typeof value !== &quot;function&quot;) {
+                if(typeof value === &quot;object&quot;) {
+                    var keys = (prefixes) ? $.extend([], prefixes) : [];
+                    keys.push(key);
+                    result = result.resolve(value, keys) + &quot;&quot;;
+                } else {
+                    if(formatter &amp;&amp; formatter[key] &amp;&amp; typeof formatter[key] === &quot;function&quot;) {
+                        value = formatter[key](value);
+                    }
+                    key = (prefixes) ? prefixes.join(&quot;.&quot;) + &quot;.&quot; + key : key;
+                    var pattern = new RegExp(&quot;\\{\\{&quot; + key + &quot;\\}\\}&quot;, &quot;gm&quot;);
+                    result = result.replace(pattern, (value.replace) ? value.replace(/\$/gi, &quot;&amp;#36;&quot;) : value);
+                }
+            }
+        });
+        return result;
+    };
+}
+
+if(!Array.prototype.first) {
+    Array.prototype.first = function(condition) {
+        for(var i = 0; i &lt; this.length; i++) {
+            var item = this[i];
+            if(condition(item)) {
+                return item;
+            }
+        }
+        return null;
+    };
+}
+
+if(!Array.prototype.contains) {
+    Array.prototype.contains = function(condition) {
+        for(var i = 0; i &lt; this.length; i++) {
+            var item = this[i];
+            if(condition(item)) {
+                return true;
+            }
+        }
+        return false;
+    };
+}
+
+if(!Array.prototype.page) {
+    Array.prototype.page = function(page, size) {
+        var skip = (page - 1) * size;
+        var end = skip + size;
+        return (this.length &gt; skip) ? 
+            (this.length &gt; end) ? this.slice(skip, end) : 
+                this.slice(skip) : [];
+    };
+}
+
+if(!Array.prototype.where) {
+    Array.prototype.where = function(condition) {
+        var result = [];
+        for(var i = 0; i &lt; this.length; i++) {
+            var item = this[i];
+            if(condition(item)) {
+                result.push(item);
+            }
+        }
+        return result;
+    };
+}
+
+if(!Array.prototype.propValues){
+    Array.prototype.propValues = function(propName) {
+        var result = [];
+        for (var i = 0; i &lt; this.length; i++) {
+            result.push(this[i][propName]);
+        }
+        return result;
+    };
+    }
+
+// GRID PLUGIN DEFINITION
+// =====================
+var old = $.fn.tablear;
+
+$.fn.tablear = function(option) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    var returnValue = null;
+    var elements = this.each(function (index) {
+            var $this = $(this);
+            var instance = $this.data(namespace); // jshint ignore:line
+            var options = typeof option === &quot;object&quot; &amp;&amp; option;
+            if(!instance &amp;&amp; option === &quot;destroy&quot;) {
+                return;
+            }
+            if(!instance) {
+                $this.data(namespace, (instance = new Grid(this, options))); // jshint ignore:line
+                init.call(instance); // jshint ignore:line
+            }
+            if(typeof option === &quot;string&quot;) {
+                if(option.indexOf(&quot;get&quot;) === 0 &amp;&amp; index === 0) {
+                    returnValue = instance[option].apply(instance, args);
+                } else if(option.indexOf(&quot;get&quot;) !== 0) {
+                    return instance[option].apply(instance, args);
+                }
+            }
+        });
+    return (typeof option === &quot;string&quot; &amp;&amp; option.indexOf(&quot;get&quot;) === 0) ? returnValue : elements;
+};
+
+//to easily access the Grid object. It&#x27;s a convention
+$.fn.tablear.Constructor = Grid; // jshint ignore:line
+$.fn.tablear.defaults = Grid.defaults; // jshint ignore:line
+$.fn.tablear.locales = Grid.locales; // jshint ignore:line
+
+// GRID NO CONFLICT
+// ===============
+$.fn.tablear.noConflict = function() {
+    $.fn.tablear = old;
+    return this;
+};
+
+// GRID DATA-API
+// ============
+$(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: editable
+ *
+ */
+
+(function ($) {
+    &#x27;use strict&#x27;; // jshint ignore:line
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        editable: true,
+        onEditableInit: function () {
+            return false;
+        },
+        onEditableSave: function (field, row, oldValue, $el) {
+            return false;
+        },
+        onEditableShown: function (field, row, $el, editable) {
+            return false;
+        },
+        onEditableHidden: function (field, row, $el, reason) {
+            return false;
+        }
+    });
+
+    $.extend($.fn.tablear.Constructor.EVENTS, {
+        &#x27;editable-init.bs.table&#x27;: &#x27;onEditableInit&#x27;,
+        &#x27;editable-save.bs.table&#x27;: &#x27;onEditableSave&#x27;,
+        &#x27;editable-shown.bs.table&#x27;: &#x27;onEditableShown&#x27;,
+        &#x27;editable-hidden.bs.table&#x27;: &#x27;onEditableHidden&#x27;
+    });
+
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
+        var that = this;
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+
+        if(!this.options.editable) {
+            return;
+        }
+
+        $.each(this.columns, function (i, column) {
+            if(!column.editable) {
+                return;
+            }
+
+            var editableOptions = {};
+            var editableDataMarkup = [];
+            var editableDataPrefix = &#x27;editable-&#x27;;
+
+            var processDataOptions = function(key, value) {
+              // Replace camel case with dashes.
+              var dashKey = key.replace(/([A-Z])/g, function($1){return &quot;-&quot;+$1.toLowerCase();});
+              if (dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
+                var dataKey = dashKey.replace(editableDataPrefix, &#x27;data-&#x27;);
+                editableOptions[dataKey] = value;
+              }
+            };
+
+            $.each(that.options, processDataOptions);
+
+            var _formatter = column.formatter;
+            column.formatter = function (value, row, index) {
+                //var result = _formatter ? _formatter(value, row, index) : value;
+                var result = row[value.field];
+
+                $.each(column, processDataOptions);
+
+                $.each(editableOptions, function (key, value) {
+                    editableDataMarkup.push(&#x27; &#x27; + key + &#x27;=&quot;&#x27; + value + &#x27;&quot;&#x27;);
+                });
+
+                return [&#x27;&lt;a href=&quot;javascript:void(0)&quot;&#x27;,
+                    &#x27; data-name=&quot;&#x27; + column.field + &#x27;&quot;&#x27;,
+                    &#x27; data-pk=&quot;&#x27; + row.id + &#x27;&quot;&#x27;,
+                    &#x27; data-value=&quot;&#x27; + result + &#x27;&quot;&#x27;,
+                    editableDataMarkup.join(&#x27;&#x27;),
+                    &#x27;&gt;&#x27; + &#x27;&lt;/a&gt;&#x27;
+                ].join(&#x27;&#x27;);
+            };
+        });
+
+        setTimeout(function() {
+            that.initSecond();            
+        }, 100); //TODO mcm pune-l dupa ce a terminat de desenat tot
+    };
+
+    $.fn.tablear.Constructor.prototype.initSecond = function () {
+        var that = this;
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+
+        if(!this.options.editable) {
+            return;
+        }
+
+        $.each(this.columns, function (i, column) {
+            if(!column.editable) {
+                return;
+            }
+
+            that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;).editable(column.editable)
+                .off(&#x27;save&#x27;).on(&#x27;save&#x27;, function (e, params) {
+                    //var data = that.getData();
+                    //var data = that.columns;
+                    //var index = $(this).parents(&#x27;tr[data-index]&#x27;).data(&#x27;index&#x27;);
+                    //var row = data[index]; 
+                    //var oldValue = row[column.field];
+
+                    $(this).data(&#x27;value&#x27;, params.submitValue);
+                    //row[column.field] = params.submitValue;
+                    //that.trigger(&#x27;editable-save&#x27;, column.field, row, oldValue, $(this));
+                });
+            that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;).editable(column.editable)
+                .off(&#x27;shown&#x27;).on(&#x27;shown&#x27;, function (e, editable) {
+                    //var data = that.getData();
+                    //var data = that.columns;
+                    //var index = $(this).parents(&#x27;tr[data-index]&#x27;).data(&#x27;index&#x27;);
+                    //var row = data[index];
+                    
+                    //that.trigger(&#x27;editable-shown&#x27;, column.field, row, $(this), editable);
+                });
+            that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;).editable(column.editable)
+                .off(&#x27;hidden&#x27;).on(&#x27;hidden&#x27;, function (e, reason) {
+                    //var data = that.getData();
+                    //var data = that.columns;
+                    //var index = $(this).parents(&#x27;tr[data-index]&#x27;).data(&#x27;index&#x27;);
+                    //var row = data[index];
+                    
+                    //that.trigger(&#x27;editable-hidden&#x27;, column.field, row, $(this), reason); //TODO 
+                });
+        });
+        //this.trigger(&#x27;editable-init&#x27;);
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: exporter
+ *
+ */
+
+(function ($) {
+    &#x27;use strict&#x27;; // jshint ignore:line
+
+    var TYPE_NAME = {
+        json: &#x27;JSON&#x27;,
+        xml: &#x27;XML&#x27;,
+        png: &#x27;PNG&#x27;,
+        csv: &#x27;CSV&#x27;,
+        txt: &#x27;TXT&#x27;,
+        sql: &#x27;SQL&#x27;,
+        doc: &#x27;MS-Word&#x27;,
+        excel: &#x27;MS-Excel&#x27;,
+        powerpoint: &#x27;MS-Powerpoint&#x27;,
+        pdf: &#x27;PDF&#x27;
+    };
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        showExport: false,
+        exportDataType: &#x27;basic&#x27;, // basic, all, selected
+        // &#x27;json&#x27;, &#x27;xml&#x27;, &#x27;png&#x27;, &#x27;csv&#x27;, &#x27;txt&#x27;, &#x27;sql&#x27;, &#x27;doc&#x27;, &#x27;excel&#x27;, &#x27;powerpoint&#x27;, &#x27;pdf&#x27;
+        exportTypes: [&#x27;json&#x27;, &#x27;xml&#x27;, &#x27;csv&#x27;, &#x27;txt&#x27;, &#x27;sql&#x27;, &#x27;excel&#x27;],
+        exportOptions: {}
+    });
+    $.extend($.fn.tablear.Constructor.defaults.css, {
+        exportIcon: &#x27;glyphicon-export icon-share&#x27;
+    });
+
+    $.extend($.fn.tablear.Constructor.locales, {
+        formatExport: function () {
+            return &#x27;Export data&#x27;;
+        }
+    });
+    $.extend($.fn.tablear.Constructor.defaults.locales, $.fn.tablear.Constructor.locales);
+
+    var _initExtensionsToolbar = $.fn.tablear.Constructor.prototype.initExtensionsToolbar;
+    $.fn.tablear.Constructor.prototype.initExtensionsToolbar = function () {
+        this.showToolbar = this.options.showExport;
+        _initExtensionsToolbar.apply(this, Array.prototype.slice.apply(arguments));
+        if(this.options.showExport) {
+            var that = this;
+            var $export = this.$extensionsToolbar.find(&#x27;div.export&#x27;);
+            if(!$export.length) {
+                $export = $([
+                    &#x27;&lt;div class=&quot;export btn-group&quot;&gt;&#x27;,
+                        &#x27;&lt;button class=&quot;btn btn-default&#x27; +
+                            sprintf(&#x27; btn-%s&#x27;, this.options.css.iconSize) +
+                            &#x27; dropdown-toggle&quot; &#x27; +
+                            &#x27;title=&quot;&#x27; + this.options.locales.formatExport() + &#x27;&quot; &#x27; +
+                            &#x27;data-toggle=&quot;dropdown&quot; type=&quot;button&quot;&gt;&#x27;,
+                            sprintf(&#x27;&lt;i class=&quot;%s %s&quot;&gt;&lt;/i&gt; &#x27;, this.options.css.icon, this.options.css.exportIcon),
+                            &#x27;&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&#x27;,
+                        &#x27;&lt;/button&gt;&#x27;,
+                        &#x27;&lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot;&gt;&#x27;,
+                        &#x27;&lt;/ul&gt;&#x27;,
+                    &#x27;&lt;/div&gt;&#x27;].join(&#x27;&#x27;)).appendTo(this.$extensionsToolbar);
+
+                var $menu = $export.find(&#x27;.dropdown-menu&#x27;);
+                var exportTypes = this.options.exportTypes;
+
+                if(typeof this.options.exportTypes === &#x27;string&#x27;) {
+                    var types = this.options.exportTypes.slice(1, -1).replace(/ /g, &#x27;&#x27;).split(&#x27;,&#x27;);
+                    exportTypes = [];
+                    $.each(types, function (i, value) {
+                        exportTypes.push(value.slice(1, -1));
+                    });
+                }
+                $.each(exportTypes, function (i, type) {
+                    if (TYPE_NAME.hasOwnProperty(type)) {
+                        $menu.append([&#x27;&lt;li data-type=&quot;&#x27; + type + &#x27;&quot;&gt;&#x27;,
+                                &#x27;&lt;a href=&quot;javascript:void(0)&quot;&gt;&#x27;,
+                                    TYPE_NAME[type],
+                                &#x27;&lt;/a&gt;&#x27;,
+                            &#x27;&lt;/li&gt;&#x27;].join(&#x27;&#x27;));
+                    }
+                });
+
+                $menu.find(&#x27;li&#x27;).click(function () {
+                    var type = $(this).data(&#x27;type&#x27;);
+                    var doExport = function () {
+						that.$element.tableExport($.extend({}, that.options.exportOptions, {
+							type: type,
+							escape: false
+						}));
+					};
+
+                    if(that.options.exportDataType === &#x27;all&#x27; &amp;&amp; that.options.pagination) {
+                        that.$element.one(that.options.sidePagination === &#x27;server&#x27; ? &#x27;post-body.bs.table&#x27; : &#x27;page-change.bs.table&#x27;, function() {
+                            doExport();
+                            that.togglePagination();
+                        });
+                        that.togglePagination();
+                    } else if (that.options.exportDataType === &#x27;selected&#x27;) {
+                        var data = that.getData();
+						var selectedData = that.getAllSelections();
+                        that.load(selectedData);
+                        doExport();
+                        that.load(data);
+                    } else {
+                        doExport();
+                    }
+                });
+            }
+        }
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: filters
+ *
+ */
+
+(function ($) {
+    &#x27;use strict&#x27;; // jshint ignore:line
+
+    var addOptionToSelectControl = function(selectControl, value, text) {
+        value = $.trim(value);
+        selectControl = $(selectControl.get(selectControl.length - 1));
+        if(!existOptionInSelectControl(selectControl, value)) {
+            selectControl.append($(&quot;&lt;option&gt;&lt;/option&gt;&quot;)
+                .attr(&quot;value&quot;, value)
+                .text($(&#x27;&lt;div /&gt;&#x27;).html(text).text()));
+        }
+    };
+
+    var sortSelectControl = function(selectControl) {
+            var $opts = selectControl.find(&#x27;option:gt(0)&#x27;);
+            $opts.sort(function (a, b) {
+                a = $(a).text().toLowerCase();
+                b = $(b).text().toLowerCase();
+                if($.isNumeric(a) &amp;&amp; $.isNumeric(b)) {
+                    // Convert numerical values from string to float.
+                    a = parseFloat(a);
+                    b = parseFloat(b);
+                }
+                return a &gt; b ? 1 : a &lt; b ? -1 : 0;
+            });
+
+            selectControl.find(&#x27;option:gt(0)&#x27;).remove();
+            selectControl.append($opts);
+    };
+
+    var existOptionInSelectControl = function(selectControl, value) {
+        var options = selectControl.get(selectControl.length - 1).options;
+        for(var i = 0; i &lt; options.length; i++) {
+            if(options[i].value === value.toString()) {
+                //The value is not valid to add
+                return true;
+            }
+        }
+
+        //If we get here, the value is valid to add
+        return false;
+    };
+
+    var fixHeaderCSS = function(that) {
+        that.$tableHeader.css(&#x27;height&#x27;, &#x27;77px&#x27;);
+    };
+
+    var getCurrentHeader = function(that) {
+        var header = that.$header;
+        if(that.options.height) {
+            header = that.$tableHeader;
+        }
+
+        return header;
+    };
+
+    var getCurrentSearchControls = function(that) {
+        var searchControls = &#x27;select, input&#x27;;
+        if(that.options.height) {
+            searchControls = &#x27;table select, table input&#x27;;
+        }
+
+        return searchControls;
+    };
+
+    var getCursorPosition = function(el) {
+        if(isIEBrowser()) {
+            if ($(el).is(&#x27;input&#x27;)) {
+                var pos = 0;
+                if (&#x27;selectionStart&#x27; in el) {
+                    pos = el.selectionStart;
+                } else if (&#x27;selection&#x27; in document) {
+                    el.focus();
+                    var sel = document.selection.createRange();
+                    var selLength = document.selection.createRange().text.length;
+                    sel.moveStart(&#x27;character&#x27;, -el.value.length);
+                    pos = sel.text.length - selLength;
+                }
+                return pos;
+            } else {
+                return -1;
+            }
+        } else {
+            return -1;
+        }
+    };
+
+    var setCursorPosition = function (el, index) {
+        if(isIEBrowser()) {
+            if(el.setSelectionRange !== undefined) {
+                el.setSelectionRange(index, index);
+            } else {
+                $(el).val(el.value);
+            }
+        }
+    };
+
+    var copyValues = function (that) {
+        var header = getCurrentHeader(that);
+        var searchControls = getCurrentSearchControls(that);
+
+        that.options.valuesShowFilter = [];
+
+        header.find(searchControls).each(function () {
+            that.options.valuesShowFilter.push({
+                field: $(this).closest(&#x27;[data-field]&#x27;).data(&#x27;field&#x27;),
+                value: $(this).val(),
+                position: getCursorPosition($(this).get(0))
+            });
+        });
+    };
+
+    var setValues = function(that) {
+        var field = null;
+        var result = [];
+        var header = getCurrentHeader(that);
+        var searchControls = getCurrentSearchControls(that);
+
+        if(that.options.valuesShowFilter.length &gt; 0) {
+            header.find(searchControls).each(function (index, ele) {
+                field = $(this).closest(&#x27;[data-field]&#x27;).data(&#x27;field&#x27;);
+                result = $.grep(that.options.valuesShowFilter, function(valueObj) {
+                    return valueObj.field === field;
+                });
+
+                if(result.length &gt; 0) {
+                    $(this).val(result[0].value);
+                    setCursorPosition($(this).get(0), result[0].position);
+                }
+            });
+        }
+    };
+
+    var collectBootstrapCookies = function cookiesRegex() {
+        var cookies = [];
+        var foundCookies = document.cookie.match(/(?:bs.table.)(\w*)/g);
+
+        if(foundCookies) {
+            $.each(foundCookies, function (i, cookie) {
+                if(/./.test(cookie)) {
+                    cookie = cookie.split(&quot;.&quot;).pop();
+                }
+
+                if($.inArray(cookie, cookies) === -1) {
+                    cookies.push(cookie);
+                }
+            });
+            return cookies;
+        }
+    };
+
+    var initFilterSelectControls = function(that) {
+        var data = that.options.data;
+        //var itemsPerPage = that.pageTo &lt; that.options.data.length ? that.options.data.length : that.pageTo;
+
+        var isColumnSearchableViaSelect = function (column) {
+            return column.showFilter &amp;&amp; column.showFilter.toLowerCase() === &#x27;select&#x27; &amp;&amp; column.searchable;
+        };
+
+        var isFilterDataNotGiven = function (column) {
+            return column.filterData === undefined || column.filterData.toLowerCase() === &#x27;column&#x27;;
+        };
+
+        var hasSelectControlElement = function (selectControl) {
+            return selectControl &amp;&amp; selectControl.length &gt; 0;
+        };
+
+        var z = that.options.pagination ? (that.options.sidePagination === &#x27;server&#x27; ? that.pageTo : that.options.totalRows) : that.pageTo;
+
+        $.each(that.header.fields, function(j, field) {
+            var column = that.columns[getFieldIndex(that.columns, field)];
+            var selectControl = $(&#x27;.tablear-filter-control-&#x27; + escapeID(column.field));
+
+            if(isColumnSearchableViaSelect(column) &amp;&amp; isFilterDataNotGiven(column) &amp;&amp; hasSelectControlElement(selectControl)) {
+                if(selectControl.get(selectControl.length - 1).options.length === 0) {
+                    //Added the default option
+                    addOptionToSelectControl(selectControl, &#x27;&#x27;, &#x27;&#x27;);
+                }
+                var uniqueValues = {};
+                for(var i = 0; i &lt; z; i++) {
+                    //Added a new value
+                    var fieldValue = data[i][field];
+                    var formattedValue = calculateObjectValue(that.header, that.header.formatters[j], [fieldValue, data[i], i], fieldValue);
+                    uniqueValues[formattedValue] = fieldValue;
+                }
+                for(var key in uniqueValues) {
+                    addOptionToSelectControl(selectControl, uniqueValues[key], key);
+                }
+                sortSelectControl(selectControl);
+            }
+        });
+    };
+
+    var escapeID = function(id) {
+        return String(id).replace( /(:|\.|\[|\]|,)/g, &quot;\\$1&quot; );
+    };
+
+    var createControls = function(that, header) {
+        var addedShowFilter = false;
+        var isVisible;
+        var html;
+        var timeoutId = 0;
+
+        $.each(that.columns, function(i, column) {
+            isVisible = &#x27;hidden&#x27;;
+            html = [];
+
+            if(!column.visible) {
+                return;
+            }
+
+            if(!column.showFilter) {
+                html.push(&#x27;&lt;div style=&quot;height: 34px;&quot;&gt;&lt;/div&gt;&#x27;);
+            } else {
+                html.push(&#x27;&lt;div style=&quot;margin: 0 2px 2px 2px;&quot; class=&quot;showFilter&quot;&gt;&#x27;);
+                var nameControl = column.showFilter.toLowerCase();
+                if(column.searchable &amp;&amp; that.options.filterTemplate[nameControl]) {
+                    addedShowFilter = true;
+                    isVisible = &#x27;visible&#x27;;
+                    html.push(that.options.filterTemplate[nameControl](that, column.field, isVisible));
+                }
+            }
+
+            $.each(header.children().children(), function(i, tr) {
+                tr = $(tr);
+                if(tr.data(&#x27;columnId&#x27;) === column.id) {
+                    tr.append(html.join(&#x27;&#x27;));
+                    return false;
+                }
+            });
+
+            if(column.filterData !== undefined &amp;&amp; column.filterData.toLowerCase() !== &#x27;column&#x27;) {
+                var filterDataType = getFilterDataMethod(filterDataMethods, column.filterData.substring(0, column.filterData.indexOf(&#x27;:&#x27;)));
+                var filterDataSource;
+                var selectControl;
+
+                if(filterDataType !== null) {
+                    filterDataSource = column.filterData.substring(column.filterData.indexOf(&#x27;:&#x27;) + 1, column.filterData.length);
+                    selectControl = $(&#x27;.tablear-filter-control-&#x27; + escapeID(column.field));
+                    addOptionToSelectControl(selectControl, &#x27;&#x27;, &#x27;&#x27;);
+                    filterDataType(filterDataSource, selectControl);
+                } else {
+                    throw new SyntaxError(&#x27;Error. You should use any of these allowed filter data methods: var, json, url.&#x27; + &#x27; Use like this: var: {key: &quot;value&quot;}&#x27;);
+                }
+
+                var variableValues;
+                var key;
+                switch(filterDataType) {
+                    case &#x27;url&#x27;:
+                        $.ajax({
+                            url: filterDataSource,
+                            dataType: &#x27;json&#x27;,
+                            success: function(data) {
+                                for(var key in data) {
+                                    addOptionToSelectControl(selectControl, key, data[key]);
+                                }
+                                sortSelectControl(selectControl);
+                            }
+                        });
+                        break;
+                    case &#x27;var&#x27;:
+                        variableValues = window[filterDataSource];
+                        for(key in variableValues) {
+                            addOptionToSelectControl(selectControl, key, variableValues[key]);
+                        }
+                        sortSelectControl(selectControl);
+                        break;
+                    case &#x27;json&#x27;:
+                        variableValues = JSON.parse(filterDataSource);
+                        for(key in variableValues) {
+                            addOptionToSelectControl(selectControl, key, variableValues[key]);
+                        }
+                        sortSelectControl(selectControl);
+                        break;
+                }
+            }
+        });
+
+        if(addedShowFilter) {
+            header.off(&#x27;keyup&#x27;, &#x27;input&#x27;).on(&#x27;keyup&#x27;, &#x27;input&#x27;, function(event) {
+            clearTimeout(timeoutId);
+                timeoutId = setTimeout(function() {
+                    that.onColumnSearch(event);
+                }, that.options.searchTimeOut);
+            });
+
+            header.off(&#x27;change&#x27;, &#x27;select&#x27;).on(&#x27;change&#x27;, &#x27;select&#x27;, function(event) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(function() {
+                    that.onColumnSearch(event);
+                }, that.options.searchTimeOut);
+            });
+
+            header.off(&#x27;mouseup&#x27;, &#x27;input&#x27;).on(&#x27;mouseup&#x27;, &#x27;input&#x27;, function(event) {
+                var $input = $(this),
+                oldValue = $input.val();
+
+                if(oldValue === &quot;&quot;) {
+                    return;
+                }
+
+                setTimeout(function() {
+                    var newValue = $input.val();
+                    if(newValue === &quot;&quot;){
+                        clearTimeout(timeoutId);
+                        timeoutId = setTimeout(function() {
+                            that.onColumnSearch(event);
+                        }, that.options.searchTimeOut);
+                    }
+                }, 1);
+            });
+
+            if(header.find(&#x27;.date-filter-control&#x27;).length &gt; 0) {
+                $.each(that.columns, function(i, column) {
+                    if(column.showFilter !== undefined &amp;&amp; column.showFilter.toLowerCase() === &#x27;datepicker&#x27;) {
+                        header.find(&#x27;.date-filter-control.tablear-filter-control-&#x27; + 
+                            column.field).datepicker(column.filterDatepickerOptions).on(&#x27;changeDate&#x27;, function (e) {
+                                //Fired the keyup event
+                                $(e.currentTarget).keyup();
+                            });
+                    }
+                });
+            }
+        } else {
+            header.find(&#x27;.showFilter&#x27;).hide();
+        }
+    };
+
+    var getDirectionOfSelectOptions = function(alignment) {
+        alignment = alignment === undefined ? &#x27;left&#x27; : alignment.toLowerCase();
+        switch (alignment) {
+            case &#x27;left&#x27;:
+                return &#x27;ltr&#x27;;
+            case &#x27;right&#x27;:
+                return &#x27;rtl&#x27;;
+            case &#x27;auto&#x27;:
+                return &#x27;auto&#x27;;
+            default:
+                return &#x27;ltr&#x27;;
+        }
+    };
+
+    var filterDataMethods = {
+        &#x27;var&#x27;: function(filterDataSource, selectControl) {
+            var variableValues = window[filterDataSource];
+            for(var key in variableValues) {
+                addOptionToSelectControl(selectControl, key, variableValues[key]);
+            }
+            sortSelectControl(selectControl);
+        },
+        &#x27;url&#x27;: function(filterDataSource, selectControl) {
+            $.ajax({
+                url: filterDataSource,
+                dataType: &#x27;json&#x27;,
+                success: function (data) {
+                    for(var key in data) {
+                        addOptionToSelectControl(selectControl, key, data[key]);
+                    }
+                    sortSelectControl(selectControl);
+                }
+            });
+        },
+        &#x27;json&#x27;: function(filterDataSource, selectControl) {
+            var variableValues = JSON.parse(filterDataSource);
+            for(var key in variableValues) {
+                addOptionToSelectControl(selectControl, key, variableValues[key]);
+            }
+            sortSelectControl(selectControl);
+        }
+    };
+
+    var getFilterDataMethod = function(objFilterDataMethod, searchTerm) {
+        var keys = Object.keys(objFilterDataMethod);
+        for(var i = 0; i &lt; keys.length; i++) {
+            if(keys[i] === searchTerm) {
+                return objFilterDataMethod[searchTerm];
+            }
+        }
+        return null;
+    };
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        showFilter: false,
+        onColumnSearch: function(field, text) {
+            return false;
+        },
+        filterShowClear: false,
+        alignmentSelectControlOptions: undefined,
+        filterTemplate: {
+            input: function(that, field, isVisible) {
+                return sprintf(&#x27;&lt;input type=&quot;text&quot; class=&quot;form-control tablear-filter-control-%s&quot; style=&quot;width: 100%; visibility: %s&quot;&gt;&#x27;, field, isVisible);
+            },
+            select: function(that, field, isVisible) {
+                return sprintf(&#x27;&lt;select class=&quot;form-control tablear-filter-control-%s&quot; style=&quot;width: 100%; visibility: %s&quot; dir=&quot;%s&quot;&gt;&lt;/select&gt;&#x27;,
+                    field, isVisible, getDirectionOfSelectOptions(that.options.alignmentSelectControlOptions));
+            },
+            datepicker: function(that, field, isVisible) {
+                return sprintf(&#x27;&lt;input type=&quot;text&quot; class=&quot;form-control date-filter-control tablear-filter-control-%s&quot; style=&quot;width: 100%; visibility: %s&quot;&gt;&#x27;, field, isVisible);
+            }
+        },
+        //internal variables
+        valuesShowFilter: []
+    });
+
+    $.extend($.fn.tablear.Constructor.columnDefaults, {
+        showFilter: undefined,
+        filterData: undefined,
+        filterDatepickerOptions: undefined,
+        filterStrictSearch: false,
+        filterStartsWithSearch: false
+    });
+
+    $.extend($.fn.tablear.Constructor.EVENTS, {
+        &#x27;column-search.bs.table&#x27;: &#x27;onColumnSearch&#x27;
+    });
+
+    $.extend($.fn.tablear.Constructor.defaults.css, {
+        clearFilter: &#x27;glyphicon-trash icon-clear&#x27;
+    });
+
+    $.extend($.fn.tablear.Constructor.locales, {
+        formatClearFilters: function () {
+            return &#x27;Clear Filters&#x27;;
+        }
+    });
+    $.extend($.fn.tablear.Constructor.defaults, $.fn.tablear.Constructor.locales);
+
+    var _init = $.fn.tablear.Constructor.prototype.init;
+    var _initExtensionsToolbar = $.fn.tablear.Constructor.prototype.initExtensionsToolbar;
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    var _initBody = $.fn.tablear.Constructor.prototype.initBody;
+    var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
+
+    $.fn.tablear.Constructor.prototype.init = function () {
+        //Make sure that the showFilter option is set
+        if(this.options.showFilter) {
+            var that = this;
+
+            // Compatibility: IE &lt; 9 and old browsers
+            if(!Object.keys) {
+                objectKeys();
+            }
+
+            //Make sure that the internal variables are set correctly
+            this.options.valuesShowFilter = [];
+
+            this.$element.on(&#x27;reset-view.bs.table&#x27;, function () {
+                //Create controls on $tableHeader if the height is set
+                if(!that.options.height) {
+                    return;
+                }
+                //Avoid recreate the controls
+                if(that.$tableHeader.find(&#x27;select&#x27;).length &gt; 0 || that.$tableHeader.find(&#x27;input&#x27;).length &gt; 0) {
+                    return;
+                }
+                createControls(that, that.$tableHeader);
+            }).on(&#x27;post-header.bs.table&#x27;, function () {
+                setValues(that);
+            }).on(&#x27;post-body.bs.table&#x27;, function () {
+                if(that.options.height) {
+                    fixHeaderCSS(that);
+                }
+            }).on(&#x27;column-switch.bs.table&#x27;, function() {
+                setValues(that);
+            });
+        }
+        _init.apply(this, Array.prototype.slice.apply(arguments));
+    };
+
+    $.fn.tablear.Constructor.prototype.initExtensionsToolbar = function () {
+        this.showToolbar = this.options.showFilter;
+        _initExtensionsToolbar.apply(this, Array.prototype.slice.apply(arguments));
+        if(this.options.showFilter) {
+            var $btnGroup = this.$extensionsToolbar;
+            var $btnClear = $btnGroup.find(&#x27;.filter-show-clear&#x27;);
+
+            if(!$btnClear.length) {
+                $btnClear = $([
+                    &#x27;&lt;div class=&quot;filter btn-group&quot;&gt;&#x27;,
+                    &#x27;&lt;button class=&quot;btn btn-default filter-show-clear&quot; &#x27;,
+                    sprintf(&#x27;type=&quot;button&quot; title=&quot;%s&quot;&gt;&#x27;, this.options.formatClearFilters()),
+                    sprintf(&#x27;&lt;i class=&quot;%s %s&quot;&gt;&lt;/i&gt; &#x27;, this.options.css.icon, this.options.css.clearFilter),
+                    &#x27;&lt;/button&gt;&#x27;,
+                    &#x27;&lt;/div&gt;&#x27;                    
+                ].join(&#x27;&#x27;)).appendTo($btnGroup);
+
+                $btnClear.off(&#x27;click&#x27;).on(&#x27;click&#x27;, $.proxy(this.clearShowFilter, this));
+            }
+        }
+    };
+
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.showFilter) {
+            return;
+        }
+        createControls(this, this.$header);
+        //initSearch.call(this);
+        initFilterSelectControls(this);
+    };
+
+    var initSearch = function () {
+        if(this.options.sidePagination === &#x27;server&#x27;) {
+            return;
+        }
+
+        var that = this;
+        this.data = fp ? $.grep(this.data, function(item, i) {
+            for(var key in fp) {
+                var thisColumn = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, key)];
+                var fval = fp[key].toLowerCase();
+                var value = item[key];
+
+                if(thisColumn &amp;&amp; thisColumn.searchFormatter) {
+                    value = calculateObjectValue(that.header,
+                        that.header.formatters[$.inArray(key, that.header.fields)], [value, item, i], value);
+                }
+
+                if(thisColumn.filterStrictSearch) {
+                    if(!($.inArray(key, that.header.fields) !== -1 &amp;&amp;
+                            (typeof value === &#x27;string&#x27; || typeof value === &#x27;number&#x27;) &amp;&amp;
+                            value.toString().toLowerCase() === fval.toString().toLowerCase())) {
+                        return false;
+                    }
+                } else if(thisColumn.filterStartsWithSearch) {
+                    if(!($.inArray(key, that.header.fields) !== -1 &amp;&amp;
+                        (typeof value === &#x27;string&#x27; || typeof value === &#x27;number&#x27;) &amp;&amp;
+                        (value + &#x27;&#x27;).toLowerCase().indexOf(fval) === 0)) {
+                      return false;
+                    }
+                } else {
+                    if(!($.inArray(key, that.header.fields) !== -1 &amp;&amp;
+                            (typeof value === &#x27;string&#x27; || typeof value === &#x27;number&#x27;) &amp;&amp;
+                            (value + &#x27;&#x27;).toLowerCase().indexOf(fval) !== -1)) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }) : this.data;
+    };
+
+    $.fn.tablear.Constructor.prototype.initColumnSearch = function(filterColumnsDefaults) {
+        copyValues(this);
+
+        if(filterColumnsDefaults) {
+            this.filterColumnsPartial = filterColumnsDefaults;
+            this.updatePagination();
+
+            for(var filter in filterColumnsDefaults) {
+                this.trigger(&#x27;column-search&#x27;, filter, filterColumnsDefaults[filter]);
+            }
+        }
+    };
+
+    $.fn.tablear.Constructor.prototype.onColumnSearch = function (event) {
+        if($.inArray(event.keyCode, [37, 38, 39, 40]) &gt; -1) {
+            return;
+        }
+
+        copyValues(this);
+        var text = $.trim($(event.currentTarget).val());
+        var $field = $(event.currentTarget).closest(&#x27;[data-field]&#x27;).data(&#x27;field&#x27;);
+
+        if($.isEmptyObject(this.filterColumnsPartial)) {
+            this.filterColumnsPartial = {};
+        }
+        if(text) {
+            this.filterColumnsPartial[$field] = text;
+        } else {
+            delete this.filterColumnsPartial[$field];
+        }
+
+        // if the searchText is the same as the previously selected column value,
+        // bootstrapTable will not try searching again (even though the selected column
+        // may be different from the previous search).  As a work around
+        // we&#x27;re manually appending some text to bootrap&#x27;s searchText field
+        // to guarantee that it will perform a search again when we call this.onSearch(event)
+        this.searchText += &quot;randomText&quot;;
+
+        this.options.pageNumber = 1;
+        //this.onSearch(event);
+        executeSearch.call(this, text);
+        //this.trigger(&#x27;column-search&#x27;, $field, text);
+    };
+
+    $.fn.tablear.Constructor.prototype.clearShowFilter = function () {
+        if(this.options.showFilter) {
+            var that = this;
+            var cookies = collectBootstrapCookies();
+            var header = getCurrentHeader(that);
+            var table = header.closest(&#x27;table&#x27;);
+            var controls = header.find(getCurrentSearchControls(that));
+            var search = that.$toolbar.find(&#x27;.search input&#x27;);
+            var timeoutId = 0;
+
+            $.each(that.options.valuesShowFilter, function (i, item) {
+                item.value = &#x27;&#x27;;
+            });
+
+            setValues(that);
+
+            // Clear each type of filter if it exists.
+            // Requires the body to reload each time a type of filter is found because we never know
+            // which ones are going to be present.
+            if(controls.length &gt; 0) {
+                this.filterColumnsPartial = {};
+                $(controls[0]).trigger(controls[0].tagName === &#x27;INPUT&#x27; ? &#x27;keyup&#x27; : &#x27;change&#x27;);
+            } else {
+                return;
+            }
+
+            if(search.length &gt; 0) {
+                that.resetSearch();
+            }
+
+            // use the default sort order if it exists. do nothing if it does not
+            if(that.options.sortName !== table.data(&#x27;sortName&#x27;) || that.options.sortOrder !== table.data(&#x27;sortOrder&#x27;)) {
+                var sorter = header.find(sprintf(&#x27;[data-field=&quot;%s&quot;]&#x27;, $(controls[0]).closest(&#x27;table&#x27;).data(&#x27;sortName&#x27;)));
+                if(sorter.length &gt; 0) {
+                    that.onSort(table.data(&#x27;sortName&#x27;), table.data(&#x27;sortName&#x27;));
+                    $(sorter).find(&#x27;.sortable&#x27;).trigger(&#x27;click&#x27;);
+                }
+            }
+
+            // clear cookies once the filters are clean
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(function () {
+                if(cookies &amp;&amp; cookies.length &gt; 0) {
+                    $.each(cookies, function (i, item) {
+                        if(that.deleteCookie !== undefined) {
+                            that.deleteCookie(item);
+                        }
+                    });
+                }
+            }, that.options.searchTimeOut);
+        }
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: reorder-columns
+ *
+ */
+
+(function ($) {
+    &#x27;use strict&#x27;; // jshint ignore:line
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        reorderableColumns: false,
+        maxMovingRows: 10,
+        onReorderColumn: function (headerFields) {
+            return false;
+        },
+        dragaccept: null
+    });
+
+    $.extend($.fn.tablear.Constructor.EVENTS, {
+        &#x27;reorder-column.bs.table&#x27;: &#x27;onReorderColumn&#x27;
+    });
+
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    var _toggleColumn = $.fn.tablear.Constructor.prototype.toggleColumn;
+    var _toggleView = $.fn.tablear.Constructor.prototype.toggleView;
+    var _resetView = $.fn.tablear.Constructor.prototype.resetView;
+
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.reorderableColumns) {
+            return;
+        }
+        this.makeColumnsReorderable();
+    };
+
+    $.fn.tablear.Constructor.prototype.toggleColumn = function () {
+        _toggleColumn.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.reorderableColumns) {
+            return;
+        }
+
+        this.makeColumnsReorderable();
+    };
+
+    $.fn.tablear.Constructor.prototype.toggleView = function () {
+        _toggleView.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.reorderableColumns) {
+            return;
+        }
+
+        if(this.options.cardView) {
+            return;
+        }
+
+        this.makeColumnsReorderable();
+    };
+
+    $.fn.tablear.Constructor.prototype.resetView = function () {
+       // _resetView.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.reorderableColumns) {
+            return;
+        }
+
+        this.makeColumnsReorderable();
+    };
+
+    $.fn.tablear.Constructor.prototype.makeColumnsReorderable = function () {
+        var that = this;
+        try {
+            $(this.$element).dragtable(&#x27;destroy&#x27;);
+        } catch (e) {}
+        $(this.$element).dragtable({
+            maxMovingRows: that.options.maxMovingRows,
+            dragaccept: that.options.dragaccept,
+            clickDelay:200,
+            beforeStop: function() {
+                var ths = [],
+                    formatters = [],
+                    columns = [],
+                    columnsHidden = [],
+                    columnIndex = -1;
+                that.$header.find(&#x27;th&#x27;).each(function (i) {
+                    ths.push($(this).data(&#x27;field&#x27;));
+                    formatters.push($(this).data(&#x27;formatter&#x27;));
+                });
+
+                //Exist columns not shown
+                if (ths.length &lt; that.columns.length) {
+                    columnsHidden = $.grep(that.columns, function (column) {
+                       return !column.visible;
+                    });
+                    for (var i = 0; i &lt; columnsHidden.length; i++) {
+                        ths.push(columnsHidden[i].field);
+                        formatters.push(columnsHidden[i].formatter);
+                    }
+                }
+
+                for (var i = 0; i &lt; ths.length; i++ ) {
+                    columnIndex = getFieldIndex(that.columns, ths[i]);
+                    if (columnIndex !== -1) {
+                        columns.push(that.columns[columnIndex]);
+                        that.columns.splice(columnIndex, 1);
+                    }
+                }
+
+                that.columns = that.columns.concat(columns);
+                that.header.fields = ths;
+                that.header.formatters = formatters;
+                that.resetView();
+                //that.trigger(&#x27;reorder-column&#x27;, ths);
+            }
+        });
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: reorder-rows
+ *
+ */
+
+(function($) {
+    &#x27;use strict&#x27;; // jshint ignore:line
+
+    var isSearch = false;
+
+    var rowAttr = function (row, index) {
+        return {
+            id: &#x27;customId_&#x27; + index
+        };
+    };
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        reorderableRows: false,
+        onDragStyle: null,
+        onDropStyle: null,
+        onDragClass: &quot;reorder_rows_onDragClass&quot;,
+        dragHandle: null,
+        useRowAttrFunc: false,
+        onReorderRowsDrag: function(table, row) {
+            return false;
+        },
+        onReorderRowsDrop: function(table, row) {
+            return false;
+        },
+        onReorderRow: function(newData) {
+             return false;
+        }
+    });
+
+    $.extend($.fn.tablear.Constructor.EVENTS, {
+        &#x27;reorder-row.bs.table&#x27;: &#x27;onReorderRow&#x27;
+    });
+
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.reorderableRows) {
+            return;
+        }
+        var that = this;
+        if(this.options.useRowAttrFunc) {
+            this.options.rowAttributes = rowAttr;
+        }
+        setTimeout(function() {
+            that.makeRowsReorderable();
+        }, 100);
+    };
+
+    $.fn.tablear.Constructor.prototype.initSearch = function () {
+        _initSearch.apply(this, Array.prototype.slice.apply(arguments));
+        if(!this.options.reorderableRows) {
+            return;
+        }
+
+        //Known issue after search if you reorder the rows the data is not display properly
+        //isSearch = true;
+    };
+
+    $.fn.tablear.Constructor.prototype.makeRowsReorderable = function() {
+        var that = this;
+        this.$element.tableDnD({
+            onDragStyle: that.options.onDragStyle,
+            onDropStyle: that.options.onDropStyle,
+            onDragClass: that.options.onDragClass,
+            onDrop: that.onDrop,
+            onDragStart: that.options.onReorderRowsDrag,
+            dragHandle: that.options.dragHandle
+        });
+    };
+
+    $.fn.tablear.Constructor.prototype.onDrop = function(table, droppedRow) {
+        var tableBs = $(table);
+        var tableBsData = tableBs.data(&#x27;bootstrap.table&#x27;);
+        var tableBsOptions = tableBs.data(&#x27;bootstrap.table&#x27;).options;
+        var row = null;
+        var newData = [];
+
+        for(var i = 0; i &lt; table.tBodies[0].rows.length; i++) {
+            row = $(table.tBodies[0].rows[i]);
+            newData.push(tableBsOptions.data[row.data(&#x27;index&#x27;)]);
+            row.data(&#x27;index&#x27;, i).attr(&#x27;data-index&#x27;, i);
+        }
+
+        tableBsOptions.data = newData;
+
+        //Call the user defined function
+        tableBsOptions.onReorderRowsDrop.apply(table, [table, droppedRow]);
+
+        //Call the event reorder-row
+        tableBsData.trigger(&#x27;reorder-row&#x27;, newData);
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: resizable
+ *
+ */
+
+(function ($) {
+    &#x27;use strict&#x27;;
+
+    var initResizable = function (that) {
+        //Deletes the plugin to re-create it
+        that.$element.colResizable({disable: true});
+
+        //Creates the plugin
+        that.$element.colResizable({
+            liveDrag: that.options.liveDrag,
+            fixed: that.options.fixed,
+            headerOnly: that.options.headerOnly,
+            minWidth: that.options.minWidth,
+            hoverCursor: that.options.hoverCursor,
+            dragCursor: that.options.dragCursor,
+            onResize: that.onResize,
+            onDrag: that.options.onResizableDrag
+        });
+    };
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        resizable: false,
+        liveDrag: false,
+        fixed: true,
+        headerOnly: false,
+        minWidth: 15,
+        hoverCursor: &#x27;e-resize&#x27;,
+        dragCursor: &#x27;e-resize&#x27;,
+        onResizableResize: function (e) {
+            return false;
+        },
+        onResizableDrag: function (e) {
+            return false;
+        }
+    });
+
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        var that = this;
+        if(this.options.resizable) {
+            // because in fitHeader function, we use setTimeout(func, 100);
+            setTimeout(function () {
+                initResizable(that);
+            }, 100);
+        }
+    };
+})(jQuery);
+})(jQuery, window);
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

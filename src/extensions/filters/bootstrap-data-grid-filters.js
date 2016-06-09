@@ -4,7 +4,7 @@
  */
 
 (function ($) {
-    'use strict';
+    'use strict'; // jshint ignore:line
 
     var addOptionToSelectControl = function(selectControl, value, text) {
         value = $.trim(value);

@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Nova Creator Bootstrap Data Grid Demo</title>
         <link href="css/bootstrap.css" rel="stylesheet"/>
-        <link href="../dist/novacreator.bootstrap.datagrid.css" rel="stylesheet"/>
+        <link href="../dist/css/novacreator.bootstrap.datagrid.css" rel="stylesheet"/>
+        <link href="../dist/css/dependencies.css" rel="stylesheet"/>
         <style>
             @-webkit-viewport { width: device-width; }
             @-moz-viewport { width: device-width; }
@@ -61,7 +62,7 @@
                         <thead>
                             <tr>
                                 <th data-column-id="id" data-identifier="true" data-type="numeric" data-align="left" data-width="50px">ID</th>
-                                <th data-show-filter="input" data-column-id="sender" data-order="asc" data-align="center" data-header-align="center" data-editable="true" Sender</th>
+                                <th data-show-filter="input" data-column-id="sender" data-order="asc" data-align="center" data-header-align="center" data-editable="true">Sender</th>
                                 <th data-show-filter="select" data-column-id="received" data-css-class="cell" data-header-css-class="column" data-filterable="true" data-width="200px">Received</th>
                                 <th data-show-filter="select" data-column-id="link" data-formatter="link" data-sortable="false" data-width="75px">Link</th>
                                 <th data-column-id="commands" data-formatter="commands" data-sortable="false" data-width="150px">Commands</th>
@@ -181,10 +182,9 @@
         <script src="js/moderniz.2.8.1.js"></script>
         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
-        <script src="../dist/dependencies.js"></script>
-        <script src="../dist/novacreator.bootstrap.datagrid.js"></script>
-        <script src="../dist/novacreator.bootstrap.datagrid.fa.js"></script>
-        <script src="../bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script> <!--MCM TAKE IT OUT, SHOULD BE A DEPENDENCY-->
+        <script src="../dist/js/dependencies.js"></script>
+        <script src="../dist/js/novacreator.bootstrap.datagrid.js"></script>
+        <script src="../dist/js/novacreator.bootstrap.datagrid.fa.js"></script>
         <script>
             $(function() {
                 function init() {

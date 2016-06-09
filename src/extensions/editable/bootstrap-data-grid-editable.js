@@ -43,7 +43,9 @@
                 return;
             }
 
-            var editableOptions = {}, editableDataMarkup = [], editableDataPrefix = 'editable-';
+            var editableOptions = {};
+            var editableDataMarkup = [];
+            var editableDataPrefix = 'editable-';
 
             var processDataOptions = function(key, value) {
               // Replace camel case with dashes.
@@ -58,7 +60,8 @@
 
             var _formatter = column.formatter;
             column.formatter = function (value, row, index) {
-                var result = _formatter ? _formatter(value, row, index) : value;
+                //var result = _formatter ? _formatter(value, row, index) : value;
+                var result = row[value.field];
 
                 $.each(column, processDataOptions);
 
@@ -69,7 +72,7 @@
                 return ['<a href="javascript:void(0)"',
                     ' data-name="' + column.field + '"',
                     ' data-pk="' + row.id + '"',
-                    ' data-value="' + /*result +*/ 'caca"',
+                    ' data-value="' + result + '"',
                     editableDataMarkup.join(''),
                     '>' + '</a>'
                 ].join('');
@@ -78,7 +81,7 @@
 
         setTimeout(function() {
             that.initSecond();            
-        }, 1000); //TODO mcm pune-l dupa ce a terminat de desenat tot
+        }, 100); //TODO mcm pune-l dupa ce a terminat de desenat tot
     };
 
     $.fn.tablear.Constructor.prototype.initSecond = function () {
@@ -99,7 +102,7 @@
                     //var data = that.getData();
                     //var data = that.columns;
                     //var index = $(this).parents('tr[data-index]').data('index');
-                    //var row = data[index];
+                    //var row = data[index]; 
                     //var oldValue = row[column.field];
 
                     $(this).data('value', params.submitValue);

@@ -54,8 +54,8 @@ module.exports = function (grunt) {
         bower_concat: {
             all: {
                 dest: {
-                    js: '<%= folders.dist %>/dependencies.js',
-                    css: '<%= folders.dist %>/dependencies.css'
+                    js: '<%= folders.dist %>/js/dependencies.js',
+                    css: '<%= folders.dist %>/css/dependencies.css'
                 },
 
                 dependencies: {
@@ -64,10 +64,22 @@ module.exports = function (grunt) {
 
                 mainFiles: {
                     'x-editable': [
-                        'bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js',
-                        'bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css'
+                        'dist/bootstrap3-editable/js/bootstrap-editable.js',
+                        'dist/bootstrap3-editable/css/bootstrap-editable.css'
                     ]
                 }
+            }
+        },
+
+        copy: {
+            main: {
+                files: [{ 
+                    expand: true, 
+                    src: ['bower_components/x-editable/dist/bootstrap3-editable/img/*'],
+                    dest: '<%= folders.dist %>/img/',
+                    flatten: true,
+                    filter: 'isFile'
+                }]
             }
         },
 
@@ -92,14 +104,14 @@ module.exports = function (grunt) {
                     }
                 },
                 files: {
-                    '<%= folders.dist %>/<%= pkg.namespace %>.js': [
+                    '<%= folders.dist %>/js/<%= pkg.namespace %>.js': [
                         '<%= folders.src %>/internal.js',
                         '<%= folders.src %>/public.js',
                         '<%= folders.src %>/extensions.js',
                         '<%= folders.src %>/plugin.js',
                         '<%= folders.src %>/extensions/**/*.js'
                     ],
-                    '<%= folders.dist %>/<%= pkg.namespace %>.<%= fontawesome %>.js': [
+                    '<%= folders.dist %>/js/<%= pkg.namespace %>.<%= fontawesome %>.js': [
                         '<%= folders.src %>/fontawesome.js'
                     ]
                 }
@@ -109,8 +121,8 @@ module.exports = function (grunt) {
                     separator: '\r\n\r\n',
                     banner: '<%= banner %>'
                 },
-                files: {
-                    '<%= folders.dist %>/<%= pkg.namespace %>.css': [ '<%= folders.dist %>/<%= pkg.namespace %>.css' ]
+                files: { se pisa pe regula mea. nu copiaza
+                    '<%= folders.dist %>/css/<%= pkg.namespace %>.css': [ '<%= folders.dist %>/<%= pkg.namespace %>.css' ]
                 }
             }
         },
@@ -268,6 +280,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-nuget');
@@ -281,7 +294,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['build']);
     grunt.registerTask('api', ['clean:api', 'yuidoc']);
     grunt.registerTask('test', ['qunit']);
-    grunt.registerTask('build', ['clean:build', 'version', 'less', 'bower_concat', 'concat', 'csslint', /*'jshint'*/, 'test']); //TODO
+    grunt.registerTask('build', ['clean:build', 'version', 'less', 'copy', 'bower_concat', 'concat', 'csslint', /*'jshint'*/, 'test']); //TODO
     grunt.registerTask('release', ['build', 'api', 'cssmin', 'uglify', 'compress', 'nugetpack']);
     grunt.registerTask('publish', ['nugetpush', 'exec:publish']);
 };

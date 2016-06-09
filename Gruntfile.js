@@ -46,7 +46,7 @@ module.exports = function (grunt) {
         less: {
             default: {
                 files: {
-                    "<%= folders.dist %>/<%= pkg.namespace %>.css": "<%= folders.src %>/<%= pkg.namespace %>.less"
+                    "<%= folders.dist %>/css/<%= pkg.namespace %>.css": "<%= folders.src %>/<%= pkg.namespace %>.less"
                 }
             }
         },
@@ -111,9 +111,7 @@ module.exports = function (grunt) {
                         '<%= folders.src %>/plugin.js',
                         '<%= folders.src %>/extensions/**/*.js'
                     ],
-                    '<%= folders.dist %>/js/<%= pkg.namespace %>.<%= fontawesome %>.js': [
-                        '<%= folders.src %>/fontawesome.js'
-                    ]
+                    '<%= folders.dist %>/js/<%= pkg.namespace %>.<%= fontawesome %>.js': [ '<%= folders.src %>/fontawesome.js' ]
                 }
             },
             styles: {
@@ -121,8 +119,8 @@ module.exports = function (grunt) {
                     separator: '\r\n\r\n',
                     banner: '<%= banner %>'
                 },
-                files: { se pisa pe regula mea. nu copiaza
-                    '<%= folders.dist %>/css/<%= pkg.namespace %>.css': [ '<%= folders.dist %>/<%= pkg.namespace %>.css' ]
+                files: { 
+                    '<%= folders.dist %>/css/<%= pkg.namespace %>.css': [ '<%= folders.dist %>/css/<%= pkg.namespace %>.css' ]
                 }
             }
         },

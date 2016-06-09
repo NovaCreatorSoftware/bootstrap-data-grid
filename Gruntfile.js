@@ -17,8 +17,8 @@ module.exports = function (grunt) {
         },
 
         clean: {
-            api: ["<%= folders.docs %>"],
-            build: ["<%= folders.dist %>"]
+            api: [ "<%= folders.docs %>" ],
+            build: [ "<%= folders.dist %>" ]
         },
 
         yuidoc: {
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
                 },
 
                 dependencies: {
-                    'dragtable': ['jquery', 'jquery-ui']
+                    'dragtable': [ 'jquery', 'jquery-ui' ]
                 },
 
                 mainFiles: {
@@ -94,9 +94,10 @@ module.exports = function (grunt) {
                         var end = [0, ""];
                         var lastChar = result[result.length - 1];
 
-                        if (lastChar === ";") {
-                            end = (result[result.length - 2] === ")") ? (result[result.length - 2] === "}") ? [3, "    });"] : [2, ");"] : [2, "    };"];
-                        } else if (lastChar === "}") {
+                        if(lastChar === ";") {
+                            end = (result[result.length - 2] === ")") ? 
+                                (result[result.length - 2] === "}") ? [3, "    });"] : [2, ");"] : [2, "    };"];
+                        } else if(lastChar === "}") {
                             end = [1, "    }"];
                         }
 
@@ -107,11 +108,11 @@ module.exports = function (grunt) {
                     '<%= folders.dist %>/js/<%= pkg.namespace %>.js': [
                         '<%= folders.src %>/internal.js',
                         '<%= folders.src %>/public.js',
-                        '<%= folders.src %>/extensions.js',
                         '<%= folders.src %>/plugin.js',
                         '<%= folders.src %>/extensions/**/*.js'
                     ],
-                    '<%= folders.dist %>/js/<%= pkg.namespace %>.<%= fontawesome %>.js': [ '<%= folders.src %>/fontawesome.js' ]
+                    '<%= folders.dist %>/js/<%= pkg.namespace %>.<%= fontawesome %>.js': 
+                        [ '<%= folders.src %>/fontawesome.js' ]
                 }
             },
             styles: {
@@ -155,8 +156,8 @@ module.exports = function (grunt) {
                     console: true
                 }
             },
-            //files: ['<%= folders.dist %>/js/<%= pkg.namespace %>.js'],
-            files: ['<%= folders.src %>/**.js'],
+            //files: [ '<%= folders.dist %>/js/<%= pkg.namespace %>.js' ], //use when deploy, to test directly on the produced file
+            files: [ '<%= folders.src %>/**.js' ], //use in dev, when it's needed to know exactly when the error is
             test: {
                 options: {
                     globals: {
@@ -175,11 +176,7 @@ module.exports = function (grunt) {
                     }
                 },
                 files: {
-                    src: [
-                          'test/tests-internal.js',
-                          'test/tests-rendering.js',
-                          'test/tests-extensions.js'
-                    ]
+                    src: [ 'test/tests-internal.js', 'test/tests-rendering.js' ]
                 }
             },
             grunt: {
@@ -197,7 +194,8 @@ module.exports = function (grunt) {
                     report: 'gzip'
                 },
                 files: {
-                    '<%= folders.dist %>/css/<%= pkg.namespace %>.min.css': ['<%= folders.dist %>/css/<%= pkg.namespace %>.css']
+                    '<%= folders.dist %>/css/<%= pkg.namespace %>.min.css': 
+                        [ '<%= folders.dist %>/css/<%= pkg.namespace %>.css' ]
                 }
             }
         },
@@ -209,12 +207,10 @@ module.exports = function (grunt) {
                     report: 'gzip'
                 },
                 files: {
-                    '<%= folders.dist %>/<%= pkg.namespace %>.min.js': [
-                        '<%= folders.dist %>/<%= pkg.namespace %>.js'
-                    ],
-                    '<%= folders.dist %>/<%= pkg.namespace %>.<%= fontawesome %>.min.js': [
-                        '<%= folders.dist %>/<%= pkg.namespace %>.<%= fontawesome %>.js'
-                    ]
+                    '<%= folders.dist %>/<%= pkg.namespace %>.min.js': 
+                        [ '<%= folders.dist %>/<%= pkg.namespace %>.js' ],
+                    '<%= folders.dist %>/<%= pkg.namespace %>.<%= fontawesome %>.min.js': 
+                        [ '<%= folders.dist %>/<%= pkg.namespace %>.<%= fontawesome %>.js' ]
                 }
             }
         },
@@ -233,18 +229,16 @@ module.exports = function (grunt) {
                 options: {
                     archive: '<%= folders.dist %>/<%= pkg.namespace %>-<%= pkg.version %>.zip'
                 },
-                files: [
-                    {
-                        flatten: true,
-                        expand: true, 
-                        src: ['<%= folders.dist %>/*.js', '<%= folders.dist %>/*.css'], dest: '/'
-                    }
-                ]
+                files: [{
+                    flatten: true,
+                    expand: true, 
+                    src: ['<%= folders.dist %>/*.js', '<%= folders.dist %>/*.css'], dest: '/'
+                }]
             }
         },
 
         qunit: {
-            files: ['test/index.html']
+            files: [ 'test/index.html' ]
         },
 
         exec: {
@@ -261,8 +255,8 @@ module.exports = function (grunt) {
 
         watch: {
             all: {
-                files: ['<%= folders.src %>/*.*', 'demo/**.*'],
-                tasks: ['build'],
+                files: [ '<%= folders.src %>/*.*', 'demo/**.*' ],
+                tasks: [ 'build' ],
                 livereload: true
             }
         }

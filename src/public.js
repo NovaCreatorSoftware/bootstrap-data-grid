@@ -2,7 +2,7 @@
 // ====================
 
 /**
- * Represents the jQuery Bootgrid plugin.
+ * Represents the Tablear Grid plugin.
  *
  * @class Grid
  * @constructor
@@ -12,20 +12,18 @@
  **/
 var Grid = function(element, options) {
     this.$element = $(element);
-
     this.origin = this.$element.clone();
     this.options = $.extend(true, {}, Grid.defaults, this.$element.data(), options);
-
     // overrides rowCount explicitly because deep copy ($.extend) leads to strange behaviour
     this.options.rowCount = this.$element.data().rowCount || options.rowCount || this.options.rowCount;
     this.columns = [];
+    this.rowCount = ($.isArray(this.options.rowCount)) ? this.options.rowCount[0] : this.options.rowCount;
+    this.rows = [];
     this.current = 1;
     this.currentRows = [];
     this.identifier = null; // The first column ID that is marked as identifier
     this.selection = false;
     this.converter = null; // The converter for the column that is marked as identifier
-    this.rowCount = ($.isArray(this.options.rowCount)) ? this.options.rowCount[0] : this.options.rowCount;
-    this.rows = [];
     this.searchPhrase = "";
     this.selectedRows = [];
     this.sortDictionary = {};
@@ -39,7 +37,6 @@ var Grid = function(element, options) {
     this.header = null;
     this.footer = null;
     this.xqr = null;
-    // todo: implement cache
 
     this.initLocale();
 };
@@ -61,7 +58,7 @@ Grid.defaults = {
     navigation: 3, // it's a flag: 0 = none, 1 = top, 2 = bottom, 3 = both (top and bottom)
     padding: 2, // page padding (pagination)
     columnSelection: true,
-    rowCount: [10, 25, 50, -1], // rows per page int or array of int (-1 represents "All")
+    rowCount: [ 10, 25, 50, -1 ], // rows per page int or array of int (-1 represents "All")
 
     /**
      * Enables row selection (to enable multi selection see also `multiSelect`). Default value is `false`.
@@ -285,7 +282,6 @@ Grid.defaults = {
         left: "text-left",
         pagination: "pagination", // must be a unique class name or constellation of class names within the header and footer
         paginationButton: "button", // must be a unique class name or constellation of class names within the pagination
-
         iconToggle: 'glyphicon-list-alt icon-list-alt',
         iconDetailOpen: 'glyphicon-plus icon-plus',
         iconDetailClose: 'glyphicon-minus icon-minus',
@@ -441,6 +437,10 @@ Grid.prototype.initLocale = function() {
     }
 };
 
+//to be extended by the extension
+Grid.prototype.initExtension = function() {
+};
+
 Grid.prototype.initExtensionsToolbar = function() {
     this.$extensionsToolbar = $('.extensions.btn-group');
 };
@@ -458,7 +458,7 @@ Grid.prototype.initHeader = function() {
  **/
 Grid.prototype.append = function(rows) {
     if(this.options.ajax) {
-        // todo: implement ajax PUT
+        //TODO implement ajax PUT
     } else {
         var appendedRows = [];
         for(var i = 0; i < rows.length; i++) {
@@ -469,7 +469,7 @@ Grid.prototype.append = function(rows) {
         sortRows.call(this); // jshint ignore:line
         highlightAppendedRows.call(this, appendedRows); // jshint ignore:line
         loadData.call(this); // jshint ignore:line
-        this.$element.trigger("appended" + namespace, [appendedRows]); // jshint ignore:line
+        this.$element.trigger("appended" + namespace, [ appendedRows ]); // jshint ignore:line
     }
     return this;
 };
@@ -482,14 +482,14 @@ Grid.prototype.append = function(rows) {
  **/
 Grid.prototype.clear = function() {
     if(this.options.ajax) {
-        // todo: implement ajax POST
+        //TODO implement ajax POST
     } else {
         var removedRows = $.extend([], this.rows);
         this.rows = [];
         this.current = 1;
         this.total = 0;
         loadData.call(this); // jshint ignore:line
-        this.$element.trigger("cleared" + namespace, [removedRows]); // jshint ignore:line
+        this.$element.trigger("cleared" + namespace, [ removedRows ]); // jshint ignore:line
     }
 
     return this;
@@ -502,7 +502,6 @@ Grid.prototype.clear = function() {
  * @chainable
  **/
 Grid.prototype.destroy = function() {
-    // todo: this method has to be optimized (the complete initial state must be restored)
     $(window).off(namespace); // jshint ignore:line
     if(this.options.navigation & 1) {
         this.header.remove();
@@ -537,7 +536,7 @@ Grid.prototype.remove = function(rowIds) {
     if(this.identifier != null) {
         var that = this;
         if(this.options.ajax) {
-            // todo: implement ajax DELETE
+            //TODO implement ajax DELETE
         } else {
             rowIds = rowIds || this.selectedRows;
             var id;
@@ -562,7 +561,7 @@ Grid.prototype.remove = function(rowIds) {
 
 /**
  * Searches in all rows for a specific phrase (but only in visible cells). 
- * The search filter will be reseted, if no argument is provided.
+ * The search filter will be reset if no argument is provided.
  *
  * @method search
  * @param [phrase] {String} The phrase to search for

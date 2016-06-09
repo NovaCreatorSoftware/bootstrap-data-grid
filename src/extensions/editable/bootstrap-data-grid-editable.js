@@ -29,10 +29,10 @@
         'editable-hidden.bs.table': 'onEditableHidden'
     });
 
-    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
-    $.fn.tablear.Constructor.prototype.initHeader = function () {
+    var _initExtension = $.fn.tablear.Constructor.prototype.initExtension;
+    $.fn.tablear.Constructor.prototype.initExtension = function () {
         var that = this;
-        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        _initExtension.apply(this, Array.prototype.slice.apply(arguments));
 
         if(!this.options.editable) {
             return;
@@ -86,7 +86,6 @@
 
     $.fn.tablear.Constructor.prototype.initSecond = function () {
         var that = this;
-        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
 
         if(!this.options.editable) {
             return;

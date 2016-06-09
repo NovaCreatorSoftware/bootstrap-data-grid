@@ -111,6 +111,142 @@
     /*jshint validthis: true */
     &quot;use strict&quot;;
 
+// GRID COMMON TYPE EXTENSIONS
+// ============
+
+$.fn.extend({
+    _mcmAria: function (name, value) {
+        return (value) ? this.attr(&quot;aria-&quot; + name, value) : this.attr(&quot;aria-&quot; + name);
+    },
+
+    _mcmBusyAria: function(busy) {
+        return (busy == null || busy) ? 
+            this._mcmAria(&quot;busy&quot;, &quot;true&quot;) : 
+            this._mcmAria(&quot;busy&quot;, &quot;false&quot;);
+    },
+
+    _mcmRemoveAria: function(name) {
+        return this.removeAttr(&quot;aria-&quot; + name);
+    },
+
+    _mcmEnableAria: function(enable) {
+        return (enable == null || enable) ? 
+            this.removeClass(&quot;disabled&quot;)._mcmAria(&quot;disabled&quot;, &quot;false&quot;) : 
+            this.addClass(&quot;disabled&quot;)._mcmAria(&quot;disabled&quot;, &quot;true&quot;);
+    },
+
+    _mcmEnableField: function(enable) {
+        return (enable == null || enable) ? 
+            this.removeAttr(&quot;disabled&quot;) : 
+            this.attr(&quot;disabled&quot;, &quot;disable&quot;);
+    },
+
+    _mcmShowAria: function(show) {
+        return (show == null || show) ? 
+            this.show()._mcmAria(&quot;hidden&quot;, &quot;false&quot;) :
+            this.hide()._mcmAria(&quot;hidden&quot;, &quot;true&quot;);
+    },
+
+    _mcmSelectAria: function(select) {
+        return (select == null || select) ? 
+            this.addClass(&quot;active&quot;)._mcmAria(&quot;selected&quot;, &quot;true&quot;) : 
+            this.removeClass(&quot;active&quot;)._mcmAria(&quot;selected&quot;, &quot;false&quot;);
+    },
+
+    _mcmId: function(id) {
+        return (id) ? this.attr(&quot;id&quot;, id) : this.attr(&quot;id&quot;);
+    }
+});
+
+if(!String.prototype.resolve) {
+    var formatter = {
+        &quot;checked&quot;: function(value) {
+            if(typeof value === &quot;boolean&quot;) {
+                return (value) ? &quot;checked=\&quot;checked\&quot;&quot; : &quot;&quot;;
+            }
+            return value;
+        }
+    };
+
+    String.prototype.resolve = function(substitutes, prefixes) {
+        var result = this;
+        $.each(substitutes, function(key, value) {
+            if(value != null &amp;&amp; typeof value !== &quot;function&quot;) {
+                if(typeof value === &quot;object&quot;) {
+                    var keys = (prefixes) ? $.extend([], prefixes) : [];
+                    keys.push(key);
+                    result = result.resolve(value, keys) + &quot;&quot;;
+                } else {
+                    if(formatter &amp;&amp; formatter[key] &amp;&amp; typeof formatter[key] === &quot;function&quot;) {
+                        value = formatter[key](value);
+                    }
+                    key = (prefixes) ? prefixes.join(&quot;.&quot;) + &quot;.&quot; + key : key;
+                    var pattern = new RegExp(&quot;\\{\\{&quot; + key + &quot;\\}\\}&quot;, &quot;gm&quot;);
+                    result = result.replace(pattern, (value.replace) ? value.replace(/\$/gi, &quot;&amp;#36;&quot;) : value);
+                }
+            }
+        });
+        return result;
+    };
+}
+
+if(!Array.prototype.first) {
+    Array.prototype.first = function(condition) {
+        for(var i = 0; i &lt; this.length; i++) {
+            var item = this[i];
+            if(condition(item)) {
+                return item;
+            }
+        }
+        return null;
+    };
+}
+
+if(!Array.prototype.contains) {
+    Array.prototype.contains = function(condition) {
+        for(var i = 0; i &lt; this.length; i++) {
+            var item = this[i];
+            if(condition(item)) {
+                return true;
+            }
+        }
+        return false;
+    };
+}
+
+if(!Array.prototype.page) {
+    Array.prototype.page = function(page, size) {
+        var skip = (page - 1) * size;
+        var end = skip + size;
+        return (this.length &gt; skip) ? 
+            (this.length &gt; end) ? this.slice(skip, end) : 
+                this.slice(skip) : [];
+    };
+}
+
+if(!Array.prototype.where) {
+    Array.prototype.where = function(condition) {
+        var result = [];
+        for(var i = 0; i &lt; this.length; i++) {
+            var item = this[i];
+            if(condition(item)) {
+                result.push(item);
+            }
+        }
+        return result;
+    };
+}
+
+if(!Array.prototype.propValues){
+    Array.prototype.propValues = function(propName) {
+        var result = [];
+        for (var i = 0; i &lt; this.length; i++) {
+            result.push(this[i][propName]);
+        }
+        return result;
+    };
+}
+
 // GRID INTERNAL FIELDS
 // ====================
 
@@ -1004,7 +1140,7 @@ function init() {
 // ====================
 
 /**
- * Represents the jQuery Bootgrid plugin.
+ * Represents the Tablear Grid plugin.
  *
  * @class Grid
  * @constructor
@@ -1014,20 +1150,18 @@ function init() {
  **/
 var Grid = function(element, options) {
     this.$element = $(element);
-
     this.origin = this.$element.clone();
     this.options = $.extend(true, {}, Grid.defaults, this.$element.data(), options);
-
     // overrides rowCount explicitly because deep copy ($.extend) leads to strange behaviour
     this.options.rowCount = this.$element.data().rowCount || options.rowCount || this.options.rowCount;
     this.columns = [];
+    this.rowCount = ($.isArray(this.options.rowCount)) ? this.options.rowCount[0] : this.options.rowCount;
+    this.rows = [];
     this.current = 1;
     this.currentRows = [];
     this.identifier = null; // The first column ID that is marked as identifier
     this.selection = false;
     this.converter = null; // The converter for the column that is marked as identifier
-    this.rowCount = ($.isArray(this.options.rowCount)) ? this.options.rowCount[0] : this.options.rowCount;
-    this.rows = [];
     this.searchPhrase = &quot;&quot;;
     this.selectedRows = [];
     this.sortDictionary = {};
@@ -1041,7 +1175,6 @@ var Grid = function(element, options) {
     this.header = null;
     this.footer = null;
     this.xqr = null;
-    // todo: implement cache
 
     this.initLocale();
 };
@@ -1060,7 +1193,7 @@ var Grid = function(element, options) {
  *   $(&quot;#tablear&quot;).tablear({ selection = true });
  **/
 Grid.defaults = {
-    navigation: 3, // it&#x27;s a flag: 0 = none, 1 = top, 2 = bottom, 3 = both (top and bottom)
+    navigation: 1, // it&#x27;s a flag: 0 = none, 1 = top, 2 = bottom, 3 = both (top and bottom)
     padding: 2, // page padding (pagination)
     columnSelection: true,
     rowCount: [10, 25, 50, -1], // rows per page int or array of int (-1 represents &quot;All&quot;)
@@ -1816,142 +1949,6 @@ Grid.prototype.getTotalPageCount = function() {
 Grid.prototype.getTotalRowCount = function() {
     return this.total;
     };
-
-// GRID COMMON TYPE EXTENSIONS
-// ============
-
-$.fn.extend({
-    _mcmAria: function (name, value) {
-        return (value) ? this.attr(&quot;aria-&quot; + name, value) : this.attr(&quot;aria-&quot; + name);
-    },
-
-    _mcmBusyAria: function(busy) {
-        return (busy == null || busy) ? 
-            this._mcmAria(&quot;busy&quot;, &quot;true&quot;) : 
-            this._mcmAria(&quot;busy&quot;, &quot;false&quot;);
-    },
-
-    _mcmRemoveAria: function(name) {
-        return this.removeAttr(&quot;aria-&quot; + name);
-    },
-
-    _mcmEnableAria: function(enable) {
-        return (enable == null || enable) ? 
-            this.removeClass(&quot;disabled&quot;)._mcmAria(&quot;disabled&quot;, &quot;false&quot;) : 
-            this.addClass(&quot;disabled&quot;)._mcmAria(&quot;disabled&quot;, &quot;true&quot;);
-    },
-
-    _mcmEnableField: function(enable) {
-        return (enable == null || enable) ? 
-            this.removeAttr(&quot;disabled&quot;) : 
-            this.attr(&quot;disabled&quot;, &quot;disable&quot;);
-    },
-
-    _mcmShowAria: function(show) {
-        return (show == null || show) ? 
-            this.show()._mcmAria(&quot;hidden&quot;, &quot;false&quot;) :
-            this.hide()._mcmAria(&quot;hidden&quot;, &quot;true&quot;);
-    },
-
-    _mcmSelectAria: function(select) {
-        return (select == null || select) ? 
-            this.addClass(&quot;active&quot;)._mcmAria(&quot;selected&quot;, &quot;true&quot;) : 
-            this.removeClass(&quot;active&quot;)._mcmAria(&quot;selected&quot;, &quot;false&quot;);
-    },
-
-    _mcmId: function(id) {
-        return (id) ? this.attr(&quot;id&quot;, id) : this.attr(&quot;id&quot;);
-    }
-});
-
-if(!String.prototype.resolve) {
-    var formatter = {
-        &quot;checked&quot;: function(value) {
-            if(typeof value === &quot;boolean&quot;) {
-                return (value) ? &quot;checked=\&quot;checked\&quot;&quot; : &quot;&quot;;
-            }
-            return value;
-        }
-    };
-
-    String.prototype.resolve = function(substitutes, prefixes) {
-        var result = this;
-        $.each(substitutes, function(key, value) {
-            if(value != null &amp;&amp; typeof value !== &quot;function&quot;) {
-                if(typeof value === &quot;object&quot;) {
-                    var keys = (prefixes) ? $.extend([], prefixes) : [];
-                    keys.push(key);
-                    result = result.resolve(value, keys) + &quot;&quot;;
-                } else {
-                    if(formatter &amp;&amp; formatter[key] &amp;&amp; typeof formatter[key] === &quot;function&quot;) {
-                        value = formatter[key](value);
-                    }
-                    key = (prefixes) ? prefixes.join(&quot;.&quot;) + &quot;.&quot; + key : key;
-                    var pattern = new RegExp(&quot;\\{\\{&quot; + key + &quot;\\}\\}&quot;, &quot;gm&quot;);
-                    result = result.replace(pattern, (value.replace) ? value.replace(/\$/gi, &quot;&amp;#36;&quot;) : value);
-                }
-            }
-        });
-        return result;
-    };
-}
-
-if(!Array.prototype.first) {
-    Array.prototype.first = function(condition) {
-        for(var i = 0; i &lt; this.length; i++) {
-            var item = this[i];
-            if(condition(item)) {
-                return item;
-            }
-        }
-        return null;
-    };
-}
-
-if(!Array.prototype.contains) {
-    Array.prototype.contains = function(condition) {
-        for(var i = 0; i &lt; this.length; i++) {
-            var item = this[i];
-            if(condition(item)) {
-                return true;
-            }
-        }
-        return false;
-    };
-}
-
-if(!Array.prototype.page) {
-    Array.prototype.page = function(page, size) {
-        var skip = (page - 1) * size;
-        var end = skip + size;
-        return (this.length &gt; skip) ? 
-            (this.length &gt; end) ? this.slice(skip, end) : 
-                this.slice(skip) : [];
-    };
-}
-
-if(!Array.prototype.where) {
-    Array.prototype.where = function(condition) {
-        var result = [];
-        for(var i = 0; i &lt; this.length; i++) {
-            var item = this[i];
-            if(condition(item)) {
-                result.push(item);
-            }
-        }
-        return result;
-    };
-}
-
-if(!Array.prototype.propValues){
-    Array.prototype.propValues = function(propName) {
-        var result = [];
-        for (var i = 0; i &lt; this.length; i++) {
-            result.push(this[i][propName]);
-        }
-        return result;
-    };
-    }
 
 // GRID PLUGIN DEFINITION
 // =====================

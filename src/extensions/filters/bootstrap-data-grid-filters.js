@@ -17,20 +17,20 @@
     };
 
     var sortSelectControl = function(selectControl) {
-            var $opts = selectControl.find('option:gt(0)');
-            $opts.sort(function (a, b) {
-                a = $(a).text().toLowerCase();
-                b = $(b).text().toLowerCase();
-                if($.isNumeric(a) && $.isNumeric(b)) {
-                    // Convert numerical values from string to float.
-                    a = parseFloat(a);
-                    b = parseFloat(b);
-                }
-                return a > b ? 1 : a < b ? -1 : 0;
-            });
+        var $opts = selectControl.find('option:gt(0)');
+        $opts.sort(function (a, b) {
+            a = $(a).text().toLowerCase();
+            b = $(b).text().toLowerCase();
+            if($.isNumeric(a) && $.isNumeric(b)) {
+                // Convert numerical values from string to float.
+                a = parseFloat(a);
+                b = parseFloat(b);
+            }
+            return a > b ? 1 : a < b ? -1 : 0;
+        });
 
-            selectControl.find('option:gt(0)').remove();
-            selectControl.append($opts);
+        selectControl.find('option:gt(0)').remove();
+        selectControl.append($opts);
     };
 
     var existOptionInSelectControl = function(selectControl, value) {
@@ -41,7 +41,6 @@
                 return true;
             }
         }
-
         //If we get here, the value is valid to add
         return false;
     };
@@ -55,7 +54,6 @@
         if(that.options.height) {
             header = that.$tableHeader;
         }
-
         return header;
     };
 
@@ -64,17 +62,16 @@
         if(that.options.height) {
             searchControls = 'table select, table input';
         }
-
         return searchControls;
     };
 
     var getCursorPosition = function(el) {
         if(isIEBrowser()) {
-            if ($(el).is('input')) {
+            if($(el).is('input')) {
                 var pos = 0;
-                if ('selectionStart' in el) {
+                if('selectionStart' in el) {
                     pos = el.selectionStart;
-                } else if ('selection' in document) {
+                } else if('selection' in document) {
                     el.focus();
                     var sel = document.selection.createRange();
                     var selLength = document.selection.createRange().text.length;
@@ -155,7 +152,8 @@
     };
 
     var initFilterSelectControls = function(that) {
-        var data = that.options.data;
+        //var data = that.options.data;
+        var data = that.columns;
         //var itemsPerPage = that.pageTo < that.options.data.length ? that.options.data.length : that.pageTo;
 
         var isColumnSearchableViaSelect = function (column) {
@@ -172,28 +170,32 @@
 
         var z = that.options.pagination ? (that.options.sidePagination === 'server' ? that.pageTo : that.options.totalRows) : that.pageTo;
 
-        $.each(that.header.fields, function(j, field) {
-            var column = that.columns[getFieldIndex(that.columns, field)];
-            var selectControl = $('.tablear-filter-control-' + escapeID(column.field));
+        if(that.header) {
+            //$.each(that.header.fields, function(j, field) {
+            $.each(that.columns, function(j, column) {                
+                var selectControl = $('.tablear-filter-control-' + escapeID(column.field));
 
-            if(isColumnSearchableViaSelect(column) && isFilterDataNotGiven(column) && hasSelectControlElement(selectControl)) {
-                if(selectControl.get(selectControl.length - 1).options.length === 0) {
-                    //Added the default option
-                    addOptionToSelectControl(selectControl, '', '');
+                if(isColumnSearchableViaSelect(column) && isFilterDataNotGiven(column) && hasSelectControlElement(selectControl)) {
+                    if(selectControl.get(selectControl.length - 1).options.length === 0) {
+                        //Added the default option
+                        addOptionToSelectControl(selectControl, '', '');
+                    }
+                    var uniqueValues = {};
+                    for(var i = 0; i < that.rows.length; i++) {
+                        //Added a new value
+                        var fieldValue = that.rows[i][column.field];
+                        //var formattedValue = calculateObjectValue(that.header, that.header.formatters[j], 
+                          //  [ fieldValue, that.rows[i], i ], fieldValue);
+                        //uniqueValues[formattedValue] = fieldValue;
+                        uniqueValues[fieldValue] = fieldValue;
+                    }
+                    for(var key in uniqueValues) {
+                        addOptionToSelectControl(selectControl, uniqueValues[key], key);
+                    }
+                    sortSelectControl(selectControl);
                 }
-                var uniqueValues = {};
-                for(var i = 0; i < z; i++) {
-                    //Added a new value
-                    var fieldValue = data[i][field];
-                    var formattedValue = calculateObjectValue(that.header, that.header.formatters[j], [fieldValue, data[i], i], fieldValue);
-                    uniqueValues[formattedValue] = fieldValue;
-                }
-                for(var key in uniqueValues) {
-                    addOptionToSelectControl(selectControl, uniqueValues[key], key);
-                }
-                sortSelectControl(selectControl);
-            }
-        });
+            });
+        }
     };
 
     var escapeID = function(id) {
@@ -215,7 +217,7 @@
             }
 
             if(!column.showFilter) {
-                html.push('<div style="height: 34px;"></div>');
+                html.push('<div style="height: 34px;"></div>'); //just space
             } else {
                 html.push('<div style="margin: 0 2px 2px 2px;" class="showFilter">');
                 var nameControl = column.showFilter.toLowerCase();

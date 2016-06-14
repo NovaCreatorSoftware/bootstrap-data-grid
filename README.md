@@ -14,7 +14,7 @@ Based on / Loosely inspired by:
 * Jetstrap
 * [JQGrid] (http://www.trirand.com/blog/)
 * [BS Grid] (http://www.pontikis.net/labs/bs_grid/demo/)
-* [JQuery Bootgrid)] (http://www.jquery-bootgrid.com/)
+* [JQuery Bootgrid] (http://www.jquery-bootgrid.com/)
 * [Ace] (https://ace.c9.io)
 
 ##extensions

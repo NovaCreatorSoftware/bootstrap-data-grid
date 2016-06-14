@@ -10,7 +10,7 @@ Based on / Loosely inspired by:
 * [jsGrid] (http://js-grid.com/)
 * [JQuery Gridmanager] (https://github.com/neokoenig/jQuery-gridmanager)
 * [LayoutIt Build] (http://www.layoutit.com/build)
-* [LayoutIt Build] (https://github.com/justjavac/layoutit)
+* [LayoutIt Build v2] (https://github.com/justjavac/layoutit)
 * Jetstrap
 * [JQGrid] (http://www.trirand.com/blog/)
 * [BS Grid] (http://www.pontikis.net/labs/bs_grid/demo/)

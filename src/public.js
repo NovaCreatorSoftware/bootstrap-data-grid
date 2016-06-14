@@ -438,14 +438,15 @@ Grid.prototype.initLocale = function() {
 };
 
 //to be extended by the extension
-Grid.prototype.initExtension = function() {
-};
+Grid.prototype.initExtension = function() {};
+Grid.prototype.afterRowsRendered = function() {};
 
 Grid.prototype.initExtensionsToolbar = function() {
     this.$extensionsToolbar = $('.extensions.btn-group');
 };
 
 Grid.prototype.initHeader = function() {
+    this.$actionBar = $('.actionBar');
     this.$header = $('thead');
 };
 
@@ -799,6 +800,29 @@ Grid.prototype.getSortDictionary = function() {
  **/
 Grid.prototype.getTotalPageCount = function() {
     return this.totalPages;
+};
+
+Grid.prototype.getColumnById = function(columnId) {
+    var that = this;
+    var foundColumn;
+    $.each(that.columns, function (i, column) {
+        if(column.id === columnId) {
+            foundColumn = column;
+            return false;
+        }
+    });
+    return foundColumn;
+};
+Grid.prototype.getRowById = function(rowId) {
+    var that = this;
+    var foundRow;
+    $.each(that.rows, function (i, row) {
+        if(row.id === rowId) {
+            foundRow = row;
+            return false;
+        }
+    });
+    return foundRow;
 };
 
 /**

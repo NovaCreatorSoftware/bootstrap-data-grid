@@ -395,7 +395,7 @@
         alignmentSelectControlOptions: undefined,
         filterTemplate: {
             input: function(that, field, isVisible) {
-                return sprintf('<input type="text" class="form-control tablear-filter-control-%s" style="width: 100%; visibility: %s">', field, isVisible);
+                return sprintf('<input type="text" class="form-control tablear-filter-control tablear-filter-control-%s" style="width: 100%; visibility: %s">', field, isVisible);
             },
             select: function(that, field, isVisible) {
                 return sprintf('<select class="form-control tablear-filter-control-%s" style="width: 100%; visibility: %s" dir="%s"></select>',
@@ -433,11 +433,6 @@
     $.extend($.fn.tablear.Constructor.defaults, $.fn.tablear.Constructor.locales);
 
     var _init = $.fn.tablear.Constructor.prototype.init;
-    var _initExtensionsToolbar = $.fn.tablear.Constructor.prototype.initExtensionsToolbar;
-    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
-    var _initBody = $.fn.tablear.Constructor.prototype.initBody;
-    var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
-
     $.fn.tablear.Constructor.prototype.init = function () {
         //Make sure that the showFilter option is set
         if(this.options.showFilter) {
@@ -474,6 +469,7 @@
         _init.apply(this, Array.prototype.slice.apply(arguments));
     };
 
+    var _initExtensionsToolbar = $.fn.tablear.Constructor.prototype.initExtensionsToolbar;
     $.fn.tablear.Constructor.prototype.initExtensionsToolbar = function () {
         this.showToolbar = this.options.showFilter;
         _initExtensionsToolbar.apply(this, Array.prototype.slice.apply(arguments));
@@ -496,130 +492,58 @@
         }
     };
 
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
     $.fn.tablear.Constructor.prototype.initHeader = function () {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.showFilter) {
             return;
         }
         createControls(this, this.$header);
-        //initSearch.call(this);
         initFilterSelectControls(this);
     };
 
-    var initSearch = function () {
-        if(this.options.sidePagination === 'server') {
-            return;
-        }
-
+    $.fn.tablear.Constructor.prototype.onColumnSearch = function(event) {
         var that = this;
-        this.data = fp ? $.grep(this.data, function(item, i) {
-            for(var key in fp) {
-                var thisColumn = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, key)];
-                var fval = fp[key].toLowerCase();
-                var value = item[key];
-
-                if(thisColumn && thisColumn.searchFormatter) {
-                    value = calculateObjectValue(that.header,
-                        that.header.formatters[$.inArray(key, that.header.fields)], [value, item, i], value);
-                }
-
-                if(thisColumn.filterStrictSearch) {
-                    if(!($.inArray(key, that.header.fields) !== -1 &&
-                            (typeof value === 'string' || typeof value === 'number') &&
-                            value.toString().toLowerCase() === fval.toString().toLowerCase())) {
-                        return false;
-                    }
-                } else if(thisColumn.filterStartsWithSearch) {
-                    if(!($.inArray(key, that.header.fields) !== -1 &&
-                        (typeof value === 'string' || typeof value === 'number') &&
-                        (value + '').toLowerCase().indexOf(fval) === 0)) {
-                      return false;
-                    }
-                } else {
-                    if(!($.inArray(key, that.header.fields) !== -1 &&
-                            (typeof value === 'string' || typeof value === 'number') &&
-                            (value + '').toLowerCase().indexOf(fval) !== -1)) {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }) : this.data;
-    };
-
-    $.fn.tablear.Constructor.prototype.initColumnSearch = function(filterColumnsDefaults) {
-        copyValues(this);
-
-        if(filterColumnsDefaults) {
-            this.filterColumnsPartial = filterColumnsDefaults;
-            this.updatePagination();
-
-            for(var filter in filterColumnsDefaults) {
-                this.trigger('column-search', filter, filterColumnsDefaults[filter]);
-            }
-        }
-    };
-
-    $.fn.tablear.Constructor.prototype.onColumnSearch = function (event) {
         if($.inArray(event.keyCode, [37, 38, 39, 40]) > -1) {
             return;
         }
-
         copyValues(this);
-        var text = $.trim($(event.currentTarget).val());
-        var $field = $(event.currentTarget).closest('[data-field]').data('field');
-
-        if($.isEmptyObject(this.filterColumnsPartial)) {
-            this.filterColumnsPartial = {};
-        }
-        if(text) {
-            this.filterColumnsPartial[$field] = text;
-        } else {
-            delete this.filterColumnsPartial[$field];
-        }
-
-        // if the searchText is the same as the previously selected column value,
-        // bootstrapTable will not try searching again (even though the selected column
-        // may be different from the previous search).  As a work around
-        // we're manually appending some text to bootrap's searchText field
-        // to guarantee that it will perform a search again when we call this.onSearch(event)
-        this.searchText += "randomText";
-
         this.options.pageNumber = 1;
-        //this.onSearch(event);
-        executeSearch.call(this, text);
-        //this.trigger('column-search', $field, text);
+        this.current = 1;
+        //executeSearch.call(this, $.trim($(event.currentTarget).val()));
+        var column = this.getColumnById($(event.currentTarget).parents("th").data("columnId"));
+        if(column) {
+            column.filterValue = $.trim($(event.currentTarget).val());
+        }
+        loadData.call(this);
     };
 
-    $.fn.tablear.Constructor.prototype.clearShowFilter = function () {
+    $.fn.tablear.Constructor.prototype.clearShowFilter = function() {
         if(this.options.showFilter) {
             var that = this;
             var cookies = collectBootstrapCookies();
             var header = getCurrentHeader(that);
             var table = header.closest('table');
             var controls = header.find(getCurrentSearchControls(that));
-            var search = that.$toolbar.find('.search input');
             var timeoutId = 0;
 
-            $.each(that.options.valuesShowFilter, function (i, item) {
+            $.each(that.options.valuesShowFilter, function(i, item) {
                 item.value = '';
             });
-
             setValues(that);
-
-            // Clear each type of filter if it exists.
-            // Requires the body to reload each time a type of filter is found because we never know
-            // which ones are going to be present.
+            $.each(that.columns, function (i, column) {
+                if(column.showFilter) {
+                    column.filterValue = '';
+                }
+            });
+ 
             if(controls.length > 0) {
-                this.filterColumnsPartial = {};
                 $(controls[0]).trigger(controls[0].tagName === 'INPUT' ? 'keyup' : 'change');
             } else {
                 return;
             }
 
-            if(search.length > 0) {
-                that.resetSearch();
-            }
+            that.$actionBar.find('.search-field').val("");
 
             // use the default sort order if it exists. do nothing if it does not
             if(that.options.sortName !== table.data('sortName') || that.options.sortOrder !== table.data('sortOrder')) {

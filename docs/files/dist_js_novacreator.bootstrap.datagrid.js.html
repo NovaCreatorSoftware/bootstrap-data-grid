@@ -102,7 +102,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/09/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/13/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -274,9 +274,9 @@ function sprintf(str) {
 function objectKeys() {
     if(!Object.keys) {
         Object.keys = (function() {
-            var hasOwnProperty = Object.prototype.hasOwnProperty,
-                hasDontEnumBug = !({ toString: null }).propertyIsEnumerable(&#x27;toString&#x27;),
-            dontEnums = [
+            var hasOwnProperty = Object.prototype.hasOwnProperty;
+            var hasDontEnumBug = !({ toString: null }).propertyIsEnumerable(&#x27;toString&#x27;);
+            var dontEnums = [
                 &#x27;toString&#x27;,
                 &#x27;toLocaleString&#x27;,
                 &#x27;valueOf&#x27;,
@@ -284,24 +284,23 @@ function objectKeys() {
                 &#x27;isPrototypeOf&#x27;,
                 &#x27;propertyIsEnumerable&#x27;,
                 &#x27;constructor&#x27;
-            ],
-            dontEnumsLength = dontEnums.length;
+            ];
+            var dontEnumsLength = dontEnums.length;
 
             return function(obj) {
                 if(typeof obj !== &#x27;object&#x27; &amp;&amp; (typeof obj !== &#x27;function&#x27; || obj === null)) {
                     throw new TypeError(&#x27;Object.keys called on non-object&#x27;);
                 }
 
-                var result = [], prop, i;
-
-                for(prop in obj) {
+                var result = [];
+                for(var prop in obj) {
                     if(hasOwnProperty.call(obj, prop)) {
                         result.push(prop);
                     }
                 }
 
                 if(hasDontEnumBug) {
-                    for (i = 0; i &lt; dontEnumsLength; i++) {
+                    for(var i = 0; i &lt; dontEnumsLength; i++) {
                         if(hasOwnProperty.call(obj, dontEnums[i])) {
                             result.push(dontEnums[i]);
                         }
@@ -358,7 +357,7 @@ function getUrl() {
 
 function highlightAppendedRows(rows) {
     if(this.options.highlightRows) {
-        // todo: implement
+        //TODO
     }
 }
 
@@ -1133,6 +1132,7 @@ function init() {
     renderSearchField.call(this);
     renderActions.call(this);
     loadData.call(this);
+    this.initExtension();
     this.$element.trigger(&quot;initialized&quot; + namespace);
     }
 
@@ -1193,10 +1193,10 @@ var Grid = function(element, options) {
  *   $(&quot;#tablear&quot;).tablear({ selection = true });
  **/
 Grid.defaults = {
-    navigation: 1, // it&#x27;s a flag: 0 = none, 1 = top, 2 = bottom, 3 = both (top and bottom)
+    navigation: 3, // it&#x27;s a flag: 0 = none, 1 = top, 2 = bottom, 3 = both (top and bottom)
     padding: 2, // page padding (pagination)
     columnSelection: true,
-    rowCount: [10, 25, 50, -1], // rows per page int or array of int (-1 represents &quot;All&quot;)
+    rowCount: [ 10, 25, 50, -1 ], // rows per page int or array of int (-1 represents &quot;All&quot;)
 
     /**
      * Enables row selection (to enable multi selection see also &#x60;multiSelect&#x60;). Default value is &#x60;false&#x60;.
@@ -1420,7 +1420,6 @@ Grid.defaults = {
         left: &quot;text-left&quot;,
         pagination: &quot;pagination&quot;, // must be a unique class name or constellation of class names within the header and footer
         paginationButton: &quot;button&quot;, // must be a unique class name or constellation of class names within the pagination
-
         iconToggle: &#x27;glyphicon-list-alt icon-list-alt&#x27;,
         iconDetailOpen: &#x27;glyphicon-plus icon-plus&#x27;,
         iconDetailClose: &#x27;glyphicon-minus icon-minus&#x27;,
@@ -1576,6 +1575,10 @@ Grid.prototype.initLocale = function() {
     }
 };
 
+//to be extended by the extension
+Grid.prototype.initExtension = function() {
+};
+
 Grid.prototype.initExtensionsToolbar = function() {
     this.$extensionsToolbar = $(&#x27;.extensions.btn-group&#x27;);
 };
@@ -1593,7 +1596,7 @@ Grid.prototype.initHeader = function() {
  **/
 Grid.prototype.append = function(rows) {
     if(this.options.ajax) {
-        // todo: implement ajax PUT
+        //TODO implement ajax PUT
     } else {
         var appendedRows = [];
         for(var i = 0; i &lt; rows.length; i++) {
@@ -1604,7 +1607,7 @@ Grid.prototype.append = function(rows) {
         sortRows.call(this); // jshint ignore:line
         highlightAppendedRows.call(this, appendedRows); // jshint ignore:line
         loadData.call(this); // jshint ignore:line
-        this.$element.trigger(&quot;appended&quot; + namespace, [appendedRows]); // jshint ignore:line
+        this.$element.trigger(&quot;appended&quot; + namespace, [ appendedRows ]); // jshint ignore:line
     }
     return this;
 };
@@ -1617,14 +1620,14 @@ Grid.prototype.append = function(rows) {
  **/
 Grid.prototype.clear = function() {
     if(this.options.ajax) {
-        // todo: implement ajax POST
+        //TODO implement ajax POST
     } else {
         var removedRows = $.extend([], this.rows);
         this.rows = [];
         this.current = 1;
         this.total = 0;
         loadData.call(this); // jshint ignore:line
-        this.$element.trigger(&quot;cleared&quot; + namespace, [removedRows]); // jshint ignore:line
+        this.$element.trigger(&quot;cleared&quot; + namespace, [ removedRows ]); // jshint ignore:line
     }
 
     return this;
@@ -1637,7 +1640,6 @@ Grid.prototype.clear = function() {
  * @chainable
  **/
 Grid.prototype.destroy = function() {
-    // todo: this method has to be optimized (the complete initial state must be restored)
     $(window).off(namespace); // jshint ignore:line
     if(this.options.navigation &amp; 1) {
         this.header.remove();
@@ -1672,7 +1674,7 @@ Grid.prototype.remove = function(rowIds) {
     if(this.identifier != null) {
         var that = this;
         if(this.options.ajax) {
-            // todo: implement ajax DELETE
+            //TODO implement ajax DELETE
         } else {
             rowIds = rowIds || this.selectedRows;
             var id;
@@ -1697,7 +1699,7 @@ Grid.prototype.remove = function(rowIds) {
 
 /**
  * Searches in all rows for a specific phrase (but only in visible cells). 
- * The search filter will be reseted, if no argument is provided.
+ * The search filter will be reset if no argument is provided.
  *
  * @method search
  * @param [phrase] {String} The phrase to search for
@@ -2026,10 +2028,10 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
         &#x27;editable-hidden.bs.table&#x27;: &#x27;onEditableHidden&#x27;
     });
 
-    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
-    $.fn.tablear.Constructor.prototype.initHeader = function () {
+    var _initExtension = $.fn.tablear.Constructor.prototype.initExtension;
+    $.fn.tablear.Constructor.prototype.initExtension = function () {
         var that = this;
-        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        _initExtension.apply(this, Array.prototype.slice.apply(arguments));
 
         if(!this.options.editable) {
             return;
@@ -2083,7 +2085,6 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 
     $.fn.tablear.Constructor.prototype.initSecond = function () {
         var that = this;
-        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
 
         if(!this.options.editable) {
             return;
@@ -2259,20 +2260,20 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
     };
 
     var sortSelectControl = function(selectControl) {
-            var $opts = selectControl.find(&#x27;option:gt(0)&#x27;);
-            $opts.sort(function (a, b) {
-                a = $(a).text().toLowerCase();
-                b = $(b).text().toLowerCase();
-                if($.isNumeric(a) &amp;&amp; $.isNumeric(b)) {
-                    // Convert numerical values from string to float.
-                    a = parseFloat(a);
-                    b = parseFloat(b);
-                }
-                return a &gt; b ? 1 : a &lt; b ? -1 : 0;
-            });
+        var $opts = selectControl.find(&#x27;option:gt(0)&#x27;);
+        $opts.sort(function (a, b) {
+            a = $(a).text().toLowerCase();
+            b = $(b).text().toLowerCase();
+            if($.isNumeric(a) &amp;&amp; $.isNumeric(b)) {
+                // Convert numerical values from string to float.
+                a = parseFloat(a);
+                b = parseFloat(b);
+            }
+            return a &gt; b ? 1 : a &lt; b ? -1 : 0;
+        });
 
-            selectControl.find(&#x27;option:gt(0)&#x27;).remove();
-            selectControl.append($opts);
+        selectControl.find(&#x27;option:gt(0)&#x27;).remove();
+        selectControl.append($opts);
     };
 
     var existOptionInSelectControl = function(selectControl, value) {
@@ -2283,7 +2284,6 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
                 return true;
             }
         }
-
         //If we get here, the value is valid to add
         return false;
     };
@@ -2297,7 +2297,6 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
         if(that.options.height) {
             header = that.$tableHeader;
         }
-
         return header;
     };
 
@@ -2306,17 +2305,16 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
         if(that.options.height) {
             searchControls = &#x27;table select, table input&#x27;;
         }
-
         return searchControls;
     };
 
     var getCursorPosition = function(el) {
         if(isIEBrowser()) {
-            if ($(el).is(&#x27;input&#x27;)) {
+            if($(el).is(&#x27;input&#x27;)) {
                 var pos = 0;
-                if (&#x27;selectionStart&#x27; in el) {
+                if(&#x27;selectionStart&#x27; in el) {
                     pos = el.selectionStart;
-                } else if (&#x27;selection&#x27; in document) {
+                } else if(&#x27;selection&#x27; in document) {
                     el.focus();
                     var sel = document.selection.createRange();
                     var selLength = document.selection.createRange().text.length;
@@ -2397,7 +2395,8 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
     };
 
     var initFilterSelectControls = function(that) {
-        var data = that.options.data;
+        //var data = that.options.data;
+        var data = that.columns;
         //var itemsPerPage = that.pageTo &lt; that.options.data.length ? that.options.data.length : that.pageTo;
 
         var isColumnSearchableViaSelect = function (column) {
@@ -2414,28 +2413,32 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 
         var z = that.options.pagination ? (that.options.sidePagination === &#x27;server&#x27; ? that.pageTo : that.options.totalRows) : that.pageTo;
 
-        $.each(that.header.fields, function(j, field) {
-            var column = that.columns[getFieldIndex(that.columns, field)];
-            var selectControl = $(&#x27;.tablear-filter-control-&#x27; + escapeID(column.field));
+        if(that.header) {
+            //$.each(that.header.fields, function(j, field) {
+            $.each(that.columns, function(j, column) {                
+                var selectControl = $(&#x27;.tablear-filter-control-&#x27; + escapeID(column.field));
 
-            if(isColumnSearchableViaSelect(column) &amp;&amp; isFilterDataNotGiven(column) &amp;&amp; hasSelectControlElement(selectControl)) {
-                if(selectControl.get(selectControl.length - 1).options.length === 0) {
-                    //Added the default option
-                    addOptionToSelectControl(selectControl, &#x27;&#x27;, &#x27;&#x27;);
+                if(isColumnSearchableViaSelect(column) &amp;&amp; isFilterDataNotGiven(column) &amp;&amp; hasSelectControlElement(selectControl)) {
+                    if(selectControl.get(selectControl.length - 1).options.length === 0) {
+                        //Added the default option
+                        addOptionToSelectControl(selectControl, &#x27;&#x27;, &#x27;&#x27;);
+                    }
+                    var uniqueValues = {};
+                    for(var i = 0; i &lt; that.rows.length; i++) {
+                        //Added a new value
+                        var fieldValue = that.rows[i][column.field];
+                        //var formattedValue = calculateObjectValue(that.header, that.header.formatters[j], 
+                          //  [ fieldValue, that.rows[i], i ], fieldValue);
+                        //uniqueValues[formattedValue] = fieldValue;
+                        uniqueValues[fieldValue] = fieldValue;
+                    }
+                    for(var key in uniqueValues) {
+                        addOptionToSelectControl(selectControl, uniqueValues[key], key);
+                    }
+                    sortSelectControl(selectControl);
                 }
-                var uniqueValues = {};
-                for(var i = 0; i &lt; z; i++) {
-                    //Added a new value
-                    var fieldValue = data[i][field];
-                    var formattedValue = calculateObjectValue(that.header, that.header.formatters[j], [fieldValue, data[i], i], fieldValue);
-                    uniqueValues[formattedValue] = fieldValue;
-                }
-                for(var key in uniqueValues) {
-                    addOptionToSelectControl(selectControl, uniqueValues[key], key);
-                }
-                sortSelectControl(selectControl);
-            }
-        });
+            });
+        }
     };
 
     var escapeID = function(id) {
@@ -2457,7 +2460,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             }
 
             if(!column.showFilter) {
-                html.push(&#x27;&lt;div style=&quot;height: 34px;&quot;&gt;&lt;/div&gt;&#x27;);
+                html.push(&#x27;&lt;div style=&quot;height: 34px;&quot;&gt;&lt;/div&gt;&#x27;); //just space
             } else {
                 html.push(&#x27;&lt;div style=&quot;margin: 0 2px 2px 2px;&quot; class=&quot;showFilter&quot;&gt;&#x27;);
                 var nameControl = column.showFilter.toLowerCase();

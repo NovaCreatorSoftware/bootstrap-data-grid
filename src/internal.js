@@ -161,9 +161,9 @@ function sprintf(str) {
 function objectKeys() {
     if(!Object.keys) {
         Object.keys = (function() {
-            var hasOwnProperty = Object.prototype.hasOwnProperty,
-                hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
-            dontEnums = [
+            var hasOwnProperty = Object.prototype.hasOwnProperty;
+            var hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString');
+            var dontEnums = [
                 'toString',
                 'toLocaleString',
                 'valueOf',
@@ -171,24 +171,23 @@ function objectKeys() {
                 'isPrototypeOf',
                 'propertyIsEnumerable',
                 'constructor'
-            ],
-            dontEnumsLength = dontEnums.length;
+            ];
+            var dontEnumsLength = dontEnums.length;
 
             return function(obj) {
                 if(typeof obj !== 'object' && (typeof obj !== 'function' || obj === null)) {
                     throw new TypeError('Object.keys called on non-object');
                 }
 
-                var result = [], prop, i;
-
-                for(prop in obj) {
+                var result = [];
+                for(var prop in obj) {
                     if(hasOwnProperty.call(obj, prop)) {
                         result.push(prop);
                     }
                 }
 
                 if(hasDontEnumBug) {
-                    for (i = 0; i < dontEnumsLength; i++) {
+                    for(var i = 0; i < dontEnumsLength; i++) {
                         if(hasOwnProperty.call(obj, dontEnums[i])) {
                             result.push(dontEnums[i]);
                         }
@@ -404,15 +403,29 @@ function loadData() { // jshint ignore:line
     showLoading.call(this);
 
     function containsPhrase(row) {
-        var column;
         var searchPattern = new RegExp(that.searchPhrase, (that.options.caseSensitive) ? "g" : "gi");
         for(var i = 0; i < that.columns.length; i++) {
-            column = that.columns[i];
-            if(column.searchable && column.visible && column.converter.to(row[column.id]).search(searchPattern) > -1) {
+            var column = that.columns[i];
+            var value = column.converter.to(row[column.id]);
+            if(column.searchable && column.visible && value.search(searchPattern) > -1) {
                 return true;
             }
         }
         return false;
+    }
+
+    function filterRow(row) {
+        for(var i = 0; i < that.columns.length; i++) {
+            var column = that.columns[i];
+            var value = column.converter.to(row[column.id]);
+            if(column.showFilter) {
+                var filterPattern = new RegExp(column.filterValue, (that.options.caseSensitive) ? "g" : "gi");
+                if(value.search(filterPattern) <= -1) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     function update(rows, total) {
@@ -469,6 +482,7 @@ function loadData() { // jshint ignore:line
         this.xqr = $.ajax(settings);
     } else {
         var rows = (this.searchPhrase.length > 0) ? this.rows.where(containsPhrase) : this.rows;
+        rows = rows.where(filterRow);
         var total = rows.length;
         if(this.rowCount !== -1) {
             rows = rows.page(this.current, this.rowCount);
@@ -569,7 +583,7 @@ function renderColumnSelection(actions) {
             if(column.visibleInSelection) {
                 var item = $(tpl.actionDropDownCheckboxItem.resolve(getParams.call(that,
                     { name: column.id, label: column.text, checked: column.visible }))).
-                        on("click" + namespace, selector, function (e) {
+                        on("click" + namespace, selector, function(e) {
                             e.stopPropagation();
                             var $this = $(this);
                             var checkbox = $this.find(checkboxSelector);
@@ -687,6 +701,7 @@ function renderRows(rows) { // jshint ignore:line
         that.$element.find("thead " + getCssSelector(that.options.css.selectBox)).prop("checked", allRowsSelected);
         tbody.html(html);
         registerRowEvents.call(this, tbody);
+        this.afterRowsRendered();
     } else {
         renderNoResultsRow.call(this);
     }
@@ -711,19 +726,21 @@ function registerRowEvents(tbody) { // jshint ignore:line
     }
 
     tbody.off("click" + namespace, "> tr").on("click" + namespace, "> tr", function(e) {
-        e.stopPropagation();
-        var $this = $(this);
-        var id = (that.identifier == null) ? $this.data("row-id") : that.converter.from($this.data("row-id") + "");
-        var row = (that.identifier == null) ? that.currentRows[id] :
-            that.currentRows.first(function (item) { return item[that.identifier] === id; });
-        if(that.selection && that.options.rowSelect) {
-            if($this.hasClass(that.options.css.selected)) {
-                that.deselect([id]);
-            } else {
-                that.select([id]);
+        if($(e.target).is("td")) { //don't trigger on links and stuff
+            e.stopPropagation();
+            var $this = $(this);
+            var id = (that.identifier == null) ? $this.data("row-id") : that.converter.from($this.data("row-id") + "");
+            var row = (that.identifier == null) ? that.currentRows[id] :
+                that.currentRows.first(function (item) { return item[that.identifier] === id; });
+            if(that.selection && that.options.rowSelect) {
+                if($this.hasClass(that.options.css.selected)) {
+                    that.deselect([id]);
+                } else {
+                    that.select([id]);
+                }
             }
+            that.$element.trigger("click" + namespace, [that.columns, row]);
         }
-        that.$element.trigger("click" + namespace, [that.columns, row]);
     });
 }
 
@@ -742,7 +759,7 @@ function renderActions() {
                 var refreshIcon = tpl.icon.resolve(getParams.call(this, { iconCss: css.iconRefresh }));
                 var refresh = $(tpl.actionButton.resolve(getParams.call(this,
                     { content: refreshIcon, text: this.options.locales.refresh }))).
-                        on("click" + namespace, function (e) {
+                        on("click" + namespace, function(e) {
                             // todo: prevent multiple fast clicks (fast click detection)
                             e.stopPropagation();
                             that.current = 1;

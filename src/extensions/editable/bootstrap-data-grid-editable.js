@@ -78,55 +78,35 @@
                 ].join('');
             };
         });
-
-        setTimeout(function() {
-            that.initSecond();            
-        }, 100); //TODO mcm pune-l dupa ce a terminat de desenat tot
     };
 
-    $.fn.tablear.Constructor.prototype.initSecond = function () {
+    var _afterRowsRendered = $.fn.tablear.Constructor.prototype.afterRowsRendered;
+    $.fn.tablear.Constructor.prototype.afterRowsRendered = function () {
         var that = this;
+        _afterRowsRendered.apply(this, Array.prototype.slice.apply(arguments));
 
         if(!this.options.editable) {
             return;
         }
 
-        $.each(this.columns, function (i, column) {
+        $.each(this.columns, function(i, column) {
             if(!column.editable) {
                 return;
             }
 
             that.$element.find('a[data-name="' + column.field + '"]').editable(column.editable)
-                .off('save').on('save', function (e, params) {
-                    //var data = that.getData();
-                    //var data = that.columns;
-                    //var index = $(this).parents('tr[data-index]').data('index');
-                    //var row = data[index]; 
-                    //var oldValue = row[column.field];
-
+                .off('save').on('save', that, function(e, params) {
+                    var Grid = e.data;
+                    var columnId = $(e.currentTarget).data('name');
+                    var column = Grid.getColumnById(columnId);
+                    var row = Grid.getRowById($(e.currentTarget).data('pk'));
                     $(this).data('value', params.submitValue);
-                    //row[column.field] = params.submitValue;
-                    //that.trigger('editable-save', column.field, row, oldValue, $(this));
+                    row[columnId] = params.submitValue;
                 });
             that.$element.find('a[data-name="' + column.field + '"]').editable(column.editable)
-                .off('shown').on('shown', function (e, editable) {
-                    //var data = that.getData();
-                    //var data = that.columns;
-                    //var index = $(this).parents('tr[data-index]').data('index');
-                    //var row = data[index];
-                    
-                    //that.trigger('editable-shown', column.field, row, $(this), editable);
-                });
+                .off('shown').on('shown', that, function(e, editable) {});
             that.$element.find('a[data-name="' + column.field + '"]').editable(column.editable)
-                .off('hidden').on('hidden', function (e, reason) {
-                    //var data = that.getData();
-                    //var data = that.columns;
-                    //var index = $(this).parents('tr[data-index]').data('index');
-                    //var row = data[index];
-                    
-                    //that.trigger('editable-hidden', column.field, row, $(this), reason); //TODO 
-                });
+                .off('hidden').on('hidden', that, function(e, reason) {});
         });
-        //this.trigger('editable-init');
     };
 })(jQuery);

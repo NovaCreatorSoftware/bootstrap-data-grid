@@ -1,0 +1,207 @@
+/*! 
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/14/2016
+ * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
+ * Licensed under MIT http://www.opensource.org/licenses/MIT
+ */
+.tablear-header,
+.tablear-footer {
+  margin: 15px 0;
+}
+.tablear-header a,
+.tablear-footer a {
+  outline: 0;
+}
+.tablear-header .search,
+.tablear-footer .search {
+  display: inline-block;
+  margin: 0 20px 0 0;
+  vertical-align: middle;
+  width: 180px;
+}
+.tablear-header .search .glyphicon,
+.tablear-footer .search .glyphicon {
+  top: 0;
+}
+.tablear-header .search .fa,
+.tablear-footer .search .fa {
+  display: table-cell;
+}
+.tablear-header .search.search-field::-ms-clear,
+.tablear-footer .search.search-field::-ms-clear,
+.tablear-header .search .search-field::-ms-clear,
+.tablear-footer .search .search-field::-ms-clear {
+  display: none;
+}
+.tablear-header .actions,
+.tablear-footer .actions {
+  margin: 0 20px 0 0;
+}
+.tablear-header .pagination,
+.tablear-footer .pagination {
+  margin: 0 !important;
+}
+.tablear-header .actionBar,
+.tablear-footer .infoBar {
+  text-align: right;
+}
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu {
+  text-align: left;
+}
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item {
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 3px 20px;
+  white-space: nowrap;
+}
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox {
+  margin: 0 2px 4px 0;
+  vertical-align: middle;
+}
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled {
+  cursor: not-allowed;
+}
+.tablear-table {
+  table-layout: fixed;
+}
+.tablear-table a {
+  outline: 0;
+}
+.tablear-table th > .column-header-anchor {
+  color: #333;
+  cursor: not-allowed;
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+.tablear-table th > .column-header-anchor.sortable {
+  cursor: pointer;
+}
+.tablear-table th > .column-header-anchor > .text {
+  display: block;
+  margin: 0 16px 0 0;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tablear-table th > .column-header-anchor > .icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 2px;
+}
+.tablear-table th:hover,
+.tablear-table th:active {
+  background: #fafafa;
+}
+.tablear-table td {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 0 !important;
+  line-height: 2 !important;
+}
+.tablear-table td.loading,
+.tablear-table td.no-results {
+  background: #fff;
+  text-align: center;
+}
+.tablear-table th.select-cell,
+.tablear-table td.select-cell {
+  text-align: center;
+  width: 30px;
+}
+.tablear-table th.select-cell .select-box,
+.tablear-table td.select-cell .select-box {
+  margin: 0;
+  outline: 0;
+}
+.table-responsive .tablear-table {
+  table-layout: inherit !important;
+}
+.table-responsive .tablear-table th > .column-header-anchor > .text {
+  overflow: inherit !important;
+  -ms-text-overflow: inherit !important;
+  -o-text-overflow: inherit !important;
+  text-overflow: inherit !important;
+  white-space: inherit !important;
+}
+.table-responsive .tablear-table td {
+  overflow: inherit !important;
+  -ms-text-overflow: inherit !important;
+  -o-text-overflow: inherit !important;
+  text-overflow: inherit !important;
+  white-space: inherit !important;
+}
+.dragtable-sortable {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.dragtable-sortable li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  font-size: 1em;
+  background: white;
+}
+.dragtable-sortable th,
+.dragtable-sortable td {
+  border-left: 0;
+}
+.dragtable-sortable li:first-child th,
+.dragtable-sortable li:first-child td {
+  border-left: 1px solid #CCC;
+}
+.ui-sortable-helper {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+.ui-sortable-placeholder {
+  -moz-box-shadow: 4px 5px 4px #C6C6C6 inset;
+  -webkit-box-shadow: 4px 5px 4px #C6C6C6 inset;
+  box-shadow: 4px 5px 4px #C6C6C6 inset;
+  border-bottom: 1px solid #CCCCCC;
+  border-top: 1px solid #CCCCCC;
+  background: #EFEFEF !important;
+  visibility: visible !important;
+}
+.ui-sortable-placeholder * {
+  opacity: 0.0;
+  visibility: hidden;
+}
+.reorder_rows_onDragClass td {
+  background-color: #eee;
+  -webkit-box-shadow: 11px 5px 12px 2px #333, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
+  -webkit-box-shadow: 6px 3px 5px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
+  -moz-box-shadow: 6px 4px 5px 1px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
+  box-shadow: 6px 4px 5px 1px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
+}
+.reorder_rows_onDragClass td:last-child {
+  -webkit-box-shadow: 8px 7px 12px 0 #333, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
+  -webkit-box-shadow: 1px 8px 6px -4px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
+  -moz-box-shadow: 0 9px 4px -4px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset, -1px 0 0 #ccc inset;
+  box-shadow: 0 9px 4px -4px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset, -1px 0 0 #ccc inset;
+}

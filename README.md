@@ -24,3 +24,7 @@ Based on / Loosely inspired by:
 #####reorder rows
 #####resize columns
 #####sticky columns
+
+##build
+grunt build
+bower install moment-js --save

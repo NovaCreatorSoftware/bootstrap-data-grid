@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/14/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/23/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -267,7 +267,7 @@ function loadColumns() {
     var firstHeadRow = this.$element.find("thead > tr").first();
     var sorted = false;
 
-    firstHeadRow.children().each(function () {
+    firstHeadRow.children().each(function() {
         var $this = $(this);
         var data = $this.data();
         var column = $.extend({}, data, {
@@ -1986,24 +1986,24 @@ $("[data-toggle=\"tablear\"]").tablear();
             var editableDataPrefix = 'editable-';
 
             var processDataOptions = function(key, value) {
-              // Replace camel case with dashes.
-              var dashKey = key.replace(/([A-Z])/g, function($1){return "-"+$1.toLowerCase();});
-              if (dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
-                var dataKey = dashKey.replace(editableDataPrefix, 'data-');
-                editableOptions[dataKey] = value;
-              }
+            	// Replace camel case with dashes.
+            	var dashKey = key.replace(/([A-Z])/g, function($1){return "-"+$1.toLowerCase();});
+            	if(dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
+            		var dataKey = dashKey.replace(editableDataPrefix, 'data-');
+            		editableOptions[dataKey] = value;
+            	}
             };
 
             $.each(that.options, processDataOptions);
 
             var _formatter = column.formatter;
-            column.formatter = function (value, row, index) {
+            column.formatter = function(value, row, index) {
                 //var result = _formatter ? _formatter(value, row, index) : value;
                 var result = row[value.field];
 
                 $.each(column, processDataOptions);
 
-                $.each(editableOptions, function (key, value) {
+                $.each(editableOptions, function(key, value) {
                     editableDataMarkup.push(' ' + key + '="' + value + '"');
                 });
 

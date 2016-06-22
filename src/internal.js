@@ -257,7 +257,7 @@ function loadColumns() {
     var firstHeadRow = this.$element.find("thead > tr").first();
     var sorted = false;
 
-    firstHeadRow.children().each(function () {
+    firstHeadRow.children().each(function() {
         var $this = $(this);
         var data = $this.data();
         var column = $.extend({}, data, {

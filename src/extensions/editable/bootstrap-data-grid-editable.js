@@ -48,24 +48,24 @@
             var editableDataPrefix = 'editable-';
 
             var processDataOptions = function(key, value) {
-              // Replace camel case with dashes.
-              var dashKey = key.replace(/([A-Z])/g, function($1){return "-"+$1.toLowerCase();});
-              if (dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
-                var dataKey = dashKey.replace(editableDataPrefix, 'data-');
-                editableOptions[dataKey] = value;
-              }
+            	// Replace camel case with dashes.
+            	var dashKey = key.replace(/([A-Z])/g, function($1){return "-"+$1.toLowerCase();});
+            	if(dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
+            		var dataKey = dashKey.replace(editableDataPrefix, 'data-');
+            		editableOptions[dataKey] = value;
+            	}
             };
 
             $.each(that.options, processDataOptions);
 
             var _formatter = column.formatter;
-            column.formatter = function (value, row, index) {
+            column.formatter = function(value, row, index) {
                 //var result = _formatter ? _formatter(value, row, index) : value;
                 var result = row[value.field];
 
                 $.each(column, processDataOptions);
 
-                $.each(editableOptions, function (key, value) {
+                $.each(editableOptions, function(key, value) {
                     editableDataMarkup.push(' ' + key + '="' + value + '"');
                 });
 

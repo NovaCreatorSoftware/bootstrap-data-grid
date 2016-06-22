@@ -66,6 +66,10 @@ module.exports = function (grunt) {
                     'x-editable': [
                         'dist/bootstrap3-editable/js/bootstrap-editable.js',
                         'dist/bootstrap3-editable/css/bootstrap-editable.css'
+                    ],
+                    'polymer': [''], //ignore
+                    'moment-js': [
+                        '../moment/min/moment.min.js'
                     ]
                 }
             }

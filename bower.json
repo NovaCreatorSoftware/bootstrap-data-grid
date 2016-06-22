@@ -56,6 +56,8 @@
         "dragtable": "^2.0.14",
         "col-resizable": "*",
         "TableDnD": "^0.9.1",
-        "x-editable": "^1.5.1"
+        "x-editable": "^1.5.1",
+        "moment-js": "^0.3.2",
+        "moment": "^2.13.0"
     }
 }

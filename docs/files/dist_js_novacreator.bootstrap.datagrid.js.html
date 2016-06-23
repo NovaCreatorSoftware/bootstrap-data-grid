@@ -102,7 +102,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/13/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/23/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -370,7 +370,7 @@ function loadColumns() {
     var firstHeadRow = this.$element.find(&quot;thead &gt; tr&quot;).first();
     var sorted = false;
 
-    firstHeadRow.children().each(function () {
+    firstHeadRow.children().each(function() {
         var $this = $(this);
         var data = $this.data();
         var column = $.extend({}, data, {
@@ -516,15 +516,29 @@ function loadData() { // jshint ignore:line
     showLoading.call(this);
 
     function containsPhrase(row) {
-        var column;
         var searchPattern = new RegExp(that.searchPhrase, (that.options.caseSensitive) ? &quot;g&quot; : &quot;gi&quot;);
         for(var i = 0; i &lt; that.columns.length; i++) {
-            column = that.columns[i];
-            if(column.searchable &amp;&amp; column.visible &amp;&amp; column.converter.to(row[column.id]).search(searchPattern) &gt; -1) {
+            var column = that.columns[i];
+            var value = column.converter.to(row[column.id]);
+            if(column.searchable &amp;&amp; column.visible &amp;&amp; value.search(searchPattern) &gt; -1) {
                 return true;
             }
         }
         return false;
+    }
+
+    function filterRow(row) {
+        for(var i = 0; i &lt; that.columns.length; i++) {
+            var column = that.columns[i];
+            var value = column.converter.to(row[column.id]);
+            if(column.showFilter) {
+                var filterPattern = new RegExp(column.filterValue, (that.options.caseSensitive) ? &quot;g&quot; : &quot;gi&quot;);
+                if(value.search(filterPattern) &lt;= -1) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     function update(rows, total) {
@@ -581,6 +595,7 @@ function loadData() { // jshint ignore:line
         this.xqr = $.ajax(settings);
     } else {
         var rows = (this.searchPhrase.length &gt; 0) ? this.rows.where(containsPhrase) : this.rows;
+        rows = rows.where(filterRow);
         var total = rows.length;
         if(this.rowCount !== -1) {
             rows = rows.page(this.current, this.rowCount);
@@ -681,7 +696,7 @@ function renderColumnSelection(actions) {
             if(column.visibleInSelection) {
                 var item = $(tpl.actionDropDownCheckboxItem.resolve(getParams.call(that,
                     { name: column.id, label: column.text, checked: column.visible }))).
-                        on(&quot;click&quot; + namespace, selector, function (e) {
+                        on(&quot;click&quot; + namespace, selector, function(e) {
                             e.stopPropagation();
                             var $this = $(this);
                             var checkbox = $this.find(checkboxSelector);
@@ -799,6 +814,7 @@ function renderRows(rows) { // jshint ignore:line
         that.$element.find(&quot;thead &quot; + getCssSelector(that.options.css.selectBox)).prop(&quot;checked&quot;, allRowsSelected);
         tbody.html(html);
         registerRowEvents.call(this, tbody);
+        this.afterRowsRendered();
     } else {
         renderNoResultsRow.call(this);
     }
@@ -823,19 +839,21 @@ function registerRowEvents(tbody) { // jshint ignore:line
     }
 
     tbody.off(&quot;click&quot; + namespace, &quot;&gt; tr&quot;).on(&quot;click&quot; + namespace, &quot;&gt; tr&quot;, function(e) {
-        e.stopPropagation();
-        var $this = $(this);
-        var id = (that.identifier == null) ? $this.data(&quot;row-id&quot;) : that.converter.from($this.data(&quot;row-id&quot;) + &quot;&quot;);
-        var row = (that.identifier == null) ? that.currentRows[id] :
-            that.currentRows.first(function (item) { return item[that.identifier] === id; });
-        if(that.selection &amp;&amp; that.options.rowSelect) {
-            if($this.hasClass(that.options.css.selected)) {
-                that.deselect([id]);
-            } else {
-                that.select([id]);
+        if($(e.target).is(&quot;td&quot;)) { //don&#x27;t trigger on links and stuff
+            e.stopPropagation();
+            var $this = $(this);
+            var id = (that.identifier == null) ? $this.data(&quot;row-id&quot;) : that.converter.from($this.data(&quot;row-id&quot;) + &quot;&quot;);
+            var row = (that.identifier == null) ? that.currentRows[id] :
+                that.currentRows.first(function (item) { return item[that.identifier] === id; });
+            if(that.selection &amp;&amp; that.options.rowSelect) {
+                if($this.hasClass(that.options.css.selected)) {
+                    that.deselect([id]);
+                } else {
+                    that.select([id]);
+                }
             }
+            that.$element.trigger(&quot;click&quot; + namespace, [that.columns, row]);
         }
-        that.$element.trigger(&quot;click&quot; + namespace, [that.columns, row]);
     });
 }
 
@@ -854,7 +872,7 @@ function renderActions() {
                 var refreshIcon = tpl.icon.resolve(getParams.call(this, { iconCss: css.iconRefresh }));
                 var refresh = $(tpl.actionButton.resolve(getParams.call(this,
                     { content: refreshIcon, text: this.options.locales.refresh }))).
-                        on(&quot;click&quot; + namespace, function (e) {
+                        on(&quot;click&quot; + namespace, function(e) {
                             // todo: prevent multiple fast clicks (fast click detection)
                             e.stopPropagation();
                             that.current = 1;
@@ -1576,14 +1594,15 @@ Grid.prototype.initLocale = function() {
 };
 
 //to be extended by the extension
-Grid.prototype.initExtension = function() {
-};
+Grid.prototype.initExtension = function() {};
+Grid.prototype.afterRowsRendered = function() {};
 
 Grid.prototype.initExtensionsToolbar = function() {
     this.$extensionsToolbar = $(&#x27;.extensions.btn-group&#x27;);
 };
 
 Grid.prototype.initHeader = function() {
+    this.$actionBar = $(&#x27;.actionBar&#x27;);
     this.$header = $(&#x27;thead&#x27;);
 };
 
@@ -1939,6 +1958,29 @@ Grid.prototype.getTotalPageCount = function() {
     return this.totalPages;
 };
 
+Grid.prototype.getColumnById = function(columnId) {
+    var that = this;
+    var foundColumn;
+    $.each(that.columns, function (i, column) {
+        if(column.id === columnId) {
+            foundColumn = column;
+            return false;
+        }
+    });
+    return foundColumn;
+};
+Grid.prototype.getRowById = function(rowId) {
+    var that = this;
+    var foundRow;
+    $.each(that.rows, function (i, row) {
+        if(row.id === rowId) {
+            foundRow = row;
+            return false;
+        }
+    });
+    return foundRow;
+};
+
 /**
  * Gets a number represents the total row count.
  * This method returns only for the first grid instance a value.
@@ -2047,24 +2089,24 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             var editableDataPrefix = &#x27;editable-&#x27;;
 
             var processDataOptions = function(key, value) {
-              // Replace camel case with dashes.
-              var dashKey = key.replace(/([A-Z])/g, function($1){return &quot;-&quot;+$1.toLowerCase();});
-              if (dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
-                var dataKey = dashKey.replace(editableDataPrefix, &#x27;data-&#x27;);
-                editableOptions[dataKey] = value;
-              }
+            	// Replace camel case with dashes.
+            	var dashKey = key.replace(/([A-Z])/g, function($1){return &quot;-&quot;+$1.toLowerCase();});
+            	if(dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
+            		var dataKey = dashKey.replace(editableDataPrefix, &#x27;data-&#x27;);
+            		editableOptions[dataKey] = value;
+            	}
             };
 
             $.each(that.options, processDataOptions);
 
             var _formatter = column.formatter;
-            column.formatter = function (value, row, index) {
+            column.formatter = function(value, row, index) {
                 //var result = _formatter ? _formatter(value, row, index) : value;
                 var result = row[value.field];
 
                 $.each(column, processDataOptions);
 
-                $.each(editableOptions, function (key, value) {
+                $.each(editableOptions, function(key, value) {
                     editableDataMarkup.push(&#x27; &#x27; + key + &#x27;=&quot;&#x27; + value + &#x27;&quot;&#x27;);
                 });
 
@@ -2077,56 +2119,36 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
                 ].join(&#x27;&#x27;);
             };
         });
-
-        setTimeout(function() {
-            that.initSecond();            
-        }, 100); //TODO mcm pune-l dupa ce a terminat de desenat tot
     };
 
-    $.fn.tablear.Constructor.prototype.initSecond = function () {
+    var _afterRowsRendered = $.fn.tablear.Constructor.prototype.afterRowsRendered;
+    $.fn.tablear.Constructor.prototype.afterRowsRendered = function () {
         var that = this;
+        _afterRowsRendered.apply(this, Array.prototype.slice.apply(arguments));
 
         if(!this.options.editable) {
             return;
         }
 
-        $.each(this.columns, function (i, column) {
+        $.each(this.columns, function(i, column) {
             if(!column.editable) {
                 return;
             }
 
             that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;).editable(column.editable)
-                .off(&#x27;save&#x27;).on(&#x27;save&#x27;, function (e, params) {
-                    //var data = that.getData();
-                    //var data = that.columns;
-                    //var index = $(this).parents(&#x27;tr[data-index]&#x27;).data(&#x27;index&#x27;);
-                    //var row = data[index]; 
-                    //var oldValue = row[column.field];
-
+                .off(&#x27;save&#x27;).on(&#x27;save&#x27;, that, function(e, params) {
+                    var Grid = e.data;
+                    var columnId = $(e.currentTarget).data(&#x27;name&#x27;);
+                    var column = Grid.getColumnById(columnId);
+                    var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
                     $(this).data(&#x27;value&#x27;, params.submitValue);
-                    //row[column.field] = params.submitValue;
-                    //that.trigger(&#x27;editable-save&#x27;, column.field, row, oldValue, $(this));
+                    row[columnId] = params.submitValue;
                 });
             that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;).editable(column.editable)
-                .off(&#x27;shown&#x27;).on(&#x27;shown&#x27;, function (e, editable) {
-                    //var data = that.getData();
-                    //var data = that.columns;
-                    //var index = $(this).parents(&#x27;tr[data-index]&#x27;).data(&#x27;index&#x27;);
-                    //var row = data[index];
-                    
-                    //that.trigger(&#x27;editable-shown&#x27;, column.field, row, $(this), editable);
-                });
+                .off(&#x27;shown&#x27;).on(&#x27;shown&#x27;, that, function(e, editable) {});
             that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;).editable(column.editable)
-                .off(&#x27;hidden&#x27;).on(&#x27;hidden&#x27;, function (e, reason) {
-                    //var data = that.getData();
-                    //var data = that.columns;
-                    //var index = $(this).parents(&#x27;tr[data-index]&#x27;).data(&#x27;index&#x27;);
-                    //var row = data[index];
-                    
-                    //that.trigger(&#x27;editable-hidden&#x27;, column.field, row, $(this), reason); //TODO 
-                });
+                .off(&#x27;hidden&#x27;).on(&#x27;hidden&#x27;, that, function(e, reason) {});
         });
-        //this.trigger(&#x27;editable-init&#x27;);
     };
 })(jQuery);
 
@@ -2638,7 +2660,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
         alignmentSelectControlOptions: undefined,
         filterTemplate: {
             input: function(that, field, isVisible) {
-                return sprintf(&#x27;&lt;input type=&quot;text&quot; class=&quot;form-control tablear-filter-control-%s&quot; style=&quot;width: 100%; visibility: %s&quot;&gt;&#x27;, field, isVisible);
+                return sprintf(&#x27;&lt;input type=&quot;text&quot; class=&quot;form-control tablear-filter-control tablear-filter-control-%s&quot; style=&quot;width: 100%; visibility: %s&quot;&gt;&#x27;, field, isVisible);
             },
             select: function(that, field, isVisible) {
                 return sprintf(&#x27;&lt;select class=&quot;form-control tablear-filter-control-%s&quot; style=&quot;width: 100%; visibility: %s&quot; dir=&quot;%s&quot;&gt;&lt;/select&gt;&#x27;,
@@ -2676,11 +2698,6 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
     $.extend($.fn.tablear.Constructor.defaults, $.fn.tablear.Constructor.locales);
 
     var _init = $.fn.tablear.Constructor.prototype.init;
-    var _initExtensionsToolbar = $.fn.tablear.Constructor.prototype.initExtensionsToolbar;
-    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
-    var _initBody = $.fn.tablear.Constructor.prototype.initBody;
-    var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
-
     $.fn.tablear.Constructor.prototype.init = function () {
         //Make sure that the showFilter option is set
         if(this.options.showFilter) {
@@ -2717,6 +2734,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
         _init.apply(this, Array.prototype.slice.apply(arguments));
     };
 
+    var _initExtensionsToolbar = $.fn.tablear.Constructor.prototype.initExtensionsToolbar;
     $.fn.tablear.Constructor.prototype.initExtensionsToolbar = function () {
         this.showToolbar = this.options.showFilter;
         _initExtensionsToolbar.apply(this, Array.prototype.slice.apply(arguments));
@@ -2739,130 +2757,58 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
         }
     };
 
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
     $.fn.tablear.Constructor.prototype.initHeader = function () {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.showFilter) {
             return;
         }
         createControls(this, this.$header);
-        //initSearch.call(this);
         initFilterSelectControls(this);
     };
 
-    var initSearch = function () {
-        if(this.options.sidePagination === &#x27;server&#x27;) {
-            return;
-        }
-
+    $.fn.tablear.Constructor.prototype.onColumnSearch = function(event) {
         var that = this;
-        this.data = fp ? $.grep(this.data, function(item, i) {
-            for(var key in fp) {
-                var thisColumn = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, key)];
-                var fval = fp[key].toLowerCase();
-                var value = item[key];
-
-                if(thisColumn &amp;&amp; thisColumn.searchFormatter) {
-                    value = calculateObjectValue(that.header,
-                        that.header.formatters[$.inArray(key, that.header.fields)], [value, item, i], value);
-                }
-
-                if(thisColumn.filterStrictSearch) {
-                    if(!($.inArray(key, that.header.fields) !== -1 &amp;&amp;
-                            (typeof value === &#x27;string&#x27; || typeof value === &#x27;number&#x27;) &amp;&amp;
-                            value.toString().toLowerCase() === fval.toString().toLowerCase())) {
-                        return false;
-                    }
-                } else if(thisColumn.filterStartsWithSearch) {
-                    if(!($.inArray(key, that.header.fields) !== -1 &amp;&amp;
-                        (typeof value === &#x27;string&#x27; || typeof value === &#x27;number&#x27;) &amp;&amp;
-                        (value + &#x27;&#x27;).toLowerCase().indexOf(fval) === 0)) {
-                      return false;
-                    }
-                } else {
-                    if(!($.inArray(key, that.header.fields) !== -1 &amp;&amp;
-                            (typeof value === &#x27;string&#x27; || typeof value === &#x27;number&#x27;) &amp;&amp;
-                            (value + &#x27;&#x27;).toLowerCase().indexOf(fval) !== -1)) {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }) : this.data;
-    };
-
-    $.fn.tablear.Constructor.prototype.initColumnSearch = function(filterColumnsDefaults) {
-        copyValues(this);
-
-        if(filterColumnsDefaults) {
-            this.filterColumnsPartial = filterColumnsDefaults;
-            this.updatePagination();
-
-            for(var filter in filterColumnsDefaults) {
-                this.trigger(&#x27;column-search&#x27;, filter, filterColumnsDefaults[filter]);
-            }
-        }
-    };
-
-    $.fn.tablear.Constructor.prototype.onColumnSearch = function (event) {
         if($.inArray(event.keyCode, [37, 38, 39, 40]) &gt; -1) {
             return;
         }
-
         copyValues(this);
-        var text = $.trim($(event.currentTarget).val());
-        var $field = $(event.currentTarget).closest(&#x27;[data-field]&#x27;).data(&#x27;field&#x27;);
-
-        if($.isEmptyObject(this.filterColumnsPartial)) {
-            this.filterColumnsPartial = {};
-        }
-        if(text) {
-            this.filterColumnsPartial[$field] = text;
-        } else {
-            delete this.filterColumnsPartial[$field];
-        }
-
-        // if the searchText is the same as the previously selected column value,
-        // bootstrapTable will not try searching again (even though the selected column
-        // may be different from the previous search).  As a work around
-        // we&#x27;re manually appending some text to bootrap&#x27;s searchText field
-        // to guarantee that it will perform a search again when we call this.onSearch(event)
-        this.searchText += &quot;randomText&quot;;
-
         this.options.pageNumber = 1;
-        //this.onSearch(event);
-        executeSearch.call(this, text);
-        //this.trigger(&#x27;column-search&#x27;, $field, text);
+        this.current = 1;
+        //executeSearch.call(this, $.trim($(event.currentTarget).val()));
+        var column = this.getColumnById($(event.currentTarget).parents(&quot;th&quot;).data(&quot;columnId&quot;));
+        if(column) {
+            column.filterValue = $.trim($(event.currentTarget).val());
+        }
+        loadData.call(this);
     };
 
-    $.fn.tablear.Constructor.prototype.clearShowFilter = function () {
+    $.fn.tablear.Constructor.prototype.clearShowFilter = function() {
         if(this.options.showFilter) {
             var that = this;
             var cookies = collectBootstrapCookies();
             var header = getCurrentHeader(that);
             var table = header.closest(&#x27;table&#x27;);
             var controls = header.find(getCurrentSearchControls(that));
-            var search = that.$toolbar.find(&#x27;.search input&#x27;);
             var timeoutId = 0;
 
-            $.each(that.options.valuesShowFilter, function (i, item) {
+            $.each(that.options.valuesShowFilter, function(i, item) {
                 item.value = &#x27;&#x27;;
             });
-
             setValues(that);
-
-            // Clear each type of filter if it exists.
-            // Requires the body to reload each time a type of filter is found because we never know
-            // which ones are going to be present.
+            $.each(that.columns, function (i, column) {
+                if(column.showFilter) {
+                    column.filterValue = &#x27;&#x27;;
+                }
+            });
+ 
             if(controls.length &gt; 0) {
-                this.filterColumnsPartial = {};
                 $(controls[0]).trigger(controls[0].tagName === &#x27;INPUT&#x27; ? &#x27;keyup&#x27; : &#x27;change&#x27;);
             } else {
                 return;
             }
 
-            if(search.length &gt; 0) {
-                that.resetSearch();
-            }
+            that.$actionBar.find(&#x27;.search-field&#x27;).val(&quot;&quot;);
 
             // use the default sort order if it exists. do nothing if it does not
             if(that.options.sortName !== table.data(&#x27;sortName&#x27;) || that.options.sortOrder !== table.data(&#x27;sortOrder&#x27;)) {

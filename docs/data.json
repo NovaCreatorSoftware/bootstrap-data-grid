@@ -61,7 +61,7 @@
                 "editableContainer"
             ],
             "file": "dist/js/dependencies.js",
-            "line": 33636,
+            "line": 44889,
             "description": "Form with single input element, two buttons and two states: normal/loading.\nApplied as jQuery method to DIV tag (not to form tag!). This is because form can be in loading state when spinner shown.\nEditableform is linked with one of input types, e.g. 'text', 'select' etc.",
             "uses": [
                 "text",
@@ -79,7 +79,7 @@
                 "editable"
             ],
             "file": "dist/js/dependencies.js",
-            "line": 34522,
+            "line": 45775,
             "description": "Attaches stand-alone container with editable-form to HTML element. Element is used only for positioning, value is not stored anywhere.<br>\nThis method applied internally in <code>$().editable()</code>. You should subscribe on it's events (save / cancel) to get profit of it.<br>\nFinal realization can be different: bootstrap-popover, jqueryui-tooltip, poshytip, inline-div. It depends on which js file you include.<br>\nApplied as jQuery method.",
             "uses": [
                 "editableform"
@@ -94,7 +94,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 35092,
+            "line": 46345,
             "description": "Makes editable any HTML element on the page. Applied as jQuery method.",
             "uses": [
                 "editableContainer"
@@ -109,7 +109,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 35951,
+            "line": 47204,
             "description": "AbstractInput - base class for all editable inputs.\nIt defines interface to be implemented by any input type.\nTo create your own input you can inherit from this class."
         },
         "list": {
@@ -121,7 +121,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 36172,
+            "line": 47425,
             "description": "List - abstract class for inputs that have source option loaded from js array or via ajax",
             "extends": "abstractinput"
         },
@@ -136,7 +136,7 @@
                 "editableform"
             ],
             "file": "dist/js/dependencies.js",
-            "line": 36508,
+            "line": 47761,
             "description": "Text input",
             "extends": "abstractinput",
             "final": 1,
@@ -155,7 +155,7 @@
                 "editableform"
             ],
             "file": "dist/js/dependencies.js",
-            "line": 36643,
+            "line": 47896,
             "description": "Textarea input",
             "extends": "abstractinput",
             "final": 1,
@@ -172,7 +172,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 36755,
+            "line": 48008,
             "description": "Select (dropdown)",
             "extends": "list",
             "final": 1,
@@ -189,7 +189,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 36852,
+            "line": 48105,
             "description": "List of checkboxes. \nInternally value stored as javascript array of values.",
             "extends": "list",
             "final": 1,
@@ -206,7 +206,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 37009,
+            "line": 48262,
             "description": "HTML5 input types.\nFollowing types are supported:\n\n* password\n* email\n* url\n* tel\n* number\n* range\n* time\n\nLearn more about html5 inputs:  \nhttp://www.w3.org/wiki/HTML5_form_additions  \nTo check browser compatibility please see:  \nhttps://developer.mozilla.org/en-US/docs/HTML/Element/Input",
             "extends": "text",
             "final": 1,
@@ -224,7 +224,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 37228,
+            "line": 48481,
             "description": "Select2 input. Based on amazing work of Igor Vaynberg https://github.com/ivaynberg/select2.  \nPlease see [original select2 docs](http://ivaynberg.github.com/select2) for detailed description and options.  \n \nYou should manually download and include select2 distributive:  \n\n    <link href=\"select2/select2.css\" rel=\"stylesheet\" type=\"text/css\"></link>  \n    <script src=\"select2/select2.js\"></script>  \n    \nTo make it **bootstrap-styled** you can use css from [here](https://github.com/t0m/select2-bootstrap-css): \n\n    <link href=\"select2-bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"></link>    \n    \n**Note:** currently `autotext` feature does not work for select2 with `ajax` remote source.    \nYou need initially put both `data-value` and element's text youself:    \n\n    <a href=\"#\" data-type=\"select2\" data-value=\"1\">Text1</a>",
             "extends": "abstractinput",
             "since": "1.4.1",
@@ -242,7 +242,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 38063,
+            "line": 49316,
             "description": "Combodate input - dropdown date and time picker.    \nBased on [combodate](http://vitalets.github.com/combodate) plugin (included). To use it you should manually include [momentjs](http://momentjs.com).\n\n    <script src=\"js/moment.min.js\"></script>\n   \nAllows to input:\n\n* only date\n* only time \n* both date and time  \n\nPlease note, that format is taken from momentjs and **not compatible** with bootstrap-datepicker / jquery UI datepicker.  \nInternally value stored as `momentjs` object.",
             "extends": "abstractinput",
             "final": 1,
@@ -260,7 +260,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 39807,
+            "line": 51060,
             "description": "Bootstrap-datepicker.  \nDescription and examples: https://github.com/eternicode/bootstrap-datepicker.  \nFor **i18n** you should include js file from here: https://github.com/eternicode/bootstrap-datepicker/tree/master/js/locales\nand set `language` option.  \nSince 1.4.0 date has different appearance in **popup** and **inline** modes.",
             "extends": "abstractinput",
             "final": 1,
@@ -277,7 +277,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 40037,
+            "line": 51290,
             "description": "Bootstrap datefield input - modification for inline mode.\nShows normal <input type=\"text\"> and binds popup datepicker.  \nAutomatically shown in inline mode.",
             "extends": "date",
             "since": "1.4.0"
@@ -291,7 +291,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 40118,
+            "line": 51371,
             "description": "Bootstrap-datetimepicker.  \nBased on [smalot bootstrap-datetimepicker plugin](https://github.com/smalot/bootstrap-datetimepicker). \nBefore usage you should manually include dependent js and css:\n\n    <link href=\"css/datetimepicker.css\" rel=\"stylesheet\" type=\"text/css\"></link> \n    <script src=\"js/bootstrap-datetimepicker.js\"></script>\n\nFor **i18n** you should include js file from here: https://github.com/smalot/bootstrap-datetimepicker/tree/master/js/locales\nand set `language` option.",
             "extends": "abstractinput",
             "final": 1,
@@ -309,7 +309,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 40362,
+            "line": 51615,
             "description": "Bootstrap datetimefield input - datetime input for inline mode.\nShows normal <input type=\"text\"> and binds popup datetimepicker.  \nAutomatically shown in inline mode.",
             "extends": "datetime"
         },
@@ -322,7 +322,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1039,
+            "line": 1057,
             "description": "Represents the Tablear Grid plugin.",
             "is_constructor": 1,
             "params": [
@@ -348,7 +348,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1079,
+            "line": 1097,
             "description": "An object that represents the default settings.",
             "static": 1,
             "example": [
@@ -995,86 +995,92 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33411,
+            "line": 34330,
+            "license": "Copyright (c) 2014 The Polymer Project Authors. All rights reserved.\nThis code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt\nThe complete set of authors may be found at http://polymer.github.io/AUTHORS.txt\nThe complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt\nCode distributed by Google as part of the polymer project is also\nsubject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 44664,
             "description": "jsPDF - PDF Document creation from JavaScript\nVersion 1.0.272-git Built on 2014-09-29T15:09\n                          CommitID d4770725ca\n\nCopyright (c) 2010-2014 James Hall, https://github.com/MrRio/jsPDF\n              2010 Aaron Spike, https://github.com/acspike\n              2012 Willow Systems Corporation, willow-systems.com\n              2012 Pablo Hess, https://github.com/pablohess\n              2012 Florian Jenett, https://github.com/fjenett\n              2013 Warren Weckesser, https://github.com/warrenweckesser\n              2013 Youssef Beddad, https://github.com/lifof\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2013 Stefan Slonevskiy, https://github.com/stefslon\n              2013 Jeremy Morel, https://github.com/jmorel\n              2013 Christoph Hartmann, https://github.com/chris-rock\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Makes, https://github.com/dollaruw\n              2014 Diego Casorran, https://github.com/diegocr\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\nContributor(s):\n   siefkenj, ahwolf, rickygu, Midnith, saintclair, eaparango,\n   kim3er, mfo, alnorth,",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33454,
+            "line": 44707,
             "description": "jsPDF addHTML PlugIn\nCopyright (c) 2014 Diego Casorran\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33460,
+            "line": 44713,
             "description": "jsPDF addImage plugin\nCopyright (c) 2012 Jason Siefken, https://github.com/siefkenj/\n              2013 Chris Dowling, https://github.com/gingerchris\n              2013 Trinh Ho, https://github.com/ineedfat\n              2013 Edwin Alejandro Perez, https://github.com/eaparango\n              2013 Norah Smith, https://github.com/burnburnrocket\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 James Robb, https://github.com/jamesbrobb",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33470,
+            "line": 44723,
             "description": "jsPDF Cell plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com\n              2013 Eduardo Menezes de Morais, eduardo.morais@usp.br\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Hall, james@parall.ax\n              2014 Diego Casorran, https://github.com/diegocr",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33479,
+            "line": 44732,
             "description": "jsPDF fromHTML plugin. BETA stage. API subject to change. Needs browser\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 Daniel Husar, https://github.com/danielhusar\n              2014 Wolfgang Gassler, https://github.com/woolfg",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33487,
+            "line": 44740,
             "description": "jsPDF JavaScript plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33491,
+            "line": 44744,
             "description": "jsPDF PNG PlugIn\nCopyright (c) 2014 James Robb, https://github.com/jamesbrobb",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33495,
+            "line": 44748,
             "description": "jsPDF Silly SVG plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33499,
+            "line": 44752,
             "description": "jsPDF split_text_to_size plugin - MIT license.\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Diego Casorran, https://github.com/diegocr",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33504,
+            "line": 44757,
             "description": "jsPDF standard_fonts_metrics plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\nMIT license.",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33509,
+            "line": 44762,
             "description": "jsPDF total_pages plugin\nCopyright (c) 2013 Eduardo Menezes de Morais, eduardo.morais@usp.br",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33573,
+            "line": 44826,
             "description": "JavaScript Polyfill functions for jsPDF\nCollected from public resources by\nhttps://github.com/diegocr",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33582,
+            "line": 44835,
             "description": "jsPDF AutoTable plugin v2.0.14\nCopyright (c) 2014 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable\n\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
             "preserve": "",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33680,
+            "line": 44933,
             "description": "Renders editableform",
             "itemtype": "method",
             "name": "render",
@@ -1082,7 +1088,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33705,
+            "line": 44958,
             "description": "Fired when rendering starts",
             "itemtype": "event",
             "name": "rendering",
@@ -1097,7 +1103,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33748,
+            "line": 45001,
             "description": "Fired when form is rendered",
             "itemtype": "event",
             "name": "rendered",
@@ -1112,7 +1118,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33764,
+            "line": 45017,
             "description": "Fired when form was cancelled by user",
             "itemtype": "event",
             "name": "cancel",
@@ -1127,7 +1133,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33800,
+            "line": 45053,
             "description": "Fired when form is shown",
             "itemtype": "event",
             "name": "show",
@@ -1142,7 +1148,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33858,
+            "line": 45111,
             "description": "Fired when value not changed but form is submitted. Requires savenochange = false.",
             "itemtype": "event",
             "name": "nochange",
@@ -1157,7 +1163,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 33903,
+            "line": 45156,
             "description": "Fired when form is submitted",
             "itemtype": "event",
             "name": "save",
@@ -1197,7 +1203,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34053,
+            "line": 45306,
             "description": "Type of input. Can be <code>text|textarea|select|date|checklist</code>",
             "itemtype": "property",
             "name": "type",
@@ -1207,7 +1213,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34061,
+            "line": 45314,
             "description": "Url for submit, e.g. <code>'/post'</code>  \nIf function - it will be called instead of ajax. Function should return deferred object to run fail/done callbacks.",
             "itemtype": "property",
             "name": "url",
@@ -1220,7 +1226,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34086,
+            "line": 45339,
             "description": "Additional params for submit. If defined as <code>object</code> - it is **appended** to original ajax data (pk, name and value).  \nIf defined as <code>function</code> - returned object **overwrites** original ajax data.",
             "example": [
                 "\nparams: function(params) {\n    //originally params contain pk, name and value\n    params.a = 1;\n    return params;\n}"
@@ -1233,7 +1239,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34101,
+            "line": 45354,
             "description": "Name of field. Will be submitted on server. Can be taken from <code>id</code> attribute",
             "itemtype": "property",
             "name": "name",
@@ -1243,7 +1249,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34109,
+            "line": 45362,
             "description": "Primary key of editable object (e.g. record id in database). For composite keys use object, e.g. <code>{id: 1, lang: 'en'}</code>.\nCan be calculated dynamically via function.",
             "itemtype": "property",
             "name": "pk",
@@ -1253,7 +1259,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34118,
+            "line": 45371,
             "description": "Initial value. If not defined - will be taken from element's content.\nFor __select__ type should be defined (as it is ID of shown text).",
             "itemtype": "property",
             "name": "value",
@@ -1263,7 +1269,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34127,
+            "line": 45380,
             "description": "Value that will be displayed in input if original field value is empty (`null|undefined|''`).",
             "itemtype": "property",
             "name": "defaultValue",
@@ -1274,7 +1280,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34136,
+            "line": 45389,
             "description": "Strategy for sending data on server. Can be `auto|always|never`.\nWhen 'auto' data will be sent on server **only if pk and url defined**, otherwise new value will be stored locally.",
             "itemtype": "property",
             "name": "send",
@@ -1284,7 +1290,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34145,
+            "line": 45398,
             "description": "Function for client-side validation. If returns string - means validation not passed and string showed as error.\nSince 1.5.1 you can modify submitted value by returning object from `validate`: \n`{newValue: '...'}` or `{newValue: '...', msg: '...'}`",
             "itemtype": "property",
             "name": "validate",
@@ -1297,7 +1303,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34161,
+            "line": 45414,
             "description": "Success callback. Called when value successfully sent on server and **response status = 200**.  \nUsefull to work with json response. For example, if your backend response can be <code>{success: true}</code>\nor <code>{success: false, msg: \"server error\"}</code> you can check it inside this callback.  \nIf it returns **string** - means error occured and string is shown as error message.  \nIf it returns **object like** <code>{newValue: &lt;something&gt;}</code> - it overwrites value, submitted by user.  \nOtherwise newValue simply rendered into element.",
             "itemtype": "property",
             "name": "success",
@@ -1310,7 +1316,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34178,
+            "line": 45431,
             "description": "Error callback. Called when request failed (response status != 200).  \nUsefull when you want to parse error response and display a custom message.\nMust return **string** - the message to be displayed in the error block.",
             "itemtype": "property",
             "name": "error",
@@ -1324,7 +1330,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34197,
+            "line": 45450,
             "description": "Additional options for submit ajax request.\nList of values: http://api.jquery.com/jQuery.ajax",
             "itemtype": "property",
             "name": "ajaxOptions",
@@ -1338,7 +1344,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34212,
+            "line": 45465,
             "description": "Where to show buttons: left(true)|bottom|false  \nForm without buttons is auto-submitted.",
             "itemtype": "property",
             "name": "showbuttons",
@@ -1349,7 +1355,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34222,
+            "line": 45475,
             "description": "Scope for callback methods (success, validate).  \nIf <code>null</code> means editableform instance itself.",
             "itemtype": "property",
             "name": "scope",
@@ -1362,7 +1368,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34233,
+            "line": 45486,
             "description": "Whether to save or cancel value when it was not changed but form was submitted",
             "itemtype": "property",
             "name": "savenochange",
@@ -1373,43 +1379,43 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34272,
+            "line": 45525,
             "description": "EditableForm utilites",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34280,
+            "line": 45533,
             "description": "classic JS inheritance function",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34291,
+            "line": 45544,
             "description": "set caret position in input\nsee http://stackoverflow.com/questions/499126/jquery-set-cursor-position-in-text-area",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34307,
+            "line": 45560,
             "description": "function to parse JSON in *single* quotes. (jquery automatically parse only double quotes)\nThat allows such code as: <a data-source=\"{'a': 'b', 'c': 'd'}\">\nsafe = true --> means no exception will be thrown\nfor details see http://stackoverflow.com/questions/7410348/how-to-set-json-format-to-html5-data-attributes-in-the-jquery",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34332,
+            "line": 45585,
             "description": "slice object by specified keys",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34398,
+            "line": 45651,
             "description": "method to escape html.",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34686,
+            "line": 45939,
             "description": "Fired when container is shown and form is rendered (for select will wait for loading dropdown options).  \n**Note:** Bootstrap popover has own `shown` event that now cannot be separated from x-editable's one.\nThe workaround is to check `arguments.length` that is always `2` for x-editable.",
             "itemtype": "event",
             "name": "shown",
@@ -1427,7 +1433,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34707,
+            "line": 45960,
             "description": "Shows container with form",
             "itemtype": "method",
             "name": "show()",
@@ -1442,7 +1448,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34753,
+            "line": 46006,
             "description": "Hides container with form",
             "itemtype": "method",
             "name": "hide()",
@@ -1457,7 +1463,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34774,
+            "line": 46027,
             "description": "Fired when container was hidden. It occurs on both save or cancel.  \n**Note:** Bootstrap popover has own `hidden` event that now cannot be separated from x-editable's one.\nThe workaround is to check `arguments.length` that is always `2` for x-editable.",
             "itemtype": "event",
             "name": "hidden",
@@ -1480,7 +1486,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34803,
+            "line": 46056,
             "description": "Toggles container visibility (show / hide)",
             "itemtype": "method",
             "name": "toggle()",
@@ -1495,7 +1501,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34825,
+            "line": 46078,
             "description": "Fired when new value was submitted. You can use <code>$(this).data('editableContainer')</code> inside handler to access to editableContainer instance",
             "itemtype": "event",
             "name": "save",
@@ -1530,7 +1536,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34850,
+            "line": 46103,
             "description": "Sets new option",
             "itemtype": "method",
             "name": "option(key, value)",
@@ -1550,7 +1556,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34874,
+            "line": 46127,
             "description": "Destroys the container instance",
             "itemtype": "method",
             "name": "destroy()",
@@ -1558,7 +1564,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34918,
+            "line": 46171,
             "description": "Activates input of visible container (e.g. set focus)",
             "itemtype": "method",
             "name": "activate()",
@@ -1566,7 +1572,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34930,
+            "line": 46183,
             "description": "jQuery method to initialize editableContainer.",
             "itemtype": "method",
             "name": "$().editableContainer(options)",
@@ -1584,7 +1590,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34968,
+            "line": 46221,
             "description": "Initial value of form input",
             "itemtype": "property",
             "name": "value",
@@ -1596,7 +1602,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34977,
+            "line": 46230,
             "description": "Placement of container relative to element. Can be <code>top|right|bottom|left</code>. Not used for inline container.",
             "itemtype": "property",
             "name": "placement",
@@ -1606,7 +1612,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34985,
+            "line": 46238,
             "description": "Whether to hide container on save/cancel.",
             "itemtype": "property",
             "name": "autohide",
@@ -1618,7 +1624,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34994,
+            "line": 46247,
             "description": "Action when user clicks outside the container. Can be <code>cancel|submit|ignore</code>.  \nSetting <code>ignore</code> allows to have several containers open.",
             "itemtype": "property",
             "name": "onblur",
@@ -1629,7 +1635,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35005,
+            "line": 46258,
             "description": "Animation speed (inline mode only)",
             "itemtype": "property",
             "name": "anim",
@@ -1639,7 +1645,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35013,
+            "line": 46266,
             "description": "Mode of editable, can be `popup` or `inline`",
             "itemtype": "property",
             "name": "mode",
@@ -1650,13 +1656,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35038,
+            "line": 46291,
             "description": "Editable Inline \n---------------------",
             "class": "editableContainer"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35211,
+            "line": 46464,
             "description": "Fired when element was initialized by `$().editable()` method. \nPlease note that you should setup `init` handler **before** applying `editable`.",
             "itemtype": "event",
             "name": "init",
@@ -1680,7 +1686,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35277,
+            "line": 46530,
             "description": "Enables editable",
             "itemtype": "method",
             "name": "enable()",
@@ -1688,7 +1694,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35292,
+            "line": 46545,
             "description": "Disables editable",
             "itemtype": "method",
             "name": "disable()",
@@ -1696,7 +1702,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35305,
+            "line": 46558,
             "description": "Toggles enabled / disabled state of editable element",
             "itemtype": "method",
             "name": "toggleDisabled()",
@@ -1704,7 +1710,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35317,
+            "line": 46570,
             "description": "Sets new option",
             "itemtype": "method",
             "name": "option(key, value)",
@@ -1727,7 +1733,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35408,
+            "line": 46661,
             "description": "Shows container with form",
             "itemtype": "method",
             "name": "show()",
@@ -1742,7 +1748,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35436,
+            "line": 46689,
             "description": "Hides container with form",
             "itemtype": "method",
             "name": "hide()",
@@ -1750,7 +1756,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35446,
+            "line": 46699,
             "description": "Toggles container visibility (show / hide)",
             "itemtype": "method",
             "name": "toggle()",
@@ -1765,7 +1771,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35506,
+            "line": 46759,
             "description": "Fired when new value was submitted. You can use <code>$(this).data('editable')</code> to access to editable instance",
             "itemtype": "event",
             "name": "save",
@@ -1800,7 +1806,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35528,
+            "line": 46781,
             "description": "Sets new value of editable",
             "itemtype": "method",
             "name": "setValue(value, convertStr)",
@@ -1820,7 +1826,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35549,
+            "line": 46802,
             "description": "Activates input of visible container (e.g. set focus)",
             "itemtype": "method",
             "name": "activate()",
@@ -1828,7 +1834,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35559,
+            "line": 46812,
             "description": "Removes editable feature from element",
             "itemtype": "method",
             "name": "destroy()",
@@ -1836,7 +1842,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35587,
+            "line": 46840,
             "description": "jQuery method to initialize editable element.",
             "itemtype": "method",
             "name": "$().editable(options)",
@@ -1854,7 +1860,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35603,
+            "line": 46856,
             "description": "Runs client-side validation for all matched editables",
             "itemtype": "method",
             "name": "validate()",
@@ -1869,7 +1875,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35625,
+            "line": 46878,
             "description": "Returns current values of editable elements.   \nNote that it returns an **object** with name-value pairs, not a value itself. It allows to get data from several elements.    \nIf value of some editable is `null` or `undefined` it is excluded from result object.\nWhen param `isSingle` is set to **true** - it is supposed you have single element and will return value of editable instead of object.",
             "itemtype": "method",
             "name": "getValue()",
@@ -1891,7 +1897,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35658,
+            "line": 46911,
             "description": "This method collects values from several editable elements and submit them all to server.   \nInternally it runs client-side validation for all fields and submits only in case of success.  \nSee <a href=\"#newrecord\">creating new records</a> for details.  \nSince 1.5.1 `submit` can be applied to single element to send data programmatically. In that case\n`url`, `success` and `error` is taken from initial options and you can just call `$('#username').editable('submit')`.",
             "itemtype": "method",
             "name": "submit(options)",
@@ -1937,7 +1943,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35781,
+            "line": 47034,
             "description": "Type of input. Can be <code>text|textarea|select|date|checklist</code> and more",
             "itemtype": "property",
             "name": "type",
@@ -1947,7 +1953,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35789,
+            "line": 47042,
             "description": "Sets disabled state of editable",
             "itemtype": "property",
             "name": "disabled",
@@ -1957,7 +1963,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35797,
+            "line": 47050,
             "description": "How to toggle editable. Can be <code>click|dblclick|mouseenter|manual</code>.   \nWhen set to <code>manual</code> you should manually call <code>show/hide</code> methods of editable.    \n**Note**: if you call <code>show</code> or <code>toggle</code> inside **click** handler of some DOM element, \nyou need to apply <code>e.stopPropagation()</code> because containers are being closed on any click on document.",
             "example": [
                 "\n$('#edit-button').click(function(e) {\n    e.stopPropagation();\n    $('#username').editable('toggle');\n});"
@@ -1970,7 +1976,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35814,
+            "line": 47067,
             "description": "Text shown when element is empty.",
             "itemtype": "property",
             "name": "emptytext",
@@ -1980,7 +1986,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35822,
+            "line": 47075,
             "description": "Allows to automatically set element's text based on it's value. Can be <code>auto|always|never</code>. Useful for select and date.\nFor example, if dropdown list is <code>{1: 'a', 2: 'b'}</code> and element's value set to <code>1</code>, it's html will be automatically set to <code>'a'</code>.  \n<code>auto</code> - text will be automatically set only if element is empty.  \n<code>always|never</code> - always(never) try to set element's text.",
             "itemtype": "property",
             "name": "autotext",
@@ -1990,7 +1996,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35833,
+            "line": 47086,
             "description": "Initial value of input. If not set, taken from element's text.  \nNote, that if element's text is empty - text is automatically generated from value and can be customized (see `autotext` option).  \nFor example, to display currency sign:",
             "example": [
                 "\n<a id=\"price\" data-type=\"text\" data-value=\"100\"></a>\n<script>\n$('#price').editable({\n    ...\n    display: function(value) {\n      $(this).text(value + '$');\n    } \n}) \n</script>"
@@ -2003,7 +2009,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35853,
+            "line": 47106,
             "description": "Callback to perform custom displaying of value in element's text.  \nIf `null`, default input's display used.  \nIf `false`, no displaying methods will be called, element's text will never change.  \nRuns under element's scope.  \n_**Parameters:**_  \n\n* `value` current value to be displayed\n* `response` server response (if display called after ajax submit), since 1.4.0\n \nFor _inputs with source_ (select, checklist) parameters are different:  \n  \n* `value` current value to be displayed\n* `sourceData` array of items for current input (e.g. dropdown items) \n* `response` server response (if display called after ajax submit), since 1.4.0\n          \nTo get currently selected items use `$.fn.editableutils.itemsByValue(value, sourceData)`.",
             "itemtype": "property",
             "name": "display",
@@ -2017,7 +2023,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35890,
+            "line": 47143,
             "description": "Css class applied when editable text is empty.",
             "itemtype": "property",
             "name": "emptyclass",
@@ -2028,7 +2034,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35899,
+            "line": 47152,
             "description": "Css class applied when value was stored but not sent to server (`pk` is empty or `send = 'never'`).  \nYou may set it to `null` if you work with editables locally and submit them together.",
             "itemtype": "property",
             "name": "unsavedclass",
@@ -2039,7 +2045,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35909,
+            "line": 47162,
             "description": "If selector is provided, editable will be delegated to the specified targets.  \nUsefull for dynamically generated DOM elements.  \n**Please note**, that delegated targets can't be initialized with `emptytext` and `autotext` options, \nas they actually become editable only after first click.  \nYou should manually set class `editable-click` to these elements.  \nAlso, if element originally empty you should add class `editable-empty`, set `data-value=\"\"` and write emptytext into element:",
             "itemtype": "property",
             "name": "selector",
@@ -2053,7 +2059,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35938,
+            "line": 47191,
             "description": "Color used to highlight element after update. Implemented via CSS3 transition, works in modern browsers.",
             "itemtype": "property",
             "name": "highlight",
@@ -2064,7 +2070,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35967,
+            "line": 47220,
             "description": "Initializes input",
             "itemtype": "method",
             "name": "init()",
@@ -2072,7 +2078,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35987,
+            "line": 47240,
             "description": "Renders input from tpl. Can return jQuery deferred object.\nCan be overwritten in child objects",
             "itemtype": "method",
             "name": "render()",
@@ -2080,7 +2086,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 35997,
+            "line": 47250,
             "description": "Sets element's html by value.",
             "itemtype": "method",
             "name": "value2html(value, element)",
@@ -2100,7 +2106,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36008,
+            "line": 47261,
             "description": "Converts element's html to value",
             "itemtype": "method",
             "name": "html2value(html)",
@@ -2119,7 +2125,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36019,
+            "line": 47272,
             "description": "Converts value to string (for internal compare). For submitting to server used value2submit().",
             "itemtype": "method",
             "name": "value2str(value)",
@@ -2138,7 +2144,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36030,
+            "line": 47283,
             "description": "Converts string received from server into value. Usually from `data-value` attribute.",
             "itemtype": "method",
             "name": "str2value(str)",
@@ -2157,7 +2163,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36041,
+            "line": 47294,
             "description": "Converts value for submitting to server. Result can be string or object.",
             "itemtype": "method",
             "name": "value2submit(value)",
@@ -2176,7 +2182,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36052,
+            "line": 47305,
             "description": "Sets value of input.",
             "itemtype": "method",
             "name": "value2input(value)",
@@ -2191,7 +2197,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36062,
+            "line": 47315,
             "description": "Returns value of input. Value can be object (e.g. datepicker)",
             "itemtype": "method",
             "name": "input2value()",
@@ -2199,7 +2205,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36071,
+            "line": 47324,
             "description": "Activates input. For text it sets focus.",
             "itemtype": "method",
             "name": "activate()",
@@ -2207,7 +2213,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36082,
+            "line": 47335,
             "description": "Creates input.",
             "itemtype": "method",
             "name": "clear()",
@@ -2215,25 +2221,25 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36091,
+            "line": 47344,
             "description": "method to escape html.",
             "class": "abstractinput"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36098,
+            "line": 47351,
             "description": "attach handler to automatically submit form when value changed (useful when buttons not shown)",
             "class": "abstractinput"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36105,
+            "line": 47358,
             "description": "Additional actions when destroying element",
             "class": "abstractinput"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36131,
+            "line": 47384,
             "description": "HTML template of input. Normally you should not change it.",
             "itemtype": "property",
             "name": "tpl",
@@ -2243,7 +2249,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36139,
+            "line": 47392,
             "description": "CSS class automatically applied to input",
             "itemtype": "property",
             "name": "inputclass",
@@ -2253,7 +2259,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36148,
+            "line": 47401,
             "description": "If `true` - html will be escaped in content of element via $.text() method.  \nIf `false` - html will not be escaped, $.html() used.  \nWhen you use own `display` function, this option obviosly has no effect.",
             "itemtype": "property",
             "name": "escape",
@@ -2264,13 +2270,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36385,
+            "line": 47638,
             "description": "convert data to array suitable for sourceData, e.g. [{value: 1, text: 'abc'}, {...}]",
             "class": "list"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36448,
+            "line": 47701,
             "description": "Source data for list.  \nIf **array** - it should be in format: `[{value: 1, text: \"text1\"}, {value: 2, text: \"text2\"}, ...]`  \nFor compability, object format is also supported: `{\"1\": \"text1\", \"2\": \"text2\" ...}` but it does not guarantee elements order.\n\nIf **string** - considered ajax url to load items. In that case results will be cached for fields with the same source and name. See also `sourceCache` option.\n  \nIf **function**, it should return data in format above (since 1.4.0).\n\nSince 1.4.1 key `children` supported to render OPTGROUP (for **select** input only).  \n`[{text: \"group1\", children: [{value: 1, text: \"text1\"}, {value: 2, text: \"text2\"}]}, ...]`",
             "itemtype": "property",
             "name": "source",
@@ -2280,7 +2286,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36466,
+            "line": 47719,
             "description": "Data automatically prepended to the beginning of dropdown list.",
             "itemtype": "property",
             "name": "prepend",
@@ -2290,7 +2296,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36474,
+            "line": 47727,
             "description": "Error message when list cannot be loaded (e.g. ajax error)",
             "itemtype": "property",
             "name": "sourceError",
@@ -2300,7 +2306,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36482,
+            "line": 47735,
             "description": "if <code>true</code> and source is **string url** - results will be cached for fields with the same source.    \nUsefull for editable column in grid to prevent extra requests.",
             "itemtype": "property",
             "name": "sourceCache",
@@ -2311,7 +2317,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36492,
+            "line": 47745,
             "description": "Additional ajax options to be used in $.ajax() when loading list from server.\nUseful to send extra parameters (`data` key) or change request method (`type` key).",
             "itemtype": "property",
             "name": "sourceOptions",
@@ -2322,7 +2328,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36615,
+            "line": 47868,
             "itemtype": "property",
             "name": "tpl",
             "default": "<input type=\"text\">",
@@ -2330,7 +2336,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36620,
+            "line": 47873,
             "description": "Placeholder attribute of input. Shown when input is empty.",
             "itemtype": "property",
             "name": "placeholder",
@@ -2340,7 +2346,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36629,
+            "line": 47882,
             "description": "Whether to show `clear` button",
             "itemtype": "property",
             "name": "clear",
@@ -2350,7 +2356,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36723,
+            "line": 47976,
             "itemtype": "property",
             "name": "tpl",
             "default": "<textarea></textarea>",
@@ -2358,7 +2364,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36728,
+            "line": 47981,
             "itemtype": "property",
             "name": "inputclass",
             "default": "input-large",
@@ -2366,7 +2372,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36733,
+            "line": 47986,
             "description": "Placeholder attribute of input. Shown when input is empty.",
             "itemtype": "property",
             "name": "placeholder",
@@ -2376,7 +2382,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36741,
+            "line": 47994,
             "description": "Number of rows in textarea",
             "itemtype": "property",
             "name": "rows",
@@ -2386,7 +2392,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36841,
+            "line": 48094,
             "itemtype": "property",
             "name": "tpl",
             "default": "<select></select>",
@@ -2394,7 +2400,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36982,
+            "line": 48235,
             "itemtype": "property",
             "name": "tpl",
             "default": "<div></div>",
@@ -2402,7 +2408,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36988,
+            "line": 48241,
             "itemtype": "property",
             "name": "inputclass",
             "type": "string",
@@ -2411,7 +2417,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36995,
+            "line": 48248,
             "description": "Separator of values when reading from `data-value` attribute",
             "itemtype": "property",
             "name": "separator",
@@ -2421,7 +2427,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 37042,
+            "line": 48295,
             "itemtype": "property",
             "name": "tpl",
             "default": "depends on type",
@@ -2429,7 +2435,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 37532,
+            "line": 48785,
             "itemtype": "property",
             "name": "tpl",
             "default": "<input type=\"hidden\">",
@@ -2437,7 +2443,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 37537,
+            "line": 48790,
             "description": "Configuration of select2. [Full list of options](http://ivaynberg.github.com/select2).",
             "itemtype": "property",
             "name": "select2",
@@ -2447,7 +2453,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 37545,
+            "line": 48798,
             "description": "Placeholder attribute of select",
             "itemtype": "property",
             "name": "placeholder",
@@ -2457,7 +2463,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 37553,
+            "line": 48806,
             "description": "Source data for select. It will be assigned to select2 `data` property and kept here just for convenience.\nPlease note, that format is different from simple `select` input: use 'id' instead of 'value'.\nE.g. `[{id: 1, text: \"text1\"}, {id: 2, text: \"text2\"}, ...]`.",
             "itemtype": "property",
             "name": "source",
@@ -2467,7 +2473,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 37563,
+            "line": 48816,
             "description": "Separator used to display tags.",
             "itemtype": "property",
             "name": "viewseparator",
@@ -2477,13 +2483,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 37577,
+            "line": 48830,
             "description": "Combodate - 1.0.5\nDropdown date and time picker.\nConverts text input into dropdowns to pick day, month, year, hour, minute and second.\nUses momentjs as datetime library http://momentjs.com.\nFor i18n include corresponding file from https://github.com/timrwood/moment/tree/master/lang \n\nConfusion at noon and midnight - see http://en.wikipedia.org/wiki/12-hour_clock#Confusion_at_noon_and_midnight\nIn combodate: \n12:00 pm --> 12:00 (24-h format, midday)\n12:00 am --> 00:00 (24-h format, midnight, start of day)\n\nDiffers from momentjs parse rules:\n00:00 pm, 12:00 pm --> 12:00 (24-h format, day not change)\n00:00 am, 12:00 am --> 00:00 (24-h format, day not change)\n\n\nAuthor: Vitaliy Potapov\nProject page: http://github.com/vitalets/combodate\nCopyright (c) 2012 Vitaliy Potapov. Released under MIT License.",
             "class": "select2"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 38199,
+            "line": 49452,
             "itemtype": "property",
             "name": "tpl",
             "default": "<input type=\"text\">",
@@ -2491,7 +2497,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 38204,
+            "line": 49457,
             "itemtype": "property",
             "name": "inputclass",
             "default": "null",
@@ -2499,7 +2505,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 38209,
+            "line": 49462,
             "description": "Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>\nSee list of tokens in [momentjs docs](http://momentjs.com/docs/#/parsing/string-format)",
             "itemtype": "property",
             "name": "format",
@@ -2509,7 +2515,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 38218,
+            "line": 49471,
             "description": "Format used for displaying date. Also applied when converting date from element's text on init.   \nIf not specified equals to `format`.",
             "itemtype": "property",
             "name": "viewformat",
@@ -2519,7 +2525,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 38227,
+            "line": 49480,
             "description": "Template used for displaying dropdowns.",
             "itemtype": "property",
             "name": "template",
@@ -2529,7 +2535,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 38235,
+            "line": 49488,
             "description": "Configuration of combodate.\nFull list of options: http://vitalets.github.com/combodate/#docs",
             "itemtype": "property",
             "name": "combodate",
@@ -2539,19 +2545,19 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 38325,
+            "line": 49578,
             "description": "Editable Popover3 (for Bootstrap 3) \n---------------------\nrequires bootstrap-popover.js",
             "class": "combodate"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 38382,
+            "line": 49635,
             "description": "move popover to new position. This function mainly copied from bootstrap-popover.",
             "class": "combodate"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 39975,
+            "line": 51228,
             "itemtype": "property",
             "name": "tpl",
             "default": "<div></div>",
@@ -2559,7 +2565,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 39980,
+            "line": 51233,
             "itemtype": "property",
             "name": "inputclass",
             "default": "null",
@@ -2567,7 +2573,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 39985,
+            "line": 51238,
             "description": "Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>\nPossible tokens are: <code>d, dd, m, mm, yy, yyyy</code>",
             "itemtype": "property",
             "name": "format",
@@ -2577,7 +2583,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 39994,
+            "line": 51247,
             "description": "Format used for displaying date. Also applied when converting date from element's text on init.   \nIf not specified equals to <code>format</code>",
             "itemtype": "property",
             "name": "viewformat",
@@ -2587,7 +2593,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40003,
+            "line": 51256,
             "description": "Configuration of datepicker.\nFull list of options: http://bootstrap-datepicker.readthedocs.org/en/latest/options.html",
             "itemtype": "property",
             "name": "datepicker",
@@ -2597,7 +2603,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40022,
+            "line": 51275,
             "description": "Text shown as clear date button. \nIf <code>false</code> clear button will not be rendered.",
             "itemtype": "property",
             "name": "clear",
@@ -2607,14 +2613,14 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40096,
+            "line": 51349,
             "itemtype": "property",
             "name": "tpl",
             "class": "datefield"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40100,
+            "line": 51353,
             "itemtype": "property",
             "name": "inputclass",
             "default": "'input-small'",
@@ -2622,7 +2628,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40307,
+            "line": 51560,
             "itemtype": "property",
             "name": "tpl",
             "default": "<div></div>",
@@ -2630,7 +2636,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40312,
+            "line": 51565,
             "itemtype": "property",
             "name": "inputclass",
             "default": "null",
@@ -2638,7 +2644,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40317,
+            "line": 51570,
             "description": "Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>\nPossible tokens are: <code>d, dd, m, mm, yy, yyyy, h, i</code>",
             "itemtype": "property",
             "name": "format",
@@ -2648,7 +2654,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40327,
+            "line": 51580,
             "description": "Format used for displaying date. Also applied when converting date from element's text on init.   \nIf not specified equals to <code>format</code>",
             "itemtype": "property",
             "name": "viewformat",
@@ -2658,7 +2664,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40336,
+            "line": 51589,
             "description": "Configuration of datetimepicker.\nFull list of options: https://github.com/smalot/bootstrap-datetimepicker",
             "itemtype": "property",
             "name": "datetimepicker",
@@ -2668,7 +2674,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40348,
+            "line": 51601,
             "description": "Text shown as clear date button. \nIf <code>false</code> clear button will not be rendered.",
             "itemtype": "property",
             "name": "clear",
@@ -2678,14 +2684,14 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40419,
+            "line": 51672,
             "itemtype": "property",
             "name": "tpl",
             "class": "datetimefield"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 40423,
+            "line": 51676,
             "itemtype": "property",
             "name": "inputclass",
             "default": "'input-medium'",
@@ -2693,7 +2699,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1098,
+            "line": 1116,
             "description": "Enables row selection (to enable multi selection see also `multiSelect`). Default value is `false`.",
             "itemtype": "property",
             "name": "selection",
@@ -2704,7 +2710,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1109,
+            "line": 1127,
             "description": "Enables multi selection (`selection` must be set to `true` as well). Default value is `false`.",
             "itemtype": "property",
             "name": "multiSelect",
@@ -2715,7 +2721,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1120,
+            "line": 1138,
             "description": "Enables entire row click selection (`selection` must be set to `true` as well). Default value is `false`.",
             "itemtype": "property",
             "name": "rowSelect",
@@ -2726,7 +2732,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1131,
+            "line": 1149,
             "description": "Defines whether the row selection is saved internally on filtering, paging and sorting\n(even if the selected rows are not visible).",
             "itemtype": "property",
             "name": "keepSelection",
@@ -2737,7 +2743,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1147,
+            "line": 1165,
             "description": "General search settings to configure the search field behaviour.",
             "itemtype": "property",
             "name": "searchSettings",
@@ -2747,7 +2753,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1156,
+            "line": 1174,
             "description": "The time in milliseconds to wait before search gets executed.",
             "itemtype": "property",
             "name": "delay",
@@ -2757,7 +2763,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1166,
+            "line": 1184,
             "description": "The characters to type before the search gets executed.",
             "itemtype": "property",
             "name": "characters",
@@ -2767,7 +2773,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1177,
+            "line": 1195,
             "description": "Defines whether the data shall be loaded via an asynchronous HTTP (Ajax) request.",
             "itemtype": "property",
             "name": "ajax",
@@ -2777,7 +2783,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1187,
+            "line": 1205,
             "description": "Ajax request settings that shall be used for server-side communication.\nAll setting except data, error, success and url can be overridden.\nFor the full list of settings go to http://api.jquery.com/jQuery.ajax/.",
             "itemtype": "property",
             "name": "ajaxSettings",
@@ -2787,7 +2793,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1198,
+            "line": 1216,
             "description": "Specifies the HTTP method which shall be used when sending data to the server.\nGo to http://api.jquery.com/jQuery.ajax/ for more details.\nThis setting is overriden for backward compatibility.",
             "itemtype": "property",
             "name": "method",
@@ -2797,7 +2803,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1211,
+            "line": 1229,
             "description": "Enriches the request object with additional properties. Either a `PlainObject` or a `Function`\nthat returns a `PlainObject` can be passed. Default value is `{}`.",
             "itemtype": "property",
             "name": "post",
@@ -2809,7 +2815,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1223,
+            "line": 1241,
             "description": "Sets the data URL to a data service (e.g. a REST service). Either a `String` or a `Function`\nthat returns a `String` can be passed. Default value is `\"\"`.",
             "itemtype": "property",
             "name": "url",
@@ -2819,7 +2825,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1234,
+            "line": 1252,
             "description": "Defines whether the search is case sensitive or insensitive.",
             "itemtype": "property",
             "name": "caseSensitive",
@@ -2830,7 +2836,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1247,
+            "line": 1265,
             "description": "Transforms the JSON request object in whatever is needed on the server-side implementation.",
             "itemtype": "property",
             "name": "requestHandler",
@@ -2841,7 +2847,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1258,
+            "line": 1276,
             "description": "Transforms the response object into the expected JSON response object.",
             "itemtype": "property",
             "name": "responseHandler",
@@ -2852,7 +2858,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1269,
+            "line": 1287,
             "description": "A list of converters.",
             "itemtype": "property",
             "name": "converters",
@@ -2862,7 +2868,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1289,
+            "line": 1307,
             "description": "Contains all css classes.",
             "itemtype": "property",
             "name": "css",
@@ -2871,7 +2877,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1325,
+            "line": 1343,
             "description": "CSS class to select the parent div which activates responsive mode.",
             "itemtype": "property",
             "name": "responsiveTable",
@@ -2882,7 +2888,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1342,
+            "line": 1360,
             "description": "CSS class to highlight selected rows.",
             "itemtype": "property",
             "name": "selected",
@@ -2893,7 +2899,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1357,
+            "line": 1375,
             "description": "A dictionary of formatters.",
             "itemtype": "property",
             "name": "formatters",
@@ -2903,7 +2909,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1367,
+            "line": 1385,
             "description": "Specifies the mapping between status and contextual classes to color rows.",
             "itemtype": "property",
             "name": "statusMapping",
@@ -2913,7 +2919,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1376,
+            "line": 1394,
             "description": "Specifies a successful or positive action.",
             "itemtype": "property",
             "name": "0",
@@ -2922,7 +2928,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1385,
+            "line": 1403,
             "description": "Specifies a neutral informative change or action.",
             "itemtype": "property",
             "name": "1",
@@ -2931,7 +2937,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1394,
+            "line": 1412,
             "description": "Specifies a warning that might need attention.",
             "itemtype": "property",
             "name": "2",
@@ -2940,7 +2946,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1403,
+            "line": 1421,
             "description": "Specifies a dangerous or potentially negative action.",
             "itemtype": "property",
             "name": "3",
@@ -2949,7 +2955,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1415,
+            "line": 1433,
             "description": "Contains all templates.",
             "itemtype": "property",
             "name": "templates",
@@ -2958,7 +2964,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1487,
+            "line": 1506,
             "description": "Appends rows.",
             "itemtype": "method",
             "name": "append",
@@ -2974,7 +2980,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1512,
+            "line": 1531,
             "description": "Removes all rows.",
             "itemtype": "method",
             "name": "clear",
@@ -2983,7 +2989,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1533,
+            "line": 1552,
             "description": "Removes the control functionality completely and transforms the current state to the initial HTML structure.",
             "itemtype": "method",
             "name": "destroy",
@@ -2992,7 +2998,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1551,
+            "line": 1570,
             "description": "Resets the state and reloads rows.",
             "itemtype": "method",
             "name": "reload",
@@ -3001,7 +3007,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1563,
+            "line": 1582,
             "description": "Removes rows by ids. Removes selected rows if no ids are provided.",
             "itemtype": "method",
             "name": "remove",
@@ -3018,7 +3024,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1597,
+            "line": 1616,
             "description": "Searches in all rows for a specific phrase (but only in visible cells). \nThe search filter will be reset if no argument is provided.",
             "itemtype": "method",
             "name": "search",
@@ -3035,7 +3041,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1616,
+            "line": 1635,
             "description": "Selects rows by ids. Selects all visible rows if no ids are provided.\nIn server-side scenarios only visible rows are selectable.",
             "itemtype": "method",
             "name": "select",
@@ -3052,7 +3058,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1669,
+            "line": 1688,
             "description": "Deselects rows by ids. Deselects all visible rows if no ids are provided.\nIn server-side scenarios only visible rows are deselectable.",
             "itemtype": "method",
             "name": "deselect",
@@ -3069,7 +3075,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1713,
+            "line": 1732,
             "description": "Sorts the rows by a given sort descriptor dictionary. \nThe sort filter will be reseted, if no argument is provided.",
             "itemtype": "method",
             "name": "sort",
@@ -3086,7 +3092,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1735,
+            "line": 1754,
             "description": "Gets a list of the column settings.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
             "itemtype": "method",
             "name": "getColumnSettings",
@@ -3099,7 +3105,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1748,
+            "line": 1767,
             "description": "Gets the current page index.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
             "itemtype": "method",
             "name": "getCurrentPage",
@@ -3112,7 +3118,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1761,
+            "line": 1780,
             "description": "Gets the current rows.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
             "itemtype": "method",
             "name": "getCurrentPage",
@@ -3125,7 +3131,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1774,
+            "line": 1793,
             "description": "Gets a number represents the row count per page.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
             "itemtype": "method",
             "name": "getRowCount",
@@ -3138,7 +3144,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1787,
+            "line": 1806,
             "description": "Gets the actual search phrase.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
             "itemtype": "method",
             "name": "getSearchPhrase",
@@ -3151,7 +3157,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1800,
+            "line": 1819,
             "description": "Gets the complete list of currently selected rows.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
             "itemtype": "method",
             "name": "getSelectedRows",
@@ -3164,7 +3170,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1813,
+            "line": 1832,
             "description": "Gets the sort dictionary which represents the state of column sorting.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
             "itemtype": "method",
             "name": "getSortDictionary",
@@ -3177,7 +3183,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1826,
+            "line": 1845,
             "description": "Gets a number represents the total page count.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
             "itemtype": "method",
             "name": "getTotalPageCount",
@@ -3190,7 +3196,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1839,
+            "line": 1881,
             "description": "Gets a number represents the total row count.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is catched by your selector.",
             "itemtype": "method",
             "name": "getTotalRowCount",
@@ -3203,37 +3209,37 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1897,
+            "line": 1939,
             "description": "Nova Creator Boostrap Data Grid Extension: editable",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2030,
+            "line": 2052,
             "description": "Nova Creator Boostrap Data Grid Extension: exporter",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2141,
+            "line": 2163,
             "description": "Nova Creator Boostrap Data Grid Extension: filters",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2788,
+            "line": 2734,
             "description": "Nova Creator Boostrap Data Grid Extension: reorder-columns",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2902,
+            "line": 2848,
             "description": "Nova Creator Boostrap Data Grid Extension: reorder-rows",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 3001,
+            "line": 2947,
             "description": "Nova Creator Boostrap Data Grid Extension: resizable",
             "class": "defaults"
         }
@@ -3260,44 +3266,48 @@
             "line": " dist/js/dependencies.js:1033"
         },
         {
+            "message": "unknown tag: license",
+            "line": " dist/js/dependencies.js:34330"
+        },
+        {
             "message": "unknown tag: preserve",
-            "line": " dist/js/dependencies.js:33582"
+            "line": " dist/js/dependencies.js:44835"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " dist/js/dependencies.js:34930"
+            "line": " dist/js/dependencies.js:46183"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " dist/js/dependencies.js:35587"
+            "line": " dist/js/dependencies.js:46840"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:35603"
+            "line": " dist/js/dependencies.js:46856"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:35625"
+            "line": " dist/js/dependencies.js:46878"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:35658"
+            "line": " dist/js/dependencies.js:46911"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:36008"
+            "line": " dist/js/dependencies.js:47261"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:36019"
+            "line": " dist/js/dependencies.js:47272"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:36030"
+            "line": " dist/js/dependencies.js:47283"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:36041"
+            "line": " dist/js/dependencies.js:47294"
         },
         {
             "message": "Missing item type\nCreate key-value caches of limited size",
@@ -3548,136 +3558,140 @@
             "line": " dist/js/dependencies.js:30241"
         },
         {
+            "message": "Missing item type",
+            "line": " dist/js/dependencies.js:34330"
+        },
+        {
             "message": "Missing item type\njsPDF - PDF Document creation from JavaScript\nVersion 1.0.272-git Built on 2014-09-29T15:09\n                          CommitID d4770725ca\n\nCopyright (c) 2010-2014 James Hall, https://github.com/MrRio/jsPDF\n              2010 Aaron Spike, https://github.com/acspike\n              2012 Willow Systems Corporation, willow-systems.com\n              2012 Pablo Hess, https://github.com/pablohess\n              2012 Florian Jenett, https://github.com/fjenett\n              2013 Warren Weckesser, https://github.com/warrenweckesser\n              2013 Youssef Beddad, https://github.com/lifof\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2013 Stefan Slonevskiy, https://github.com/stefslon\n              2013 Jeremy Morel, https://github.com/jmorel\n              2013 Christoph Hartmann, https://github.com/chris-rock\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Makes, https://github.com/dollaruw\n              2014 Diego Casorran, https://github.com/diegocr\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\nContributor(s):\n   siefkenj, ahwolf, rickygu, Midnith, saintclair, eaparango,\n   kim3er, mfo, alnorth,",
-            "line": " dist/js/dependencies.js:33411"
+            "line": " dist/js/dependencies.js:44664"
         },
         {
             "message": "Missing item type\njsPDF addHTML PlugIn\nCopyright (c) 2014 Diego Casorran\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
-            "line": " dist/js/dependencies.js:33454"
+            "line": " dist/js/dependencies.js:44707"
         },
         {
             "message": "Missing item type\njsPDF addImage plugin\nCopyright (c) 2012 Jason Siefken, https://github.com/siefkenj/\n              2013 Chris Dowling, https://github.com/gingerchris\n              2013 Trinh Ho, https://github.com/ineedfat\n              2013 Edwin Alejandro Perez, https://github.com/eaparango\n              2013 Norah Smith, https://github.com/burnburnrocket\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 James Robb, https://github.com/jamesbrobb",
-            "line": " dist/js/dependencies.js:33460"
+            "line": " dist/js/dependencies.js:44713"
         },
         {
             "message": "Missing item type\njsPDF Cell plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com\n              2013 Eduardo Menezes de Morais, eduardo.morais@usp.br\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Hall, james@parall.ax\n              2014 Diego Casorran, https://github.com/diegocr",
-            "line": " dist/js/dependencies.js:33470"
+            "line": " dist/js/dependencies.js:44723"
         },
         {
             "message": "Missing item type\njsPDF fromHTML plugin. BETA stage. API subject to change. Needs browser\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 Daniel Husar, https://github.com/danielhusar\n              2014 Wolfgang Gassler, https://github.com/woolfg",
-            "line": " dist/js/dependencies.js:33479"
+            "line": " dist/js/dependencies.js:44732"
         },
         {
             "message": "Missing item type\njsPDF JavaScript plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com",
-            "line": " dist/js/dependencies.js:33487"
+            "line": " dist/js/dependencies.js:44740"
         },
         {
             "message": "Missing item type\njsPDF PNG PlugIn\nCopyright (c) 2014 James Robb, https://github.com/jamesbrobb",
-            "line": " dist/js/dependencies.js:33491"
+            "line": " dist/js/dependencies.js:44744"
         },
         {
             "message": "Missing item type\njsPDF Silly SVG plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com",
-            "line": " dist/js/dependencies.js:33495"
+            "line": " dist/js/dependencies.js:44748"
         },
         {
             "message": "Missing item type\njsPDF split_text_to_size plugin - MIT license.\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Diego Casorran, https://github.com/diegocr",
-            "line": " dist/js/dependencies.js:33499"
+            "line": " dist/js/dependencies.js:44752"
         },
         {
             "message": "Missing item type\njsPDF standard_fonts_metrics plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\nMIT license.",
-            "line": " dist/js/dependencies.js:33504"
+            "line": " dist/js/dependencies.js:44757"
         },
         {
             "message": "Missing item type\njsPDF total_pages plugin\nCopyright (c) 2013 Eduardo Menezes de Morais, eduardo.morais@usp.br",
-            "line": " dist/js/dependencies.js:33509"
+            "line": " dist/js/dependencies.js:44762"
         },
         {
             "message": "Missing item type\nJavaScript Polyfill functions for jsPDF\nCollected from public resources by\nhttps://github.com/diegocr",
-            "line": " dist/js/dependencies.js:33573"
+            "line": " dist/js/dependencies.js:44826"
         },
         {
             "message": "Missing item type\njsPDF AutoTable plugin v2.0.14\nCopyright (c) 2014 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable\n\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
-            "line": " dist/js/dependencies.js:33582"
+            "line": " dist/js/dependencies.js:44835"
         },
         {
             "message": "Missing item type\nEditableForm utilites",
-            "line": " dist/js/dependencies.js:34272"
+            "line": " dist/js/dependencies.js:45525"
         },
         {
             "message": "Missing item type\nclassic JS inheritance function",
-            "line": " dist/js/dependencies.js:34280"
+            "line": " dist/js/dependencies.js:45533"
         },
         {
             "message": "Missing item type\nset caret position in input\nsee http://stackoverflow.com/questions/499126/jquery-set-cursor-position-in-text-area",
-            "line": " dist/js/dependencies.js:34291"
+            "line": " dist/js/dependencies.js:45544"
         },
         {
             "message": "Missing item type\nfunction to parse JSON in *single* quotes. (jquery automatically parse only double quotes)\nThat allows such code as: <a data-source=\"{'a': 'b', 'c': 'd'}\">\nsafe = true --> means no exception will be thrown\nfor details see http://stackoverflow.com/questions/7410348/how-to-set-json-format-to-html5-data-attributes-in-the-jquery",
-            "line": " dist/js/dependencies.js:34307"
+            "line": " dist/js/dependencies.js:45560"
         },
         {
             "message": "Missing item type\nslice object by specified keys",
-            "line": " dist/js/dependencies.js:34332"
+            "line": " dist/js/dependencies.js:45585"
         },
         {
             "message": "Missing item type\nmethod to escape html.",
-            "line": " dist/js/dependencies.js:34398"
+            "line": " dist/js/dependencies.js:45651"
         },
         {
             "message": "Missing item type\nEditable Inline \n---------------------",
-            "line": " dist/js/dependencies.js:35038"
+            "line": " dist/js/dependencies.js:46291"
         },
         {
             "message": "Missing item type\nmethod to escape html.",
-            "line": " dist/js/dependencies.js:36091"
+            "line": " dist/js/dependencies.js:47344"
         },
         {
             "message": "Missing item type\nattach handler to automatically submit form when value changed (useful when buttons not shown)",
-            "line": " dist/js/dependencies.js:36098"
+            "line": " dist/js/dependencies.js:47351"
         },
         {
             "message": "Missing item type\nAdditional actions when destroying element",
-            "line": " dist/js/dependencies.js:36105"
+            "line": " dist/js/dependencies.js:47358"
         },
         {
             "message": "Missing item type\nconvert data to array suitable for sourceData, e.g. [{value: 1, text: 'abc'}, {...}]",
-            "line": " dist/js/dependencies.js:36385"
+            "line": " dist/js/dependencies.js:47638"
         },
         {
             "message": "Missing item type\nCombodate - 1.0.5\nDropdown date and time picker.\nConverts text input into dropdowns to pick day, month, year, hour, minute and second.\nUses momentjs as datetime library http://momentjs.com.\nFor i18n include corresponding file from https://github.com/timrwood/moment/tree/master/lang \n\nConfusion at noon and midnight - see http://en.wikipedia.org/wiki/12-hour_clock#Confusion_at_noon_and_midnight\nIn combodate: \n12:00 pm --> 12:00 (24-h format, midday)\n12:00 am --> 00:00 (24-h format, midnight, start of day)\n\nDiffers from momentjs parse rules:\n00:00 pm, 12:00 pm --> 12:00 (24-h format, day not change)\n00:00 am, 12:00 am --> 00:00 (24-h format, day not change)\n\n\nAuthor: Vitaliy Potapov\nProject page: http://github.com/vitalets/combodate\nCopyright (c) 2012 Vitaliy Potapov. Released under MIT License.",
-            "line": " dist/js/dependencies.js:37577"
+            "line": " dist/js/dependencies.js:48830"
         },
         {
             "message": "Missing item type\nEditable Popover3 (for Bootstrap 3) \n---------------------\nrequires bootstrap-popover.js",
-            "line": " dist/js/dependencies.js:38325"
+            "line": " dist/js/dependencies.js:49578"
         },
         {
             "message": "Missing item type\nmove popover to new position. This function mainly copied from bootstrap-popover.",
-            "line": " dist/js/dependencies.js:38382"
+            "line": " dist/js/dependencies.js:49635"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: editable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:1897"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:1939"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: exporter",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2030"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2052"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: filters",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2141"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2163"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: reorder-columns",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2788"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2734"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: reorder-rows",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2902"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2848"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: resizable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:3001"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2947"
         }
     ]
 }

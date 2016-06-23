@@ -199,7 +199,9 @@ module.exports = function (grunt) {
                 },
                 files: {
                     '<%= folders.dist %>/css/<%= pkg.namespace %>.min.css': 
-                        [ '<%= folders.dist %>/css/<%= pkg.namespace %>.css' ]
+                        [ '<%= folders.dist %>/css/<%= pkg.namespace %>.css' ],
+                    '<%= folders.dist %>/css/dependencies.min.css': 
+                        [ '<%= folders.dist %>/css/dependencies.css' ]                        
                 }
             }
         },
@@ -211,10 +213,12 @@ module.exports = function (grunt) {
                     report: 'gzip'
                 },
                 files: {
-                    '<%= folders.dist %>/<%= pkg.namespace %>.min.js': 
-                        [ '<%= folders.dist %>/<%= pkg.namespace %>.js' ],
-                    '<%= folders.dist %>/<%= pkg.namespace %>.<%= fontawesome %>.min.js': 
-                        [ '<%= folders.dist %>/<%= pkg.namespace %>.<%= fontawesome %>.js' ]
+                	'<%= folders.dist %>/js/<%= pkg.namespace %>.min.js': 
+                        [ '<%= folders.dist %>/js/<%= pkg.namespace %>.js' ],
+                    '<%= folders.dist %>/js/dependencies.min.js': 
+                        [ '<%= folders.dist %>/js/dependencies.js' ],
+                    '<%= folders.dist %>/js/<%= pkg.namespace %>.<%= fontawesome %>.min.js': 
+                        [ '<%= folders.dist %>/js/<%= pkg.namespace %>.<%= fontawesome %>.js' ]
                 }
             }
         },
@@ -236,7 +240,7 @@ module.exports = function (grunt) {
                 files: [{
                     flatten: true,
                     expand: true, 
-                    src: ['<%= folders.dist %>/*.js', '<%= folders.dist %>/*.css'], dest: '/'
+                    src: ['<%= folders.dist %>/js/*.js', '<%= folders.dist %>/css/*.css', '<%= folders.dist %>/img/*.*'], dest: '/'
                 }]
             }
         },

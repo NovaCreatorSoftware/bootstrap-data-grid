@@ -58,15 +58,15 @@
 					data-editable="true" data-editable-type="combodate"
 					data-editable-format="YYYY-MM-DD" data-editable-viewformat="YYYY.MM.DD" data-editable-template="YYYY . MMM . D"					
 					data-filterable="true" data-width="200px">Due Date</th>
-				<th data-show-filter="select" data-column-id="actualDate"
+				<th data-show-filter="select" data-column-id="actionDate"
 					data-css-class="cell" data-header-css-class="column"
 					data-header-align="center" data-align="center"
 					data-editable="true" data-editable-type="combodate"
 					data-editable-format="YYYY-MM-DD" data-editable-viewformat="YYYY.MM.DD" data-editable-template="YYYY . MMM . D"					
-					data-filterable="true" data-width="200px">Actual Date</th>
+					data-filterable="true" data-width="200px">Action Date</th>
 				<th data-column-id="status" data-type="numeric" data-visible="false">Status</th>
-				<th data-column-id="hidden" data-visible="false"
-					data-visible-in-selection="false">Hidden</th>
+				<th data-column-id="priority" data-type="numeric" data-visible="false"
+					data-width="50px">Priority</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -74,41 +74,46 @@
 				<td>1</td>
 				<td>Some name 1</td>
 				<td></td>
-				<td>11.12.2014</td>
-				<td>11.12.2014</td>
+				<td>2016.11.12</td>
+				<td>2016.11.12</td>
 				<td>999</td>
+				<td>1</td>
 			</tr>
 			<tr>
 				<td>2</td>
 				<td>Some name 2</td>
 				<td></td>
-				<td>12.12.2014</td>
-				<td>12.12.2014</td>
+				<td>2016.11.12</td>
+				<td>2016.11.12</td>
 				<td>999</td>
+				<td>2</td>
 			</tr>
 			<tr>
 				<td>3</td>
 				<td>Some name 3</td>
 				<td></td>
-				<td>10.12.2014</td>
-				<td>10.12.2014</td>
+				<td>2016.11.12</td>
+				<td>2016.11.12</td>
 				<td>2</td>
+				<td>3</td>
 			</tr>
 			<tr>
 				<td>4</td>
 				<td>Some name 4</td>
 				<td></td>
-				<td>12.08.2014</td>
-				<td>12.08.2014</td>
+				<td>2016.11.12</td>
+				<td>2016.11.12</td>
 				<td>999</td>
+				<td>4</td>
 			</tr>
 			<tr>
 				<td>5</td>
 				<td>Some name 5</td>
 				<td></td>
-				<td>12.06.2014</td>
-				<td>12.06.2014</td>
+				<td>2016.11.12</td>
+				<td>2016.11.12</td>
 				<td>3</td>
+				<td>5</td>
 			</tr>
 		</tbody>
 	</table>
@@ -143,9 +148,9 @@
 				resizable: true,
 				editable: true
 			}).on("loaded.rs.novacreator.bootstrap.datagrid", function() {
-				grid.find(".action-x").on("click", function(e) {
+				grid.find(".action-x").off("click").on("click", function(e) {
 					alert("You pressed x on row: " + $(this).data("row-id"));
-				}).end().find(".action-ok").on("click", function(e) {
+				}).end().find(".action-ok").off("click").on("click", function(e) {
 					alert("You pressed ok on row: " + $(this).data("row-id"));
 				});
 			});

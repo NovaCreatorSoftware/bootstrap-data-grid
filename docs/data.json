@@ -3239,7 +3239,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2958,
+            "line": 2959,
             "description": "Nova Creator Boostrap Data Grid Extension: resizable",
             "class": "defaults"
         }
@@ -3691,7 +3691,7 @@
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: resizable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2958"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2959"
         }
     ]
 }

@@ -102,7 +102,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/23/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/27/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -2090,7 +2090,9 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 
             var processDataOptions = function(key, value) {
             	// Replace camel case with dashes.
-            	var dashKey = key.replace(/([A-Z])/g, function($1){return &quot;-&quot;+$1.toLowerCase();});
+            	var dashKey = key.replace(/([A-Z])/g, function($1) { 
+            		return &quot;-&quot; + $1.toLowerCase();
+            	});
             	if(dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
             		var dataKey = dashKey.replace(editableDataPrefix, &#x27;data-&#x27;);
             		editableOptions[dataKey] = value;
@@ -2115,6 +2117,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
                     &#x27; data-pk=&quot;&#x27; + row.id + &#x27;&quot;&#x27;,
                     &#x27; data-value=&quot;&#x27; + result + &#x27;&quot;&#x27;,
                     editableDataMarkup.join(&#x27;&#x27;),
+                    &#x27; data-max-year=&quot;2016&quot; &#x27;,
                     &#x27;&gt;&#x27; + &#x27;&lt;/a&gt;&#x27;
                 ].join(&#x27;&#x27;);
             };
@@ -2134,20 +2137,28 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             if(!column.editable) {
                 return;
             }
-
-            that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;).editable(column.editable)
-                .off(&#x27;save&#x27;).on(&#x27;save&#x27;, that, function(e, params) {
-                    var Grid = e.data;
-                    var columnId = $(e.currentTarget).data(&#x27;name&#x27;);
-                    var column = Grid.getColumnById(columnId);
-                    var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
-                    $(this).data(&#x27;value&#x27;, params.submitValue);
-                    row[columnId] = params.submitValue;
-                });
-            that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;).editable(column.editable)
-                .off(&#x27;shown&#x27;).on(&#x27;shown&#x27;, that, function(e, editable) {});
-            that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;).editable(column.editable)
-                .off(&#x27;hidden&#x27;).on(&#x27;hidden&#x27;, that, function(e, reason) {});
+            
+            //there&#x27;s a bug that prevents transmitting the minYear, maxYear parameters directly through data- tags
+            // so a bit of help is needed            
+            var aElements = that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;);
+            aElements.each(function() {
+            	var comboDate = {};
+            	var maxYear = $(this).data(&quot;maxYear&quot;);
+            	var minYear = $(this).data(&quot;minYear&quot;);
+            	maxYear &amp;&amp; (comboDate[&quot;maxYear&quot;] = maxYear);
+            	minYear &amp;&amp; (comboDate[&quot;minYear&quot;] = minYear);
+            	$(this).editable({ combodate: comboDate });
+            });
+            aElements.off(&#x27;save&#x27;).on(&#x27;save&#x27;, that, function(e, params) {
+            	var Grid = e.data;
+            	var columnId = $(e.currentTarget).data(&#x27;name&#x27;);
+            	var column = Grid.getColumnById(columnId);
+            	var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
+            	$(this).data(&#x27;value&#x27;, params.submitValue);
+            	row[columnId] = params.submitValue;
+            });
+            aElements.off(&#x27;shown&#x27;).on(&#x27;shown&#x27;, that, function(e, editable) {});
+            aElements.off(&#x27;hidden&#x27;).on(&#x27;hidden&#x27;, that, function(e, reason) {});
         });
     };
 })(jQuery);

@@ -211,3 +211,15 @@
     -moz-box-shadow: 0 9px 4px -4px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset, -1px 0 0 #ccc inset;
     box-shadow: 0 9px 4px -4px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset, -1px 0 0 #ccc inset;
 }
+
+/*make editable fill the parent size (and use ~ to prevent less to actually do a calculation)*/
+.editable-container.editable-inline,
+.editable-container.editable-inline .control-group.form-group,
+.editable-container.editable-inline .control-group.form-group .editable-input,
+.editable-container.editable-inline .control-group.form-group .editable-input textarea,
+.editable-container.editable-inline .control-group.form-group .editable-input select,
+.editable-container.editable-inline .control-group.form-group .editable-input input:not([type=radio]):not([type=checkbox]):not([type=submit]) {
+	width: -moz-calc(~"100% - 30px");
+	width: -webkit-calc(~"100% - 30px");
+	width: calc(~"100% - 30px");
+}

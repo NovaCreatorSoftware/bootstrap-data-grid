@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/23/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/27/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -1987,7 +1987,9 @@ $("[data-toggle=\"tablear\"]").tablear();
 
             var processDataOptions = function(key, value) {
             	// Replace camel case with dashes.
-            	var dashKey = key.replace(/([A-Z])/g, function($1){return "-"+$1.toLowerCase();});
+            	var dashKey = key.replace(/([A-Z])/g, function($1) { 
+            		return "-" + $1.toLowerCase();
+            	});
             	if(dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
             		var dataKey = dashKey.replace(editableDataPrefix, 'data-');
             		editableOptions[dataKey] = value;
@@ -2012,6 +2014,7 @@ $("[data-toggle=\"tablear\"]").tablear();
                     ' data-pk="' + row.id + '"',
                     ' data-value="' + result + '"',
                     editableDataMarkup.join(''),
+                    ' data-max-year="2016" ',
                     '>' + '</a>'
                 ].join('');
             };
@@ -2031,20 +2034,28 @@ $("[data-toggle=\"tablear\"]").tablear();
             if(!column.editable) {
                 return;
             }
-
-            that.$element.find('a[data-name="' + column.field + '"]').editable(column.editable)
-                .off('save').on('save', that, function(e, params) {
-                    var Grid = e.data;
-                    var columnId = $(e.currentTarget).data('name');
-                    var column = Grid.getColumnById(columnId);
-                    var row = Grid.getRowById($(e.currentTarget).data('pk'));
-                    $(this).data('value', params.submitValue);
-                    row[columnId] = params.submitValue;
-                });
-            that.$element.find('a[data-name="' + column.field + '"]').editable(column.editable)
-                .off('shown').on('shown', that, function(e, editable) {});
-            that.$element.find('a[data-name="' + column.field + '"]').editable(column.editable)
-                .off('hidden').on('hidden', that, function(e, reason) {});
+            
+            //there's a bug that prevents transmitting the minYear, maxYear parameters directly through data- tags
+            // so a bit of help is needed            
+            var aElements = that.$element.find('a[data-name="' + column.field + '"]');
+            aElements.each(function() {
+            	var comboDate = {};
+            	var maxYear = $(this).data("maxYear");
+            	var minYear = $(this).data("minYear");
+            	maxYear && (comboDate["maxYear"] = maxYear);
+            	minYear && (comboDate["minYear"] = minYear);
+            	$(this).editable({ combodate: comboDate });
+            });
+            aElements.off('save').on('save', that, function(e, params) {
+            	var Grid = e.data;
+            	var columnId = $(e.currentTarget).data('name');
+            	var column = Grid.getColumnById(columnId);
+            	var row = Grid.getRowById($(e.currentTarget).data('pk'));
+            	$(this).data('value', params.submitValue);
+            	row[columnId] = params.submitValue;
+            });
+            aElements.off('shown').on('shown', that, function(e, editable) {});
+            aElements.off('hidden').on('hidden', that, function(e, reason) {});
         });
     };
 })(jQuery);

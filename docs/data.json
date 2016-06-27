@@ -3215,31 +3215,31 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2052,
+            "line": 2063,
             "description": "Nova Creator Boostrap Data Grid Extension: exporter",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2163,
+            "line": 2174,
             "description": "Nova Creator Boostrap Data Grid Extension: filters",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2734,
+            "line": 2745,
             "description": "Nova Creator Boostrap Data Grid Extension: reorder-columns",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2848,
+            "line": 2859,
             "description": "Nova Creator Boostrap Data Grid Extension: reorder-rows",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2947,
+            "line": 2958,
             "description": "Nova Creator Boostrap Data Grid Extension: resizable",
             "class": "defaults"
         }
@@ -3675,23 +3675,23 @@
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: exporter",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2052"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2063"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: filters",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2163"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2174"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: reorder-columns",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2734"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2745"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: reorder-rows",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2848"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2859"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: resizable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2947"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2958"
         }
     ]
 }

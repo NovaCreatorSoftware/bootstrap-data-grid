@@ -2811,24 +2811,24 @@ $("[data-toggle=\"tablear\"]").tablear();
         var that = this;
         try {
             $(this.$element).dragtable('destroy');
-        } catch (e) {}
+        } catch(e) {}
         $(this.$element).dragtable({
             maxMovingRows: that.options.maxMovingRows,
             dragaccept: that.options.dragaccept,
-            clickDelay:200,
+            clickDelay: 1000,
             beforeStop: function() {
-                var ths = [],
-                    formatters = [],
-                    columns = [],
-                    columnsHidden = [],
-                    columnIndex = -1;
+                var ths = [];
+                var formatters = [];
+                var columns = [];
+                var columnsHidden = [];
+                var columnIndex = -1;
                 that.$header.find('th').each(function (i) {
                     ths.push($(this).data('field'));
                     formatters.push($(this).data('formatter'));
                 });
 
                 //Exist columns not shown
-                if (ths.length < that.columns.length) {
+                if(ths.length < that.columns.length) {
                     columnsHidden = $.grep(that.columns, function (column) {
                        return !column.visible;
                     });
@@ -2838,7 +2838,7 @@ $("[data-toggle=\"tablear\"]").tablear();
                     }
                 }
 
-                for (var i = 0; i < ths.length; i++ ) {
+                for(var i = 0; i < ths.length; i++ ) {
                     columnIndex = getFieldIndex(that.columns, ths[i]);
                     if (columnIndex !== -1) {
                         columns.push(that.columns[columnIndex]);
@@ -2880,6 +2880,7 @@ $("[data-toggle=\"tablear\"]").tablear();
         dragHandle: null,
         useRowAttrFunc: false,
         onReorderRowsDrag: function(table, row) {
+        	alert('cucu');
             return false;
         },
         onReorderRowsDrop: function(table, row) {

@@ -8,7 +8,7 @@
 
     var isSearch = false;
 
-    var rowAttr = function (row, index) {
+    var rowAttr = function(row, index) {
         return {
             id: 'customId_' + index
         };
@@ -38,7 +38,7 @@
 
     var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
     var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
-    $.fn.tablear.Constructor.prototype.initHeader = function () {
+    $.fn.tablear.Constructor.prototype.initHeader = function() {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.reorderableRows) {
             return;
@@ -52,7 +52,7 @@
         }, 100);
     };
 
-    $.fn.tablear.Constructor.prototype.initSearch = function () {
+    $.fn.tablear.Constructor.prototype.initSearch = function() {
         _initSearch.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.reorderableRows) {
             return;

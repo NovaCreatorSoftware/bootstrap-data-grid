@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/27/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 06/29/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -2866,7 +2866,7 @@ $("[data-toggle=\"tablear\"]").tablear();
 
     var isSearch = false;
 
-    var rowAttr = function (row, index) {
+    var rowAttr = function(row, index) {
         return {
             id: 'customId_' + index
         };
@@ -2880,7 +2880,6 @@ $("[data-toggle=\"tablear\"]").tablear();
         dragHandle: null,
         useRowAttrFunc: false,
         onReorderRowsDrag: function(table, row) {
-        	alert('cucu');
             return false;
         },
         onReorderRowsDrop: function(table, row) {
@@ -2897,7 +2896,7 @@ $("[data-toggle=\"tablear\"]").tablear();
 
     var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
     var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
-    $.fn.tablear.Constructor.prototype.initHeader = function () {
+    $.fn.tablear.Constructor.prototype.initHeader = function() {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.reorderableRows) {
             return;
@@ -2911,7 +2910,7 @@ $("[data-toggle=\"tablear\"]").tablear();
         }, 100);
     };
 
-    $.fn.tablear.Constructor.prototype.initSearch = function () {
+    $.fn.tablear.Constructor.prototype.initSearch = function() {
         _initSearch.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.reorderableRows) {
             return;
@@ -2964,7 +2963,7 @@ $("[data-toggle=\"tablear\"]").tablear();
 (function ($) {
     'use strict';
 
-    var initResizable = function (that) {
+    var initResizable = function(that) {
         //Deletes the plugin to re-create it
         that.$element.colResizable({disable: true});
 
@@ -2972,7 +2971,7 @@ $("[data-toggle=\"tablear\"]").tablear();
         that.$element.colResizable({
             liveDrag: that.options.liveDrag,
             fixed: that.options.fixed,
-            headerOnly: that.options.headerOnly,
+            headerOnly: that.options.headerOnly || true,
             minWidth: that.options.minWidth,
             hoverCursor: that.options.hoverCursor,
             dragCursor: that.options.dragCursor,
@@ -3006,6 +3005,41 @@ $("[data-toggle=\"tablear\"]").tablear();
             setTimeout(function () {
                 initResizable(that);
             }, 100);
+        }
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: swipeable
+ *
+ */
+
+(function ($) {
+    'use strict';
+
+    var initSwipeable = function(that) {
+    	var options = that.options.swipeableOptions || {};
+    	options['swipe'] = that.options.onSwipe;
+    	that.$element.find("tbody tr").swipe(options);
+    };
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        onSwipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+			alert('swiped'); //override to handle
+		},
+		swipeableOptions: {
+			threshold: 150
+		}
+    });
+
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        var that = this;
+        if(this.options.swipeable) {
+        	setTimeout(function() { //so that the ui is done when calling initSwipeable
+        		initSwipeable(that);
+        	}, 100);
         }
     };
 })(jQuery);

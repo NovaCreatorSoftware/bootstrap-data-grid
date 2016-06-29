@@ -19,12 +19,13 @@ Based on / Loosely inspired by:
 
 ##extensions
 #####editable
+#####exporter
 #####filter
 #####reorder columns
 #####reorder rows
 #####resize columns
-#####sticky columns
+#####swipeable 
 
-##build
+##useful commands
 grunt build
 bower install moment-js --save

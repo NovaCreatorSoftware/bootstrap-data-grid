@@ -16,6 +16,7 @@
 		body { padding-top: 70px; }
 		.column .text { color: #f00 !important; }
 		.cell { font-weight: bold; }
+		.someClass { cursor: move; }
 	</style>
 </head>
 <body>
@@ -47,6 +48,7 @@
 					data-align="left" data-width="50px">ID</th>
 				<th data-show-filter="input" data-column-id="name"
 					data-order="asc" data-align="left" data-header-align="left"
+					data-css-class="dragHandle someClass" 
 					data-editable-mode="inline"	
 					data-editable="true">Name</th>
 				<th data-column-id="actions" data-formatter="actions"
@@ -145,8 +147,15 @@
 				showFilter: true,
 				reorderableColumns: true,
 				reorderableRows: true,
+				dragHandle: '.dragHandle',
 				resizable: true,
-				editable: true
+				editable: true,
+				swipeable: true,
+				swipeableOptions: {
+				},
+				onSwipe: function() {
+					alert('SWIPE!');
+				}
 			}).on("loaded.rs.novacreator.bootstrap.datagrid", function() {
 				grid.find(".action-x").off("click").on("click", function(e) {
 					alert("You pressed x on row: " + $(this).data("row-id"));

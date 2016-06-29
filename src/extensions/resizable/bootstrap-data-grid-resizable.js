@@ -6,7 +6,7 @@
 (function ($) {
     'use strict';
 
-    var initResizable = function (that) {
+    var initResizable = function(that) {
         //Deletes the plugin to re-create it
         that.$element.colResizable({disable: true});
 
@@ -14,7 +14,7 @@
         that.$element.colResizable({
             liveDrag: that.options.liveDrag,
             fixed: that.options.fixed,
-            headerOnly: that.options.headerOnly,
+            headerOnly: that.options.headerOnly || true,
             minWidth: that.options.minWidth,
             hoverCursor: that.options.hoverCursor,
             dragCursor: that.options.dragCursor,

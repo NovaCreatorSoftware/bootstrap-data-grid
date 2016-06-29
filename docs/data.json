@@ -10,6 +10,8 @@
             "name": "dist/js/dependencies.js",
             "modules": {},
             "classes": {
+                "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in.": 1,
+                "": 1,
                 "editableform": 1,
                 "editableContainer": 1,
                 "editable": 1,
@@ -50,6 +52,43 @@
     },
     "modules": {},
     "classes": {
+        "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in.": {
+            "name": "fn",
+            "shortname": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in.",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "dist/js/dependencies.js",
+            "line": 30430,
+            "description": "See (http://jquery.com/)",
+            "memberof": "$"
+        },
+        "": {
+            "file": "dist/js/dependencies.js",
+            "line": 30734,
+            "description": "Main TouchSwipe Plugin Class.\nDo not use this to construct your TouchSwipe object, use the jQuery plugin method $.fn.swipe(); {@link $.fn.swipe}",
+            "see": [
+                "$.fh.swipe.defaults",
+                "$.fh.swipe"
+            ],
+            "params": [
+                {
+                    "name": "element",
+                    "description": "The HTML DOM object to apply to plugin to",
+                    "type": "DOMNode"
+                },
+                {
+                    "name": "options",
+                    "description": "The options to configure the plugin with.  @link {$.fn.swipe.defaults}",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "name": "TouchSwipe"
+        },
         "editableform": {
             "name": "editableform",
             "shortname": "editableform",
@@ -60,8 +99,9 @@
             "extension_for": [
                 "editableContainer"
             ],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 44889,
+            "line": 46999,
             "description": "Form with single input element, two buttons and two states: normal/loading.\nApplied as jQuery method to DIV tag (not to form tag!). This is because form can be in loading state when spinner shown.\nEditableform is linked with one of input types, e.g. 'text', 'select' etc.",
             "uses": [
                 "text",
@@ -78,8 +118,9 @@
             "extension_for": [
                 "editable"
             ],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 45775,
+            "line": 47885,
             "description": "Attaches stand-alone container with editable-form to HTML element. Element is used only for positioning, value is not stored anywhere.<br>\nThis method applied internally in <code>$().editable()</code>. You should subscribe on it's events (save / cancel) to get profit of it.<br>\nFinal realization can be different: bootstrap-popover, jqueryui-tooltip, poshytip, inline-div. It depends on which js file you include.<br>\nApplied as jQuery method.",
             "uses": [
                 "editableform"
@@ -93,8 +134,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 46345,
+            "line": 48455,
             "description": "Makes editable any HTML element on the page. Applied as jQuery method.",
             "uses": [
                 "editableContainer"
@@ -108,8 +150,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 47204,
+            "line": 49314,
             "description": "AbstractInput - base class for all editable inputs.\nIt defines interface to be implemented by any input type.\nTo create your own input you can inherit from this class."
         },
         "list": {
@@ -120,8 +163,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 47425,
+            "line": 49535,
             "description": "List - abstract class for inputs that have source option loaded from js array or via ajax",
             "extends": "abstractinput"
         },
@@ -135,8 +179,9 @@
             "extension_for": [
                 "editableform"
             ],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 47761,
+            "line": 49871,
             "description": "Text input",
             "extends": "abstractinput",
             "final": 1,
@@ -154,8 +199,9 @@
             "extension_for": [
                 "editableform"
             ],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 47896,
+            "line": 50006,
             "description": "Textarea input",
             "extends": "abstractinput",
             "final": 1,
@@ -171,8 +217,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 48008,
+            "line": 50118,
             "description": "Select (dropdown)",
             "extends": "list",
             "final": 1,
@@ -188,8 +235,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 48105,
+            "line": 50215,
             "description": "List of checkboxes. \nInternally value stored as javascript array of values.",
             "extends": "list",
             "final": 1,
@@ -205,8 +253,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 48262,
+            "line": 50372,
             "description": "HTML5 input types.\nFollowing types are supported:\n\n* password\n* email\n* url\n* tel\n* number\n* range\n* time\n\nLearn more about html5 inputs:  \nhttp://www.w3.org/wiki/HTML5_form_additions  \nTo check browser compatibility please see:  \nhttps://developer.mozilla.org/en-US/docs/HTML/Element/Input",
             "extends": "text",
             "final": 1,
@@ -223,8 +272,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 48481,
+            "line": 50591,
             "description": "Select2 input. Based on amazing work of Igor Vaynberg https://github.com/ivaynberg/select2.  \nPlease see [original select2 docs](http://ivaynberg.github.com/select2) for detailed description and options.  \n \nYou should manually download and include select2 distributive:  \n\n    <link href=\"select2/select2.css\" rel=\"stylesheet\" type=\"text/css\"></link>  \n    <script src=\"select2/select2.js\"></script>  \n    \nTo make it **bootstrap-styled** you can use css from [here](https://github.com/t0m/select2-bootstrap-css): \n\n    <link href=\"select2-bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"></link>    \n    \n**Note:** currently `autotext` feature does not work for select2 with `ajax` remote source.    \nYou need initially put both `data-value` and element's text youself:    \n\n    <a href=\"#\" data-type=\"select2\" data-value=\"1\">Text1</a>",
             "extends": "abstractinput",
             "since": "1.4.1",
@@ -241,8 +291,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 49316,
+            "line": 51426,
             "description": "Combodate input - dropdown date and time picker.    \nBased on [combodate](http://vitalets.github.com/combodate) plugin (included). To use it you should manually include [momentjs](http://momentjs.com).\n\n    <script src=\"js/moment.min.js\"></script>\n   \nAllows to input:\n\n* only date\n* only time \n* both date and time  \n\nPlease note, that format is taken from momentjs and **not compatible** with bootstrap-datepicker / jquery UI datepicker.  \nInternally value stored as `momentjs` object.",
             "extends": "abstractinput",
             "final": 1,
@@ -259,8 +310,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 51060,
+            "line": 53170,
             "description": "Bootstrap-datepicker.  \nDescription and examples: https://github.com/eternicode/bootstrap-datepicker.  \nFor **i18n** you should include js file from here: https://github.com/eternicode/bootstrap-datepicker/tree/master/js/locales\nand set `language` option.  \nSince 1.4.0 date has different appearance in **popup** and **inline** modes.",
             "extends": "abstractinput",
             "final": 1,
@@ -276,8 +328,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 51290,
+            "line": 53400,
             "description": "Bootstrap datefield input - modification for inline mode.\nShows normal <input type=\"text\"> and binds popup datepicker.  \nAutomatically shown in inline mode.",
             "extends": "date",
             "since": "1.4.0"
@@ -290,8 +343,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 51371,
+            "line": 53481,
             "description": "Bootstrap-datetimepicker.  \nBased on [smalot bootstrap-datetimepicker plugin](https://github.com/smalot/bootstrap-datetimepicker). \nBefore usage you should manually include dependent js and css:\n\n    <link href=\"css/datetimepicker.css\" rel=\"stylesheet\" type=\"text/css\"></link> \n    <script src=\"js/bootstrap-datetimepicker.js\"></script>\n\nFor **i18n** you should include js file from here: https://github.com/smalot/bootstrap-datetimepicker/tree/master/js/locales\nand set `language` option.",
             "extends": "abstractinput",
             "final": 1,
@@ -308,8 +362,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 51615,
+            "line": 53725,
             "description": "Bootstrap datetimefield input - datetime input for inline mode.\nShows normal <input type=\"text\"> and binds popup datetimepicker.  \nAutomatically shown in inline mode.",
             "extends": "datetime"
         },
@@ -321,6 +376,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
             "line": 1057,
             "description": "Represents the Tablear Grid plugin.",
@@ -347,6 +403,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "namespace": "",
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
             "line": 1097,
             "description": "An object that represents the default settings.",
@@ -363,7 +420,8 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": []
+            "extension_for": [],
+            "namespace": ""
         },
         "ajaxSettings": {
             "name": "ajaxSettings",
@@ -372,7 +430,8 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": []
+            "extension_for": [],
+            "namespace": ""
         },
         "css": {
             "name": "css",
@@ -381,7 +440,8 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": []
+            "extension_for": [],
+            "namespace": ""
         },
         "statusMapping": {
             "name": "statusMapping",
@@ -390,7 +450,8 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": []
+            "extension_for": [],
+            "namespace": ""
         }
     },
     "elements": {},
@@ -403,7 +464,7 @@
                 "description": "Returns the Object data after storing it on itself with\n\tproperty name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)\n\tdeleting the oldest entry",
                 "type": "Function(string, object)"
             },
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -416,7 +477,7 @@
                     "type": "Function"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -429,7 +490,7 @@
                     "type": "Function"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -447,7 +508,7 @@
                     "type": "Function"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -469,7 +530,7 @@
                 "description": "Returns less than 0 if a precedes b, greater than 0 if a follows b",
                 "type": "Number"
             },
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -482,7 +543,7 @@
                     "type": "String"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -495,7 +556,7 @@
                     "type": "String"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -508,7 +569,7 @@
                     "type": "Function"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -525,7 +586,7 @@
                 "description": "The input node if acceptable, otherwise a falsy value",
                 "type": "Element|Object|Boolean"
             },
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -542,7 +603,7 @@
                 "description": "True iff elem is a non-HTML XML node",
                 "type": "Boolean"
             },
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -560,7 +621,7 @@
                 "description": "Returns the current document",
                 "type": "Object"
             },
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -573,7 +634,7 @@
                     "type": "ArrayLike"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -586,7 +647,7 @@
                     "type": "Array|Element"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -616,13 +677,13 @@
                     "optional": true
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 3546,
             "description": "The ready event handler and self cleanup method",
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -640,7 +701,7 @@
                     "type": "Object"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -653,176 +714,176 @@
                     "type": "String"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 9391,
             "description": "Load a url into a page",
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 9487,
             "description": "Gets a window from an element",
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 19847,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 19848,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 19849,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 20051,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 20052,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 20053,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 20397,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 20398,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 20399,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26792,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26837,
             "description": "TableDnD plug-in for JQuery, allows you to drag and drop table rows\nYou can set up various options to control how the system will work\nCopyright (c) Denis Howlett <denish@isocra.com>\nLicensed like jQuery, see http://docs.jquery.com/License.\n\nConfiguration options:\n\nonDragStyle\n    This is the style that is assigned to the row during drag. There are limitations to the styles that can be\n    associated with a row (such as you can't assign a border--well you can, but it won't be\n    displayed). (So instead consider using onDragClass.) The CSS style to apply is specified as\n    a map (as used in the jQuery css(...) function).\nonDropStyle\n    This is the style that is assigned to the row when it is dropped. As for onDragStyle, there are limitations\n    to what you can do. Also this replaces the original style, so again consider using onDragClass which\n    is simply added and then removed on drop.\nonDragClass\n    This class is added for the duration of the drag and then removed when the row is dropped. It is more\n    flexible than using onDragStyle since it can be inherited by the row cells and other content. The default\n    is class is tDnD_whileDrag. So to use the default, simply customise this CSS class in your\n    stylesheet.\nonDrop\n    Pass a function that will be called when the row is dropped. The function takes 2 parameters: the table\n    and the row that was dropped. You can work out the new order of the rows by using\n    table.rows.\nonDragStart\n    Pass a function that will be called when the user starts dragging. The function takes 2 parameters: the\n    table and the row which the user has started to drag.\nonAllowDrop\n    Pass a function that will be called as a row is over another row. If the function returns true, allow\n    dropping on that row, otherwise not. The function takes 2 parameters: the dragged row and the row under\n    the cursor. It returns a boolean: true allows the drop, false doesn't allow it.\nscrollAmount\n    This is the number of pixels to scroll if the user moves the mouse cursor to the top or bottom of the\n    window. The page should automatically scroll up or down as appropriate (tested in IE6, IE7, Safari, FF2,\n    FF3 beta\ndragHandle\n    This is a jQuery mach string for one or more cells in each row that is draggable. If you\n    specify this, then you are responsible for setting cursor: move in the CSS and only these cells\n    will have the drag behaviour. If you do not specify a dragHandle, then you get the old behaviour where\n    the whole row is draggable.\n\nOther ways to control behaviour:\n\nAdd class=\"nodrop\" to any rows for which you don't want to allow dropping, and class=\"nodrag\" to any rows\nthat you don't want to be draggable.\n\nInside the onDrop method you can also call $.tableDnD.serialize() this returns a string of the form\n<tableID>[]=<rowID1>&<tableID>[]=<rowID2> so that you can send this back to the server. The table must have\nan ID as must all the rows.\n\nOther methods:\n\n$(\"...\").tableDnDUpdate()\nWill update all the matching tables, that is it will reapply the mousedown method to the rows (or handle cells).\nThis is useful if you have updated the table rows using Ajax and you want to make the table draggable again.\nThe table maintains the original configuration (so you don't have to specify it again).\n\n$(\"...\").tableDnDSerialize()\nWill serialize and return the serialized string as above, but for each of the matching tables--so it can be\ncalled from anywhere and isn't dependent on the currentTable being set up correctly before calling\n\nKnown problems:\n- Auto-scoll has some problems with IE7  (it scrolls even when it shouldn't), work-around: set scrollAmount to 0\n\nVersion 0.2: 2008-02-20 First public version\nVersion 0.3: 2008-02-07 Added onDragStart option\n                        Made the scroll amount configurable (default is 5 as before)\nVersion 0.4: 2008-03-15 Changed the noDrag/noDrop attributes to nodrag/nodrop classes\n                        Added onAllowDrop to control dropping\n                        Fixed a bug which meant that you couldn't set the scroll amount in both directions\n                        Added serialize method\nVersion 0.5: 2008-05-16 Changed so that if you specify a dragHandle class it doesn't make the whole row\n                        draggable\n                        Improved the serialize method to use a default (and settable) regular expression.\n                        Added tableDnDupate() and tableDnDSerialize() to be called when you are outside the table\nVersion 0.6: 2011-12-02 Added support for touch devices\nVersion 0.7  2012-04-09 Now works with jQuery 1.7 and supports touch, tidied up tabs and spaces",
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26968,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26970,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26972,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26974,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26978,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26992,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26994,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26996,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 26998,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27000,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27002,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27004,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27006,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27008,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27064,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27122,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27141,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27157,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 27308,
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 29874,
             "description": "_ _____           _          _     _      \n              | |  __ \\         (_)        | |   | |     \n      ___ ___ | | |__) |___  ___ _ ______ _| |__ | | ___ \n     / __/ _ \\| |  _  // _ \\/ __| |_  / _` | '_ \\| |/ _ \\\n    | (_| (_) | | | \\ \\  __/\\__ \\ |/ / (_| | |_) | |  __/\n     \\___\\___/|_|_|  \\_\\___||___/_/___\\__,_|_.__/|_|\\___|\n\t \n\tv1.6 - jQuery plugin created by Alvaro Prieto Lauroba\n\t\n\tLicences: MIT & GPL\n\tFeel free to use or modify this plugin as far as my full name is kept\t\n\t\n\tIf you are going to use this plug-in in production environments it is \n\tstrongly recommended to use its minified version: colResizable.min.js",
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -840,7 +901,7 @@
                     "type": "Object"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -853,7 +914,7 @@
                     "type": "JQuery ref"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -866,7 +927,7 @@
                     "type": "JQuery ref"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -884,7 +945,7 @@
                     "type": "JQuery ref"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -897,7 +958,7 @@
                     "type": "JQuery ref"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -920,7 +981,7 @@
                     "type": "Bool"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -933,7 +994,7 @@
                     "type": "JQuery ref"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -946,7 +1007,7 @@
                     "type": "Event"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -959,7 +1020,7 @@
                     "type": "Event"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -972,13 +1033,13 @@
                     "type": "Event"
                 }
             ],
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
             "line": 30205,
             "description": "Event handler fired when the browser is resized. The main purpose of this function is to update\ntable layout according to the browser's size synchronizing related grips",
-            "class": "editableform"
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
@@ -991,96 +1052,1585 @@
                     "type": "Object"
                 }
             ],
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30495,
+            "description": "The default configuration, and available options to configure touch swipe with.\nYou can set the default values by updating any of the properties prior to instantiation.",
+            "name": "{boolean} [preventDefaultEvents=true] by default default events are cancelled, so the page doesn't move.  You can dissable this so both native events fire as well as your handlers.",
+            "itemtype": "property",
+            "type": "Int",
+            "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30605,
+            "description": "The version of the plugin",
+            "readonly": "",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 34330,
+            "line": 30616,
+            "description": "The phases that a touch event goes through.  The <code>phase</code> is passed to the event handlers.\nThese properties are read only, attempting to change them will not alter the values passed to the event handlers.",
+            "readonly": "",
+            "itemtype": "property",
+            "name": "{string} PHASE_CANCEL Constant indicating the cancel phase of the touch event. Value is <code>\"cancel\"</code>.",
+            "type": "String",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30633,
+            "description": "The direction constants that are passed to the event handlers.\nThese properties are read only, attempting to change them will not alter the values passed to the event handlers.",
+            "readonly": "",
+            "itemtype": "property",
+            "name": "{string} OUT Constant indicating the out direction. Value is <code>\"out\"</code>.",
+            "type": "String",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30654,
+            "description": "The page scroll constants that can be used to set the value of <code>allowPageScroll</code> option\nThese properties are read only",
+            "readonly": "",
+            "see": [
+                "$.fn.swipe.defaults#allowPageScroll"
+            ],
+            "itemtype": "property",
+            "name": "{string} AUTO Constant indicating either horizontal or vertical will be allowed, depending on the swipe handlers registered. Value is <code>\"auto\"</code>.",
+            "type": "String",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30672,
+            "description": "Constants representing the number of fingers used in a swipe.  These are used to set both the value of <code>fingers</code> in the\noptions object, as well as the value of the <code>fingers</code> event property.\nThese properties are read only, attempting to change them will not alter the values passed to the event handlers.",
+            "readonly": "",
+            "see": [
+                "$.fn.swipe.defaults#fingers"
+            ],
+            "itemtype": "property",
+            "name": "{string} ALL Constant indicating any combination of finger are to be detected.  Value is <code>\"all\"</code>.",
+            "type": "String",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30695,
+            "description": "Initialise the plugin for each DOM element matched\nThis creates a new instance of the main TouchSwipe class for each DOM element, and then\nsaves a reference to that instance in the elements data property.",
+            "internal": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30808,
+            "description": "re-enables the swipe plugin with the previous configuration",
+            "itemtype": "method",
+            "name": "$.fn.swipe#enable",
+            "return": {
+                "description": "The Dom element that was registered with TouchSwipe",
+                "type": "DOMNode"
+            },
+            "example": [
+                " $(\"#element\").swipe(\"enable\");"
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30823,
+            "description": "disables the swipe plugin",
+            "itemtype": "method",
+            "name": "$.fn.swipe#disable",
+            "return": {
+                "description": "The Dom element that is now registered with TouchSwipe",
+                "type": "DOMNode"
+            },
+            "example": [
+                " $(\"#element\").swipe(\"disable\");"
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30835,
+            "description": "Destroy the swipe plugin completely. To use any swipe methods, you must re initialise the plugin.",
+            "itemtype": "method",
+            "name": "$.fn.swipe#destroy",
+            "example": [
+                " $(\"#element\").swipe(\"destroy\");"
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30848,
+            "description": "Allows run time updating of the swipe configuration options.",
+            "itemtype": "method",
+            "name": "$.fn.swipe#option",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The option property to get or set, or a has of multiple options to set",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value to set the property to",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "If only a property name is passed, then that property value is returned. If nothing is passed the current options hash is returned.",
+                "type": "Object"
+            },
+            "example": [
+                " $(\"#element\").swipe(\"option\", \"threshold\"); // return the threshold",
+                " $(\"#element\").swipe(\"option\", \"threshold\", 100); // set the threshold after init",
+                " $(\"#element\").swipe(\"option\", {threshold:100, fingers:3} ); // set multiple properties after init",
+                " $(\"#element\").swipe({threshold:100, fingers:3} ); // set multiple properties after init - the \"option\" method is optional!",
+                " $(\"#element\").swipe(\"option\"); // Return the current options hash"
+            ],
+            "see": [
+                "$.fn.swipe.defaults"
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30891,
+            "description": "Event handler for a touch start event.\nStops the default click event from triggering and stores where we touched",
+            "access": "inner",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "jqEvent",
+                    "description": "The normalised jQuery event object.",
+                    "type": "Object"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 30996,
+            "description": "Event handler for a touch move event.\nIf we change fingers during move, then cancel the event",
+            "access": "inner",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "jqEvent",
+                    "description": "The normalised jQuery event object.",
+                    "type": "Object"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31113,
+            "description": "Event handler for a touch end event.\nCalculate the direction and trigger events",
+            "access": "inner",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "jqEvent",
+                    "description": "The normalised jQuery event object.",
+                    "type": "Object"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31179,
+            "description": "Event handler for a touch cancel event.\nClears current vars",
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31200,
+            "description": "Event handler for a touch leave event.\nThis is only triggered on desktops, in touch we work this out manually\nas the touchleave event is not supported in webkit",
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31217,
+            "description": "Removes all listeners that were associated with the plugin",
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31236,
+            "description": "Checks if the time and distance thresholds have been met, and if so then the appropriate handlers are fired.",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31265,
+            "description": "Trigger the relevant event handler\nThe handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, \"left\", \"right\", \"up\", or \"down\"",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "the original event object",
+                    "type": "Object"
+                },
+                {
+                    "name": "phase",
+                    "description": "the phase of the swipe (start, end cancel etc) {@link $.fn.swipe.phases}",
+                    "type": "String"
+                }
+            ],
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31335,
+            "description": "Trigger the relevant event handler\nThe handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, \"left\", \"right\", \"up\", or \"down\"",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "the original event object",
+                    "type": "Object"
+                },
+                {
+                    "name": "phase",
+                    "description": "the phase of the swipe (start, end cancel etc) {@link $.fn.swipe.phases}",
+                    "type": "String"
+                },
+                {
+                    "name": "gesture",
+                    "description": "the gesture to trigger a handler for : PINCH or SWIPE {@link $.fn.swipe.gestures}",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Boolean False, to indicate that the event should stop propagation, or void."
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31503,
+            "description": "Checks the user has swipe far enough",
+            "return": {
+                "description": "Boolean if <code>threshold</code> has been set, return true if the threshold was met, else false.\nIf no threshold was set, then we return true."
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31519,
+            "description": "Checks the user has swiped back to cancel.",
+            "return": {
+                "description": "Boolean if <code>cancelThreshold</code> has been set, return true if the cancelThreshold was met, else false.\nIf no cancelThreshold was set, then we return true."
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31534,
+            "description": "Checks the user has pinched far enough",
+            "return": {
+                "description": "Boolean if <code>pinchThreshold</code> has been set, return true if the threshold was met, else false.\nIf no threshold was set, then we return true."
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31547,
+            "description": "Checks that the time taken to swipe meets the minimum / maximum requirements",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31569,
+            "description": "Checks direction of the swipe and the value allowPageScroll to see if we should allow or prevent the default behaviour from occurring.\nThis will essentially allow page scrolling or not when the user is swiping on a touchSwipe object.",
+            "params": [
+                {
+                    "name": "jqEvent",
+                    "description": "The normalised jQuery representation of the event object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction of the event. See {@link $.fn.swipe.directions}",
+                    "type": "String"
+                }
+            ],
+            "see": [
+                "$.fn.swipe.directions"
+            ],
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31623,
+            "description": "Returns true of the current pinch meets the thresholds",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31636,
+            "description": "Returns true if any Pinch events have been registered",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31646,
+            "description": "Returns true if we are detecting pinches, and have one",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31660,
+            "description": "Returns true if the current swipe meets the thresholds",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31680,
+            "description": "Returns true if any Swipe events have been registered",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31691,
+            "description": "Returns true if we are detecting swipes and have one",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31701,
+            "description": "Returns true if we have matched the number of fingers we are looking for",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31711,
+            "description": "Returns true if we have an end point for the swipe",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31722,
+            "description": "Returns true if a click / tap events have been registered",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31732,
+            "description": "Returns true if a double tap events have been registered",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31742,
+            "description": "Returns true if any long tap events have been registered",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31752,
+            "description": "Returns true if we could be in the process of a double tap (one tap has occurred, we are listening for double taps, and the threshold hasn't past.",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31765,
+            "description": "Returns true if we could be in the process of a double tap (one tap has occurred, we are listening for double taps, and the threshold hasn't past.",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31775,
+            "description": "Returns true if we have a valid tap",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31784,
+            "description": "Returns true if we have a valid long tap",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31794,
+            "description": "Returns true if we are detecting taps and have one",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31805,
+            "description": "Returns true if we are detecting double taps and have one",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31815,
+            "description": "Returns true if we are detecting long taps and have one",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31829,
+            "description": "Starts tracking the time between 2 finger releases, and keeps track of how many fingers we initially had up",
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31838,
+            "description": "Cancels the tracking of time between 2 finger releases, and resets counters",
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31847,
+            "description": "Checks if we are in the threshold between 2 fingers being released",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31867,
+            "description": "gets a data flag to indicate that a touch is in progress",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31877,
+            "description": "Sets a data flag to indicate that a touch is in progress",
+            "params": [
+                {
+                    "name": "val",
+                    "description": "The value to set the property to",
+                    "type": "Boolean"
+                }
+            ],
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31913,
+            "description": "Creates the finger data for the touch/finger in the event object.",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id to store the finger data under (usually the order the fingers were pressed)",
+                    "type": "Int"
+                },
+                {
+                    "name": "evt",
+                    "description": "The event object containing finger data",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "finger data object"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31941,
+            "description": "Updates the finger data for a particular event object",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "The event object containing the touch/finger data to upadte",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "a finger data object."
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31964,
+            "description": "Returns a finger data object by its event ID.\nEach touch event has an identifier property, which is used\nto track repeat touches",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The unique id of the finger in the sequence of touch events.",
+                    "type": "Int"
+                }
+            ],
+            "return": {
+                "description": "a finger data object."
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31977,
+            "description": "Sets the maximum distance swiped in the given direction.\nIf the new value is lower than the current value, the max value is not changed.",
+            "params": [
+                {
+                    "name": "direction",
+                    "description": "The direction of the swipe",
+                    "type": "String"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance of the swipe",
+                    "type": "Int"
+                }
+            ],
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 31990,
+            "description": "gets the maximum distance swiped in the given direction.",
+            "params": [
+                {
+                    "name": "direction",
+                    "description": "The direction of the swipe",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "int  The distance of the swipe"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32001,
+            "description": "Creats a map of directions to maximum swiped values.",
+            "return": {
+                "description": "Object A dictionary of maximum values, indexed by direction."
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32016,
+            "description": "Creates a map maximum swiped values for a given swipe direction",
+            "params": [
+                {
+                    "name": "The",
+                    "description": "direction that these values will be associated with",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Object Maximum values"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32034,
+            "description": "Calculate the duration of the swipe",
+            "return": {
+                "description": "int"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32043,
+            "description": "Calculate the distance between 2 touches (pinch)",
+            "params": [
+                {
+                    "name": "startPoint",
+                    "description": "A point object containing x and y co-ordinates",
+                    "type": "Point"
+                },
+                {
+                    "name": "endPoint",
+                    "description": "A point object containing x and y co-ordinates",
+                    "type": "Point"
+                }
+            ],
+            "return": {
+                "description": "int;"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32057,
+            "description": "Calculate the zoom factor between the start and end distances",
+            "params": [
+                {
+                    "name": "startDistance",
+                    "description": "Distance (between 2 fingers) the user started pinching at",
+                    "type": "Int"
+                },
+                {
+                    "name": "endDistance",
+                    "description": "Distance (between 2 fingers) the user ended pinching at",
+                    "type": "Int"
+                }
+            ],
+            "return": {
+                "description": "float The zoom value from 0 to 1."
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32070,
+            "description": "Returns the pinch direction, either IN or OUT for the given points",
+            "return": {
+                "description": "string Either  or {@link $.fn.swipe.directions.OUT}",
+                "type": "@link $.fn.swipe.directions.IN"
+            },
+            "see": [
+                "$.fn.swipe.directions"
+            ],
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32085,
+            "description": "Calculate the length / distance of the swipe",
+            "params": [
+                {
+                    "name": "startPoint",
+                    "description": "A point object containing x and y co-ordinates",
+                    "type": "Point"
+                },
+                {
+                    "name": "endPoint",
+                    "description": "A point object containing x and y co-ordinates",
+                    "type": "Point"
+                }
+            ],
+            "return": {
+                "description": "int"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32096,
+            "description": "Calculate the angle of the swipe",
+            "params": [
+                {
+                    "name": "startPoint",
+                    "description": "A point object containing x and y co-ordinates",
+                    "type": "Point"
+                },
+                {
+                    "name": "endPoint",
+                    "description": "A point object containing x and y co-ordinates",
+                    "type": "Point"
+                }
+            ],
+            "return": {
+                "description": "int"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32117,
+            "description": "Calculate the direction of the swipe\nThis will also call calculateAngle to get the latest angle of swipe",
+            "params": [
+                {
+                    "name": "startPoint",
+                    "description": "A point object containing x and y co-ordinates",
+                    "type": "Point"
+                },
+                {
+                    "name": "endPoint",
+                    "description": "A point object containing x and y co-ordinates",
+                    "type": "Point"
+                }
+            ],
+            "return": {
+                "description": "string Either  / {@link $.fn.swipe.directions.RIGHT} / {@link $.fn.swipe.directions.DOWN} / {@link $.fn.swipe.directions.UP}",
+                "type": "@link $.fn.swipe.directions.LEFT"
+            },
+            "see": [
+                "$.fn.swipe.directions"
+            ],
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32148,
+            "description": "Returns a MS time stamp of the current time",
+            "return": {
+                "description": "int"
+            },
+            "access": "inner",
+            "tagname": "",
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32160,
+            "description": "Returns a bounds object with left, right, top and bottom properties for the element specified.",
+            "params": [
+                {
+                    "name": "The",
+                    "description": "DOM node to get the bounds for.",
+                    "type": "DomNode"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32179,
+            "description": "Checks if the point object is in the bounds object.",
+            "params": [
+                {
+                    "name": "point",
+                    "description": "A point object.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "x",
+                            "description": "The x value of the point.",
+                            "type": "Int"
+                        },
+                        {
+                            "name": "y",
+                            "description": "The x value of the point.",
+                            "type": "Int"
+                        }
+                    ]
+                },
+                {
+                    "name": "bounds",
+                    "description": "The bounds object to test",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "left",
+                            "description": "The leftmost value",
+                            "type": "Int"
+                        },
+                        {
+                            "name": "right",
+                            "description": "The righttmost value",
+                            "type": "Int"
+                        },
+                        {
+                            "name": "top",
+                            "description": "The topmost value",
+                            "type": "Int"
+                        },
+                        {
+                            "name": "bottom",
+                            "description": "The bottommost value",
+                            "type": "Int"
+                        }
+                    ]
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32194,
+            "description": "Checks if the two points are equal",
+            "params": [
+                {
+                    "name": "point",
+                    "description": "A point object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "point",
+                    "description": "B point object.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "true of the points match"
+            },
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32210,
+            "description": "A catch all handler that is triggered for all swipe directions.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction the user swiped in. See {@link $.fn.swipe.directions}",
+                    "type": "Int"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance the user swiped",
+                    "type": "Int"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the swipe in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerCount",
+                    "description": "The number of fingers used. See {@link $.fn.swipe.fingers}",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerData",
+                    "description": "The coordinates of fingers in event",
+                    "type": "Object"
+                },
+                {
+                    "name": "currentDirection",
+                    "description": "The current direction the user is swiping.",
+                    "type": "String"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32227,
+            "description": "A handler that is triggered for \"left\" swipes.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction the user swiped in. See {@link $.fn.swipe.directions}",
+                    "type": "Int"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance the user swiped",
+                    "type": "Int"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the swipe in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerCount",
+                    "description": "The number of fingers used. See {@link $.fn.swipe.fingers}",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerData",
+                    "description": "The coordinates of fingers in event",
+                    "type": "Object"
+                },
+                {
+                    "name": "currentDirection",
+                    "description": "The current direction the user is swiping.",
+                    "type": "String"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32241,
+            "description": "A handler that is triggered for \"right\" swipes.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction the user swiped in. See {@link $.fn.swipe.directions}",
+                    "type": "Int"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance the user swiped",
+                    "type": "Int"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the swipe in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerCount",
+                    "description": "The number of fingers used. See {@link $.fn.swipe.fingers}",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerData",
+                    "description": "The coordinates of fingers in event",
+                    "type": "Object"
+                },
+                {
+                    "name": "currentDirection",
+                    "description": "The current direction the user is swiping.",
+                    "type": "String"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32255,
+            "description": "A handler that is triggered for \"up\" swipes.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction the user swiped in. See {@link $.fn.swipe.directions}",
+                    "type": "Int"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance the user swiped",
+                    "type": "Int"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the swipe in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerCount",
+                    "description": "The number of fingers used. See {@link $.fn.swipe.fingers}",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerData",
+                    "description": "The coordinates of fingers in event",
+                    "type": "Object"
+                },
+                {
+                    "name": "currentDirection",
+                    "description": "The current direction the user is swiping.",
+                    "type": "String"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32269,
+            "description": "A handler that is triggered for \"down\" swipes.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction the user swiped in. See {@link $.fn.swipe.directions}",
+                    "type": "Int"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance the user swiped",
+                    "type": "Int"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the swipe in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerCount",
+                    "description": "The number of fingers used. See {@link $.fn.swipe.fingers}",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerData",
+                    "description": "The coordinates of fingers in event",
+                    "type": "Object"
+                },
+                {
+                    "name": "currentDirection",
+                    "description": "The current direction the user is swiping.",
+                    "type": "String"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32283,
+            "description": "A handler triggered for every phase of the swipe. This handler is constantly fired for the duration of the pinch.\nThis is triggered regardless of swipe thresholds.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "phase",
+                    "description": "The phase of the swipe event. See {@link $.fn.swipe.phases}",
+                    "type": "String"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction the user swiped in. This is null if the user has yet to move. See {@link $.fn.swipe.directions}",
+                    "type": "String"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance the user swiped. This is 0 if the user has yet to move.",
+                    "type": "Int"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the swipe in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerCount",
+                    "description": "The number of fingers used. See {@link $.fn.swipe.fingers}",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerData",
+                    "description": "The coordinates of fingers in event",
+                    "type": "Object"
+                },
+                {
+                    "name": "currentDirection",
+                    "description": "The current direction the user is swiping.",
+                    "type": "String"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32299,
+            "description": "A handler triggered for pinch in events.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction the user pinched in. See {@link $.fn.swipe.directions}",
+                    "type": "Int"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance the user pinched",
+                    "type": "Int"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the swipe in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerCount",
+                    "description": "The number of fingers used. See {@link $.fn.swipe.fingers}",
+                    "type": "Int"
+                },
+                {
+                    "name": "zoom",
+                    "description": "The zoom/scale level the user pinched too, 0-1.",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerData",
+                    "description": "The coordinates of fingers in event",
+                    "type": "Object"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32313,
+            "description": "A handler triggered for pinch out events.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction the user pinched in. See {@link $.fn.swipe.directions}",
+                    "type": "Int"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance the user pinched",
+                    "type": "Int"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the swipe in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerCount",
+                    "description": "The number of fingers used. See {@link $.fn.swipe.fingers}",
+                    "type": "Int"
+                },
+                {
+                    "name": "zoom",
+                    "description": "The zoom/scale level the user pinched too, 0-1.",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerData",
+                    "description": "The coordinates of fingers in event",
+                    "type": "Object"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32327,
+            "description": "A handler triggered for all pinch events. This handler is constantly fired for the duration of the pinch. This is triggered regardless of thresholds.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "direction",
+                    "description": "The direction the user pinched in. See {@link $.fn.swipe.directions}",
+                    "type": "Int"
+                },
+                {
+                    "name": "distance",
+                    "description": "The distance the user pinched",
+                    "type": "Int"
+                },
+                {
+                    "name": "duration",
+                    "description": "The duration of the swipe in milliseconds",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerCount",
+                    "description": "The number of fingers used. See {@link $.fn.swipe.fingers}",
+                    "type": "Int"
+                },
+                {
+                    "name": "zoom",
+                    "description": "The zoom/scale level the user pinched too, 0-1.",
+                    "type": "Int"
+                },
+                {
+                    "name": "fingerData",
+                    "description": "The coordinates of fingers in event",
+                    "type": "Object"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32341,
+            "description": "A click handler triggered when a user simply clicks, rather than swipes on an element.\nThis is deprecated since version 1.6.2, any assignment to click will be assigned to the tap handler.\nYou cannot use <code>on</code> to bind to this event as the default jQ <code>click</code> event will be triggered.\nUse the <code>tap</code> event instead.",
+            "name": "",
+            "itemtype": "event",
+            "deprecated": true,
+            "deprecationMessage": "since version 1.6.2, please use {@link $.fn.swipe#tap} instead",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "target",
+                    "description": "The element clicked on.",
+                    "type": "DomObject"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32354,
+            "description": "A click / tap handler triggered when a user simply clicks or taps, rather than swipes on an element.",
+            "name": "",
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "target",
+                    "description": "The element clicked on.",
+                    "type": "DomObject"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32363,
+            "description": "A double tap handler triggered when a user double clicks or taps on an element.\nYou can set the time delay for a double tap with the {@link $.fn.swipe.defaults#doubleTapThreshold} property.\nNote: If you set both <code>doubleTap</code> and <code>tap</code> handlers, the <code>tap</code> event will be delayed by the <code>doubleTapThreshold</code>\nas the script needs to check if its a double tap.",
+            "name": "",
+            "see": [
+                "$.fn.swipe.defaults#doubleTapThreshold"
+            ],
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "target",
+                    "description": "The element clicked on.",
+                    "type": "DomObject"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32376,
+            "description": "A long tap handler triggered once a tap has been release if the tap was longer than the longTapThreshold.\nYou can set the time delay for a long tap with the {@link $.fn.swipe.defaults#longTapThreshold} property.",
+            "name": "",
+            "see": [
+                "$.fn.swipe.defaults#longTapThreshold"
+            ],
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "target",
+                    "description": "The element clicked on.",
+                    "type": "DomObject"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 32387,
+            "description": "A hold tap handler triggered as soon as the longTapThreshold is reached\nYou can set the time delay for a long tap with the {@link $.fn.swipe.defaults#longTapThreshold} property.",
+            "name": "",
+            "see": [
+                "$.fn.swipe.defaults#longTapThreshold"
+            ],
+            "itemtype": "event",
+            "default": "null",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The original event object",
+                    "type": "EventObject"
+                },
+                {
+                    "name": "target",
+                    "description": "The element clicked on.",
+                    "type": "DomObject"
+                }
+            ],
+            "class": "editableform"
+        },
+        {
+            "file": "dist/js/dependencies.js",
+            "line": 36440,
             "license": "Copyright (c) 2014 The Polymer Project Authors. All rights reserved.\nThis code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt\nThe complete set of authors may be found at http://polymer.github.io/AUTHORS.txt\nThe complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt\nCode distributed by Google as part of the polymer project is also\nsubject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44664,
+            "line": 46774,
             "description": "jsPDF - PDF Document creation from JavaScript\nVersion 1.0.272-git Built on 2014-09-29T15:09\n                          CommitID d4770725ca\n\nCopyright (c) 2010-2014 James Hall, https://github.com/MrRio/jsPDF\n              2010 Aaron Spike, https://github.com/acspike\n              2012 Willow Systems Corporation, willow-systems.com\n              2012 Pablo Hess, https://github.com/pablohess\n              2012 Florian Jenett, https://github.com/fjenett\n              2013 Warren Weckesser, https://github.com/warrenweckesser\n              2013 Youssef Beddad, https://github.com/lifof\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2013 Stefan Slonevskiy, https://github.com/stefslon\n              2013 Jeremy Morel, https://github.com/jmorel\n              2013 Christoph Hartmann, https://github.com/chris-rock\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Makes, https://github.com/dollaruw\n              2014 Diego Casorran, https://github.com/diegocr\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\nContributor(s):\n   siefkenj, ahwolf, rickygu, Midnith, saintclair, eaparango,\n   kim3er, mfo, alnorth,",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44707,
+            "line": 46817,
             "description": "jsPDF addHTML PlugIn\nCopyright (c) 2014 Diego Casorran\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44713,
+            "line": 46823,
             "description": "jsPDF addImage plugin\nCopyright (c) 2012 Jason Siefken, https://github.com/siefkenj/\n              2013 Chris Dowling, https://github.com/gingerchris\n              2013 Trinh Ho, https://github.com/ineedfat\n              2013 Edwin Alejandro Perez, https://github.com/eaparango\n              2013 Norah Smith, https://github.com/burnburnrocket\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 James Robb, https://github.com/jamesbrobb",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44723,
+            "line": 46833,
             "description": "jsPDF Cell plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com\n              2013 Eduardo Menezes de Morais, eduardo.morais@usp.br\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Hall, james@parall.ax\n              2014 Diego Casorran, https://github.com/diegocr",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44732,
+            "line": 46842,
             "description": "jsPDF fromHTML plugin. BETA stage. API subject to change. Needs browser\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 Daniel Husar, https://github.com/danielhusar\n              2014 Wolfgang Gassler, https://github.com/woolfg",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44740,
+            "line": 46850,
             "description": "jsPDF JavaScript plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44744,
+            "line": 46854,
             "description": "jsPDF PNG PlugIn\nCopyright (c) 2014 James Robb, https://github.com/jamesbrobb",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44748,
+            "line": 46858,
             "description": "jsPDF Silly SVG plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44752,
+            "line": 46862,
             "description": "jsPDF split_text_to_size plugin - MIT license.\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Diego Casorran, https://github.com/diegocr",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44757,
+            "line": 46867,
             "description": "jsPDF standard_fonts_metrics plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\nMIT license.",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44762,
+            "line": 46872,
             "description": "jsPDF total_pages plugin\nCopyright (c) 2013 Eduardo Menezes de Morais, eduardo.morais@usp.br",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44826,
+            "line": 46936,
             "description": "JavaScript Polyfill functions for jsPDF\nCollected from public resources by\nhttps://github.com/diegocr",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44835,
+            "line": 46945,
             "description": "jsPDF AutoTable plugin v2.0.14\nCopyright (c) 2014 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable\n\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
             "preserve": "",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44933,
+            "line": 47043,
             "description": "Renders editableform",
             "itemtype": "method",
             "name": "render",
@@ -1088,7 +2638,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 44958,
+            "line": 47068,
             "description": "Fired when rendering starts",
             "itemtype": "event",
             "name": "rendering",
@@ -1103,7 +2653,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45001,
+            "line": 47111,
             "description": "Fired when form is rendered",
             "itemtype": "event",
             "name": "rendered",
@@ -1118,7 +2668,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45017,
+            "line": 47127,
             "description": "Fired when form was cancelled by user",
             "itemtype": "event",
             "name": "cancel",
@@ -1133,7 +2683,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45053,
+            "line": 47163,
             "description": "Fired when form is shown",
             "itemtype": "event",
             "name": "show",
@@ -1148,7 +2698,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45111,
+            "line": 47221,
             "description": "Fired when value not changed but form is submitted. Requires savenochange = false.",
             "itemtype": "event",
             "name": "nochange",
@@ -1163,7 +2713,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45156,
+            "line": 47266,
             "description": "Fired when form is submitted",
             "itemtype": "event",
             "name": "save",
@@ -1203,7 +2753,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45306,
+            "line": 47416,
             "description": "Type of input. Can be <code>text|textarea|select|date|checklist</code>",
             "itemtype": "property",
             "name": "type",
@@ -1213,7 +2763,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45314,
+            "line": 47424,
             "description": "Url for submit, e.g. <code>'/post'</code>  \nIf function - it will be called instead of ajax. Function should return deferred object to run fail/done callbacks.",
             "itemtype": "property",
             "name": "url",
@@ -1226,7 +2776,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45339,
+            "line": 47449,
             "description": "Additional params for submit. If defined as <code>object</code> - it is **appended** to original ajax data (pk, name and value).  \nIf defined as <code>function</code> - returned object **overwrites** original ajax data.",
             "example": [
                 "\nparams: function(params) {\n    //originally params contain pk, name and value\n    params.a = 1;\n    return params;\n}"
@@ -1239,7 +2789,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45354,
+            "line": 47464,
             "description": "Name of field. Will be submitted on server. Can be taken from <code>id</code> attribute",
             "itemtype": "property",
             "name": "name",
@@ -1249,7 +2799,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45362,
+            "line": 47472,
             "description": "Primary key of editable object (e.g. record id in database). For composite keys use object, e.g. <code>{id: 1, lang: 'en'}</code>.\nCan be calculated dynamically via function.",
             "itemtype": "property",
             "name": "pk",
@@ -1259,7 +2809,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45371,
+            "line": 47481,
             "description": "Initial value. If not defined - will be taken from element's content.\nFor __select__ type should be defined (as it is ID of shown text).",
             "itemtype": "property",
             "name": "value",
@@ -1269,7 +2819,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45380,
+            "line": 47490,
             "description": "Value that will be displayed in input if original field value is empty (`null|undefined|''`).",
             "itemtype": "property",
             "name": "defaultValue",
@@ -1280,7 +2830,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45389,
+            "line": 47499,
             "description": "Strategy for sending data on server. Can be `auto|always|never`.\nWhen 'auto' data will be sent on server **only if pk and url defined**, otherwise new value will be stored locally.",
             "itemtype": "property",
             "name": "send",
@@ -1290,7 +2840,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45398,
+            "line": 47508,
             "description": "Function for client-side validation. If returns string - means validation not passed and string showed as error.\nSince 1.5.1 you can modify submitted value by returning object from `validate`: \n`{newValue: '...'}` or `{newValue: '...', msg: '...'}`",
             "itemtype": "property",
             "name": "validate",
@@ -1303,7 +2853,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45414,
+            "line": 47524,
             "description": "Success callback. Called when value successfully sent on server and **response status = 200**.  \nUsefull to work with json response. For example, if your backend response can be <code>{success: true}</code>\nor <code>{success: false, msg: \"server error\"}</code> you can check it inside this callback.  \nIf it returns **string** - means error occured and string is shown as error message.  \nIf it returns **object like** <code>{newValue: &lt;something&gt;}</code> - it overwrites value, submitted by user.  \nOtherwise newValue simply rendered into element.",
             "itemtype": "property",
             "name": "success",
@@ -1316,7 +2866,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45431,
+            "line": 47541,
             "description": "Error callback. Called when request failed (response status != 200).  \nUsefull when you want to parse error response and display a custom message.\nMust return **string** - the message to be displayed in the error block.",
             "itemtype": "property",
             "name": "error",
@@ -1330,7 +2880,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45450,
+            "line": 47560,
             "description": "Additional options for submit ajax request.\nList of values: http://api.jquery.com/jQuery.ajax",
             "itemtype": "property",
             "name": "ajaxOptions",
@@ -1344,7 +2894,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45465,
+            "line": 47575,
             "description": "Where to show buttons: left(true)|bottom|false  \nForm without buttons is auto-submitted.",
             "itemtype": "property",
             "name": "showbuttons",
@@ -1355,7 +2905,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45475,
+            "line": 47585,
             "description": "Scope for callback methods (success, validate).  \nIf <code>null</code> means editableform instance itself.",
             "itemtype": "property",
             "name": "scope",
@@ -1368,7 +2918,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45486,
+            "line": 47596,
             "description": "Whether to save or cancel value when it was not changed but form was submitted",
             "itemtype": "property",
             "name": "savenochange",
@@ -1379,43 +2929,43 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45525,
+            "line": 47635,
             "description": "EditableForm utilites",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45533,
+            "line": 47643,
             "description": "classic JS inheritance function",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45544,
+            "line": 47654,
             "description": "set caret position in input\nsee http://stackoverflow.com/questions/499126/jquery-set-cursor-position-in-text-area",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45560,
+            "line": 47670,
             "description": "function to parse JSON in *single* quotes. (jquery automatically parse only double quotes)\nThat allows such code as: <a data-source=\"{'a': 'b', 'c': 'd'}\">\nsafe = true --> means no exception will be thrown\nfor details see http://stackoverflow.com/questions/7410348/how-to-set-json-format-to-html5-data-attributes-in-the-jquery",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45585,
+            "line": 47695,
             "description": "slice object by specified keys",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45651,
+            "line": 47761,
             "description": "method to escape html.",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45939,
+            "line": 48049,
             "description": "Fired when container is shown and form is rendered (for select will wait for loading dropdown options).  \n**Note:** Bootstrap popover has own `shown` event that now cannot be separated from x-editable's one.\nThe workaround is to check `arguments.length` that is always `2` for x-editable.",
             "itemtype": "event",
             "name": "shown",
@@ -1433,7 +2983,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 45960,
+            "line": 48070,
             "description": "Shows container with form",
             "itemtype": "method",
             "name": "show()",
@@ -1448,7 +2998,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46006,
+            "line": 48116,
             "description": "Hides container with form",
             "itemtype": "method",
             "name": "hide()",
@@ -1463,7 +3013,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46027,
+            "line": 48137,
             "description": "Fired when container was hidden. It occurs on both save or cancel.  \n**Note:** Bootstrap popover has own `hidden` event that now cannot be separated from x-editable's one.\nThe workaround is to check `arguments.length` that is always `2` for x-editable.",
             "itemtype": "event",
             "name": "hidden",
@@ -1486,7 +3036,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46056,
+            "line": 48166,
             "description": "Toggles container visibility (show / hide)",
             "itemtype": "method",
             "name": "toggle()",
@@ -1501,7 +3051,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46078,
+            "line": 48188,
             "description": "Fired when new value was submitted. You can use <code>$(this).data('editableContainer')</code> inside handler to access to editableContainer instance",
             "itemtype": "event",
             "name": "save",
@@ -1536,7 +3086,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46103,
+            "line": 48213,
             "description": "Sets new option",
             "itemtype": "method",
             "name": "option(key, value)",
@@ -1556,7 +3106,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46127,
+            "line": 48237,
             "description": "Destroys the container instance",
             "itemtype": "method",
             "name": "destroy()",
@@ -1564,7 +3114,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46171,
+            "line": 48281,
             "description": "Activates input of visible container (e.g. set focus)",
             "itemtype": "method",
             "name": "activate()",
@@ -1572,7 +3122,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46183,
+            "line": 48293,
             "description": "jQuery method to initialize editableContainer.",
             "itemtype": "method",
             "name": "$().editableContainer(options)",
@@ -1590,7 +3140,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46221,
+            "line": 48331,
             "description": "Initial value of form input",
             "itemtype": "property",
             "name": "value",
@@ -1602,7 +3152,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46230,
+            "line": 48340,
             "description": "Placement of container relative to element. Can be <code>top|right|bottom|left</code>. Not used for inline container.",
             "itemtype": "property",
             "name": "placement",
@@ -1612,7 +3162,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46238,
+            "line": 48348,
             "description": "Whether to hide container on save/cancel.",
             "itemtype": "property",
             "name": "autohide",
@@ -1624,7 +3174,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46247,
+            "line": 48357,
             "description": "Action when user clicks outside the container. Can be <code>cancel|submit|ignore</code>.  \nSetting <code>ignore</code> allows to have several containers open.",
             "itemtype": "property",
             "name": "onblur",
@@ -1635,7 +3185,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46258,
+            "line": 48368,
             "description": "Animation speed (inline mode only)",
             "itemtype": "property",
             "name": "anim",
@@ -1645,7 +3195,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46266,
+            "line": 48376,
             "description": "Mode of editable, can be `popup` or `inline`",
             "itemtype": "property",
             "name": "mode",
@@ -1656,13 +3206,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46291,
+            "line": 48401,
             "description": "Editable Inline \n---------------------",
             "class": "editableContainer"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46464,
+            "line": 48574,
             "description": "Fired when element was initialized by `$().editable()` method. \nPlease note that you should setup `init` handler **before** applying `editable`.",
             "itemtype": "event",
             "name": "init",
@@ -1686,7 +3236,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46530,
+            "line": 48640,
             "description": "Enables editable",
             "itemtype": "method",
             "name": "enable()",
@@ -1694,7 +3244,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46545,
+            "line": 48655,
             "description": "Disables editable",
             "itemtype": "method",
             "name": "disable()",
@@ -1702,7 +3252,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46558,
+            "line": 48668,
             "description": "Toggles enabled / disabled state of editable element",
             "itemtype": "method",
             "name": "toggleDisabled()",
@@ -1710,7 +3260,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46570,
+            "line": 48680,
             "description": "Sets new option",
             "itemtype": "method",
             "name": "option(key, value)",
@@ -1733,7 +3283,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46661,
+            "line": 48771,
             "description": "Shows container with form",
             "itemtype": "method",
             "name": "show()",
@@ -1748,7 +3298,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46689,
+            "line": 48799,
             "description": "Hides container with form",
             "itemtype": "method",
             "name": "hide()",
@@ -1756,7 +3306,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46699,
+            "line": 48809,
             "description": "Toggles container visibility (show / hide)",
             "itemtype": "method",
             "name": "toggle()",
@@ -1771,7 +3321,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46759,
+            "line": 48869,
             "description": "Fired when new value was submitted. You can use <code>$(this).data('editable')</code> to access to editable instance",
             "itemtype": "event",
             "name": "save",
@@ -1806,7 +3356,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46781,
+            "line": 48891,
             "description": "Sets new value of editable",
             "itemtype": "method",
             "name": "setValue(value, convertStr)",
@@ -1826,7 +3376,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46802,
+            "line": 48912,
             "description": "Activates input of visible container (e.g. set focus)",
             "itemtype": "method",
             "name": "activate()",
@@ -1834,7 +3384,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46812,
+            "line": 48922,
             "description": "Removes editable feature from element",
             "itemtype": "method",
             "name": "destroy()",
@@ -1842,7 +3392,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46840,
+            "line": 48950,
             "description": "jQuery method to initialize editable element.",
             "itemtype": "method",
             "name": "$().editable(options)",
@@ -1860,7 +3410,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46856,
+            "line": 48966,
             "description": "Runs client-side validation for all matched editables",
             "itemtype": "method",
             "name": "validate()",
@@ -1875,7 +3425,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46878,
+            "line": 48988,
             "description": "Returns current values of editable elements.   \nNote that it returns an **object** with name-value pairs, not a value itself. It allows to get data from several elements.    \nIf value of some editable is `null` or `undefined` it is excluded from result object.\nWhen param `isSingle` is set to **true** - it is supposed you have single element and will return value of editable instead of object.",
             "itemtype": "method",
             "name": "getValue()",
@@ -1897,7 +3447,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46911,
+            "line": 49021,
             "description": "This method collects values from several editable elements and submit them all to server.   \nInternally it runs client-side validation for all fields and submits only in case of success.  \nSee <a href=\"#newrecord\">creating new records</a> for details.  \nSince 1.5.1 `submit` can be applied to single element to send data programmatically. In that case\n`url`, `success` and `error` is taken from initial options and you can just call `$('#username').editable('submit')`.",
             "itemtype": "method",
             "name": "submit(options)",
@@ -1943,7 +3493,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47034,
+            "line": 49144,
             "description": "Type of input. Can be <code>text|textarea|select|date|checklist</code> and more",
             "itemtype": "property",
             "name": "type",
@@ -1953,7 +3503,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47042,
+            "line": 49152,
             "description": "Sets disabled state of editable",
             "itemtype": "property",
             "name": "disabled",
@@ -1963,7 +3513,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47050,
+            "line": 49160,
             "description": "How to toggle editable. Can be <code>click|dblclick|mouseenter|manual</code>.   \nWhen set to <code>manual</code> you should manually call <code>show/hide</code> methods of editable.    \n**Note**: if you call <code>show</code> or <code>toggle</code> inside **click** handler of some DOM element, \nyou need to apply <code>e.stopPropagation()</code> because containers are being closed on any click on document.",
             "example": [
                 "\n$('#edit-button').click(function(e) {\n    e.stopPropagation();\n    $('#username').editable('toggle');\n});"
@@ -1976,7 +3526,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47067,
+            "line": 49177,
             "description": "Text shown when element is empty.",
             "itemtype": "property",
             "name": "emptytext",
@@ -1986,7 +3536,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47075,
+            "line": 49185,
             "description": "Allows to automatically set element's text based on it's value. Can be <code>auto|always|never</code>. Useful for select and date.\nFor example, if dropdown list is <code>{1: 'a', 2: 'b'}</code> and element's value set to <code>1</code>, it's html will be automatically set to <code>'a'</code>.  \n<code>auto</code> - text will be automatically set only if element is empty.  \n<code>always|never</code> - always(never) try to set element's text.",
             "itemtype": "property",
             "name": "autotext",
@@ -1996,7 +3546,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47086,
+            "line": 49196,
             "description": "Initial value of input. If not set, taken from element's text.  \nNote, that if element's text is empty - text is automatically generated from value and can be customized (see `autotext` option).  \nFor example, to display currency sign:",
             "example": [
                 "\n<a id=\"price\" data-type=\"text\" data-value=\"100\"></a>\n<script>\n$('#price').editable({\n    ...\n    display: function(value) {\n      $(this).text(value + '$');\n    } \n}) \n</script>"
@@ -2009,7 +3559,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47106,
+            "line": 49216,
             "description": "Callback to perform custom displaying of value in element's text.  \nIf `null`, default input's display used.  \nIf `false`, no displaying methods will be called, element's text will never change.  \nRuns under element's scope.  \n_**Parameters:**_  \n\n* `value` current value to be displayed\n* `response` server response (if display called after ajax submit), since 1.4.0\n \nFor _inputs with source_ (select, checklist) parameters are different:  \n  \n* `value` current value to be displayed\n* `sourceData` array of items for current input (e.g. dropdown items) \n* `response` server response (if display called after ajax submit), since 1.4.0\n          \nTo get currently selected items use `$.fn.editableutils.itemsByValue(value, sourceData)`.",
             "itemtype": "property",
             "name": "display",
@@ -2023,7 +3573,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47143,
+            "line": 49253,
             "description": "Css class applied when editable text is empty.",
             "itemtype": "property",
             "name": "emptyclass",
@@ -2034,7 +3584,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47152,
+            "line": 49262,
             "description": "Css class applied when value was stored but not sent to server (`pk` is empty or `send = 'never'`).  \nYou may set it to `null` if you work with editables locally and submit them together.",
             "itemtype": "property",
             "name": "unsavedclass",
@@ -2045,7 +3595,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47162,
+            "line": 49272,
             "description": "If selector is provided, editable will be delegated to the specified targets.  \nUsefull for dynamically generated DOM elements.  \n**Please note**, that delegated targets can't be initialized with `emptytext` and `autotext` options, \nas they actually become editable only after first click.  \nYou should manually set class `editable-click` to these elements.  \nAlso, if element originally empty you should add class `editable-empty`, set `data-value=\"\"` and write emptytext into element:",
             "itemtype": "property",
             "name": "selector",
@@ -2059,7 +3609,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47191,
+            "line": 49301,
             "description": "Color used to highlight element after update. Implemented via CSS3 transition, works in modern browsers.",
             "itemtype": "property",
             "name": "highlight",
@@ -2070,7 +3620,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47220,
+            "line": 49330,
             "description": "Initializes input",
             "itemtype": "method",
             "name": "init()",
@@ -2078,7 +3628,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47240,
+            "line": 49350,
             "description": "Renders input from tpl. Can return jQuery deferred object.\nCan be overwritten in child objects",
             "itemtype": "method",
             "name": "render()",
@@ -2086,7 +3636,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47250,
+            "line": 49360,
             "description": "Sets element's html by value.",
             "itemtype": "method",
             "name": "value2html(value, element)",
@@ -2106,7 +3656,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47261,
+            "line": 49371,
             "description": "Converts element's html to value",
             "itemtype": "method",
             "name": "html2value(html)",
@@ -2125,7 +3675,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47272,
+            "line": 49382,
             "description": "Converts value to string (for internal compare). For submitting to server used value2submit().",
             "itemtype": "method",
             "name": "value2str(value)",
@@ -2144,7 +3694,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47283,
+            "line": 49393,
             "description": "Converts string received from server into value. Usually from `data-value` attribute.",
             "itemtype": "method",
             "name": "str2value(str)",
@@ -2163,7 +3713,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47294,
+            "line": 49404,
             "description": "Converts value for submitting to server. Result can be string or object.",
             "itemtype": "method",
             "name": "value2submit(value)",
@@ -2182,7 +3732,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47305,
+            "line": 49415,
             "description": "Sets value of input.",
             "itemtype": "method",
             "name": "value2input(value)",
@@ -2197,7 +3747,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47315,
+            "line": 49425,
             "description": "Returns value of input. Value can be object (e.g. datepicker)",
             "itemtype": "method",
             "name": "input2value()",
@@ -2205,7 +3755,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47324,
+            "line": 49434,
             "description": "Activates input. For text it sets focus.",
             "itemtype": "method",
             "name": "activate()",
@@ -2213,7 +3763,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47335,
+            "line": 49445,
             "description": "Creates input.",
             "itemtype": "method",
             "name": "clear()",
@@ -2221,25 +3771,25 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47344,
+            "line": 49454,
             "description": "method to escape html.",
             "class": "abstractinput"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47351,
+            "line": 49461,
             "description": "attach handler to automatically submit form when value changed (useful when buttons not shown)",
             "class": "abstractinput"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47358,
+            "line": 49468,
             "description": "Additional actions when destroying element",
             "class": "abstractinput"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47384,
+            "line": 49494,
             "description": "HTML template of input. Normally you should not change it.",
             "itemtype": "property",
             "name": "tpl",
@@ -2249,7 +3799,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47392,
+            "line": 49502,
             "description": "CSS class automatically applied to input",
             "itemtype": "property",
             "name": "inputclass",
@@ -2259,7 +3809,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47401,
+            "line": 49511,
             "description": "If `true` - html will be escaped in content of element via $.text() method.  \nIf `false` - html will not be escaped, $.html() used.  \nWhen you use own `display` function, this option obviosly has no effect.",
             "itemtype": "property",
             "name": "escape",
@@ -2270,13 +3820,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47638,
+            "line": 49748,
             "description": "convert data to array suitable for sourceData, e.g. [{value: 1, text: 'abc'}, {...}]",
             "class": "list"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47701,
+            "line": 49811,
             "description": "Source data for list.  \nIf **array** - it should be in format: `[{value: 1, text: \"text1\"}, {value: 2, text: \"text2\"}, ...]`  \nFor compability, object format is also supported: `{\"1\": \"text1\", \"2\": \"text2\" ...}` but it does not guarantee elements order.\n\nIf **string** - considered ajax url to load items. In that case results will be cached for fields with the same source and name. See also `sourceCache` option.\n  \nIf **function**, it should return data in format above (since 1.4.0).\n\nSince 1.4.1 key `children` supported to render OPTGROUP (for **select** input only).  \n`[{text: \"group1\", children: [{value: 1, text: \"text1\"}, {value: 2, text: \"text2\"}]}, ...]`",
             "itemtype": "property",
             "name": "source",
@@ -2286,7 +3836,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47719,
+            "line": 49829,
             "description": "Data automatically prepended to the beginning of dropdown list.",
             "itemtype": "property",
             "name": "prepend",
@@ -2296,7 +3846,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47727,
+            "line": 49837,
             "description": "Error message when list cannot be loaded (e.g. ajax error)",
             "itemtype": "property",
             "name": "sourceError",
@@ -2306,7 +3856,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47735,
+            "line": 49845,
             "description": "if <code>true</code> and source is **string url** - results will be cached for fields with the same source.    \nUsefull for editable column in grid to prevent extra requests.",
             "itemtype": "property",
             "name": "sourceCache",
@@ -2317,7 +3867,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47745,
+            "line": 49855,
             "description": "Additional ajax options to be used in $.ajax() when loading list from server.\nUseful to send extra parameters (`data` key) or change request method (`type` key).",
             "itemtype": "property",
             "name": "sourceOptions",
@@ -2328,7 +3878,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47868,
+            "line": 49978,
             "itemtype": "property",
             "name": "tpl",
             "default": "<input type=\"text\">",
@@ -2336,7 +3886,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47873,
+            "line": 49983,
             "description": "Placeholder attribute of input. Shown when input is empty.",
             "itemtype": "property",
             "name": "placeholder",
@@ -2346,7 +3896,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47882,
+            "line": 49992,
             "description": "Whether to show `clear` button",
             "itemtype": "property",
             "name": "clear",
@@ -2356,7 +3906,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47976,
+            "line": 50086,
             "itemtype": "property",
             "name": "tpl",
             "default": "<textarea></textarea>",
@@ -2364,7 +3914,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47981,
+            "line": 50091,
             "itemtype": "property",
             "name": "inputclass",
             "default": "input-large",
@@ -2372,7 +3922,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47986,
+            "line": 50096,
             "description": "Placeholder attribute of input. Shown when input is empty.",
             "itemtype": "property",
             "name": "placeholder",
@@ -2382,7 +3932,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47994,
+            "line": 50104,
             "description": "Number of rows in textarea",
             "itemtype": "property",
             "name": "rows",
@@ -2392,7 +3942,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48094,
+            "line": 50204,
             "itemtype": "property",
             "name": "tpl",
             "default": "<select></select>",
@@ -2400,7 +3950,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48235,
+            "line": 50345,
             "itemtype": "property",
             "name": "tpl",
             "default": "<div></div>",
@@ -2408,7 +3958,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48241,
+            "line": 50351,
             "itemtype": "property",
             "name": "inputclass",
             "type": "string",
@@ -2417,7 +3967,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48248,
+            "line": 50358,
             "description": "Separator of values when reading from `data-value` attribute",
             "itemtype": "property",
             "name": "separator",
@@ -2427,7 +3977,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48295,
+            "line": 50405,
             "itemtype": "property",
             "name": "tpl",
             "default": "depends on type",
@@ -2435,7 +3985,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48785,
+            "line": 50895,
             "itemtype": "property",
             "name": "tpl",
             "default": "<input type=\"hidden\">",
@@ -2443,7 +3993,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48790,
+            "line": 50900,
             "description": "Configuration of select2. [Full list of options](http://ivaynberg.github.com/select2).",
             "itemtype": "property",
             "name": "select2",
@@ -2453,7 +4003,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48798,
+            "line": 50908,
             "description": "Placeholder attribute of select",
             "itemtype": "property",
             "name": "placeholder",
@@ -2463,7 +4013,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48806,
+            "line": 50916,
             "description": "Source data for select. It will be assigned to select2 `data` property and kept here just for convenience.\nPlease note, that format is different from simple `select` input: use 'id' instead of 'value'.\nE.g. `[{id: 1, text: \"text1\"}, {id: 2, text: \"text2\"}, ...]`.",
             "itemtype": "property",
             "name": "source",
@@ -2473,7 +4023,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48816,
+            "line": 50926,
             "description": "Separator used to display tags.",
             "itemtype": "property",
             "name": "viewseparator",
@@ -2483,13 +4033,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48830,
+            "line": 50940,
             "description": "Combodate - 1.0.5\nDropdown date and time picker.\nConverts text input into dropdowns to pick day, month, year, hour, minute and second.\nUses momentjs as datetime library http://momentjs.com.\nFor i18n include corresponding file from https://github.com/timrwood/moment/tree/master/lang \n\nConfusion at noon and midnight - see http://en.wikipedia.org/wiki/12-hour_clock#Confusion_at_noon_and_midnight\nIn combodate: \n12:00 pm --> 12:00 (24-h format, midday)\n12:00 am --> 00:00 (24-h format, midnight, start of day)\n\nDiffers from momentjs parse rules:\n00:00 pm, 12:00 pm --> 12:00 (24-h format, day not change)\n00:00 am, 12:00 am --> 00:00 (24-h format, day not change)\n\n\nAuthor: Vitaliy Potapov\nProject page: http://github.com/vitalets/combodate\nCopyright (c) 2012 Vitaliy Potapov. Released under MIT License.",
             "class": "select2"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49452,
+            "line": 51562,
             "itemtype": "property",
             "name": "tpl",
             "default": "<input type=\"text\">",
@@ -2497,7 +4047,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49457,
+            "line": 51567,
             "itemtype": "property",
             "name": "inputclass",
             "default": "null",
@@ -2505,7 +4055,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49462,
+            "line": 51572,
             "description": "Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>\nSee list of tokens in [momentjs docs](http://momentjs.com/docs/#/parsing/string-format)",
             "itemtype": "property",
             "name": "format",
@@ -2515,7 +4065,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49471,
+            "line": 51581,
             "description": "Format used for displaying date. Also applied when converting date from element's text on init.   \nIf not specified equals to `format`.",
             "itemtype": "property",
             "name": "viewformat",
@@ -2525,7 +4075,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49480,
+            "line": 51590,
             "description": "Template used for displaying dropdowns.",
             "itemtype": "property",
             "name": "template",
@@ -2535,7 +4085,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49488,
+            "line": 51598,
             "description": "Configuration of combodate.\nFull list of options: http://vitalets.github.com/combodate/#docs",
             "itemtype": "property",
             "name": "combodate",
@@ -2545,19 +4095,19 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49578,
+            "line": 51688,
             "description": "Editable Popover3 (for Bootstrap 3) \n---------------------\nrequires bootstrap-popover.js",
             "class": "combodate"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49635,
+            "line": 51745,
             "description": "move popover to new position. This function mainly copied from bootstrap-popover.",
             "class": "combodate"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51228,
+            "line": 53338,
             "itemtype": "property",
             "name": "tpl",
             "default": "<div></div>",
@@ -2565,7 +4115,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51233,
+            "line": 53343,
             "itemtype": "property",
             "name": "inputclass",
             "default": "null",
@@ -2573,7 +4123,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51238,
+            "line": 53348,
             "description": "Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>\nPossible tokens are: <code>d, dd, m, mm, yy, yyyy</code>",
             "itemtype": "property",
             "name": "format",
@@ -2583,7 +4133,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51247,
+            "line": 53357,
             "description": "Format used for displaying date. Also applied when converting date from element's text on init.   \nIf not specified equals to <code>format</code>",
             "itemtype": "property",
             "name": "viewformat",
@@ -2593,7 +4143,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51256,
+            "line": 53366,
             "description": "Configuration of datepicker.\nFull list of options: http://bootstrap-datepicker.readthedocs.org/en/latest/options.html",
             "itemtype": "property",
             "name": "datepicker",
@@ -2603,7 +4153,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51275,
+            "line": 53385,
             "description": "Text shown as clear date button. \nIf <code>false</code> clear button will not be rendered.",
             "itemtype": "property",
             "name": "clear",
@@ -2613,14 +4163,14 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51349,
+            "line": 53459,
             "itemtype": "property",
             "name": "tpl",
             "class": "datefield"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51353,
+            "line": 53463,
             "itemtype": "property",
             "name": "inputclass",
             "default": "'input-small'",
@@ -2628,7 +4178,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51560,
+            "line": 53670,
             "itemtype": "property",
             "name": "tpl",
             "default": "<div></div>",
@@ -2636,7 +4186,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51565,
+            "line": 53675,
             "itemtype": "property",
             "name": "inputclass",
             "default": "null",
@@ -2644,7 +4194,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51570,
+            "line": 53680,
             "description": "Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>\nPossible tokens are: <code>d, dd, m, mm, yy, yyyy, h, i</code>",
             "itemtype": "property",
             "name": "format",
@@ -2654,7 +4204,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51580,
+            "line": 53690,
             "description": "Format used for displaying date. Also applied when converting date from element's text on init.   \nIf not specified equals to <code>format</code>",
             "itemtype": "property",
             "name": "viewformat",
@@ -2664,7 +4214,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51589,
+            "line": 53699,
             "description": "Configuration of datetimepicker.\nFull list of options: https://github.com/smalot/bootstrap-datetimepicker",
             "itemtype": "property",
             "name": "datetimepicker",
@@ -2674,7 +4224,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51601,
+            "line": 53711,
             "description": "Text shown as clear date button. \nIf <code>false</code> clear button will not be rendered.",
             "itemtype": "property",
             "name": "clear",
@@ -2684,14 +4234,14 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51672,
+            "line": 53782,
             "itemtype": "property",
             "name": "tpl",
             "class": "datetimefield"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51676,
+            "line": 53786,
             "itemtype": "property",
             "name": "inputclass",
             "default": "'input-medium'",
@@ -3239,8 +4789,14 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2959,
+            "line": 2958,
             "description": "Nova Creator Boostrap Data Grid Extension: resizable",
+            "class": "defaults"
+        },
+        {
+            "file": "dist/js/novacreator.bootstrap.datagrid.js",
+            "line": 3012,
+            "description": "Nova Creator Boostrap Data Grid Extension: swipeable",
             "class": "defaults"
         }
     ],
@@ -3266,48 +4822,364 @@
             "line": " dist/js/dependencies.js:1033"
         },
         {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:30422"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:30430"
+        },
+        {
+            "message": "unknown tag: memberof",
+            "line": " dist/js/dependencies.js:30430"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:30495"
+        },
+        {
+            "message": "unknown tag: internal",
+            "line": " dist/js/dependencies.js:30695"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:30734"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " dist/js/dependencies.js:30808"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:30808"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " dist/js/dependencies.js:30823"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:30823"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " dist/js/dependencies.js:30835"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:30835"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " dist/js/dependencies.js:30848"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:30848"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:30891"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:30996"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31113"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31179"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31200"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31217"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31265"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31335"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31503"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31519"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31534"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31547"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31569"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31623"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31636"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31646"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31660"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31680"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31691"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31701"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31711"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31722"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31732"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31742"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31752"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31765"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31775"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31784"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31794"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31805"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31815"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31829"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31838"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31847"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31867"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31877"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31913"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31941"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31964"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31977"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:31990"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32001"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32016"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32034"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32043"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32057"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32070"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32085"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32096"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32117"
+        },
+        {
+            "message": "unknown tag: inner",
+            "line": " dist/js/dependencies.js:32148"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32210"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32227"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32241"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32255"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32269"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32283"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32299"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32313"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32327"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32341"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32354"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32363"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32376"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " dist/js/dependencies.js:32387"
+        },
+        {
             "message": "unknown tag: license",
-            "line": " dist/js/dependencies.js:34330"
+            "line": " dist/js/dependencies.js:36440"
         },
         {
             "message": "unknown tag: preserve",
-            "line": " dist/js/dependencies.js:44835"
+            "line": " dist/js/dependencies.js:46945"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " dist/js/dependencies.js:46183"
+            "line": " dist/js/dependencies.js:48293"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " dist/js/dependencies.js:46840"
+            "line": " dist/js/dependencies.js:48950"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:46856"
+            "line": " dist/js/dependencies.js:48966"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:46878"
+            "line": " dist/js/dependencies.js:48988"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:46911"
+            "line": " dist/js/dependencies.js:49021"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:47261"
+            "line": " dist/js/dependencies.js:49371"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:47272"
+            "line": " dist/js/dependencies.js:49382"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:47283"
+            "line": " dist/js/dependencies.js:49393"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:47294"
+            "line": " dist/js/dependencies.js:49404"
         },
         {
             "message": "Missing item type\nCreate key-value caches of limited size",
@@ -3558,116 +5430,344 @@
             "line": " dist/js/dependencies.js:30241"
         },
         {
+            "message": "Missing item type\nThe version of the plugin",
+            "line": " dist/js/dependencies.js:30605"
+        },
+        {
+            "message": "Missing item type\nInitialise the plugin for each DOM element matched\nThis creates a new instance of the main TouchSwipe class for each DOM element, and then\nsaves a reference to that instance in the elements data property.",
+            "line": " dist/js/dependencies.js:30695"
+        },
+        {
+            "message": "Missing item type\nEvent handler for a touch start event.\nStops the default click event from triggering and stores where we touched",
+            "line": " dist/js/dependencies.js:30891"
+        },
+        {
+            "message": "Missing item type\nEvent handler for a touch move event.\nIf we change fingers during move, then cancel the event",
+            "line": " dist/js/dependencies.js:30996"
+        },
+        {
+            "message": "Missing item type\nEvent handler for a touch end event.\nCalculate the direction and trigger events",
+            "line": " dist/js/dependencies.js:31113"
+        },
+        {
+            "message": "Missing item type\nEvent handler for a touch cancel event.\nClears current vars",
+            "line": " dist/js/dependencies.js:31179"
+        },
+        {
+            "message": "Missing item type\nEvent handler for a touch leave event.\nThis is only triggered on desktops, in touch we work this out manually\nas the touchleave event is not supported in webkit",
+            "line": " dist/js/dependencies.js:31200"
+        },
+        {
+            "message": "Missing item type\nRemoves all listeners that were associated with the plugin",
+            "line": " dist/js/dependencies.js:31217"
+        },
+        {
+            "message": "Missing item type\nChecks if the time and distance thresholds have been met, and if so then the appropriate handlers are fired.",
+            "line": " dist/js/dependencies.js:31236"
+        },
+        {
+            "message": "Missing item type\nTrigger the relevant event handler\nThe handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, \"left\", \"right\", \"up\", or \"down\"",
+            "line": " dist/js/dependencies.js:31265"
+        },
+        {
+            "message": "Missing item type\nTrigger the relevant event handler\nThe handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, \"left\", \"right\", \"up\", or \"down\"",
+            "line": " dist/js/dependencies.js:31335"
+        },
+        {
+            "message": "Missing item type\nChecks the user has swipe far enough",
+            "line": " dist/js/dependencies.js:31503"
+        },
+        {
+            "message": "Missing item type\nChecks the user has swiped back to cancel.",
+            "line": " dist/js/dependencies.js:31519"
+        },
+        {
+            "message": "Missing item type\nChecks the user has pinched far enough",
+            "line": " dist/js/dependencies.js:31534"
+        },
+        {
+            "message": "Missing item type\nChecks that the time taken to swipe meets the minimum / maximum requirements",
+            "line": " dist/js/dependencies.js:31547"
+        },
+        {
+            "message": "Missing item type\nChecks direction of the swipe and the value allowPageScroll to see if we should allow or prevent the default behaviour from occurring.\nThis will essentially allow page scrolling or not when the user is swiping on a touchSwipe object.",
+            "line": " dist/js/dependencies.js:31569"
+        },
+        {
+            "message": "Missing item type\nReturns true of the current pinch meets the thresholds",
+            "line": " dist/js/dependencies.js:31623"
+        },
+        {
+            "message": "Missing item type\nReturns true if any Pinch events have been registered",
+            "line": " dist/js/dependencies.js:31636"
+        },
+        {
+            "message": "Missing item type\nReturns true if we are detecting pinches, and have one",
+            "line": " dist/js/dependencies.js:31646"
+        },
+        {
+            "message": "Missing item type\nReturns true if the current swipe meets the thresholds",
+            "line": " dist/js/dependencies.js:31660"
+        },
+        {
+            "message": "Missing item type\nReturns true if any Swipe events have been registered",
+            "line": " dist/js/dependencies.js:31680"
+        },
+        {
+            "message": "Missing item type\nReturns true if we are detecting swipes and have one",
+            "line": " dist/js/dependencies.js:31691"
+        },
+        {
+            "message": "Missing item type\nReturns true if we have matched the number of fingers we are looking for",
+            "line": " dist/js/dependencies.js:31701"
+        },
+        {
+            "message": "Missing item type\nReturns true if we have an end point for the swipe",
+            "line": " dist/js/dependencies.js:31711"
+        },
+        {
+            "message": "Missing item type\nReturns true if a click / tap events have been registered",
+            "line": " dist/js/dependencies.js:31722"
+        },
+        {
+            "message": "Missing item type\nReturns true if a double tap events have been registered",
+            "line": " dist/js/dependencies.js:31732"
+        },
+        {
+            "message": "Missing item type\nReturns true if any long tap events have been registered",
+            "line": " dist/js/dependencies.js:31742"
+        },
+        {
+            "message": "Missing item type\nReturns true if we could be in the process of a double tap (one tap has occurred, we are listening for double taps, and the threshold hasn't past.",
+            "line": " dist/js/dependencies.js:31752"
+        },
+        {
+            "message": "Missing item type\nReturns true if we could be in the process of a double tap (one tap has occurred, we are listening for double taps, and the threshold hasn't past.",
+            "line": " dist/js/dependencies.js:31765"
+        },
+        {
+            "message": "Missing item type\nReturns true if we have a valid tap",
+            "line": " dist/js/dependencies.js:31775"
+        },
+        {
+            "message": "Missing item type\nReturns true if we have a valid long tap",
+            "line": " dist/js/dependencies.js:31784"
+        },
+        {
+            "message": "Missing item type\nReturns true if we are detecting taps and have one",
+            "line": " dist/js/dependencies.js:31794"
+        },
+        {
+            "message": "Missing item type\nReturns true if we are detecting double taps and have one",
+            "line": " dist/js/dependencies.js:31805"
+        },
+        {
+            "message": "Missing item type\nReturns true if we are detecting long taps and have one",
+            "line": " dist/js/dependencies.js:31815"
+        },
+        {
+            "message": "Missing item type\nStarts tracking the time between 2 finger releases, and keeps track of how many fingers we initially had up",
+            "line": " dist/js/dependencies.js:31829"
+        },
+        {
+            "message": "Missing item type\nCancels the tracking of time between 2 finger releases, and resets counters",
+            "line": " dist/js/dependencies.js:31838"
+        },
+        {
+            "message": "Missing item type\nChecks if we are in the threshold between 2 fingers being released",
+            "line": " dist/js/dependencies.js:31847"
+        },
+        {
+            "message": "Missing item type\ngets a data flag to indicate that a touch is in progress",
+            "line": " dist/js/dependencies.js:31867"
+        },
+        {
+            "message": "Missing item type\nSets a data flag to indicate that a touch is in progress",
+            "line": " dist/js/dependencies.js:31877"
+        },
+        {
+            "message": "Missing item type\nCreates the finger data for the touch/finger in the event object.",
+            "line": " dist/js/dependencies.js:31913"
+        },
+        {
+            "message": "Missing item type\nUpdates the finger data for a particular event object",
+            "line": " dist/js/dependencies.js:31941"
+        },
+        {
+            "message": "Missing item type\nReturns a finger data object by its event ID.\nEach touch event has an identifier property, which is used\nto track repeat touches",
+            "line": " dist/js/dependencies.js:31964"
+        },
+        {
+            "message": "Missing item type\nSets the maximum distance swiped in the given direction.\nIf the new value is lower than the current value, the max value is not changed.",
+            "line": " dist/js/dependencies.js:31977"
+        },
+        {
+            "message": "Missing item type\ngets the maximum distance swiped in the given direction.",
+            "line": " dist/js/dependencies.js:31990"
+        },
+        {
+            "message": "Missing item type\nCreats a map of directions to maximum swiped values.",
+            "line": " dist/js/dependencies.js:32001"
+        },
+        {
+            "message": "Missing item type\nCreates a map maximum swiped values for a given swipe direction",
+            "line": " dist/js/dependencies.js:32016"
+        },
+        {
+            "message": "Missing item type\nCalculate the duration of the swipe",
+            "line": " dist/js/dependencies.js:32034"
+        },
+        {
+            "message": "Missing item type\nCalculate the distance between 2 touches (pinch)",
+            "line": " dist/js/dependencies.js:32043"
+        },
+        {
+            "message": "Missing item type\nCalculate the zoom factor between the start and end distances",
+            "line": " dist/js/dependencies.js:32057"
+        },
+        {
+            "message": "Missing item type\nReturns the pinch direction, either IN or OUT for the given points",
+            "line": " dist/js/dependencies.js:32070"
+        },
+        {
+            "message": "Missing item type\nCalculate the length / distance of the swipe",
+            "line": " dist/js/dependencies.js:32085"
+        },
+        {
+            "message": "Missing item type\nCalculate the angle of the swipe",
+            "line": " dist/js/dependencies.js:32096"
+        },
+        {
+            "message": "Missing item type\nCalculate the direction of the swipe\nThis will also call calculateAngle to get the latest angle of swipe",
+            "line": " dist/js/dependencies.js:32117"
+        },
+        {
+            "message": "Missing item type\nReturns a MS time stamp of the current time",
+            "line": " dist/js/dependencies.js:32148"
+        },
+        {
+            "message": "Missing item type\nReturns a bounds object with left, right, top and bottom properties for the element specified.",
+            "line": " dist/js/dependencies.js:32160"
+        },
+        {
+            "message": "Missing item type\nChecks if the point object is in the bounds object.",
+            "line": " dist/js/dependencies.js:32179"
+        },
+        {
+            "message": "Missing item type\nChecks if the two points are equal",
+            "line": " dist/js/dependencies.js:32194"
+        },
+        {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:34330"
+            "line": " dist/js/dependencies.js:36440"
         },
         {
             "message": "Missing item type\njsPDF - PDF Document creation from JavaScript\nVersion 1.0.272-git Built on 2014-09-29T15:09\n                          CommitID d4770725ca\n\nCopyright (c) 2010-2014 James Hall, https://github.com/MrRio/jsPDF\n              2010 Aaron Spike, https://github.com/acspike\n              2012 Willow Systems Corporation, willow-systems.com\n              2012 Pablo Hess, https://github.com/pablohess\n              2012 Florian Jenett, https://github.com/fjenett\n              2013 Warren Weckesser, https://github.com/warrenweckesser\n              2013 Youssef Beddad, https://github.com/lifof\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2013 Stefan Slonevskiy, https://github.com/stefslon\n              2013 Jeremy Morel, https://github.com/jmorel\n              2013 Christoph Hartmann, https://github.com/chris-rock\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Makes, https://github.com/dollaruw\n              2014 Diego Casorran, https://github.com/diegocr\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\nContributor(s):\n   siefkenj, ahwolf, rickygu, Midnith, saintclair, eaparango,\n   kim3er, mfo, alnorth,",
-            "line": " dist/js/dependencies.js:44664"
+            "line": " dist/js/dependencies.js:46774"
         },
         {
             "message": "Missing item type\njsPDF addHTML PlugIn\nCopyright (c) 2014 Diego Casorran\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
-            "line": " dist/js/dependencies.js:44707"
+            "line": " dist/js/dependencies.js:46817"
         },
         {
             "message": "Missing item type\njsPDF addImage plugin\nCopyright (c) 2012 Jason Siefken, https://github.com/siefkenj/\n              2013 Chris Dowling, https://github.com/gingerchris\n              2013 Trinh Ho, https://github.com/ineedfat\n              2013 Edwin Alejandro Perez, https://github.com/eaparango\n              2013 Norah Smith, https://github.com/burnburnrocket\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 James Robb, https://github.com/jamesbrobb",
-            "line": " dist/js/dependencies.js:44713"
+            "line": " dist/js/dependencies.js:46823"
         },
         {
             "message": "Missing item type\njsPDF Cell plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com\n              2013 Eduardo Menezes de Morais, eduardo.morais@usp.br\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Hall, james@parall.ax\n              2014 Diego Casorran, https://github.com/diegocr",
-            "line": " dist/js/dependencies.js:44723"
+            "line": " dist/js/dependencies.js:46833"
         },
         {
             "message": "Missing item type\njsPDF fromHTML plugin. BETA stage. API subject to change. Needs browser\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 Daniel Husar, https://github.com/danielhusar\n              2014 Wolfgang Gassler, https://github.com/woolfg",
-            "line": " dist/js/dependencies.js:44732"
+            "line": " dist/js/dependencies.js:46842"
         },
         {
             "message": "Missing item type\njsPDF JavaScript plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com",
-            "line": " dist/js/dependencies.js:44740"
+            "line": " dist/js/dependencies.js:46850"
         },
         {
             "message": "Missing item type\njsPDF PNG PlugIn\nCopyright (c) 2014 James Robb, https://github.com/jamesbrobb",
-            "line": " dist/js/dependencies.js:44744"
+            "line": " dist/js/dependencies.js:46854"
         },
         {
             "message": "Missing item type\njsPDF Silly SVG plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com",
-            "line": " dist/js/dependencies.js:44748"
+            "line": " dist/js/dependencies.js:46858"
         },
         {
             "message": "Missing item type\njsPDF split_text_to_size plugin - MIT license.\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Diego Casorran, https://github.com/diegocr",
-            "line": " dist/js/dependencies.js:44752"
+            "line": " dist/js/dependencies.js:46862"
         },
         {
             "message": "Missing item type\njsPDF standard_fonts_metrics plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\nMIT license.",
-            "line": " dist/js/dependencies.js:44757"
+            "line": " dist/js/dependencies.js:46867"
         },
         {
             "message": "Missing item type\njsPDF total_pages plugin\nCopyright (c) 2013 Eduardo Menezes de Morais, eduardo.morais@usp.br",
-            "line": " dist/js/dependencies.js:44762"
+            "line": " dist/js/dependencies.js:46872"
         },
         {
             "message": "Missing item type\nJavaScript Polyfill functions for jsPDF\nCollected from public resources by\nhttps://github.com/diegocr",
-            "line": " dist/js/dependencies.js:44826"
+            "line": " dist/js/dependencies.js:46936"
         },
         {
             "message": "Missing item type\njsPDF AutoTable plugin v2.0.14\nCopyright (c) 2014 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable\n\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
-            "line": " dist/js/dependencies.js:44835"
+            "line": " dist/js/dependencies.js:46945"
         },
         {
             "message": "Missing item type\nEditableForm utilites",
-            "line": " dist/js/dependencies.js:45525"
+            "line": " dist/js/dependencies.js:47635"
         },
         {
             "message": "Missing item type\nclassic JS inheritance function",
-            "line": " dist/js/dependencies.js:45533"
+            "line": " dist/js/dependencies.js:47643"
         },
         {
             "message": "Missing item type\nset caret position in input\nsee http://stackoverflow.com/questions/499126/jquery-set-cursor-position-in-text-area",
-            "line": " dist/js/dependencies.js:45544"
+            "line": " dist/js/dependencies.js:47654"
         },
         {
             "message": "Missing item type\nfunction to parse JSON in *single* quotes. (jquery automatically parse only double quotes)\nThat allows such code as: <a data-source=\"{'a': 'b', 'c': 'd'}\">\nsafe = true --> means no exception will be thrown\nfor details see http://stackoverflow.com/questions/7410348/how-to-set-json-format-to-html5-data-attributes-in-the-jquery",
-            "line": " dist/js/dependencies.js:45560"
+            "line": " dist/js/dependencies.js:47670"
         },
         {
             "message": "Missing item type\nslice object by specified keys",
-            "line": " dist/js/dependencies.js:45585"
+            "line": " dist/js/dependencies.js:47695"
         },
         {
             "message": "Missing item type\nmethod to escape html.",
-            "line": " dist/js/dependencies.js:45651"
+            "line": " dist/js/dependencies.js:47761"
         },
         {
             "message": "Missing item type\nEditable Inline \n---------------------",
-            "line": " dist/js/dependencies.js:46291"
+            "line": " dist/js/dependencies.js:48401"
         },
         {
             "message": "Missing item type\nmethod to escape html.",
-            "line": " dist/js/dependencies.js:47344"
+            "line": " dist/js/dependencies.js:49454"
         },
         {
             "message": "Missing item type\nattach handler to automatically submit form when value changed (useful when buttons not shown)",
-            "line": " dist/js/dependencies.js:47351"
+            "line": " dist/js/dependencies.js:49461"
         },
         {
             "message": "Missing item type\nAdditional actions when destroying element",
-            "line": " dist/js/dependencies.js:47358"
+            "line": " dist/js/dependencies.js:49468"
         },
         {
             "message": "Missing item type\nconvert data to array suitable for sourceData, e.g. [{value: 1, text: 'abc'}, {...}]",
-            "line": " dist/js/dependencies.js:47638"
+            "line": " dist/js/dependencies.js:49748"
         },
         {
             "message": "Missing item type\nCombodate - 1.0.5\nDropdown date and time picker.\nConverts text input into dropdowns to pick day, month, year, hour, minute and second.\nUses momentjs as datetime library http://momentjs.com.\nFor i18n include corresponding file from https://github.com/timrwood/moment/tree/master/lang \n\nConfusion at noon and midnight - see http://en.wikipedia.org/wiki/12-hour_clock#Confusion_at_noon_and_midnight\nIn combodate: \n12:00 pm --> 12:00 (24-h format, midday)\n12:00 am --> 00:00 (24-h format, midnight, start of day)\n\nDiffers from momentjs parse rules:\n00:00 pm, 12:00 pm --> 12:00 (24-h format, day not change)\n00:00 am, 12:00 am --> 00:00 (24-h format, day not change)\n\n\nAuthor: Vitaliy Potapov\nProject page: http://github.com/vitalets/combodate\nCopyright (c) 2012 Vitaliy Potapov. Released under MIT License.",
-            "line": " dist/js/dependencies.js:48830"
+            "line": " dist/js/dependencies.js:50940"
         },
         {
             "message": "Missing item type\nEditable Popover3 (for Bootstrap 3) \n---------------------\nrequires bootstrap-popover.js",
-            "line": " dist/js/dependencies.js:49578"
+            "line": " dist/js/dependencies.js:51688"
         },
         {
             "message": "Missing item type\nmove popover to new position. This function mainly copied from bootstrap-popover.",
-            "line": " dist/js/dependencies.js:49635"
+            "line": " dist/js/dependencies.js:51745"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: editable",
@@ -3691,7 +5791,11 @@
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: resizable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2959"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2958"
+        },
+        {
+            "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: swipeable",
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:3012"
         }
     ]
 }

@@ -1,0 +1,47 @@
+{
+  "name": "col-resizable",
+  "description": "Resizable table columns for jQuery",
+  "homepage": "http://www.bacubacu.com/colresizable",
+  "keywords": [
+    "resize",
+    "columns",
+    "table",
+    "table resize",
+    "resizable columns",
+    "resize table",
+    "resize columns",
+    "colresizable",
+    "tables",
+    "drag",
+    "column",
+    "jquery",
+    "resizable"
+  ],
+  "authors": [
+    "Alvaro Prieto Lauroba"
+  ],
+  "main": [
+    "./colResizable-1.6.js"
+  ],
+  "dependencies": {
+    "jquery": "^1.9.0 || ^2.0.0"
+  },
+  "license": [
+    "MIT",
+    "GPL"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alvaro-prieto/colResizable.git"
+  },
+  "_release": "43fadf76dd",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "43fadf76dd2984d36a864a813da962429bfe7350"
+  },
+  "_source": "https://github.com/alvaro-prieto/colResizable.git",
+  "_target": "*",
+  "_originalSource": "col-resizable",
+  "_direct": true
+}

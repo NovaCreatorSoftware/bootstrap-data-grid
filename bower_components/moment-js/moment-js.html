@@ -1,0 +1,126 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="./moment-import.html">
+
+<!--
+A Polymer element to parse, validate, manipulate, and display dates using Moment.js.
+
+Example:
+
+    <moment-js
+      format="YYYY-MM-DD HH:mm:ss"></moment-js>
+
+Example:
+
+    <moment-js
+      date="2016-01-10 14:30"
+      dateFormat="YYYY-MM-DD HH:mm"
+      format="LLLL"></moment-js>
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="moment-js">
+  <template>
+    <span hidden$="[[hide]]">[[formattedDate]]</span>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'moment-js',
+
+      properties: {
+        /**
+         * Date parameter
+         */
+        date: {
+          type: String,
+          value: moment().format()
+        },
+
+        /**
+         * Format for parsing the date parameter.
+         */
+        dateFormat: {
+          type: String
+        },
+
+        /**
+         * Format for setting the formattedDate.
+         */
+        format: {
+          type: String,
+          value: moment.defaultFormat
+        },
+
+        /**
+         * Formatted Date.
+         */
+        formattedDate: {
+          type: String,
+          notify: true
+        },
+
+        /**
+         * Enable UTC Mode.
+         */
+        utc: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * Hide showing formatted date.
+         */
+        hide: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * Set True if date is valid.
+         */
+        isValid: {
+          type: Boolean,
+          value: false
+        }
+      },
+
+      observers: [
+        '_checkAndSetIfDateIsNumber(date)',
+        '_updateIsValid(date)',
+        '_updateIsValid(dateFormat)',
+        '_updateFormattedDate(date)',
+        '_updateFormattedDate(dateFormat)',
+        '_updateFormattedDate(format)',
+        '_updateFormattedDate(utc)'
+      ],
+
+      _checkAndSetIfDateIsNumber: function(newVal) {
+        if (!isNaN(newVal)) {
+          this.set('date', Number(this.date));
+        }
+      },
+
+      _updateFormattedDate: function() {
+        if (typeof this.dateFormat === 'undefined') {
+          if (this.utc) {
+            this.set('formattedDate', moment.utc(this.date).format(this.format));
+          } else {
+            this.set('formattedDate', moment(this.date).format(this.format));
+          }
+        } else {
+          if (this.utc) {
+            this.set('formattedDate', moment.utc(this.date, this.dateFormat).format(this.format));
+          } else {
+            this.set('formattedDate', moment(this.date, this.dateFormat).format(this.format));
+          }
+        }
+      },
+
+      _updateIsValid: function() {
+        this.set('isValid', moment(this.date, this.dateFormat).isValid());
+      }
+    });
+  </script>
+</dom-module>

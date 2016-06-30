@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>moment-js Demo</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="../../demo-snippet/demo-snippet.html">
+  <link rel="import" href="../moment-js.html">
+
+  <style is="custom-style">
+    body {
+      font-family: 'Roboto', 'Noto', sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 24px;
+    }
+
+    demo-snippet {
+      margin: 24px;
+      width: 100%;
+      --demo-snippet-demo: {
+        padding: 20px;
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+      }
+    }
+  </style>
+</head>
+
+<body unresolved>
+  <h3>Examples of
+    <code>&lt;moment-js&gt;</code>:</h3>
+
+  <h4>Current local date without format</h4>
+  <demo-snippet>
+    <moment-js></moment-js>
+  </demo-snippet>
+
+  <h4>Current local date with format</h4>
+  <demo-snippet>
+    <moment-js format="YYYY-MM-DD HH:mm:ss"></moment-js>
+  </demo-snippet>
+
+  <h4>Format custom date</h4>
+  <demo-snippet>
+    <moment-js date="2016-01-10 14:30" dateFormat="YYYY-MM-DD HH:mm" format="LLLL"></moment-js>
+  </demo-snippet>
+
+
+  <h4>Hide printing formatted date</h4>
+  <demo-snippet>
+    <moment-js date="2016-01-10 14:30" dateFormat="YYYY-MM-DD HH:mm" format="LLLL" formattedDate="{{myDate}}" hide></moment-js>
+  </demo-snippet>
+
+  <h4>Format milliseconds</h4>
+  <demo-snippet>
+    <moment-js date="13700" format="HH:mm:ss.SSS" utc></moment-js>
+  </demo-snippet>
+</body>
+
+</html>

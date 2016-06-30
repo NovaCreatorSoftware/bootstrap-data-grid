@@ -8,16 +8,16 @@
 
     $.extend($.fn.tablear.Constructor.defaults, {
         editable: true,
-        onEditableInit: function () {
+        onEditableInit: function (){
             return false;
         },
-        onEditableSave: function (field, row, oldValue, $el) {
+        onEditableSave: function(field, row, oldValue, $el) {
             return false;
         },
-        onEditableShown: function (field, row, $el, editable) {
+        onEditableShown: function(field, row, $el, editable) {
             return false;
         },
-        onEditableHidden: function (field, row, $el, reason) {
+        onEditableHidden: function(field, row, $el, reason) {
             return false;
         }
     });
@@ -115,9 +115,20 @@
             	var row = Grid.getRowById($(e.currentTarget).data('pk'));
             	$(this).data('value', params.submitValue);
             	row[columnId] = params.submitValue;
+            	Grid.options.onEditableSave(columnId, row, row[columnId], $(this));
             });
-            aElements.off('shown').on('shown', that, function(e, editable) {});
-            aElements.off('hidden').on('hidden', that, function(e, reason) {});
+            aElements.off('shown').on('shown', that, function(e, editable) {
+            	var Grid = e.data;
+            	var columnId = $(e.currentTarget).data('name');
+            	var row = Grid.getRowById($(e.currentTarget).data('pk'));
+            	Grid.options.onEditableShown(columnId, row, $(this), editable);
+            });
+            aElements.off('hidden').on('hidden', that, function(e, reason) {
+            	var Grid = e.data;
+            	var columnId = $(e.currentTarget).data('name');
+            	var row = Grid.getRowById($(e.currentTarget).data('pk'));
+            	Grid.options.onEditableHidden(columnId, row, $(this), reason);            	
+            });
         });
     };
 })(jQuery);

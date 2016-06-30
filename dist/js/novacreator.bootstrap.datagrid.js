@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/29/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/01/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -1946,16 +1946,16 @@ $("[data-toggle=\"tablear\"]").tablear();
 
     $.extend($.fn.tablear.Constructor.defaults, {
         editable: true,
-        onEditableInit: function () {
+        onEditableInit: function (){
             return false;
         },
-        onEditableSave: function (field, row, oldValue, $el) {
+        onEditableSave: function(field, row, oldValue, $el) {
             return false;
         },
-        onEditableShown: function (field, row, $el, editable) {
+        onEditableShown: function(field, row, $el, editable) {
             return false;
         },
-        onEditableHidden: function (field, row, $el, reason) {
+        onEditableHidden: function(field, row, $el, reason) {
             return false;
         }
     });
@@ -2053,9 +2053,20 @@ $("[data-toggle=\"tablear\"]").tablear();
             	var row = Grid.getRowById($(e.currentTarget).data('pk'));
             	$(this).data('value', params.submitValue);
             	row[columnId] = params.submitValue;
+            	Grid.options.onEditableSave(columnId, row, row[columnId], $(this));
             });
-            aElements.off('shown').on('shown', that, function(e, editable) {});
-            aElements.off('hidden').on('hidden', that, function(e, reason) {});
+            aElements.off('shown').on('shown', that, function(e, editable) {
+            	var Grid = e.data;
+            	var columnId = $(e.currentTarget).data('name');
+            	var row = Grid.getRowById($(e.currentTarget).data('pk'));
+            	Grid.options.onEditableShown(columnId, row, $(this), editable);
+            });
+            aElements.off('hidden').on('hidden', that, function(e, reason) {
+            	var Grid = e.data;
+            	var columnId = $(e.currentTarget).data('name');
+            	var row = Grid.getRowById($(e.currentTarget).data('pk'));
+            	Grid.options.onEditableHidden(columnId, row, $(this), reason);            	
+            });
         });
     };
 })(jQuery);
@@ -2906,8 +2917,13 @@ $("[data-toggle=\"tablear\"]").tablear();
             this.options.rowAttributes = rowAttr;
         }
         setTimeout(function() {
-            that.makeRowsReorderable();
+           that.makeRowsReorderable();
         }, 100);
+        that.$element.on("load.rs.novacreator.bootstrap.datagrid", function() {
+        	setTimeout(function() {
+        		that.makeRowsReorderable();
+        	}, 100);
+        });
     };
 
     $.fn.tablear.Constructor.prototype.initSearch = function() {
@@ -3000,11 +3016,15 @@ $("[data-toggle=\"tablear\"]").tablear();
     $.fn.tablear.Constructor.prototype.initHeader = function () {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         var that = this;
-        if(this.options.resizable) {
-            // because in fitHeader function, we use setTimeout(func, 100);
+        if(this.options.resizable) { //for rendering to be done
             setTimeout(function () {
                 initResizable(that);
             }, 100);
+            this.$element.on("load.rs.novacreator.bootstrap.datagrid", function() {
+            	setTimeout(function() {
+            		initResizable(that);
+            	}, 100);
+            });
         }
     };
 })(jQuery);
@@ -3040,6 +3060,11 @@ $("[data-toggle=\"tablear\"]").tablear();
         	setTimeout(function() { //so that the ui is done when calling initSwipeable
         		initSwipeable(that);
         	}, 100);
+            that.$element.on("load.rs.novacreator.bootstrap.datagrid", function() {
+            	setTimeout(function() {
+            		initSwipeable(that);
+            	}, 100);
+            });
         }
     };
 })(jQuery);

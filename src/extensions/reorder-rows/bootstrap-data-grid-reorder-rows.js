@@ -48,8 +48,13 @@
             this.options.rowAttributes = rowAttr;
         }
         setTimeout(function() {
-            that.makeRowsReorderable();
+           that.makeRowsReorderable();
         }, 100);
+        that.$element.on("load.rs.novacreator.bootstrap.datagrid", function() {
+        	setTimeout(function() {
+        		that.makeRowsReorderable();
+        	}, 100);
+        });
     };
 
     $.fn.tablear.Constructor.prototype.initSearch = function() {

@@ -43,11 +43,15 @@
     $.fn.tablear.Constructor.prototype.initHeader = function () {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         var that = this;
-        if(this.options.resizable) {
-            // because in fitHeader function, we use setTimeout(func, 100);
+        if(this.options.resizable) { //for rendering to be done
             setTimeout(function () {
                 initResizable(that);
             }, 100);
+            this.$element.on("load.rs.novacreator.bootstrap.datagrid", function() {
+            	setTimeout(function() {
+            		initResizable(that);
+            	}, 100);
+            });
         }
     };
 })(jQuery);

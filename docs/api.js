@@ -2,6 +2,7 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "Grid",
+        "TouchSwipe",
         "abstractinput",
         "ajaxSettings",
         "checklist",
@@ -15,6 +16,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "editable",
         "editableContainer",
         "editableform",
+        "fn",
         "html5types",
         "list",
         "searchSettings",

@@ -51,6 +51,7 @@
                                 <li><a href="../classes/editable.html">editable</a></li>
                                 <li><a href="../classes/editableContainer.html">editableContainer</a></li>
                                 <li><a href="../classes/editableform.html">editableform</a></li>
+                                <li><a href="../classes/fn.html">fn</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
                                 <li><a href="../classes/html5types.html">html5types</a></li>
                                 <li><a href="../classes/list.html">list</a></li>
@@ -60,6 +61,7 @@
                                 <li><a href="../classes/statusMapping.html">statusMapping</a></li>
                                 <li><a href="../classes/text.html">text</a></li>
                                 <li><a href="../classes/textarea.html">textarea</a></li>
+                                <li><a href="../classes/TouchSwipe.html">TouchSwipe</a></li>
                             </ul>
                 
                 
@@ -102,7 +104,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 06/27/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/01/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -2049,16 +2051,16 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 
     $.extend($.fn.tablear.Constructor.defaults, {
         editable: true,
-        onEditableInit: function () {
+        onEditableInit: function (){
             return false;
         },
-        onEditableSave: function (field, row, oldValue, $el) {
+        onEditableSave: function(field, row, oldValue, $el) {
             return false;
         },
-        onEditableShown: function (field, row, $el, editable) {
+        onEditableShown: function(field, row, $el, editable) {
             return false;
         },
-        onEditableHidden: function (field, row, $el, reason) {
+        onEditableHidden: function(field, row, $el, reason) {
             return false;
         }
     });
@@ -2156,9 +2158,20 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             	var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
             	$(this).data(&#x27;value&#x27;, params.submitValue);
             	row[columnId] = params.submitValue;
+            	Grid.options.onEditableSave(columnId, row, row[columnId], $(this));
             });
-            aElements.off(&#x27;shown&#x27;).on(&#x27;shown&#x27;, that, function(e, editable) {});
-            aElements.off(&#x27;hidden&#x27;).on(&#x27;hidden&#x27;, that, function(e, reason) {});
+            aElements.off(&#x27;shown&#x27;).on(&#x27;shown&#x27;, that, function(e, editable) {
+            	var Grid = e.data;
+            	var columnId = $(e.currentTarget).data(&#x27;name&#x27;);
+            	var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
+            	Grid.options.onEditableShown(columnId, row, $(this), editable);
+            });
+            aElements.off(&#x27;hidden&#x27;).on(&#x27;hidden&#x27;, that, function(e, reason) {
+            	var Grid = e.data;
+            	var columnId = $(e.currentTarget).data(&#x27;name&#x27;);
+            	var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
+            	Grid.options.onEditableHidden(columnId, row, $(this), reason);            	
+            });
         });
     };
 })(jQuery);
@@ -2969,7 +2982,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 
     var isSearch = false;
 
-    var rowAttr = function (row, index) {
+    var rowAttr = function(row, index) {
         return {
             id: &#x27;customId_&#x27; + index
         };
@@ -2983,7 +2996,6 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
         dragHandle: null,
         useRowAttrFunc: false,
         onReorderRowsDrag: function(table, row) {
-        	alert(&#x27;cucu&#x27;);
             return false;
         },
         onReorderRowsDrop: function(table, row) {
@@ -3000,7 +3012,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 
     var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
     var _initSearch = $.fn.tablear.Constructor.prototype.initSearch;
-    $.fn.tablear.Constructor.prototype.initHeader = function () {
+    $.fn.tablear.Constructor.prototype.initHeader = function() {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.reorderableRows) {
             return;
@@ -3010,11 +3022,16 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             this.options.rowAttributes = rowAttr;
         }
         setTimeout(function() {
-            that.makeRowsReorderable();
+           that.makeRowsReorderable();
         }, 100);
+        that.$element.on(&quot;load.rs.novacreator.bootstrap.datagrid&quot;, function() {
+        	setTimeout(function() {
+        		that.makeRowsReorderable();
+        	}, 100);
+        });
     };
 
-    $.fn.tablear.Constructor.prototype.initSearch = function () {
+    $.fn.tablear.Constructor.prototype.initSearch = function() {
         _initSearch.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.reorderableRows) {
             return;
@@ -3067,7 +3084,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 (function ($) {
     &#x27;use strict&#x27;;
 
-    var initResizable = function (that) {
+    var initResizable = function(that) {
         //Deletes the plugin to re-create it
         that.$element.colResizable({disable: true});
 
@@ -3075,7 +3092,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
         that.$element.colResizable({
             liveDrag: that.options.liveDrag,
             fixed: that.options.fixed,
-            headerOnly: that.options.headerOnly,
+            headerOnly: that.options.headerOnly || true,
             minWidth: that.options.minWidth,
             hoverCursor: that.options.hoverCursor,
             dragCursor: that.options.dragCursor,
@@ -3104,11 +3121,55 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
     $.fn.tablear.Constructor.prototype.initHeader = function () {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         var that = this;
-        if(this.options.resizable) {
-            // because in fitHeader function, we use setTimeout(func, 100);
+        if(this.options.resizable) { //for rendering to be done
             setTimeout(function () {
                 initResizable(that);
             }, 100);
+            this.$element.on(&quot;load.rs.novacreator.bootstrap.datagrid&quot;, function() {
+            	setTimeout(function() {
+            		initResizable(that);
+            	}, 100);
+            });
+        }
+    };
+})(jQuery);
+
+/**
+ * Nova Creator Boostrap Data Grid Extension: swipeable
+ *
+ */
+
+(function ($) {
+    &#x27;use strict&#x27;;
+
+    var initSwipeable = function(that) {
+    	var options = that.options.swipeableOptions || {};
+    	options[&#x27;swipe&#x27;] = that.options.onSwipe;
+    	that.$element.find(&quot;tbody tr&quot;).swipe(options);
+    };
+
+    $.extend($.fn.tablear.Constructor.defaults, {
+        onSwipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+			alert(&#x27;swiped&#x27;); //override to handle
+		},
+		swipeableOptions: {
+			threshold: 150
+		}
+    });
+
+    var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
+    $.fn.tablear.Constructor.prototype.initHeader = function () {
+        _initHeader.apply(this, Array.prototype.slice.apply(arguments));
+        var that = this;
+        if(this.options.swipeable) {
+        	setTimeout(function() { //so that the ui is done when calling initSwipeable
+        		initSwipeable(that);
+        	}, 100);
+            that.$element.on(&quot;load.rs.novacreator.bootstrap.datagrid&quot;, function() {
+            	setTimeout(function() {
+            		initSwipeable(that);
+            	}, 100);
+            });
         }
     };
 })(jQuery);

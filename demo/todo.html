@@ -156,6 +156,8 @@
 				onSwipe: function() {
 					alert('SWIPE!');
 				}
+			}).on("load.rs.novacreator.bootstrap.datagrid", function() {
+				alert('data loaded');
 			}).on("loaded.rs.novacreator.bootstrap.datagrid", function() {
 				grid.find(".action-x").off("click").on("click", function(e) {
 					alert("You pressed x on row: " + $(this).data("row-id"));
@@ -163,6 +165,28 @@
 					alert("You pressed ok on row: " + $(this).data("row-id"));
 				});
 			});
+
+			$("#grid").tablear("clear");
+			setTimeout(function() { //simulate a row added later after
+ 				$("#grid").tablear("append", [{
+					id: '',
+					name: '',
+					dueDate: '',
+					actionDate: '',
+					status: '',
+					priority: ''
+				}]);
+			}, 1000);
+			setTimeout(function() { //simulate a row added later after
+ 				$("#grid").tablear("append", [{
+					id: '666',
+					name: '',
+					dueDate: '',
+					actionDate: '',
+					status: '',
+					priority: ''
+				}]);
+			}, 5000);
 		});
 	</script>
 </body>

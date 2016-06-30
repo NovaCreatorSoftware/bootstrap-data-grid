@@ -29,6 +29,11 @@
         	setTimeout(function() { //so that the ui is done when calling initSwipeable
         		initSwipeable(that);
         	}, 100);
+            that.$element.on("load.rs.novacreator.bootstrap.datagrid", function() {
+            	setTimeout(function() {
+            		initSwipeable(that);
+            	}, 100);
+            });
         }
     };
 })(jQuery);

@@ -499,7 +499,7 @@ jQuery.tableDnD = {
         }
         return null;
     },
-    processMouseup: function() {
+    processMouseup: function() { //MCM modified - moved this.currentTable on top
     	if(!this.currentTable) {
         	return null;    		
     	}

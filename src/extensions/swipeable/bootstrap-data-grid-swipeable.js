@@ -9,7 +9,7 @@
     var initSwipeable = function(that) {
     	var options = that.options.swipeableOptions || {};
     	options['swipe'] = that.options.onSwipe;
-    	that.$element.find("tbody tr").swipe(options);
+    	that.$element.find(options.trigger).swipe(options);
     };
 
     $.extend($.fn.tablear.Constructor.defaults, {
@@ -17,7 +17,15 @@
 			alert('swiped'); //override to handle
 		},
 		swipeableOptions: {
-			threshold: 150
+			threshold: 100,
+			fingers: 'all',
+			trigger: 'tbody tr',
+			tap: function(event, target) {
+				//known issue - on comboboxes, it will not work to select values with mouse
+				if(!$(target).is("a")) {
+					$(target).focus();
+				}
+			}			
 		}
     });
 

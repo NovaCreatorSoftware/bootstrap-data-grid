@@ -104,7 +104,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 07/01/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/04/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -3145,7 +3145,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
     var initSwipeable = function(that) {
     	var options = that.options.swipeableOptions || {};
     	options[&#x27;swipe&#x27;] = that.options.onSwipe;
-    	that.$element.find(&quot;tbody tr&quot;).swipe(options);
+    	that.$element.find(options.trigger).swipe(options);
     };
 
     $.extend($.fn.tablear.Constructor.defaults, {
@@ -3153,7 +3153,15 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 			alert(&#x27;swiped&#x27;); //override to handle
 		},
 		swipeableOptions: {
-			threshold: 150
+			threshold: 100,
+			fingers: &#x27;all&#x27;,
+			trigger: &#x27;tbody tr&#x27;,
+			tap: function(event, target) {
+				//known issue - on comboboxes, it will not work to select values with mouse
+				if(!$(target).is(&quot;a&quot;)) {
+					$(target).focus();
+				}
+			}			
 		}
     });
 

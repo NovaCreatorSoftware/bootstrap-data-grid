@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 07/04/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/05/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -2271,7 +2271,7 @@ $("[data-toggle=\"tablear\"]").tablear();
         }
     };
 
-    var setCursorPosition = function (el, index) {
+    var setCursorPosition = function(el, index) {
         if(isIEBrowser()) {
             if(el.setSelectionRange !== undefined) {
                 el.setSelectionRange(index, index);
@@ -2281,7 +2281,7 @@ $("[data-toggle=\"tablear\"]").tablear();
         }
     };
 
-    var copyValues = function (that) {
+    var copyValues = function(that) {
         var header = getCurrentHeader(that);
         var searchControls = getCurrentSearchControls(that);
 
@@ -2340,15 +2340,15 @@ $("[data-toggle=\"tablear\"]").tablear();
         var data = that.columns;
         //var itemsPerPage = that.pageTo < that.options.data.length ? that.options.data.length : that.pageTo;
 
-        var isColumnSearchableViaSelect = function (column) {
+        var isColumnSearchableViaSelect = function(column) {
             return column.showFilter && column.showFilter.toLowerCase() === 'select' && column.searchable;
         };
 
-        var isFilterDataNotGiven = function (column) {
+        var isFilterDataNotGiven = function(column) {
             return column.filterData === undefined || column.filterData.toLowerCase() === 'column';
         };
 
-        var hasSelectControlElement = function (selectControl) {
+        var hasSelectControlElement = function(selectControl) {
             return selectControl && selectControl.length > 0;
         };
 
@@ -2360,6 +2360,7 @@ $("[data-toggle=\"tablear\"]").tablear();
                 var selectControl = $('.tablear-filter-control-' + escapeID(column.field));
 
                 if(isColumnSearchableViaSelect(column) && isFilterDataNotGiven(column) && hasSelectControlElement(selectControl)) {
+                	selectControl.html(""); //clear
                     if(selectControl.get(selectControl.length - 1).options.length === 0) {
                         //Added the default option
                         addOptionToSelectControl(selectControl, '', '');
@@ -2677,7 +2678,7 @@ $("[data-toggle=\"tablear\"]").tablear();
     };
 
     var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
-    $.fn.tablear.Constructor.prototype.initHeader = function () {
+    $.fn.tablear.Constructor.prototype.initHeader = function() {
         _initHeader.apply(this, Array.prototype.slice.apply(arguments));
         if(!this.options.showFilter) {
             return;
@@ -2685,7 +2686,34 @@ $("[data-toggle=\"tablear\"]").tablear();
         createControls(this, this.$header);
         initFilterSelectControls(this);
     };
-
+    
+    //call this on tablear("initFilterSelectControls") if you need to reset filtering manually
+    $.fn.tablear.Constructor.prototype.initFilterSelectControls = function() {
+    	initFilterSelectControls(this);
+    }
+    
+    //override
+    var _append = $.fn.tablear.Constructor.prototype.append;
+    $.fn.tablear.Constructor.prototype.append = function() {
+        _append.apply(this, Array.prototype.slice.apply(arguments));
+        initFilterSelectControls(this);    	
+    };
+    var _clear = $.fn.tablear.Constructor.prototype.clear;
+    $.fn.tablear.Constructor.prototype.clear = function() {
+    	_clear.apply(this, Array.prototype.slice.apply(arguments));
+    	initFilterSelectControls(this);
+    };
+    var _reload = $.fn.tablear.Constructor.prototype.reload;
+    $.fn.tablear.Constructor.prototype.reload = function() {
+    	_reload.apply(this, Array.prototype.slice.apply(arguments));
+    	initFilterSelectControls(this);
+    };
+    var _remove = $.fn.tablear.Constructor.prototype.remove;
+    $.fn.tablear.Constructor.prototype.remove = function() {
+    	_remove.apply(this, Array.prototype.slice.apply(arguments));
+    	initFilterSelectControls(this);
+    };
+    
     $.fn.tablear.Constructor.prototype.onColumnSearch = function(event) {
         var that = this;
         if($.inArray(event.keyCode, [37, 38, 39, 40]) > -1) {

@@ -3050,6 +3050,7 @@ $("[data-toggle=\"tablear\"]").tablear();
 		swipeableOptions: {
 			threshold: 100,
 			fingers: 'all',
+			allowPageScroll: 'auto',
 			trigger: 'tbody tr',
 			tap: function(event, target) {
 				//known issue - on comboboxes, it will not work to select values with mouse

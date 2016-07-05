@@ -92,7 +92,15 @@
             return;
         }
 
-        $.each(this.columns, function(i, column) {
+        var numberOfColumns = this.columns.length;
+        var lastVisibleColumn = -1;
+        for(var index = numberOfColumns - 1; index >= 0; index--) {
+        	if(this.columns[index].visible) {
+        		lastVisibleColumn = index;
+        		break;
+        	}
+        }
+        $.each(this.columns, function(columnIndex, column) {
             if(!column.editable) {
                 return;
             }
@@ -106,7 +114,11 @@
             	var minYear = $(this).data("minYear");
             	maxYear && (comboDate["maxYear"] = maxYear);
             	minYear && (comboDate["minYear"] = minYear);
-            	$(this).editable({ combodate: comboDate });
+            	var placement = 'top';
+            	if(columnIndex == lastVisibleColumn) {
+            		placement = 'left';
+            	}
+            	$(this).editable({ combodate: comboDate, placement: placement });
             });
             aElements.off('save').on('save', that, function(e, params) {
             	var Grid = e.data;

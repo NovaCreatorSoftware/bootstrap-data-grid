@@ -2135,7 +2135,15 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             return;
         }
 
-        $.each(this.columns, function(i, column) {
+        var numberOfColumns = this.columns.length;
+        var lastVisibleColumn = -1;
+        for(var index = numberOfColumns - 1; index &gt;= 0; index--) {
+        	if(this.columns[index].visible) {
+        		lastVisibleColumn = index;
+        		break;
+        	}
+        }
+        $.each(this.columns, function(columnIndex, column) {
             if(!column.editable) {
                 return;
             }
@@ -2149,7 +2157,11 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             	var minYear = $(this).data(&quot;minYear&quot;);
             	maxYear &amp;&amp; (comboDate[&quot;maxYear&quot;] = maxYear);
             	minYear &amp;&amp; (comboDate[&quot;minYear&quot;] = minYear);
-            	$(this).editable({ combodate: comboDate });
+            	var placement = &#x27;top&#x27;;
+            	if(columnIndex == lastVisibleColumn) {
+            		placement = &#x27;left&#x27;;
+            	}
+            	$(this).editable({ combodate: comboDate, placement: placement });
             });
             aElements.off(&#x27;save&#x27;).on(&#x27;save&#x27;, that, function(e, params) {
             	var Grid = e.data;

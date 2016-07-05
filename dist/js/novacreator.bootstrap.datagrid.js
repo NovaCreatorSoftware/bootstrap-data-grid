@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 07/05/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/06/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -417,7 +417,7 @@ function loadData() { // jshint ignore:line
         for(var i = 0; i < that.columns.length; i++) {
             var column = that.columns[i];
             var value = column.converter.to(row[column.id]);
-            if(column.searchable && column.visible && value.search(searchPattern) > -1) {
+            if(column.searchable && column.visible && value && value.search(searchPattern) > -1) {
                 return true;
             }
         }
@@ -430,7 +430,7 @@ function loadData() { // jshint ignore:line
             var value = column.converter.to(row[column.id]);
             if(column.showFilter) {
                 var filterPattern = new RegExp(column.filterValue, (that.options.caseSensitive) ? "g" : "gi");
-                if(value.search(filterPattern) <= -1) {
+                if(value && value.search(filterPattern) <= -1) {
                     return false;
                 }
             }

@@ -2168,6 +2168,9 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             	var columnId = $(e.currentTarget).data(&#x27;name&#x27;);
             	var column = Grid.getColumnById(columnId);
             	var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
+            	if(!row) {
+            		Grid.getRowById(0);
+            	}
             	$(this).data(&#x27;value&#x27;, params.submitValue);
             	row[columnId] = params.submitValue;
             	Grid.options.onEditableSave(columnId, row, row[columnId], $(this));
@@ -2176,12 +2179,18 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             	var Grid = e.data;
             	var columnId = $(e.currentTarget).data(&#x27;name&#x27;);
             	var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
+            	if(!row) {
+            		Grid.getRowById(0);
+            	}
             	Grid.options.onEditableShown(columnId, row, $(this), editable);
             });
             aElements.off(&#x27;hidden&#x27;).on(&#x27;hidden&#x27;, that, function(e, reason) {
             	var Grid = e.data;
             	var columnId = $(e.currentTarget).data(&#x27;name&#x27;);
             	var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
+            	if(!row) {
+            		Grid.getRowById(0);
+            	}
             	Grid.options.onEditableHidden(columnId, row, $(this), reason);            	
             });
         });

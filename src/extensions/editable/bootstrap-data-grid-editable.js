@@ -125,6 +125,9 @@
             	var columnId = $(e.currentTarget).data('name');
             	var column = Grid.getColumnById(columnId);
             	var row = Grid.getRowById($(e.currentTarget).data('pk'));
+            	if(!row) {
+            		Grid.getRowById(0);
+            	}
             	$(this).data('value', params.submitValue);
             	row[columnId] = params.submitValue;
             	Grid.options.onEditableSave(columnId, row, row[columnId], $(this));
@@ -133,12 +136,18 @@
             	var Grid = e.data;
             	var columnId = $(e.currentTarget).data('name');
             	var row = Grid.getRowById($(e.currentTarget).data('pk'));
+            	if(!row) {
+            		Grid.getRowById(0);
+            	}
             	Grid.options.onEditableShown(columnId, row, $(this), editable);
             });
             aElements.off('hidden').on('hidden', that, function(e, reason) {
             	var Grid = e.data;
             	var columnId = $(e.currentTarget).data('name');
             	var row = Grid.getRowById($(e.currentTarget).data('pk'));
+            	if(!row) {
+            		Grid.getRowById(0);
+            	}
             	Grid.options.onEditableHidden(columnId, row, $(this), reason);            	
             });
         });

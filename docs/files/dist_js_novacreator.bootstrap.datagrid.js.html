@@ -1548,7 +1548,29 @@ Grid.defaults = {
         17: &quot;rowColorClass17&quot;,
         18: &quot;rowColorClass18&quot;,
         19: &quot;rowColorClass19&quot;,
-        20: &quot;rowColorClass20&quot;
+        20: &quot;rowColorClass20&quot;,
+        21: &quot;rowColorClass21&quot;,
+        22: &quot;rowColorClass22&quot;,
+        23: &quot;rowColorClass23&quot;,
+        24: &quot;rowColorClass24&quot;,
+        25: &quot;rowColorClass25&quot;,
+        26: &quot;rowColorClass26&quot;,
+        27: &quot;rowColorClass27&quot;,
+        28: &quot;rowColorClass28&quot;,
+        29: &quot;rowColorClass29&quot;,
+        30: &quot;rowColorClass30&quot;,
+        31: &quot;rowColorClass31&quot;,
+        32: &quot;rowColorClass32&quot;,
+        33: &quot;rowColorClass33&quot;,
+        34: &quot;rowColorClass34&quot;,
+        35: &quot;rowColorClass35&quot;,
+        36: &quot;rowColorClass36&quot;,
+        37: &quot;rowColorClass37&quot;,
+        38: &quot;rowColorClass38&quot;,
+        39: &quot;rowColorClass39&quot;,
+        40: &quot;rowColorClass40&quot;,
+        41: &quot;rowColorClass41&quot;,
+        42: &quot;rowColorClass42&quot;
     },
 
     locales: {},
@@ -1877,7 +1899,7 @@ Grid.prototype.sort = function(dictionary) {
 /**
  * Gets a list of the column settings.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getColumnSettings
  * @return {Array} Returns a list of the column settings.
@@ -1888,9 +1910,28 @@ Grid.prototype.getColumnSettings = function() {
 };
 
 /**
+ * Gets the column settings for the columnId
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
+ *
+ * @method getColumnSettings
+ * @return {Array} Returns a list of the column settings.
+ * @since 1.0.0
+ **/
+Grid.prototype.getColumnSettingsForColumnId = function(columnId) {
+	for(var i = 0; i &lt; this.columns.length; i++) {
+		var column = this.columns[i];
+		if(column.columnId === columnId) {
+			return column;
+		}
+	}
+	return null;
+};
+
+/**
  * Gets the current page index.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getCurrentPage
  * @return {Number} Returns the current page index.
@@ -1903,7 +1944,7 @@ Grid.prototype.getCurrentPage = function() {
 /**
  * Gets the current rows.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getCurrentPage
  * @return {Array} Returns the current rows.
@@ -1916,7 +1957,7 @@ Grid.prototype.getCurrentRows = function() {
 /**
  * Gets a number represents the row count per page.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getRowCount
  * @return {Number} Returns the row count per page.
@@ -1929,7 +1970,7 @@ Grid.prototype.getRowCount = function() {
 /**
  * Gets the actual search phrase.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getSearchPhrase
  * @return {String} Returns the actual search phrase.
@@ -1942,7 +1983,7 @@ Grid.prototype.getSearchPhrase = function() {
 /**
  * Gets the complete list of currently selected rows.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getSelectedRows
  * @return {Array} Returns all selected rows.
@@ -1955,7 +1996,7 @@ Grid.prototype.getSelectedRows = function() {
 /**
  * Gets the sort dictionary which represents the state of column sorting.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getSortDictionary
  * @return {Object} Returns the sort dictionary.
@@ -1968,7 +2009,7 @@ Grid.prototype.getSortDictionary = function() {
 /**
  * Gets a number represents the total page count.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getTotalPageCount
  * @return {Number} Returns the total page count.
@@ -2004,7 +2045,7 @@ Grid.prototype.getRowById = function(rowId) {
 /**
  * Gets a number represents the total row count.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getTotalRowCount
  * @return {Number} Returns the total row count.

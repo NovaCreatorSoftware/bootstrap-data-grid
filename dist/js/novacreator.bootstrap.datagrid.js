@@ -1794,7 +1794,7 @@ Grid.prototype.sort = function(dictionary) {
 /**
  * Gets a list of the column settings.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getColumnSettings
  * @return {Array} Returns a list of the column settings.
@@ -1805,9 +1805,28 @@ Grid.prototype.getColumnSettings = function() {
 };
 
 /**
+ * Gets the column settings for the columnId
+ * This method returns only for the first grid instance a value.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
+ *
+ * @method getColumnSettings
+ * @return {Array} Returns a list of the column settings.
+ * @since 1.0.0
+ **/
+Grid.prototype.getColumnSettingsForColumnId = function(columnId) {
+	for(var i = 0; i < this.columns.length; i++) {
+		var column = this.columns[i];
+		if(column.columnId === columnId) {
+			return column;
+		}
+	}
+	return null;
+};
+
+/**
  * Gets the current page index.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getCurrentPage
  * @return {Number} Returns the current page index.
@@ -1820,7 +1839,7 @@ Grid.prototype.getCurrentPage = function() {
 /**
  * Gets the current rows.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getCurrentPage
  * @return {Array} Returns the current rows.
@@ -1833,7 +1852,7 @@ Grid.prototype.getCurrentRows = function() {
 /**
  * Gets a number represents the row count per page.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getRowCount
  * @return {Number} Returns the row count per page.
@@ -1846,7 +1865,7 @@ Grid.prototype.getRowCount = function() {
 /**
  * Gets the actual search phrase.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getSearchPhrase
  * @return {String} Returns the actual search phrase.
@@ -1859,7 +1878,7 @@ Grid.prototype.getSearchPhrase = function() {
 /**
  * Gets the complete list of currently selected rows.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getSelectedRows
  * @return {Array} Returns all selected rows.
@@ -1872,7 +1891,7 @@ Grid.prototype.getSelectedRows = function() {
 /**
  * Gets the sort dictionary which represents the state of column sorting.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getSortDictionary
  * @return {Object} Returns the sort dictionary.
@@ -1885,7 +1904,7 @@ Grid.prototype.getSortDictionary = function() {
 /**
  * Gets a number represents the total page count.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getTotalPageCount
  * @return {Number} Returns the total page count.
@@ -1921,7 +1940,7 @@ Grid.prototype.getRowById = function(rowId) {
 /**
  * Gets a number represents the total row count.
  * This method returns only for the first grid instance a value.
- * Therefore be sure that only one grid instance is catched by your selector.
+ * Therefore be sure that only one grid instance is retrieved by your selector.
  *
  * @method getTotalRowCount
  * @return {Number} Returns the total row count.

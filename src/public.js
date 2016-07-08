@@ -760,7 +760,7 @@ Grid.prototype.getColumnSettings = function() {
  * @return {Array} Returns a list of the column settings.
  * @since 1.0.0
  **/
-Grid.prototype.getColumnSettingsForColumnId = function(columnId) {
+Grid.prototype.getColumnSettingsById = function(columnId) {
 	for(var i = 0; i < this.columns.length; i++) {
 		var column = this.columns[i];
 		if(column.columnId === columnId) {

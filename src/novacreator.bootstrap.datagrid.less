@@ -227,3 +227,33 @@
 	width: -webkit-calc(~"100% - 30px");
 	width: calc(~"100% - 30px");
 }
+
+@colors: #00FFFF, #7FFFD4, #F5F5DC, #DEB887, #7FFF00, #FF8C00, #00CED1, #00BFFF, #FFD700, #ADFF2F, #FF69B4, #F0E68C, #7CFC00, #E0FFFF, #FFB6C1, #87CEFA, #00FF00, #FF00FF, #66CDAA, #00FA9A, #F5FFFA, #FFE4E1, #FFE4B5, #FF4500, #FFDAB9, #FFC0CB, #B0E0E6, #FA8072, #F4A460, #87CEEB, #00FF7F, #D8BFD8, #FF6347, #40E0D0, #EE82EE, #F5DEB3, #FFFF00, #9ACD32; 
+.generate-rowColorClasses(@n, @i: 1) when (@i =< @n) {
+	@index: @i + 4;
+	@oneColor: extract(@colors, @i);
+	.table > thead > tr > td.rowColorClass@{index},
+	.table > tbody > tr > td.rowColorClass@{index},
+	.table > tfoot > tr > td.rowColorClass@{index},
+	.table > thead > tr > th.rowColorClass@{index},
+	.table > tbody > tr > th.rowColorClass@{index},
+	.table > tfoot > tr > th.rowColorClass@{index},
+	.table > thead > tr.rowColorClass@{index} > td,
+	.table > tbody > tr.rowColorClass@{index} > td,
+	.table > tfoot > tr.rowColorClass@{index} > td,
+	.table > thead > tr.rowColorClass@{index} > th,
+	.table > tbody > tr.rowColorClass@{index} > th,
+	.table > tfoot > tr.rowColorClass@{index} > th {
+		background-color: @oneColor;
+	}
+	.table-hover > tbody > tr > td.rowColorClass@{index}:hover,
+	.table-hover > tbody > tr > th.rowColorClass@{index}:hover,
+	.table-hover > tbody > tr.rowColorClass@{index}:hover > td,
+	.table-hover > tbody > tr:hover > .rowColorClass@{index},
+	.table-hover > tbody > tr.rowColorClass@{index}:hover > th {
+  	background-color: darken(@oneColor, 5%);
+	}
+	.generate-rowColorClasses(@n, (@i + 1));
+}
+.generate-rowColorClasses(43-5);
+

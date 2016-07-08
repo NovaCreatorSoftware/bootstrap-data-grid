@@ -6,6 +6,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "abstractinput",
         "ajaxSettings",
         "checklist",
+        "colorMapping",
         "combodate",
         "css",
         "date",
@@ -22,7 +23,6 @@ YUI.add("yuidoc-meta", function(Y) {
         "searchSettings",
         "select",
         "select2",
-        "statusMapping",
         "text",
         "textarea"
     ],

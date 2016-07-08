@@ -673,9 +673,9 @@ function renderRows(rows) { // jshint ignore:line
                 }
             }
 
-            var status = row.status != null && that.options.statusMapping[row.status];
-            if(status) {
-                rowCss += status;
+            var colorClass = row.colorIndex != null && that.options.colorMapping[row.colorIndex];
+            if(colorClass) {
+                rowCss += colorClass;
             }
 
             $.each(that.columns, function (j, column) {

@@ -330,20 +330,20 @@ Grid.defaults = {
     formatters: {},
 
     /**
-     * Specifies the mapping between status and contextual classes to color rows.
+     * Specifies the mapping between colorIndex (row.colorIndex) and contextual classes to color rows.
      *
-     * @property statusMapping
+     * @property colorMapping
      * @type Object
      * @for defaults
      * @since 1.0.0
      **/
-    statusMapping: {
+    colorMapping: {
         /**
          * Specifies a successful or positive action.
          *
          * @property 0
          * @type String
-         * @for statusMapping
+         * @for colorMapping
          **/
         0: "success",
 
@@ -352,7 +352,7 @@ Grid.defaults = {
          *
          * @property 1
          * @type String
-         * @for statusMapping
+         * @for colorMapping
          **/
         1: "info",
 
@@ -361,7 +361,7 @@ Grid.defaults = {
          *
          * @property 2
          * @type String
-         * @for statusMapping
+         * @for colorMapping
          **/
         2: "warning",
         
@@ -370,9 +370,27 @@ Grid.defaults = {
          *
          * @property 3
          * @type String
-         * @for statusMapping
+         * @for colorMapping
          **/
-        3: "danger"
+        3: "danger",
+        
+        4: "rowColorClass4",
+        5: "rowColorClass5",
+        6: "rowColorClass6",
+        7: "rowColorClass7",
+        8: "rowColorClass8",
+        9: "rowColorClass9",
+        10: "rowColorClass10",
+        11: "rowColorClass11",
+        12: "rowColorClass12",
+        13: "rowColorClass13",
+        14: "rowColorClass14",
+        15: "rowColorClass15",
+        16: "rowColorClass16",
+        17: "rowColorClass17",
+        18: "rowColorClass18",
+        19: "rowColorClass19",
+        20: "rowColorClass20"
     },
 
     locales: {},

@@ -41,6 +41,7 @@
                                 <li><a href="../classes/abstractinput.html">abstractinput</a></li>
                                 <li><a href="../classes/ajaxSettings.html">ajaxSettings</a></li>
                                 <li><a href="../classes/checklist.html">checklist</a></li>
+                                <li><a href="../classes/colorMapping.html">colorMapping</a></li>
                                 <li><a href="../classes/combodate.html">combodate</a></li>
                                 <li><a href="../classes/css.html">css</a></li>
                                 <li><a href="../classes/date.html">date</a></li>
@@ -58,7 +59,6 @@
                                 <li><a href="../classes/searchSettings.html">searchSettings</a></li>
                                 <li><a href="../classes/select.html">select</a></li>
                                 <li><a href="../classes/select2.html">select2</a></li>
-                                <li><a href="../classes/statusMapping.html">statusMapping</a></li>
                                 <li><a href="../classes/text.html">text</a></li>
                                 <li><a href="../classes/textarea.html">textarea</a></li>
                                 <li><a href="../classes/TouchSwipe.html">TouchSwipe</a></li>
@@ -104,7 +104,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 07/06/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/08/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -788,9 +788,9 @@ function renderRows(rows) { // jshint ignore:line
                 }
             }
 
-            var status = row.status != null &amp;&amp; that.options.statusMapping[row.status];
-            if(status) {
-                rowCss += status;
+            var colorClass = row.colorIndex != null &amp;&amp; that.options.colorMapping[row.colorIndex];
+            if(colorClass) {
+                rowCss += colorClass;
             }
 
             $.each(that.columns, function (j, column) {
@@ -1488,20 +1488,20 @@ Grid.defaults = {
     formatters: {},
 
     /**
-     * Specifies the mapping between status and contextual classes to color rows.
+     * Specifies the mapping between colorIndex (row.colorIndex) and contextual classes to color rows.
      *
-     * @property statusMapping
+     * @property colorMapping
      * @type Object
      * @for defaults
      * @since 1.0.0
      **/
-    statusMapping: {
+    colorMapping: {
         /**
          * Specifies a successful or positive action.
          *
          * @property 0
          * @type String
-         * @for statusMapping
+         * @for colorMapping
          **/
         0: &quot;success&quot;,
 
@@ -1510,7 +1510,7 @@ Grid.defaults = {
          *
          * @property 1
          * @type String
-         * @for statusMapping
+         * @for colorMapping
          **/
         1: &quot;info&quot;,
 
@@ -1519,7 +1519,7 @@ Grid.defaults = {
          *
          * @property 2
          * @type String
-         * @for statusMapping
+         * @for colorMapping
          **/
         2: &quot;warning&quot;,
         
@@ -1528,9 +1528,27 @@ Grid.defaults = {
          *
          * @property 3
          * @type String
-         * @for statusMapping
+         * @for colorMapping
          **/
-        3: &quot;danger&quot;
+        3: &quot;danger&quot;,
+        
+        4: &quot;rowColorClass4&quot;,
+        5: &quot;rowColorClass5&quot;,
+        6: &quot;rowColorClass6&quot;,
+        7: &quot;rowColorClass7&quot;,
+        8: &quot;rowColorClass8&quot;,
+        9: &quot;rowColorClass9&quot;,
+        10: &quot;rowColorClass10&quot;,
+        11: &quot;rowColorClass11&quot;,
+        12: &quot;rowColorClass12&quot;,
+        13: &quot;rowColorClass13&quot;,
+        14: &quot;rowColorClass14&quot;,
+        15: &quot;rowColorClass15&quot;,
+        16: &quot;rowColorClass16&quot;,
+        17: &quot;rowColorClass17&quot;,
+        18: &quot;rowColorClass18&quot;,
+        19: &quot;rowColorClass19&quot;,
+        20: &quot;rowColorClass20&quot;
     },
 
     locales: {},

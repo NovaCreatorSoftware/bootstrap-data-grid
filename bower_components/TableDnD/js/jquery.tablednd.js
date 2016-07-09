@@ -77,6 +77,7 @@
  *                         Added tableDnDupate() and tableDnDSerialize() to be called when you are outside the table
  * Version 0.6: 2011-12-02 Added support for touch devices
  * Version 0.7  2012-04-09 Now works with jQuery 1.7 and supports touch, tidied up tabs and spaces
+ * VERSION MCM  2016-07-09 Modified currentOrder
  */
 !function ($, window, document, undefined) {
 // Determine if this is a touch device
@@ -257,7 +258,8 @@ jQuery.tableDnD = {
     currentOrder: function() {
         var rows = this.currentTable.rows;
         return $.map(rows, function (val) {
-            return ($(val).data('level') + val.id).replace(/\s/g, '');
+            //MCM commented return ($(val).data('level') + val.id).replace(/\s/g, '');
+        	return +$(val).data('row-id');
         }).join('');
     },
     initialiseDrag: function(dragObject, table, target, e, config) {

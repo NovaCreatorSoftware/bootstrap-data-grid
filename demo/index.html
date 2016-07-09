@@ -82,7 +82,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>1</td>
+							<td id='1'>1</td>
 							<td>Some value</td>
 							<td>11.12.2014</td>
 							<td>Link 1</td>
@@ -219,7 +219,10 @@
 					reorderableRows: true,
 					resizable: true,
 					editable: true,
-					swipeable: true
+					swipeable: true,
+					onReorderRowsDrop: function(table, row, newOrder) {
+						alert(newOrder);
+					}
 				}).on("loaded.rs.novacreator.bootstrap.datagrid", function() {
 					grid.find(".command-edit").on("click", function(e) {
 						alert("You pressed edit on row: " + $(this).data("row-id"));

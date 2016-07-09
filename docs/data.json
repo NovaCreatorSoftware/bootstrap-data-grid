@@ -61,13 +61,13 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "dist/js/dependencies.js",
-            "line": 30430,
+            "line": 30432,
             "description": "See (http://jquery.com/)",
             "memberof": "$"
         },
         "": {
             "file": "dist/js/dependencies.js",
-            "line": 30734,
+            "line": 30736,
             "description": "Main TouchSwipe Plugin Class.\nDo not use this to construct your TouchSwipe object, use the jQuery plugin method $.fn.swipe(); {@link $.fn.swipe}",
             "see": [
                 "$.fh.swipe.defaults",
@@ -101,7 +101,7 @@
             ],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 46999,
+            "line": 47001,
             "description": "Form with single input element, two buttons and two states: normal/loading.\nApplied as jQuery method to DIV tag (not to form tag!). This is because form can be in loading state when spinner shown.\nEditableform is linked with one of input types, e.g. 'text', 'select' etc.",
             "uses": [
                 "text",
@@ -120,7 +120,7 @@
             ],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 47885,
+            "line": 47887,
             "description": "Attaches stand-alone container with editable-form to HTML element. Element is used only for positioning, value is not stored anywhere.<br>\nThis method applied internally in <code>$().editable()</code>. You should subscribe on it's events (save / cancel) to get profit of it.<br>\nFinal realization can be different: bootstrap-popover, jqueryui-tooltip, poshytip, inline-div. It depends on which js file you include.<br>\nApplied as jQuery method.",
             "uses": [
                 "editableform"
@@ -136,7 +136,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 48455,
+            "line": 48457,
             "description": "Makes editable any HTML element on the page. Applied as jQuery method.",
             "uses": [
                 "editableContainer"
@@ -152,7 +152,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 49314,
+            "line": 49316,
             "description": "AbstractInput - base class for all editable inputs.\nIt defines interface to be implemented by any input type.\nTo create your own input you can inherit from this class."
         },
         "list": {
@@ -165,7 +165,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 49535,
+            "line": 49537,
             "description": "List - abstract class for inputs that have source option loaded from js array or via ajax",
             "extends": "abstractinput"
         },
@@ -181,7 +181,7 @@
             ],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 49871,
+            "line": 49873,
             "description": "Text input",
             "extends": "abstractinput",
             "final": 1,
@@ -201,7 +201,7 @@
             ],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 50006,
+            "line": 50008,
             "description": "Textarea input",
             "extends": "abstractinput",
             "final": 1,
@@ -219,7 +219,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 50118,
+            "line": 50120,
             "description": "Select (dropdown)",
             "extends": "list",
             "final": 1,
@@ -237,7 +237,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 50215,
+            "line": 50217,
             "description": "List of checkboxes. \nInternally value stored as javascript array of values.",
             "extends": "list",
             "final": 1,
@@ -255,7 +255,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 50372,
+            "line": 50374,
             "description": "HTML5 input types.\nFollowing types are supported:\n\n* password\n* email\n* url\n* tel\n* number\n* range\n* time\n\nLearn more about html5 inputs:  \nhttp://www.w3.org/wiki/HTML5_form_additions  \nTo check browser compatibility please see:  \nhttps://developer.mozilla.org/en-US/docs/HTML/Element/Input",
             "extends": "text",
             "final": 1,
@@ -274,7 +274,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 50591,
+            "line": 50593,
             "description": "Select2 input. Based on amazing work of Igor Vaynberg https://github.com/ivaynberg/select2.  \nPlease see [original select2 docs](http://ivaynberg.github.com/select2) for detailed description and options.  \n \nYou should manually download and include select2 distributive:  \n\n    <link href=\"select2/select2.css\" rel=\"stylesheet\" type=\"text/css\"></link>  \n    <script src=\"select2/select2.js\"></script>  \n    \nTo make it **bootstrap-styled** you can use css from [here](https://github.com/t0m/select2-bootstrap-css): \n\n    <link href=\"select2-bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"></link>    \n    \n**Note:** currently `autotext` feature does not work for select2 with `ajax` remote source.    \nYou need initially put both `data-value` and element's text youself:    \n\n    <a href=\"#\" data-type=\"select2\" data-value=\"1\">Text1</a>",
             "extends": "abstractinput",
             "since": "1.4.1",
@@ -293,7 +293,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 51426,
+            "line": 51428,
             "description": "Combodate input - dropdown date and time picker.    \nBased on [combodate](http://vitalets.github.com/combodate) plugin (included). To use it you should manually include [momentjs](http://momentjs.com).\n\n    <script src=\"js/moment.min.js\"></script>\n   \nAllows to input:\n\n* only date\n* only time \n* both date and time  \n\nPlease note, that format is taken from momentjs and **not compatible** with bootstrap-datepicker / jquery UI datepicker.  \nInternally value stored as `momentjs` object.",
             "extends": "abstractinput",
             "final": 1,
@@ -312,7 +312,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 53170,
+            "line": 53172,
             "description": "Bootstrap-datepicker.  \nDescription and examples: https://github.com/eternicode/bootstrap-datepicker.  \nFor **i18n** you should include js file from here: https://github.com/eternicode/bootstrap-datepicker/tree/master/js/locales\nand set `language` option.  \nSince 1.4.0 date has different appearance in **popup** and **inline** modes.",
             "extends": "abstractinput",
             "final": 1,
@@ -330,7 +330,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 53400,
+            "line": 53402,
             "description": "Bootstrap datefield input - modification for inline mode.\nShows normal <input type=\"text\"> and binds popup datepicker.  \nAutomatically shown in inline mode.",
             "extends": "date",
             "since": "1.4.0"
@@ -345,7 +345,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 53481,
+            "line": 53483,
             "description": "Bootstrap-datetimepicker.  \nBased on [smalot bootstrap-datetimepicker plugin](https://github.com/smalot/bootstrap-datetimepicker). \nBefore usage you should manually include dependent js and css:\n\n    <link href=\"css/datetimepicker.css\" rel=\"stylesheet\" type=\"text/css\"></link> \n    <script src=\"js/bootstrap-datetimepicker.js\"></script>\n\nFor **i18n** you should include js file from here: https://github.com/smalot/bootstrap-datetimepicker/tree/master/js/locales\nand set `language` option.",
             "extends": "abstractinput",
             "final": 1,
@@ -364,7 +364,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/dependencies.js",
-            "line": 53725,
+            "line": 53727,
             "description": "Bootstrap datetimefield input - datetime input for inline mode.\nShows normal <input type=\"text\"> and binds popup datetimepicker.  \nAutomatically shown in inline mode.",
             "extends": "datetime"
         },
@@ -781,113 +781,113 @@
         {
             "file": "dist/js/dependencies.js",
             "line": 26837,
-            "description": "TableDnD plug-in for JQuery, allows you to drag and drop table rows\nYou can set up various options to control how the system will work\nCopyright (c) Denis Howlett <denish@isocra.com>\nLicensed like jQuery, see http://docs.jquery.com/License.\n\nConfiguration options:\n\nonDragStyle\n    This is the style that is assigned to the row during drag. There are limitations to the styles that can be\n    associated with a row (such as you can't assign a border--well you can, but it won't be\n    displayed). (So instead consider using onDragClass.) The CSS style to apply is specified as\n    a map (as used in the jQuery css(...) function).\nonDropStyle\n    This is the style that is assigned to the row when it is dropped. As for onDragStyle, there are limitations\n    to what you can do. Also this replaces the original style, so again consider using onDragClass which\n    is simply added and then removed on drop.\nonDragClass\n    This class is added for the duration of the drag and then removed when the row is dropped. It is more\n    flexible than using onDragStyle since it can be inherited by the row cells and other content. The default\n    is class is tDnD_whileDrag. So to use the default, simply customise this CSS class in your\n    stylesheet.\nonDrop\n    Pass a function that will be called when the row is dropped. The function takes 2 parameters: the table\n    and the row that was dropped. You can work out the new order of the rows by using\n    table.rows.\nonDragStart\n    Pass a function that will be called when the user starts dragging. The function takes 2 parameters: the\n    table and the row which the user has started to drag.\nonAllowDrop\n    Pass a function that will be called as a row is over another row. If the function returns true, allow\n    dropping on that row, otherwise not. The function takes 2 parameters: the dragged row and the row under\n    the cursor. It returns a boolean: true allows the drop, false doesn't allow it.\nscrollAmount\n    This is the number of pixels to scroll if the user moves the mouse cursor to the top or bottom of the\n    window. The page should automatically scroll up or down as appropriate (tested in IE6, IE7, Safari, FF2,\n    FF3 beta\ndragHandle\n    This is a jQuery mach string for one or more cells in each row that is draggable. If you\n    specify this, then you are responsible for setting cursor: move in the CSS and only these cells\n    will have the drag behaviour. If you do not specify a dragHandle, then you get the old behaviour where\n    the whole row is draggable.\n\nOther ways to control behaviour:\n\nAdd class=\"nodrop\" to any rows for which you don't want to allow dropping, and class=\"nodrag\" to any rows\nthat you don't want to be draggable.\n\nInside the onDrop method you can also call $.tableDnD.serialize() this returns a string of the form\n<tableID>[]=<rowID1>&<tableID>[]=<rowID2> so that you can send this back to the server. The table must have\nan ID as must all the rows.\n\nOther methods:\n\n$(\"...\").tableDnDUpdate()\nWill update all the matching tables, that is it will reapply the mousedown method to the rows (or handle cells).\nThis is useful if you have updated the table rows using Ajax and you want to make the table draggable again.\nThe table maintains the original configuration (so you don't have to specify it again).\n\n$(\"...\").tableDnDSerialize()\nWill serialize and return the serialized string as above, but for each of the matching tables--so it can be\ncalled from anywhere and isn't dependent on the currentTable being set up correctly before calling\n\nKnown problems:\n- Auto-scoll has some problems with IE7  (it scrolls even when it shouldn't), work-around: set scrollAmount to 0\n\nVersion 0.2: 2008-02-20 First public version\nVersion 0.3: 2008-02-07 Added onDragStart option\n                        Made the scroll amount configurable (default is 5 as before)\nVersion 0.4: 2008-03-15 Changed the noDrag/noDrop attributes to nodrag/nodrop classes\n                        Added onAllowDrop to control dropping\n                        Fixed a bug which meant that you couldn't set the scroll amount in both directions\n                        Added serialize method\nVersion 0.5: 2008-05-16 Changed so that if you specify a dragHandle class it doesn't make the whole row\n                        draggable\n                        Improved the serialize method to use a default (and settable) regular expression.\n                        Added tableDnDupate() and tableDnDSerialize() to be called when you are outside the table\nVersion 0.6: 2011-12-02 Added support for touch devices\nVersion 0.7  2012-04-09 Now works with jQuery 1.7 and supports touch, tidied up tabs and spaces",
+            "description": "TableDnD plug-in for JQuery, allows you to drag and drop table rows\nYou can set up various options to control how the system will work\nCopyright (c) Denis Howlett <denish@isocra.com>\nLicensed like jQuery, see http://docs.jquery.com/License.\n\nConfiguration options:\n\nonDragStyle\n    This is the style that is assigned to the row during drag. There are limitations to the styles that can be\n    associated with a row (such as you can't assign a border--well you can, but it won't be\n    displayed). (So instead consider using onDragClass.) The CSS style to apply is specified as\n    a map (as used in the jQuery css(...) function).\nonDropStyle\n    This is the style that is assigned to the row when it is dropped. As for onDragStyle, there are limitations\n    to what you can do. Also this replaces the original style, so again consider using onDragClass which\n    is simply added and then removed on drop.\nonDragClass\n    This class is added for the duration of the drag and then removed when the row is dropped. It is more\n    flexible than using onDragStyle since it can be inherited by the row cells and other content. The default\n    is class is tDnD_whileDrag. So to use the default, simply customise this CSS class in your\n    stylesheet.\nonDrop\n    Pass a function that will be called when the row is dropped. The function takes 2 parameters: the table\n    and the row that was dropped. You can work out the new order of the rows by using\n    table.rows.\nonDragStart\n    Pass a function that will be called when the user starts dragging. The function takes 2 parameters: the\n    table and the row which the user has started to drag.\nonAllowDrop\n    Pass a function that will be called as a row is over another row. If the function returns true, allow\n    dropping on that row, otherwise not. The function takes 2 parameters: the dragged row and the row under\n    the cursor. It returns a boolean: true allows the drop, false doesn't allow it.\nscrollAmount\n    This is the number of pixels to scroll if the user moves the mouse cursor to the top or bottom of the\n    window. The page should automatically scroll up or down as appropriate (tested in IE6, IE7, Safari, FF2,\n    FF3 beta\ndragHandle\n    This is a jQuery mach string for one or more cells in each row that is draggable. If you\n    specify this, then you are responsible for setting cursor: move in the CSS and only these cells\n    will have the drag behaviour. If you do not specify a dragHandle, then you get the old behaviour where\n    the whole row is draggable.\n\nOther ways to control behaviour:\n\nAdd class=\"nodrop\" to any rows for which you don't want to allow dropping, and class=\"nodrag\" to any rows\nthat you don't want to be draggable.\n\nInside the onDrop method you can also call $.tableDnD.serialize() this returns a string of the form\n<tableID>[]=<rowID1>&<tableID>[]=<rowID2> so that you can send this back to the server. The table must have\nan ID as must all the rows.\n\nOther methods:\n\n$(\"...\").tableDnDUpdate()\nWill update all the matching tables, that is it will reapply the mousedown method to the rows (or handle cells).\nThis is useful if you have updated the table rows using Ajax and you want to make the table draggable again.\nThe table maintains the original configuration (so you don't have to specify it again).\n\n$(\"...\").tableDnDSerialize()\nWill serialize and return the serialized string as above, but for each of the matching tables--so it can be\ncalled from anywhere and isn't dependent on the currentTable being set up correctly before calling\n\nKnown problems:\n- Auto-scoll has some problems with IE7  (it scrolls even when it shouldn't), work-around: set scrollAmount to 0\n\nVersion 0.2: 2008-02-20 First public version\nVersion 0.3: 2008-02-07 Added onDragStart option\n                        Made the scroll amount configurable (default is 5 as before)\nVersion 0.4: 2008-03-15 Changed the noDrag/noDrop attributes to nodrag/nodrop classes\n                        Added onAllowDrop to control dropping\n                        Fixed a bug which meant that you couldn't set the scroll amount in both directions\n                        Added serialize method\nVersion 0.5: 2008-05-16 Changed so that if you specify a dragHandle class it doesn't make the whole row\n                        draggable\n                        Improved the serialize method to use a default (and settable) regular expression.\n                        Added tableDnDupate() and tableDnDSerialize() to be called when you are outside the table\nVersion 0.6: 2011-12-02 Added support for touch devices\nVersion 0.7  2012-04-09 Now works with jQuery 1.7 and supports touch, tidied up tabs and spaces\nVERSION MCM  2016-07-09 Modified currentOrder",
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 26968,
+            "line": 26969,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 26970,
+            "line": 26971,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 26972,
+            "line": 26973,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 26974,
+            "line": 26975,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 26978,
+            "line": 26979,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 26992,
+            "line": 26993,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 26994,
+            "line": 26995,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 26996,
+            "line": 26997,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 26998,
+            "line": 26999,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27000,
+            "line": 27001,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27002,
+            "line": 27003,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27004,
+            "line": 27005,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27006,
+            "line": 27007,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27008,
+            "line": 27009,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27064,
+            "line": 27065,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27122,
+            "line": 27124,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27141,
+            "line": 27143,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27157,
+            "line": 27159,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 27308,
+            "line": 27310,
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 29874,
+            "line": 29876,
             "description": "_ _____           _          _     _      \n              | |  __ \\         (_)        | |   | |     \n      ___ ___ | | |__) |___  ___ _ ______ _| |__ | | ___ \n     / __/ _ \\| |  _  // _ \\/ __| |_  / _` | '_ \\| |/ _ \\\n    | (_| (_) | | | \\ \\  __/\\__ \\ |/ / (_| | |_) | |  __/\n     \\___\\___/|_|_|  \\_\\___||___/_/___\\__,_|_.__/|_|\\___|\n\t \n\tv1.6 - jQuery plugin created by Alvaro Prieto Lauroba\n\t\n\tLicences: MIT & GPL\n\tFeel free to use or modify this plugin as far as my full name is kept\t\n\t\n\tIf you are going to use this plug-in in production environments it is \n\tstrongly recommended to use its minified version: colResizable.min.js",
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 29917,
+            "line": 29919,
             "description": "Function to allow column resizing for table objects. It is the starting point to apply the plugin.",
             "params": [
                 {
@@ -905,7 +905,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 29945,
+            "line": 29947,
             "description": "This function allows to remove any enhancements performed by this plugin on a previously processed table.",
             "params": [
                 {
@@ -918,7 +918,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 29957,
+            "line": 29959,
             "description": "Function to create all the grips associated with the table given by parameters",
             "params": [
                 {
@@ -931,7 +931,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30007,
+            "line": 30009,
             "description": "Function to allow the persistence of columns dimensions after a browser postback. It is based in\nthe HTML5 sessionStorage object, which can be emulated for older browsers using sessionstorage.js",
             "params": [
                 {
@@ -949,7 +949,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30047,
+            "line": 30049,
             "description": "Function that places each grip in the correct position according to the current table layout",
             "params": [
                 {
@@ -962,7 +962,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30064,
+            "line": 30066,
             "description": "This function updates column's width according to the horizontal position increment of the grip being\ndragged. The function can be called while dragging if liveDragging is enabled and also from the onGripDragOver\nevent handler to synchronize grip's position with their related columns.",
             "params": [
                 {
@@ -985,7 +985,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30090,
+            "line": 30092,
             "description": "This function updates all columns width according to its real width. It must be taken into account that the \nsum of all columns can exceed the table width in some cases (if fixed is set to false and table has some kind \nof max-width).",
             "params": [
                 {
@@ -998,7 +998,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30108,
+            "line": 30110,
             "description": "Event handler used while dragging a grip. It checks if the next grip's position is valid and updates it.",
             "params": [
                 {
@@ -1011,7 +1011,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30152,
+            "line": 30154,
             "description": "Event handler fired when the dragging is over, updating table layout",
             "params": [
                 {
@@ -1024,7 +1024,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30183,
+            "line": 30185,
             "description": "Event handler fired when the grip's dragging is about to start. Its main goal is to set up events \nand store some values used while dragging.",
             "params": [
                 {
@@ -1037,13 +1037,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30205,
+            "line": 30207,
             "description": "Event handler fired when the browser is resized. The main purpose of this function is to update\ntable layout according to the browser's size synchronizing related grips",
             "class": "See the jQuery Library  (http://jquery.com/) for full details.  This just\ndocuments the function and classes that are added to jQuery by this plug-in."
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30241,
+            "line": 30243,
             "description": "The plugin is added to the jQuery library",
             "params": [
                 {
@@ -1056,7 +1056,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30495,
+            "line": 30497,
             "description": "The default configuration, and available options to configure touch swipe with.\nYou can set the default values by updating any of the properties prior to instantiation.",
             "name": "{boolean} [preventDefaultEvents=true] by default default events are cancelled, so the page doesn't move.  You can dissable this so both native events fire as well as your handlers.",
             "itemtype": "property",
@@ -1065,14 +1065,14 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30605,
+            "line": 30607,
             "description": "The version of the plugin",
             "readonly": "",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30616,
+            "line": 30618,
             "description": "The phases that a touch event goes through.  The <code>phase</code> is passed to the event handlers.\nThese properties are read only, attempting to change them will not alter the values passed to the event handlers.",
             "readonly": "",
             "itemtype": "property",
@@ -1082,7 +1082,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30633,
+            "line": 30635,
             "description": "The direction constants that are passed to the event handlers.\nThese properties are read only, attempting to change them will not alter the values passed to the event handlers.",
             "readonly": "",
             "itemtype": "property",
@@ -1092,7 +1092,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30654,
+            "line": 30656,
             "description": "The page scroll constants that can be used to set the value of <code>allowPageScroll</code> option\nThese properties are read only",
             "readonly": "",
             "see": [
@@ -1105,7 +1105,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30672,
+            "line": 30674,
             "description": "Constants representing the number of fingers used in a swipe.  These are used to set both the value of <code>fingers</code> in the\noptions object, as well as the value of the <code>fingers</code> event property.\nThese properties are read only, attempting to change them will not alter the values passed to the event handlers.",
             "readonly": "",
             "see": [
@@ -1118,14 +1118,14 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30695,
+            "line": 30697,
             "description": "Initialise the plugin for each DOM element matched\nThis creates a new instance of the main TouchSwipe class for each DOM element, and then\nsaves a reference to that instance in the elements data property.",
             "internal": "",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30808,
+            "line": 30810,
             "description": "re-enables the swipe plugin with the previous configuration",
             "itemtype": "method",
             "name": "$.fn.swipe#enable",
@@ -1140,7 +1140,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30823,
+            "line": 30825,
             "description": "disables the swipe plugin",
             "itemtype": "method",
             "name": "$.fn.swipe#disable",
@@ -1155,7 +1155,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30835,
+            "line": 30837,
             "description": "Destroy the swipe plugin completely. To use any swipe methods, you must re initialise the plugin.",
             "itemtype": "method",
             "name": "$.fn.swipe#destroy",
@@ -1166,7 +1166,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30848,
+            "line": 30850,
             "description": "Allows run time updating of the swipe configuration options.",
             "itemtype": "method",
             "name": "$.fn.swipe#option",
@@ -1201,7 +1201,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30891,
+            "line": 30893,
             "description": "Event handler for a touch start event.\nStops the default click event from triggering and stores where we touched",
             "access": "inner",
             "tagname": "",
@@ -1216,7 +1216,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 30996,
+            "line": 30998,
             "description": "Event handler for a touch move event.\nIf we change fingers during move, then cancel the event",
             "access": "inner",
             "tagname": "",
@@ -1231,7 +1231,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31113,
+            "line": 31115,
             "description": "Event handler for a touch end event.\nCalculate the direction and trigger events",
             "access": "inner",
             "tagname": "",
@@ -1246,7 +1246,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31179,
+            "line": 31181,
             "description": "Event handler for a touch cancel event.\nClears current vars",
             "access": "inner",
             "tagname": "",
@@ -1254,7 +1254,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31200,
+            "line": 31202,
             "description": "Event handler for a touch leave event.\nThis is only triggered on desktops, in touch we work this out manually\nas the touchleave event is not supported in webkit",
             "access": "inner",
             "tagname": "",
@@ -1262,7 +1262,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31217,
+            "line": 31219,
             "description": "Removes all listeners that were associated with the plugin",
             "access": "inner",
             "tagname": "",
@@ -1270,13 +1270,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31236,
+            "line": 31238,
             "description": "Checks if the time and distance thresholds have been met, and if so then the appropriate handlers are fired.",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31265,
+            "line": 31267,
             "description": "Trigger the relevant event handler\nThe handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, \"left\", \"right\", \"up\", or \"down\"",
             "params": [
                 {
@@ -1296,7 +1296,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31335,
+            "line": 31337,
             "description": "Trigger the relevant event handler\nThe handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, \"left\", \"right\", \"up\", or \"down\"",
             "params": [
                 {
@@ -1324,7 +1324,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31503,
+            "line": 31505,
             "description": "Checks the user has swipe far enough",
             "return": {
                 "description": "Boolean if <code>threshold</code> has been set, return true if the threshold was met, else false.\nIf no threshold was set, then we return true."
@@ -1335,7 +1335,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31519,
+            "line": 31521,
             "description": "Checks the user has swiped back to cancel.",
             "return": {
                 "description": "Boolean if <code>cancelThreshold</code> has been set, return true if the cancelThreshold was met, else false.\nIf no cancelThreshold was set, then we return true."
@@ -1346,7 +1346,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31534,
+            "line": 31536,
             "description": "Checks the user has pinched far enough",
             "return": {
                 "description": "Boolean if <code>pinchThreshold</code> has been set, return true if the threshold was met, else false.\nIf no threshold was set, then we return true."
@@ -1357,7 +1357,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31547,
+            "line": 31549,
             "description": "Checks that the time taken to swipe meets the minimum / maximum requirements",
             "return": {
                 "description": "Boolean"
@@ -1368,7 +1368,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31569,
+            "line": 31571,
             "description": "Checks direction of the swipe and the value allowPageScroll to see if we should allow or prevent the default behaviour from occurring.\nThis will essentially allow page scrolling or not when the user is swiping on a touchSwipe object.",
             "params": [
                 {
@@ -1391,7 +1391,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31623,
+            "line": 31625,
             "description": "Returns true of the current pinch meets the thresholds",
             "return": {
                 "description": "Boolean"
@@ -1402,7 +1402,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31636,
+            "line": 31638,
             "description": "Returns true if any Pinch events have been registered",
             "return": {
                 "description": "Boolean"
@@ -1413,7 +1413,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31646,
+            "line": 31648,
             "description": "Returns true if we are detecting pinches, and have one",
             "return": {
                 "description": "Boolean"
@@ -1424,7 +1424,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31660,
+            "line": 31662,
             "description": "Returns true if the current swipe meets the thresholds",
             "return": {
                 "description": "Boolean"
@@ -1435,7 +1435,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31680,
+            "line": 31682,
             "description": "Returns true if any Swipe events have been registered",
             "return": {
                 "description": "Boolean"
@@ -1446,7 +1446,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31691,
+            "line": 31693,
             "description": "Returns true if we are detecting swipes and have one",
             "return": {
                 "description": "Boolean"
@@ -1457,7 +1457,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31701,
+            "line": 31703,
             "description": "Returns true if we have matched the number of fingers we are looking for",
             "return": {
                 "description": "Boolean"
@@ -1468,7 +1468,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31711,
+            "line": 31713,
             "description": "Returns true if we have an end point for the swipe",
             "return": {
                 "description": "Boolean"
@@ -1479,7 +1479,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31722,
+            "line": 31724,
             "description": "Returns true if a click / tap events have been registered",
             "return": {
                 "description": "Boolean"
@@ -1490,7 +1490,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31732,
+            "line": 31734,
             "description": "Returns true if a double tap events have been registered",
             "return": {
                 "description": "Boolean"
@@ -1501,7 +1501,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31742,
+            "line": 31744,
             "description": "Returns true if any long tap events have been registered",
             "return": {
                 "description": "Boolean"
@@ -1512,7 +1512,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31752,
+            "line": 31754,
             "description": "Returns true if we could be in the process of a double tap (one tap has occurred, we are listening for double taps, and the threshold hasn't past.",
             "return": {
                 "description": "Boolean"
@@ -1523,7 +1523,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31765,
+            "line": 31767,
             "description": "Returns true if we could be in the process of a double tap (one tap has occurred, we are listening for double taps, and the threshold hasn't past.",
             "return": {
                 "description": "Boolean"
@@ -1534,7 +1534,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31775,
+            "line": 31777,
             "description": "Returns true if we have a valid tap",
             "return": {
                 "description": "Boolean"
@@ -1545,7 +1545,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31784,
+            "line": 31786,
             "description": "Returns true if we have a valid long tap",
             "return": {
                 "description": "Boolean"
@@ -1556,7 +1556,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31794,
+            "line": 31796,
             "description": "Returns true if we are detecting taps and have one",
             "return": {
                 "description": "Boolean"
@@ -1567,7 +1567,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31805,
+            "line": 31807,
             "description": "Returns true if we are detecting double taps and have one",
             "return": {
                 "description": "Boolean"
@@ -1578,7 +1578,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31815,
+            "line": 31817,
             "description": "Returns true if we are detecting long taps and have one",
             "return": {
                 "description": "Boolean"
@@ -1589,7 +1589,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31829,
+            "line": 31831,
             "description": "Starts tracking the time between 2 finger releases, and keeps track of how many fingers we initially had up",
             "access": "inner",
             "tagname": "",
@@ -1597,7 +1597,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31838,
+            "line": 31840,
             "description": "Cancels the tracking of time between 2 finger releases, and resets counters",
             "access": "inner",
             "tagname": "",
@@ -1605,7 +1605,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31847,
+            "line": 31849,
             "description": "Checks if we are in the threshold between 2 fingers being released",
             "return": {
                 "description": "Boolean"
@@ -1616,7 +1616,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31867,
+            "line": 31869,
             "description": "gets a data flag to indicate that a touch is in progress",
             "return": {
                 "description": "Boolean"
@@ -1627,7 +1627,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31877,
+            "line": 31879,
             "description": "Sets a data flag to indicate that a touch is in progress",
             "params": [
                 {
@@ -1642,7 +1642,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31913,
+            "line": 31915,
             "description": "Creates the finger data for the touch/finger in the event object.",
             "params": [
                 {
@@ -1665,7 +1665,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31941,
+            "line": 31943,
             "description": "Updates the finger data for a particular event object",
             "params": [
                 {
@@ -1683,7 +1683,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31964,
+            "line": 31966,
             "description": "Returns a finger data object by its event ID.\nEach touch event has an identifier property, which is used\nto track repeat touches",
             "params": [
                 {
@@ -1701,7 +1701,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31977,
+            "line": 31979,
             "description": "Sets the maximum distance swiped in the given direction.\nIf the new value is lower than the current value, the max value is not changed.",
             "params": [
                 {
@@ -1721,7 +1721,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 31990,
+            "line": 31992,
             "description": "gets the maximum distance swiped in the given direction.",
             "params": [
                 {
@@ -1739,7 +1739,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32001,
+            "line": 32003,
             "description": "Creats a map of directions to maximum swiped values.",
             "return": {
                 "description": "Object A dictionary of maximum values, indexed by direction."
@@ -1750,7 +1750,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32016,
+            "line": 32018,
             "description": "Creates a map maximum swiped values for a given swipe direction",
             "params": [
                 {
@@ -1768,7 +1768,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32034,
+            "line": 32036,
             "description": "Calculate the duration of the swipe",
             "return": {
                 "description": "int"
@@ -1779,7 +1779,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32043,
+            "line": 32045,
             "description": "Calculate the distance between 2 touches (pinch)",
             "params": [
                 {
@@ -1802,7 +1802,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32057,
+            "line": 32059,
             "description": "Calculate the zoom factor between the start and end distances",
             "params": [
                 {
@@ -1825,7 +1825,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32070,
+            "line": 32072,
             "description": "Returns the pinch direction, either IN or OUT for the given points",
             "return": {
                 "description": "string Either  or {@link $.fn.swipe.directions.OUT}",
@@ -1840,7 +1840,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32085,
+            "line": 32087,
             "description": "Calculate the length / distance of the swipe",
             "params": [
                 {
@@ -1863,7 +1863,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32096,
+            "line": 32098,
             "description": "Calculate the angle of the swipe",
             "params": [
                 {
@@ -1886,7 +1886,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32117,
+            "line": 32119,
             "description": "Calculate the direction of the swipe\nThis will also call calculateAngle to get the latest angle of swipe",
             "params": [
                 {
@@ -1913,7 +1913,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32148,
+            "line": 32150,
             "description": "Returns a MS time stamp of the current time",
             "return": {
                 "description": "int"
@@ -1924,7 +1924,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32160,
+            "line": 32162,
             "description": "Returns a bounds object with left, right, top and bottom properties for the element specified.",
             "params": [
                 {
@@ -1937,7 +1937,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32179,
+            "line": 32181,
             "description": "Checks if the point object is in the bounds object.",
             "params": [
                 {
@@ -1989,7 +1989,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32194,
+            "line": 32196,
             "description": "Checks if the two points are equal",
             "params": [
                 {
@@ -2010,7 +2010,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32210,
+            "line": 32212,
             "description": "A catch all handler that is triggered for all swipe directions.",
             "name": "",
             "itemtype": "event",
@@ -2056,7 +2056,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32227,
+            "line": 32229,
             "description": "A handler that is triggered for \"left\" swipes.",
             "name": "",
             "itemtype": "event",
@@ -2102,7 +2102,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32241,
+            "line": 32243,
             "description": "A handler that is triggered for \"right\" swipes.",
             "name": "",
             "itemtype": "event",
@@ -2148,7 +2148,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32255,
+            "line": 32257,
             "description": "A handler that is triggered for \"up\" swipes.",
             "name": "",
             "itemtype": "event",
@@ -2194,7 +2194,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32269,
+            "line": 32271,
             "description": "A handler that is triggered for \"down\" swipes.",
             "name": "",
             "itemtype": "event",
@@ -2240,7 +2240,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32283,
+            "line": 32285,
             "description": "A handler triggered for every phase of the swipe. This handler is constantly fired for the duration of the pinch.\nThis is triggered regardless of swipe thresholds.",
             "name": "",
             "itemtype": "event",
@@ -2291,7 +2291,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32299,
+            "line": 32301,
             "description": "A handler triggered for pinch in events.",
             "name": "",
             "itemtype": "event",
@@ -2337,7 +2337,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32313,
+            "line": 32315,
             "description": "A handler triggered for pinch out events.",
             "name": "",
             "itemtype": "event",
@@ -2383,7 +2383,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32327,
+            "line": 32329,
             "description": "A handler triggered for all pinch events. This handler is constantly fired for the duration of the pinch. This is triggered regardless of thresholds.",
             "name": "",
             "itemtype": "event",
@@ -2429,7 +2429,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32341,
+            "line": 32343,
             "description": "A click handler triggered when a user simply clicks, rather than swipes on an element.\nThis is deprecated since version 1.6.2, any assignment to click will be assigned to the tap handler.\nYou cannot use <code>on</code> to bind to this event as the default jQ <code>click</code> event will be triggered.\nUse the <code>tap</code> event instead.",
             "name": "",
             "itemtype": "event",
@@ -2452,7 +2452,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32354,
+            "line": 32356,
             "description": "A click / tap handler triggered when a user simply clicks or taps, rather than swipes on an element.",
             "name": "",
             "itemtype": "event",
@@ -2473,7 +2473,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32363,
+            "line": 32365,
             "description": "A double tap handler triggered when a user double clicks or taps on an element.\nYou can set the time delay for a double tap with the {@link $.fn.swipe.defaults#doubleTapThreshold} property.\nNote: If you set both <code>doubleTap</code> and <code>tap</code> handlers, the <code>tap</code> event will be delayed by the <code>doubleTapThreshold</code>\nas the script needs to check if its a double tap.",
             "name": "",
             "see": [
@@ -2497,7 +2497,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32376,
+            "line": 32378,
             "description": "A long tap handler triggered once a tap has been release if the tap was longer than the longTapThreshold.\nYou can set the time delay for a long tap with the {@link $.fn.swipe.defaults#longTapThreshold} property.",
             "name": "",
             "see": [
@@ -2521,7 +2521,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 32387,
+            "line": 32389,
             "description": "A hold tap handler triggered as soon as the longTapThreshold is reached\nYou can set the time delay for a long tap with the {@link $.fn.swipe.defaults#longTapThreshold} property.",
             "name": "",
             "see": [
@@ -2545,92 +2545,92 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 36440,
+            "line": 36442,
             "license": "Copyright (c) 2014 The Polymer Project Authors. All rights reserved.\nThis code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt\nThe complete set of authors may be found at http://polymer.github.io/AUTHORS.txt\nThe complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt\nCode distributed by Google as part of the polymer project is also\nsubject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46774,
+            "line": 46776,
             "description": "jsPDF - PDF Document creation from JavaScript\nVersion 1.0.272-git Built on 2014-09-29T15:09\n                          CommitID d4770725ca\n\nCopyright (c) 2010-2014 James Hall, https://github.com/MrRio/jsPDF\n              2010 Aaron Spike, https://github.com/acspike\n              2012 Willow Systems Corporation, willow-systems.com\n              2012 Pablo Hess, https://github.com/pablohess\n              2012 Florian Jenett, https://github.com/fjenett\n              2013 Warren Weckesser, https://github.com/warrenweckesser\n              2013 Youssef Beddad, https://github.com/lifof\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2013 Stefan Slonevskiy, https://github.com/stefslon\n              2013 Jeremy Morel, https://github.com/jmorel\n              2013 Christoph Hartmann, https://github.com/chris-rock\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Makes, https://github.com/dollaruw\n              2014 Diego Casorran, https://github.com/diegocr\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\nContributor(s):\n   siefkenj, ahwolf, rickygu, Midnith, saintclair, eaparango,\n   kim3er, mfo, alnorth,",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46817,
+            "line": 46819,
             "description": "jsPDF addHTML PlugIn\nCopyright (c) 2014 Diego Casorran\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46823,
+            "line": 46825,
             "description": "jsPDF addImage plugin\nCopyright (c) 2012 Jason Siefken, https://github.com/siefkenj/\n              2013 Chris Dowling, https://github.com/gingerchris\n              2013 Trinh Ho, https://github.com/ineedfat\n              2013 Edwin Alejandro Perez, https://github.com/eaparango\n              2013 Norah Smith, https://github.com/burnburnrocket\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 James Robb, https://github.com/jamesbrobb",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46833,
+            "line": 46835,
             "description": "jsPDF Cell plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com\n              2013 Eduardo Menezes de Morais, eduardo.morais@usp.br\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Hall, james@parall.ax\n              2014 Diego Casorran, https://github.com/diegocr",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46842,
+            "line": 46844,
             "description": "jsPDF fromHTML plugin. BETA stage. API subject to change. Needs browser\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 Daniel Husar, https://github.com/danielhusar\n              2014 Wolfgang Gassler, https://github.com/woolfg",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46850,
+            "line": 46852,
             "description": "jsPDF JavaScript plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46854,
+            "line": 46856,
             "description": "jsPDF PNG PlugIn\nCopyright (c) 2014 James Robb, https://github.com/jamesbrobb",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46858,
+            "line": 46860,
             "description": "jsPDF Silly SVG plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46862,
+            "line": 46864,
             "description": "jsPDF split_text_to_size plugin - MIT license.\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Diego Casorran, https://github.com/diegocr",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46867,
+            "line": 46869,
             "description": "jsPDF standard_fonts_metrics plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\nMIT license.",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46872,
+            "line": 46874,
             "description": "jsPDF total_pages plugin\nCopyright (c) 2013 Eduardo Menezes de Morais, eduardo.morais@usp.br",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46936,
+            "line": 46938,
             "description": "JavaScript Polyfill functions for jsPDF\nCollected from public resources by\nhttps://github.com/diegocr",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 46945,
+            "line": 46947,
             "description": "jsPDF AutoTable plugin v2.0.14\nCopyright (c) 2014 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable\n\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
             "preserve": "",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47043,
+            "line": 47045,
             "description": "Renders editableform",
             "itemtype": "method",
             "name": "render",
@@ -2638,7 +2638,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47068,
+            "line": 47070,
             "description": "Fired when rendering starts",
             "itemtype": "event",
             "name": "rendering",
@@ -2653,7 +2653,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47111,
+            "line": 47113,
             "description": "Fired when form is rendered",
             "itemtype": "event",
             "name": "rendered",
@@ -2668,7 +2668,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47127,
+            "line": 47129,
             "description": "Fired when form was cancelled by user",
             "itemtype": "event",
             "name": "cancel",
@@ -2683,7 +2683,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47163,
+            "line": 47165,
             "description": "Fired when form is shown",
             "itemtype": "event",
             "name": "show",
@@ -2698,7 +2698,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47221,
+            "line": 47223,
             "description": "Fired when value not changed but form is submitted. Requires savenochange = false.",
             "itemtype": "event",
             "name": "nochange",
@@ -2713,7 +2713,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47266,
+            "line": 47268,
             "description": "Fired when form is submitted",
             "itemtype": "event",
             "name": "save",
@@ -2753,7 +2753,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47416,
+            "line": 47418,
             "description": "Type of input. Can be <code>text|textarea|select|date|checklist</code>",
             "itemtype": "property",
             "name": "type",
@@ -2763,7 +2763,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47424,
+            "line": 47426,
             "description": "Url for submit, e.g. <code>'/post'</code>  \nIf function - it will be called instead of ajax. Function should return deferred object to run fail/done callbacks.",
             "itemtype": "property",
             "name": "url",
@@ -2776,7 +2776,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47449,
+            "line": 47451,
             "description": "Additional params for submit. If defined as <code>object</code> - it is **appended** to original ajax data (pk, name and value).  \nIf defined as <code>function</code> - returned object **overwrites** original ajax data.",
             "example": [
                 "\nparams: function(params) {\n    //originally params contain pk, name and value\n    params.a = 1;\n    return params;\n}"
@@ -2789,7 +2789,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47464,
+            "line": 47466,
             "description": "Name of field. Will be submitted on server. Can be taken from <code>id</code> attribute",
             "itemtype": "property",
             "name": "name",
@@ -2799,7 +2799,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47472,
+            "line": 47474,
             "description": "Primary key of editable object (e.g. record id in database). For composite keys use object, e.g. <code>{id: 1, lang: 'en'}</code>.\nCan be calculated dynamically via function.",
             "itemtype": "property",
             "name": "pk",
@@ -2809,7 +2809,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47481,
+            "line": 47483,
             "description": "Initial value. If not defined - will be taken from element's content.\nFor __select__ type should be defined (as it is ID of shown text).",
             "itemtype": "property",
             "name": "value",
@@ -2819,7 +2819,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47490,
+            "line": 47492,
             "description": "Value that will be displayed in input if original field value is empty (`null|undefined|''`).",
             "itemtype": "property",
             "name": "defaultValue",
@@ -2830,7 +2830,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47499,
+            "line": 47501,
             "description": "Strategy for sending data on server. Can be `auto|always|never`.\nWhen 'auto' data will be sent on server **only if pk and url defined**, otherwise new value will be stored locally.",
             "itemtype": "property",
             "name": "send",
@@ -2840,7 +2840,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47508,
+            "line": 47510,
             "description": "Function for client-side validation. If returns string - means validation not passed and string showed as error.\nSince 1.5.1 you can modify submitted value by returning object from `validate`: \n`{newValue: '...'}` or `{newValue: '...', msg: '...'}`",
             "itemtype": "property",
             "name": "validate",
@@ -2853,7 +2853,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47524,
+            "line": 47526,
             "description": "Success callback. Called when value successfully sent on server and **response status = 200**.  \nUsefull to work with json response. For example, if your backend response can be <code>{success: true}</code>\nor <code>{success: false, msg: \"server error\"}</code> you can check it inside this callback.  \nIf it returns **string** - means error occured and string is shown as error message.  \nIf it returns **object like** <code>{newValue: &lt;something&gt;}</code> - it overwrites value, submitted by user.  \nOtherwise newValue simply rendered into element.",
             "itemtype": "property",
             "name": "success",
@@ -2866,7 +2866,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47541,
+            "line": 47543,
             "description": "Error callback. Called when request failed (response status != 200).  \nUsefull when you want to parse error response and display a custom message.\nMust return **string** - the message to be displayed in the error block.",
             "itemtype": "property",
             "name": "error",
@@ -2880,7 +2880,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47560,
+            "line": 47562,
             "description": "Additional options for submit ajax request.\nList of values: http://api.jquery.com/jQuery.ajax",
             "itemtype": "property",
             "name": "ajaxOptions",
@@ -2894,7 +2894,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47575,
+            "line": 47577,
             "description": "Where to show buttons: left(true)|bottom|false  \nForm without buttons is auto-submitted.",
             "itemtype": "property",
             "name": "showbuttons",
@@ -2905,7 +2905,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47585,
+            "line": 47587,
             "description": "Scope for callback methods (success, validate).  \nIf <code>null</code> means editableform instance itself.",
             "itemtype": "property",
             "name": "scope",
@@ -2918,7 +2918,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47596,
+            "line": 47598,
             "description": "Whether to save or cancel value when it was not changed but form was submitted",
             "itemtype": "property",
             "name": "savenochange",
@@ -2929,43 +2929,43 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47635,
+            "line": 47637,
             "description": "EditableForm utilites",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47643,
+            "line": 47645,
             "description": "classic JS inheritance function",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47654,
+            "line": 47656,
             "description": "set caret position in input\nsee http://stackoverflow.com/questions/499126/jquery-set-cursor-position-in-text-area",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47670,
+            "line": 47672,
             "description": "function to parse JSON in *single* quotes. (jquery automatically parse only double quotes)\nThat allows such code as: <a data-source=\"{'a': 'b', 'c': 'd'}\">\nsafe = true --> means no exception will be thrown\nfor details see http://stackoverflow.com/questions/7410348/how-to-set-json-format-to-html5-data-attributes-in-the-jquery",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47695,
+            "line": 47697,
             "description": "slice object by specified keys",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 47761,
+            "line": 47763,
             "description": "method to escape html.",
             "class": "editableform"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48049,
+            "line": 48051,
             "description": "Fired when container is shown and form is rendered (for select will wait for loading dropdown options).  \n**Note:** Bootstrap popover has own `shown` event that now cannot be separated from x-editable's one.\nThe workaround is to check `arguments.length` that is always `2` for x-editable.",
             "itemtype": "event",
             "name": "shown",
@@ -2983,7 +2983,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48070,
+            "line": 48072,
             "description": "Shows container with form",
             "itemtype": "method",
             "name": "show()",
@@ -2998,7 +2998,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48116,
+            "line": 48118,
             "description": "Hides container with form",
             "itemtype": "method",
             "name": "hide()",
@@ -3013,7 +3013,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48137,
+            "line": 48139,
             "description": "Fired when container was hidden. It occurs on both save or cancel.  \n**Note:** Bootstrap popover has own `hidden` event that now cannot be separated from x-editable's one.\nThe workaround is to check `arguments.length` that is always `2` for x-editable.",
             "itemtype": "event",
             "name": "hidden",
@@ -3036,7 +3036,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48166,
+            "line": 48168,
             "description": "Toggles container visibility (show / hide)",
             "itemtype": "method",
             "name": "toggle()",
@@ -3051,7 +3051,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48188,
+            "line": 48190,
             "description": "Fired when new value was submitted. You can use <code>$(this).data('editableContainer')</code> inside handler to access to editableContainer instance",
             "itemtype": "event",
             "name": "save",
@@ -3086,7 +3086,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48213,
+            "line": 48215,
             "description": "Sets new option",
             "itemtype": "method",
             "name": "option(key, value)",
@@ -3106,7 +3106,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48237,
+            "line": 48239,
             "description": "Destroys the container instance",
             "itemtype": "method",
             "name": "destroy()",
@@ -3114,7 +3114,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48281,
+            "line": 48283,
             "description": "Activates input of visible container (e.g. set focus)",
             "itemtype": "method",
             "name": "activate()",
@@ -3122,7 +3122,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48293,
+            "line": 48295,
             "description": "jQuery method to initialize editableContainer.",
             "itemtype": "method",
             "name": "$().editableContainer(options)",
@@ -3140,7 +3140,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48331,
+            "line": 48333,
             "description": "Initial value of form input",
             "itemtype": "property",
             "name": "value",
@@ -3152,7 +3152,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48340,
+            "line": 48342,
             "description": "Placement of container relative to element. Can be <code>top|right|bottom|left</code>. Not used for inline container.",
             "itemtype": "property",
             "name": "placement",
@@ -3162,7 +3162,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48348,
+            "line": 48350,
             "description": "Whether to hide container on save/cancel.",
             "itemtype": "property",
             "name": "autohide",
@@ -3174,7 +3174,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48357,
+            "line": 48359,
             "description": "Action when user clicks outside the container. Can be <code>cancel|submit|ignore</code>.  \nSetting <code>ignore</code> allows to have several containers open.",
             "itemtype": "property",
             "name": "onblur",
@@ -3185,7 +3185,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48368,
+            "line": 48370,
             "description": "Animation speed (inline mode only)",
             "itemtype": "property",
             "name": "anim",
@@ -3195,7 +3195,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48376,
+            "line": 48378,
             "description": "Mode of editable, can be `popup` or `inline`",
             "itemtype": "property",
             "name": "mode",
@@ -3206,13 +3206,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48401,
+            "line": 48403,
             "description": "Editable Inline \n---------------------",
             "class": "editableContainer"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48574,
+            "line": 48576,
             "description": "Fired when element was initialized by `$().editable()` method. \nPlease note that you should setup `init` handler **before** applying `editable`.",
             "itemtype": "event",
             "name": "init",
@@ -3236,7 +3236,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48640,
+            "line": 48642,
             "description": "Enables editable",
             "itemtype": "method",
             "name": "enable()",
@@ -3244,7 +3244,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48655,
+            "line": 48657,
             "description": "Disables editable",
             "itemtype": "method",
             "name": "disable()",
@@ -3252,7 +3252,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48668,
+            "line": 48670,
             "description": "Toggles enabled / disabled state of editable element",
             "itemtype": "method",
             "name": "toggleDisabled()",
@@ -3260,7 +3260,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48680,
+            "line": 48682,
             "description": "Sets new option",
             "itemtype": "method",
             "name": "option(key, value)",
@@ -3283,7 +3283,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48771,
+            "line": 48773,
             "description": "Shows container with form",
             "itemtype": "method",
             "name": "show()",
@@ -3298,7 +3298,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48799,
+            "line": 48801,
             "description": "Hides container with form",
             "itemtype": "method",
             "name": "hide()",
@@ -3306,7 +3306,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48809,
+            "line": 48811,
             "description": "Toggles container visibility (show / hide)",
             "itemtype": "method",
             "name": "toggle()",
@@ -3321,7 +3321,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48869,
+            "line": 48871,
             "description": "Fired when new value was submitted. You can use <code>$(this).data('editable')</code> to access to editable instance",
             "itemtype": "event",
             "name": "save",
@@ -3356,7 +3356,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48891,
+            "line": 48893,
             "description": "Sets new value of editable",
             "itemtype": "method",
             "name": "setValue(value, convertStr)",
@@ -3376,7 +3376,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48912,
+            "line": 48914,
             "description": "Activates input of visible container (e.g. set focus)",
             "itemtype": "method",
             "name": "activate()",
@@ -3384,7 +3384,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48922,
+            "line": 48924,
             "description": "Removes editable feature from element",
             "itemtype": "method",
             "name": "destroy()",
@@ -3392,7 +3392,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48950,
+            "line": 48952,
             "description": "jQuery method to initialize editable element.",
             "itemtype": "method",
             "name": "$().editable(options)",
@@ -3410,7 +3410,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48966,
+            "line": 48968,
             "description": "Runs client-side validation for all matched editables",
             "itemtype": "method",
             "name": "validate()",
@@ -3425,7 +3425,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 48988,
+            "line": 48990,
             "description": "Returns current values of editable elements.   \nNote that it returns an **object** with name-value pairs, not a value itself. It allows to get data from several elements.    \nIf value of some editable is `null` or `undefined` it is excluded from result object.\nWhen param `isSingle` is set to **true** - it is supposed you have single element and will return value of editable instead of object.",
             "itemtype": "method",
             "name": "getValue()",
@@ -3447,7 +3447,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49021,
+            "line": 49023,
             "description": "This method collects values from several editable elements and submit them all to server.   \nInternally it runs client-side validation for all fields and submits only in case of success.  \nSee <a href=\"#newrecord\">creating new records</a> for details.  \nSince 1.5.1 `submit` can be applied to single element to send data programmatically. In that case\n`url`, `success` and `error` is taken from initial options and you can just call `$('#username').editable('submit')`.",
             "itemtype": "method",
             "name": "submit(options)",
@@ -3493,7 +3493,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49144,
+            "line": 49146,
             "description": "Type of input. Can be <code>text|textarea|select|date|checklist</code> and more",
             "itemtype": "property",
             "name": "type",
@@ -3503,7 +3503,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49152,
+            "line": 49154,
             "description": "Sets disabled state of editable",
             "itemtype": "property",
             "name": "disabled",
@@ -3513,7 +3513,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49160,
+            "line": 49162,
             "description": "How to toggle editable. Can be <code>click|dblclick|mouseenter|manual</code>.   \nWhen set to <code>manual</code> you should manually call <code>show/hide</code> methods of editable.    \n**Note**: if you call <code>show</code> or <code>toggle</code> inside **click** handler of some DOM element, \nyou need to apply <code>e.stopPropagation()</code> because containers are being closed on any click on document.",
             "example": [
                 "\n$('#edit-button').click(function(e) {\n    e.stopPropagation();\n    $('#username').editable('toggle');\n});"
@@ -3526,7 +3526,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49177,
+            "line": 49179,
             "description": "Text shown when element is empty.",
             "itemtype": "property",
             "name": "emptytext",
@@ -3536,7 +3536,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49185,
+            "line": 49187,
             "description": "Allows to automatically set element's text based on it's value. Can be <code>auto|always|never</code>. Useful for select and date.\nFor example, if dropdown list is <code>{1: 'a', 2: 'b'}</code> and element's value set to <code>1</code>, it's html will be automatically set to <code>'a'</code>.  \n<code>auto</code> - text will be automatically set only if element is empty.  \n<code>always|never</code> - always(never) try to set element's text.",
             "itemtype": "property",
             "name": "autotext",
@@ -3546,7 +3546,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49196,
+            "line": 49198,
             "description": "Initial value of input. If not set, taken from element's text.  \nNote, that if element's text is empty - text is automatically generated from value and can be customized (see `autotext` option).  \nFor example, to display currency sign:",
             "example": [
                 "\n<a id=\"price\" data-type=\"text\" data-value=\"100\"></a>\n<script>\n$('#price').editable({\n    ...\n    display: function(value) {\n      $(this).text(value + '$');\n    } \n}) \n</script>"
@@ -3559,7 +3559,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49216,
+            "line": 49218,
             "description": "Callback to perform custom displaying of value in element's text.  \nIf `null`, default input's display used.  \nIf `false`, no displaying methods will be called, element's text will never change.  \nRuns under element's scope.  \n_**Parameters:**_  \n\n* `value` current value to be displayed\n* `response` server response (if display called after ajax submit), since 1.4.0\n \nFor _inputs with source_ (select, checklist) parameters are different:  \n  \n* `value` current value to be displayed\n* `sourceData` array of items for current input (e.g. dropdown items) \n* `response` server response (if display called after ajax submit), since 1.4.0\n          \nTo get currently selected items use `$.fn.editableutils.itemsByValue(value, sourceData)`.",
             "itemtype": "property",
             "name": "display",
@@ -3573,7 +3573,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49253,
+            "line": 49255,
             "description": "Css class applied when editable text is empty.",
             "itemtype": "property",
             "name": "emptyclass",
@@ -3584,7 +3584,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49262,
+            "line": 49264,
             "description": "Css class applied when value was stored but not sent to server (`pk` is empty or `send = 'never'`).  \nYou may set it to `null` if you work with editables locally and submit them together.",
             "itemtype": "property",
             "name": "unsavedclass",
@@ -3595,7 +3595,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49272,
+            "line": 49274,
             "description": "If selector is provided, editable will be delegated to the specified targets.  \nUsefull for dynamically generated DOM elements.  \n**Please note**, that delegated targets can't be initialized with `emptytext` and `autotext` options, \nas they actually become editable only after first click.  \nYou should manually set class `editable-click` to these elements.  \nAlso, if element originally empty you should add class `editable-empty`, set `data-value=\"\"` and write emptytext into element:",
             "itemtype": "property",
             "name": "selector",
@@ -3609,7 +3609,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49301,
+            "line": 49303,
             "description": "Color used to highlight element after update. Implemented via CSS3 transition, works in modern browsers.",
             "itemtype": "property",
             "name": "highlight",
@@ -3620,7 +3620,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49330,
+            "line": 49332,
             "description": "Initializes input",
             "itemtype": "method",
             "name": "init()",
@@ -3628,7 +3628,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49350,
+            "line": 49352,
             "description": "Renders input from tpl. Can return jQuery deferred object.\nCan be overwritten in child objects",
             "itemtype": "method",
             "name": "render()",
@@ -3636,7 +3636,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49360,
+            "line": 49362,
             "description": "Sets element's html by value.",
             "itemtype": "method",
             "name": "value2html(value, element)",
@@ -3656,7 +3656,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49371,
+            "line": 49373,
             "description": "Converts element's html to value",
             "itemtype": "method",
             "name": "html2value(html)",
@@ -3675,7 +3675,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49382,
+            "line": 49384,
             "description": "Converts value to string (for internal compare). For submitting to server used value2submit().",
             "itemtype": "method",
             "name": "value2str(value)",
@@ -3694,7 +3694,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49393,
+            "line": 49395,
             "description": "Converts string received from server into value. Usually from `data-value` attribute.",
             "itemtype": "method",
             "name": "str2value(str)",
@@ -3713,7 +3713,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49404,
+            "line": 49406,
             "description": "Converts value for submitting to server. Result can be string or object.",
             "itemtype": "method",
             "name": "value2submit(value)",
@@ -3732,7 +3732,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49415,
+            "line": 49417,
             "description": "Sets value of input.",
             "itemtype": "method",
             "name": "value2input(value)",
@@ -3747,7 +3747,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49425,
+            "line": 49427,
             "description": "Returns value of input. Value can be object (e.g. datepicker)",
             "itemtype": "method",
             "name": "input2value()",
@@ -3755,7 +3755,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49434,
+            "line": 49436,
             "description": "Activates input. For text it sets focus.",
             "itemtype": "method",
             "name": "activate()",
@@ -3763,7 +3763,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49445,
+            "line": 49447,
             "description": "Creates input.",
             "itemtype": "method",
             "name": "clear()",
@@ -3771,25 +3771,25 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49454,
+            "line": 49456,
             "description": "method to escape html.",
             "class": "abstractinput"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49461,
+            "line": 49463,
             "description": "attach handler to automatically submit form when value changed (useful when buttons not shown)",
             "class": "abstractinput"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49468,
+            "line": 49470,
             "description": "Additional actions when destroying element",
             "class": "abstractinput"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49494,
+            "line": 49496,
             "description": "HTML template of input. Normally you should not change it.",
             "itemtype": "property",
             "name": "tpl",
@@ -3799,7 +3799,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49502,
+            "line": 49504,
             "description": "CSS class automatically applied to input",
             "itemtype": "property",
             "name": "inputclass",
@@ -3809,7 +3809,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49511,
+            "line": 49513,
             "description": "If `true` - html will be escaped in content of element via $.text() method.  \nIf `false` - html will not be escaped, $.html() used.  \nWhen you use own `display` function, this option obviosly has no effect.",
             "itemtype": "property",
             "name": "escape",
@@ -3820,13 +3820,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49748,
+            "line": 49750,
             "description": "convert data to array suitable for sourceData, e.g. [{value: 1, text: 'abc'}, {...}]",
             "class": "list"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49811,
+            "line": 49813,
             "description": "Source data for list.  \nIf **array** - it should be in format: `[{value: 1, text: \"text1\"}, {value: 2, text: \"text2\"}, ...]`  \nFor compability, object format is also supported: `{\"1\": \"text1\", \"2\": \"text2\" ...}` but it does not guarantee elements order.\n\nIf **string** - considered ajax url to load items. In that case results will be cached for fields with the same source and name. See also `sourceCache` option.\n  \nIf **function**, it should return data in format above (since 1.4.0).\n\nSince 1.4.1 key `children` supported to render OPTGROUP (for **select** input only).  \n`[{text: \"group1\", children: [{value: 1, text: \"text1\"}, {value: 2, text: \"text2\"}]}, ...]`",
             "itemtype": "property",
             "name": "source",
@@ -3836,7 +3836,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49829,
+            "line": 49831,
             "description": "Data automatically prepended to the beginning of dropdown list.",
             "itemtype": "property",
             "name": "prepend",
@@ -3846,7 +3846,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49837,
+            "line": 49839,
             "description": "Error message when list cannot be loaded (e.g. ajax error)",
             "itemtype": "property",
             "name": "sourceError",
@@ -3856,7 +3856,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49845,
+            "line": 49847,
             "description": "if <code>true</code> and source is **string url** - results will be cached for fields with the same source.    \nUsefull for editable column in grid to prevent extra requests.",
             "itemtype": "property",
             "name": "sourceCache",
@@ -3867,7 +3867,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49855,
+            "line": 49857,
             "description": "Additional ajax options to be used in $.ajax() when loading list from server.\nUseful to send extra parameters (`data` key) or change request method (`type` key).",
             "itemtype": "property",
             "name": "sourceOptions",
@@ -3878,7 +3878,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49978,
+            "line": 49980,
             "itemtype": "property",
             "name": "tpl",
             "default": "<input type=\"text\">",
@@ -3886,7 +3886,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49983,
+            "line": 49985,
             "description": "Placeholder attribute of input. Shown when input is empty.",
             "itemtype": "property",
             "name": "placeholder",
@@ -3896,7 +3896,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 49992,
+            "line": 49994,
             "description": "Whether to show `clear` button",
             "itemtype": "property",
             "name": "clear",
@@ -3906,7 +3906,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50086,
+            "line": 50088,
             "itemtype": "property",
             "name": "tpl",
             "default": "<textarea></textarea>",
@@ -3914,7 +3914,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50091,
+            "line": 50093,
             "itemtype": "property",
             "name": "inputclass",
             "default": "input-large",
@@ -3922,7 +3922,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50096,
+            "line": 50098,
             "description": "Placeholder attribute of input. Shown when input is empty.",
             "itemtype": "property",
             "name": "placeholder",
@@ -3932,7 +3932,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50104,
+            "line": 50106,
             "description": "Number of rows in textarea",
             "itemtype": "property",
             "name": "rows",
@@ -3942,7 +3942,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50204,
+            "line": 50206,
             "itemtype": "property",
             "name": "tpl",
             "default": "<select></select>",
@@ -3950,7 +3950,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50345,
+            "line": 50347,
             "itemtype": "property",
             "name": "tpl",
             "default": "<div></div>",
@@ -3958,7 +3958,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50351,
+            "line": 50353,
             "itemtype": "property",
             "name": "inputclass",
             "type": "string",
@@ -3967,7 +3967,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50358,
+            "line": 50360,
             "description": "Separator of values when reading from `data-value` attribute",
             "itemtype": "property",
             "name": "separator",
@@ -3977,7 +3977,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50405,
+            "line": 50407,
             "itemtype": "property",
             "name": "tpl",
             "default": "depends on type",
@@ -3985,7 +3985,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50895,
+            "line": 50897,
             "itemtype": "property",
             "name": "tpl",
             "default": "<input type=\"hidden\">",
@@ -3993,7 +3993,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50900,
+            "line": 50902,
             "description": "Configuration of select2. [Full list of options](http://ivaynberg.github.com/select2).",
             "itemtype": "property",
             "name": "select2",
@@ -4003,7 +4003,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50908,
+            "line": 50910,
             "description": "Placeholder attribute of select",
             "itemtype": "property",
             "name": "placeholder",
@@ -4013,7 +4013,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50916,
+            "line": 50918,
             "description": "Source data for select. It will be assigned to select2 `data` property and kept here just for convenience.\nPlease note, that format is different from simple `select` input: use 'id' instead of 'value'.\nE.g. `[{id: 1, text: \"text1\"}, {id: 2, text: \"text2\"}, ...]`.",
             "itemtype": "property",
             "name": "source",
@@ -4023,7 +4023,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50926,
+            "line": 50928,
             "description": "Separator used to display tags.",
             "itemtype": "property",
             "name": "viewseparator",
@@ -4033,13 +4033,13 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 50940,
+            "line": 50942,
             "description": "Combodate - 1.0.5\nDropdown date and time picker.\nConverts text input into dropdowns to pick day, month, year, hour, minute and second.\nUses momentjs as datetime library http://momentjs.com.\nFor i18n include corresponding file from https://github.com/timrwood/moment/tree/master/lang \n\nConfusion at noon and midnight - see http://en.wikipedia.org/wiki/12-hour_clock#Confusion_at_noon_and_midnight\nIn combodate: \n12:00 pm --> 12:00 (24-h format, midday)\n12:00 am --> 00:00 (24-h format, midnight, start of day)\n\nDiffers from momentjs parse rules:\n00:00 pm, 12:00 pm --> 12:00 (24-h format, day not change)\n00:00 am, 12:00 am --> 00:00 (24-h format, day not change)\n\n\nAuthor: Vitaliy Potapov\nProject page: http://github.com/vitalets/combodate\nCopyright (c) 2012 Vitaliy Potapov. Released under MIT License.",
             "class": "select2"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51562,
+            "line": 51564,
             "itemtype": "property",
             "name": "tpl",
             "default": "<input type=\"text\">",
@@ -4047,7 +4047,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51567,
+            "line": 51569,
             "itemtype": "property",
             "name": "inputclass",
             "default": "null",
@@ -4055,7 +4055,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51572,
+            "line": 51574,
             "description": "Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>\nSee list of tokens in [momentjs docs](http://momentjs.com/docs/#/parsing/string-format)",
             "itemtype": "property",
             "name": "format",
@@ -4065,7 +4065,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51581,
+            "line": 51583,
             "description": "Format used for displaying date. Also applied when converting date from element's text on init.   \nIf not specified equals to `format`.",
             "itemtype": "property",
             "name": "viewformat",
@@ -4075,7 +4075,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51590,
+            "line": 51592,
             "description": "Template used for displaying dropdowns.",
             "itemtype": "property",
             "name": "template",
@@ -4085,7 +4085,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51598,
+            "line": 51600,
             "description": "Configuration of combodate.\nFull list of options: http://vitalets.github.com/combodate/#docs",
             "itemtype": "property",
             "name": "combodate",
@@ -4095,19 +4095,19 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51688,
+            "line": 51690,
             "description": "Editable Popover3 (for Bootstrap 3) \n---------------------\nrequires bootstrap-popover.js",
             "class": "combodate"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 51745,
+            "line": 51747,
             "description": "move popover to new position. This function mainly copied from bootstrap-popover.",
             "class": "combodate"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53338,
+            "line": 53340,
             "itemtype": "property",
             "name": "tpl",
             "default": "<div></div>",
@@ -4115,7 +4115,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53343,
+            "line": 53345,
             "itemtype": "property",
             "name": "inputclass",
             "default": "null",
@@ -4123,7 +4123,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53348,
+            "line": 53350,
             "description": "Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>\nPossible tokens are: <code>d, dd, m, mm, yy, yyyy</code>",
             "itemtype": "property",
             "name": "format",
@@ -4133,7 +4133,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53357,
+            "line": 53359,
             "description": "Format used for displaying date. Also applied when converting date from element's text on init.   \nIf not specified equals to <code>format</code>",
             "itemtype": "property",
             "name": "viewformat",
@@ -4143,7 +4143,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53366,
+            "line": 53368,
             "description": "Configuration of datepicker.\nFull list of options: http://bootstrap-datepicker.readthedocs.org/en/latest/options.html",
             "itemtype": "property",
             "name": "datepicker",
@@ -4153,7 +4153,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53385,
+            "line": 53387,
             "description": "Text shown as clear date button. \nIf <code>false</code> clear button will not be rendered.",
             "itemtype": "property",
             "name": "clear",
@@ -4163,14 +4163,14 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53459,
+            "line": 53461,
             "itemtype": "property",
             "name": "tpl",
             "class": "datefield"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53463,
+            "line": 53465,
             "itemtype": "property",
             "name": "inputclass",
             "default": "'input-small'",
@@ -4178,7 +4178,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53670,
+            "line": 53672,
             "itemtype": "property",
             "name": "tpl",
             "default": "<div></div>",
@@ -4186,7 +4186,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53675,
+            "line": 53677,
             "itemtype": "property",
             "name": "inputclass",
             "default": "null",
@@ -4194,7 +4194,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53680,
+            "line": 53682,
             "description": "Format used for sending value to server. Also applied when converting date from <code>data-value</code> attribute.<br>\nPossible tokens are: <code>d, dd, m, mm, yy, yyyy, h, i</code>",
             "itemtype": "property",
             "name": "format",
@@ -4204,7 +4204,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53690,
+            "line": 53692,
             "description": "Format used for displaying date. Also applied when converting date from element's text on init.   \nIf not specified equals to <code>format</code>",
             "itemtype": "property",
             "name": "viewformat",
@@ -4214,7 +4214,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53699,
+            "line": 53701,
             "description": "Configuration of datetimepicker.\nFull list of options: https://github.com/smalot/bootstrap-datetimepicker",
             "itemtype": "property",
             "name": "datetimepicker",
@@ -4224,7 +4224,7 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53711,
+            "line": 53713,
             "description": "Text shown as clear date button. \nIf <code>false</code> clear button will not be rendered.",
             "itemtype": "property",
             "name": "clear",
@@ -4234,14 +4234,14 @@
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53782,
+            "line": 53784,
             "itemtype": "property",
             "name": "tpl",
             "class": "datetimefield"
         },
         {
             "file": "dist/js/dependencies.js",
-            "line": 53786,
+            "line": 53788,
             "itemtype": "property",
             "name": "inputclass",
             "default": "'input-medium'",
@@ -4802,13 +4802,13 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 3082,
+            "line": 3062,
             "description": "Nova Creator Boostrap Data Grid Extension: resizable",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 3140,
+            "line": 3120,
             "description": "Nova Creator Boostrap Data Grid Extension: swipeable",
             "class": "defaults"
         }
@@ -4836,363 +4836,363 @@
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:30422"
+            "line": " dist/js/dependencies.js:30424"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:30430"
+            "line": " dist/js/dependencies.js:30432"
         },
         {
             "message": "unknown tag: memberof",
-            "line": " dist/js/dependencies.js:30430"
+            "line": " dist/js/dependencies.js:30432"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:30495"
+            "line": " dist/js/dependencies.js:30497"
         },
         {
             "message": "unknown tag: internal",
-            "line": " dist/js/dependencies.js:30695"
+            "line": " dist/js/dependencies.js:30697"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:30734"
+            "line": " dist/js/dependencies.js:30736"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " dist/js/dependencies.js:30808"
+            "line": " dist/js/dependencies.js:30810"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:30808"
+            "line": " dist/js/dependencies.js:30810"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " dist/js/dependencies.js:30823"
+            "line": " dist/js/dependencies.js:30825"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:30823"
+            "line": " dist/js/dependencies.js:30825"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " dist/js/dependencies.js:30835"
+            "line": " dist/js/dependencies.js:30837"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:30835"
+            "line": " dist/js/dependencies.js:30837"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " dist/js/dependencies.js:30848"
+            "line": " dist/js/dependencies.js:30850"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:30848"
+            "line": " dist/js/dependencies.js:30850"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:30891"
+            "line": " dist/js/dependencies.js:30893"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:30996"
+            "line": " dist/js/dependencies.js:30998"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31113"
+            "line": " dist/js/dependencies.js:31115"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31179"
+            "line": " dist/js/dependencies.js:31181"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31200"
+            "line": " dist/js/dependencies.js:31202"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31217"
+            "line": " dist/js/dependencies.js:31219"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31265"
+            "line": " dist/js/dependencies.js:31267"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31335"
+            "line": " dist/js/dependencies.js:31337"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31503"
+            "line": " dist/js/dependencies.js:31505"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31519"
+            "line": " dist/js/dependencies.js:31521"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31534"
+            "line": " dist/js/dependencies.js:31536"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31547"
+            "line": " dist/js/dependencies.js:31549"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31569"
+            "line": " dist/js/dependencies.js:31571"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31623"
+            "line": " dist/js/dependencies.js:31625"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31636"
+            "line": " dist/js/dependencies.js:31638"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31646"
+            "line": " dist/js/dependencies.js:31648"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31660"
+            "line": " dist/js/dependencies.js:31662"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31680"
+            "line": " dist/js/dependencies.js:31682"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31691"
+            "line": " dist/js/dependencies.js:31693"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31701"
+            "line": " dist/js/dependencies.js:31703"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31711"
+            "line": " dist/js/dependencies.js:31713"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31722"
+            "line": " dist/js/dependencies.js:31724"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31732"
+            "line": " dist/js/dependencies.js:31734"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31742"
+            "line": " dist/js/dependencies.js:31744"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31752"
+            "line": " dist/js/dependencies.js:31754"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31765"
+            "line": " dist/js/dependencies.js:31767"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31775"
+            "line": " dist/js/dependencies.js:31777"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31784"
+            "line": " dist/js/dependencies.js:31786"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31794"
+            "line": " dist/js/dependencies.js:31796"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31805"
+            "line": " dist/js/dependencies.js:31807"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31815"
+            "line": " dist/js/dependencies.js:31817"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31829"
+            "line": " dist/js/dependencies.js:31831"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31838"
+            "line": " dist/js/dependencies.js:31840"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31847"
+            "line": " dist/js/dependencies.js:31849"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31867"
+            "line": " dist/js/dependencies.js:31869"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31877"
+            "line": " dist/js/dependencies.js:31879"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31913"
+            "line": " dist/js/dependencies.js:31915"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31941"
+            "line": " dist/js/dependencies.js:31943"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31964"
+            "line": " dist/js/dependencies.js:31966"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31977"
+            "line": " dist/js/dependencies.js:31979"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:31990"
+            "line": " dist/js/dependencies.js:31992"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32001"
+            "line": " dist/js/dependencies.js:32003"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32016"
+            "line": " dist/js/dependencies.js:32018"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32034"
+            "line": " dist/js/dependencies.js:32036"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32043"
+            "line": " dist/js/dependencies.js:32045"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32057"
+            "line": " dist/js/dependencies.js:32059"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32070"
+            "line": " dist/js/dependencies.js:32072"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32085"
+            "line": " dist/js/dependencies.js:32087"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32096"
+            "line": " dist/js/dependencies.js:32098"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32117"
+            "line": " dist/js/dependencies.js:32119"
         },
         {
             "message": "unknown tag: inner",
-            "line": " dist/js/dependencies.js:32148"
+            "line": " dist/js/dependencies.js:32150"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32210"
+            "line": " dist/js/dependencies.js:32212"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32227"
+            "line": " dist/js/dependencies.js:32229"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32241"
+            "line": " dist/js/dependencies.js:32243"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32255"
+            "line": " dist/js/dependencies.js:32257"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32269"
+            "line": " dist/js/dependencies.js:32271"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32283"
+            "line": " dist/js/dependencies.js:32285"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32299"
+            "line": " dist/js/dependencies.js:32301"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32313"
+            "line": " dist/js/dependencies.js:32315"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32327"
+            "line": " dist/js/dependencies.js:32329"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32341"
+            "line": " dist/js/dependencies.js:32343"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32354"
+            "line": " dist/js/dependencies.js:32356"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32363"
+            "line": " dist/js/dependencies.js:32365"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32376"
+            "line": " dist/js/dependencies.js:32378"
         },
         {
             "message": "unknown tag: name",
-            "line": " dist/js/dependencies.js:32387"
+            "line": " dist/js/dependencies.js:32389"
         },
         {
             "message": "unknown tag: license",
-            "line": " dist/js/dependencies.js:36440"
+            "line": " dist/js/dependencies.js:36442"
         },
         {
             "message": "unknown tag: preserve",
-            "line": " dist/js/dependencies.js:46945"
+            "line": " dist/js/dependencies.js:46947"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " dist/js/dependencies.js:48293"
+            "line": " dist/js/dependencies.js:48295"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " dist/js/dependencies.js:48950"
+            "line": " dist/js/dependencies.js:48952"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:48966"
+            "line": " dist/js/dependencies.js:48968"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:48988"
+            "line": " dist/js/dependencies.js:48990"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:49021"
+            "line": " dist/js/dependencies.js:49023"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:49371"
+            "line": " dist/js/dependencies.js:49373"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:49382"
+            "line": " dist/js/dependencies.js:49384"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:49393"
+            "line": " dist/js/dependencies.js:49395"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " dist/js/dependencies.js:49404"
+            "line": " dist/js/dependencies.js:49406"
         },
         {
             "message": "Missing item type\nCreate key-value caches of limited size",
@@ -5311,476 +5311,476 @@
             "line": " dist/js/dependencies.js:26792"
         },
         {
-            "message": "Missing item type\nTableDnD plug-in for JQuery, allows you to drag and drop table rows\nYou can set up various options to control how the system will work\nCopyright (c) Denis Howlett <denish@isocra.com>\nLicensed like jQuery, see http://docs.jquery.com/License.\n\nConfiguration options:\n\nonDragStyle\n    This is the style that is assigned to the row during drag. There are limitations to the styles that can be\n    associated with a row (such as you can't assign a border--well you can, but it won't be\n    displayed). (So instead consider using onDragClass.) The CSS style to apply is specified as\n    a map (as used in the jQuery css(...) function).\nonDropStyle\n    This is the style that is assigned to the row when it is dropped. As for onDragStyle, there are limitations\n    to what you can do. Also this replaces the original style, so again consider using onDragClass which\n    is simply added and then removed on drop.\nonDragClass\n    This class is added for the duration of the drag and then removed when the row is dropped. It is more\n    flexible than using onDragStyle since it can be inherited by the row cells and other content. The default\n    is class is tDnD_whileDrag. So to use the default, simply customise this CSS class in your\n    stylesheet.\nonDrop\n    Pass a function that will be called when the row is dropped. The function takes 2 parameters: the table\n    and the row that was dropped. You can work out the new order of the rows by using\n    table.rows.\nonDragStart\n    Pass a function that will be called when the user starts dragging. The function takes 2 parameters: the\n    table and the row which the user has started to drag.\nonAllowDrop\n    Pass a function that will be called as a row is over another row. If the function returns true, allow\n    dropping on that row, otherwise not. The function takes 2 parameters: the dragged row and the row under\n    the cursor. It returns a boolean: true allows the drop, false doesn't allow it.\nscrollAmount\n    This is the number of pixels to scroll if the user moves the mouse cursor to the top or bottom of the\n    window. The page should automatically scroll up or down as appropriate (tested in IE6, IE7, Safari, FF2,\n    FF3 beta\ndragHandle\n    This is a jQuery mach string for one or more cells in each row that is draggable. If you\n    specify this, then you are responsible for setting cursor: move in the CSS and only these cells\n    will have the drag behaviour. If you do not specify a dragHandle, then you get the old behaviour where\n    the whole row is draggable.\n\nOther ways to control behaviour:\n\nAdd class=\"nodrop\" to any rows for which you don't want to allow dropping, and class=\"nodrag\" to any rows\nthat you don't want to be draggable.\n\nInside the onDrop method you can also call $.tableDnD.serialize() this returns a string of the form\n<tableID>[]=<rowID1>&<tableID>[]=<rowID2> so that you can send this back to the server. The table must have\nan ID as must all the rows.\n\nOther methods:\n\n$(\"...\").tableDnDUpdate()\nWill update all the matching tables, that is it will reapply the mousedown method to the rows (or handle cells).\nThis is useful if you have updated the table rows using Ajax and you want to make the table draggable again.\nThe table maintains the original configuration (so you don't have to specify it again).\n\n$(\"...\").tableDnDSerialize()\nWill serialize and return the serialized string as above, but for each of the matching tables--so it can be\ncalled from anywhere and isn't dependent on the currentTable being set up correctly before calling\n\nKnown problems:\n- Auto-scoll has some problems with IE7  (it scrolls even when it shouldn't), work-around: set scrollAmount to 0\n\nVersion 0.2: 2008-02-20 First public version\nVersion 0.3: 2008-02-07 Added onDragStart option\n                        Made the scroll amount configurable (default is 5 as before)\nVersion 0.4: 2008-03-15 Changed the noDrag/noDrop attributes to nodrag/nodrop classes\n                        Added onAllowDrop to control dropping\n                        Fixed a bug which meant that you couldn't set the scroll amount in both directions\n                        Added serialize method\nVersion 0.5: 2008-05-16 Changed so that if you specify a dragHandle class it doesn't make the whole row\n                        draggable\n                        Improved the serialize method to use a default (and settable) regular expression.\n                        Added tableDnDupate() and tableDnDSerialize() to be called when you are outside the table\nVersion 0.6: 2011-12-02 Added support for touch devices\nVersion 0.7  2012-04-09 Now works with jQuery 1.7 and supports touch, tidied up tabs and spaces",
+            "message": "Missing item type\nTableDnD plug-in for JQuery, allows you to drag and drop table rows\nYou can set up various options to control how the system will work\nCopyright (c) Denis Howlett <denish@isocra.com>\nLicensed like jQuery, see http://docs.jquery.com/License.\n\nConfiguration options:\n\nonDragStyle\n    This is the style that is assigned to the row during drag. There are limitations to the styles that can be\n    associated with a row (such as you can't assign a border--well you can, but it won't be\n    displayed). (So instead consider using onDragClass.) The CSS style to apply is specified as\n    a map (as used in the jQuery css(...) function).\nonDropStyle\n    This is the style that is assigned to the row when it is dropped. As for onDragStyle, there are limitations\n    to what you can do. Also this replaces the original style, so again consider using onDragClass which\n    is simply added and then removed on drop.\nonDragClass\n    This class is added for the duration of the drag and then removed when the row is dropped. It is more\n    flexible than using onDragStyle since it can be inherited by the row cells and other content. The default\n    is class is tDnD_whileDrag. So to use the default, simply customise this CSS class in your\n    stylesheet.\nonDrop\n    Pass a function that will be called when the row is dropped. The function takes 2 parameters: the table\n    and the row that was dropped. You can work out the new order of the rows by using\n    table.rows.\nonDragStart\n    Pass a function that will be called when the user starts dragging. The function takes 2 parameters: the\n    table and the row which the user has started to drag.\nonAllowDrop\n    Pass a function that will be called as a row is over another row. If the function returns true, allow\n    dropping on that row, otherwise not. The function takes 2 parameters: the dragged row and the row under\n    the cursor. It returns a boolean: true allows the drop, false doesn't allow it.\nscrollAmount\n    This is the number of pixels to scroll if the user moves the mouse cursor to the top or bottom of the\n    window. The page should automatically scroll up or down as appropriate (tested in IE6, IE7, Safari, FF2,\n    FF3 beta\ndragHandle\n    This is a jQuery mach string for one or more cells in each row that is draggable. If you\n    specify this, then you are responsible for setting cursor: move in the CSS and only these cells\n    will have the drag behaviour. If you do not specify a dragHandle, then you get the old behaviour where\n    the whole row is draggable.\n\nOther ways to control behaviour:\n\nAdd class=\"nodrop\" to any rows for which you don't want to allow dropping, and class=\"nodrag\" to any rows\nthat you don't want to be draggable.\n\nInside the onDrop method you can also call $.tableDnD.serialize() this returns a string of the form\n<tableID>[]=<rowID1>&<tableID>[]=<rowID2> so that you can send this back to the server. The table must have\nan ID as must all the rows.\n\nOther methods:\n\n$(\"...\").tableDnDUpdate()\nWill update all the matching tables, that is it will reapply the mousedown method to the rows (or handle cells).\nThis is useful if you have updated the table rows using Ajax and you want to make the table draggable again.\nThe table maintains the original configuration (so you don't have to specify it again).\n\n$(\"...\").tableDnDSerialize()\nWill serialize and return the serialized string as above, but for each of the matching tables--so it can be\ncalled from anywhere and isn't dependent on the currentTable being set up correctly before calling\n\nKnown problems:\n- Auto-scoll has some problems with IE7  (it scrolls even when it shouldn't), work-around: set scrollAmount to 0\n\nVersion 0.2: 2008-02-20 First public version\nVersion 0.3: 2008-02-07 Added onDragStart option\n                        Made the scroll amount configurable (default is 5 as before)\nVersion 0.4: 2008-03-15 Changed the noDrag/noDrop attributes to nodrag/nodrop classes\n                        Added onAllowDrop to control dropping\n                        Fixed a bug which meant that you couldn't set the scroll amount in both directions\n                        Added serialize method\nVersion 0.5: 2008-05-16 Changed so that if you specify a dragHandle class it doesn't make the whole row\n                        draggable\n                        Improved the serialize method to use a default (and settable) regular expression.\n                        Added tableDnDupate() and tableDnDSerialize() to be called when you are outside the table\nVersion 0.6: 2011-12-02 Added support for touch devices\nVersion 0.7  2012-04-09 Now works with jQuery 1.7 and supports touch, tidied up tabs and spaces\nVERSION MCM  2016-07-09 Modified currentOrder",
             "line": " dist/js/dependencies.js:26837"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:26968"
+            "line": " dist/js/dependencies.js:26969"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:26970"
+            "line": " dist/js/dependencies.js:26971"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:26972"
+            "line": " dist/js/dependencies.js:26973"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:26974"
+            "line": " dist/js/dependencies.js:26975"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:26978"
+            "line": " dist/js/dependencies.js:26979"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:26992"
+            "line": " dist/js/dependencies.js:26993"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:26994"
+            "line": " dist/js/dependencies.js:26995"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:26996"
+            "line": " dist/js/dependencies.js:26997"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:26998"
+            "line": " dist/js/dependencies.js:26999"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27000"
+            "line": " dist/js/dependencies.js:27001"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27002"
+            "line": " dist/js/dependencies.js:27003"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27004"
+            "line": " dist/js/dependencies.js:27005"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27006"
+            "line": " dist/js/dependencies.js:27007"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27008"
+            "line": " dist/js/dependencies.js:27009"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27064"
+            "line": " dist/js/dependencies.js:27065"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27122"
+            "line": " dist/js/dependencies.js:27124"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27141"
+            "line": " dist/js/dependencies.js:27143"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27157"
+            "line": " dist/js/dependencies.js:27159"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:27308"
+            "line": " dist/js/dependencies.js:27310"
         },
         {
             "message": "Missing item type\n_ _____           _          _     _      \n              | |  __ \\         (_)        | |   | |     \n      ___ ___ | | |__) |___  ___ _ ______ _| |__ | | ___ \n     / __/ _ \\| |  _  // _ \\/ __| |_  / _` | '_ \\| |/ _ \\\n    | (_| (_) | | | \\ \\  __/\\__ \\ |/ / (_| | |_) | |  __/\n     \\___\\___/|_|_|  \\_\\___||___/_/___\\__,_|_.__/|_|\\___|\n\t \n\tv1.6 - jQuery plugin created by Alvaro Prieto Lauroba\n\t\n\tLicences: MIT & GPL\n\tFeel free to use or modify this plugin as far as my full name is kept\t\n\t\n\tIf you are going to use this plug-in in production environments it is \n\tstrongly recommended to use its minified version: colResizable.min.js",
-            "line": " dist/js/dependencies.js:29874"
+            "line": " dist/js/dependencies.js:29876"
         },
         {
             "message": "Missing item type\nFunction to allow column resizing for table objects. It is the starting point to apply the plugin.",
-            "line": " dist/js/dependencies.js:29917"
+            "line": " dist/js/dependencies.js:29919"
         },
         {
             "message": "Missing item type\nThis function allows to remove any enhancements performed by this plugin on a previously processed table.",
-            "line": " dist/js/dependencies.js:29945"
+            "line": " dist/js/dependencies.js:29947"
         },
         {
             "message": "Missing item type\nFunction to create all the grips associated with the table given by parameters",
-            "line": " dist/js/dependencies.js:29957"
+            "line": " dist/js/dependencies.js:29959"
         },
         {
             "message": "Missing item type\nFunction to allow the persistence of columns dimensions after a browser postback. It is based in\nthe HTML5 sessionStorage object, which can be emulated for older browsers using sessionstorage.js",
-            "line": " dist/js/dependencies.js:30007"
+            "line": " dist/js/dependencies.js:30009"
         },
         {
             "message": "Missing item type\nFunction that places each grip in the correct position according to the current table layout",
-            "line": " dist/js/dependencies.js:30047"
+            "line": " dist/js/dependencies.js:30049"
         },
         {
             "message": "Missing item type\nThis function updates column's width according to the horizontal position increment of the grip being\ndragged. The function can be called while dragging if liveDragging is enabled and also from the onGripDragOver\nevent handler to synchronize grip's position with their related columns.",
-            "line": " dist/js/dependencies.js:30064"
+            "line": " dist/js/dependencies.js:30066"
         },
         {
             "message": "Missing item type\nThis function updates all columns width according to its real width. It must be taken into account that the \nsum of all columns can exceed the table width in some cases (if fixed is set to false and table has some kind \nof max-width).",
-            "line": " dist/js/dependencies.js:30090"
+            "line": " dist/js/dependencies.js:30092"
         },
         {
             "message": "Missing item type\nEvent handler used while dragging a grip. It checks if the next grip's position is valid and updates it.",
-            "line": " dist/js/dependencies.js:30108"
+            "line": " dist/js/dependencies.js:30110"
         },
         {
             "message": "Missing item type\nEvent handler fired when the dragging is over, updating table layout",
-            "line": " dist/js/dependencies.js:30152"
+            "line": " dist/js/dependencies.js:30154"
         },
         {
             "message": "Missing item type\nEvent handler fired when the grip's dragging is about to start. Its main goal is to set up events \nand store some values used while dragging.",
-            "line": " dist/js/dependencies.js:30183"
+            "line": " dist/js/dependencies.js:30185"
         },
         {
             "message": "Missing item type\nEvent handler fired when the browser is resized. The main purpose of this function is to update\ntable layout according to the browser's size synchronizing related grips",
-            "line": " dist/js/dependencies.js:30205"
+            "line": " dist/js/dependencies.js:30207"
         },
         {
             "message": "Missing item type\nThe plugin is added to the jQuery library",
-            "line": " dist/js/dependencies.js:30241"
+            "line": " dist/js/dependencies.js:30243"
         },
         {
             "message": "Missing item type\nThe version of the plugin",
-            "line": " dist/js/dependencies.js:30605"
+            "line": " dist/js/dependencies.js:30607"
         },
         {
             "message": "Missing item type\nInitialise the plugin for each DOM element matched\nThis creates a new instance of the main TouchSwipe class for each DOM element, and then\nsaves a reference to that instance in the elements data property.",
-            "line": " dist/js/dependencies.js:30695"
+            "line": " dist/js/dependencies.js:30697"
         },
         {
             "message": "Missing item type\nEvent handler for a touch start event.\nStops the default click event from triggering and stores where we touched",
-            "line": " dist/js/dependencies.js:30891"
+            "line": " dist/js/dependencies.js:30893"
         },
         {
             "message": "Missing item type\nEvent handler for a touch move event.\nIf we change fingers during move, then cancel the event",
-            "line": " dist/js/dependencies.js:30996"
+            "line": " dist/js/dependencies.js:30998"
         },
         {
             "message": "Missing item type\nEvent handler for a touch end event.\nCalculate the direction and trigger events",
-            "line": " dist/js/dependencies.js:31113"
+            "line": " dist/js/dependencies.js:31115"
         },
         {
             "message": "Missing item type\nEvent handler for a touch cancel event.\nClears current vars",
-            "line": " dist/js/dependencies.js:31179"
+            "line": " dist/js/dependencies.js:31181"
         },
         {
             "message": "Missing item type\nEvent handler for a touch leave event.\nThis is only triggered on desktops, in touch we work this out manually\nas the touchleave event is not supported in webkit",
-            "line": " dist/js/dependencies.js:31200"
+            "line": " dist/js/dependencies.js:31202"
         },
         {
             "message": "Missing item type\nRemoves all listeners that were associated with the plugin",
-            "line": " dist/js/dependencies.js:31217"
+            "line": " dist/js/dependencies.js:31219"
         },
         {
             "message": "Missing item type\nChecks if the time and distance thresholds have been met, and if so then the appropriate handlers are fired.",
-            "line": " dist/js/dependencies.js:31236"
+            "line": " dist/js/dependencies.js:31238"
         },
         {
             "message": "Missing item type\nTrigger the relevant event handler\nThe handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, \"left\", \"right\", \"up\", or \"down\"",
-            "line": " dist/js/dependencies.js:31265"
+            "line": " dist/js/dependencies.js:31267"
         },
         {
             "message": "Missing item type\nTrigger the relevant event handler\nThe handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, \"left\", \"right\", \"up\", or \"down\"",
-            "line": " dist/js/dependencies.js:31335"
+            "line": " dist/js/dependencies.js:31337"
         },
         {
             "message": "Missing item type\nChecks the user has swipe far enough",
-            "line": " dist/js/dependencies.js:31503"
+            "line": " dist/js/dependencies.js:31505"
         },
         {
             "message": "Missing item type\nChecks the user has swiped back to cancel.",
-            "line": " dist/js/dependencies.js:31519"
+            "line": " dist/js/dependencies.js:31521"
         },
         {
             "message": "Missing item type\nChecks the user has pinched far enough",
-            "line": " dist/js/dependencies.js:31534"
+            "line": " dist/js/dependencies.js:31536"
         },
         {
             "message": "Missing item type\nChecks that the time taken to swipe meets the minimum / maximum requirements",
-            "line": " dist/js/dependencies.js:31547"
+            "line": " dist/js/dependencies.js:31549"
         },
         {
             "message": "Missing item type\nChecks direction of the swipe and the value allowPageScroll to see if we should allow or prevent the default behaviour from occurring.\nThis will essentially allow page scrolling or not when the user is swiping on a touchSwipe object.",
-            "line": " dist/js/dependencies.js:31569"
+            "line": " dist/js/dependencies.js:31571"
         },
         {
             "message": "Missing item type\nReturns true of the current pinch meets the thresholds",
-            "line": " dist/js/dependencies.js:31623"
+            "line": " dist/js/dependencies.js:31625"
         },
         {
             "message": "Missing item type\nReturns true if any Pinch events have been registered",
-            "line": " dist/js/dependencies.js:31636"
+            "line": " dist/js/dependencies.js:31638"
         },
         {
             "message": "Missing item type\nReturns true if we are detecting pinches, and have one",
-            "line": " dist/js/dependencies.js:31646"
+            "line": " dist/js/dependencies.js:31648"
         },
         {
             "message": "Missing item type\nReturns true if the current swipe meets the thresholds",
-            "line": " dist/js/dependencies.js:31660"
+            "line": " dist/js/dependencies.js:31662"
         },
         {
             "message": "Missing item type\nReturns true if any Swipe events have been registered",
-            "line": " dist/js/dependencies.js:31680"
+            "line": " dist/js/dependencies.js:31682"
         },
         {
             "message": "Missing item type\nReturns true if we are detecting swipes and have one",
-            "line": " dist/js/dependencies.js:31691"
+            "line": " dist/js/dependencies.js:31693"
         },
         {
             "message": "Missing item type\nReturns true if we have matched the number of fingers we are looking for",
-            "line": " dist/js/dependencies.js:31701"
+            "line": " dist/js/dependencies.js:31703"
         },
         {
             "message": "Missing item type\nReturns true if we have an end point for the swipe",
-            "line": " dist/js/dependencies.js:31711"
+            "line": " dist/js/dependencies.js:31713"
         },
         {
             "message": "Missing item type\nReturns true if a click / tap events have been registered",
-            "line": " dist/js/dependencies.js:31722"
+            "line": " dist/js/dependencies.js:31724"
         },
         {
             "message": "Missing item type\nReturns true if a double tap events have been registered",
-            "line": " dist/js/dependencies.js:31732"
+            "line": " dist/js/dependencies.js:31734"
         },
         {
             "message": "Missing item type\nReturns true if any long tap events have been registered",
-            "line": " dist/js/dependencies.js:31742"
+            "line": " dist/js/dependencies.js:31744"
         },
         {
             "message": "Missing item type\nReturns true if we could be in the process of a double tap (one tap has occurred, we are listening for double taps, and the threshold hasn't past.",
-            "line": " dist/js/dependencies.js:31752"
+            "line": " dist/js/dependencies.js:31754"
         },
         {
             "message": "Missing item type\nReturns true if we could be in the process of a double tap (one tap has occurred, we are listening for double taps, and the threshold hasn't past.",
-            "line": " dist/js/dependencies.js:31765"
+            "line": " dist/js/dependencies.js:31767"
         },
         {
             "message": "Missing item type\nReturns true if we have a valid tap",
-            "line": " dist/js/dependencies.js:31775"
+            "line": " dist/js/dependencies.js:31777"
         },
         {
             "message": "Missing item type\nReturns true if we have a valid long tap",
-            "line": " dist/js/dependencies.js:31784"
+            "line": " dist/js/dependencies.js:31786"
         },
         {
             "message": "Missing item type\nReturns true if we are detecting taps and have one",
-            "line": " dist/js/dependencies.js:31794"
+            "line": " dist/js/dependencies.js:31796"
         },
         {
             "message": "Missing item type\nReturns true if we are detecting double taps and have one",
-            "line": " dist/js/dependencies.js:31805"
+            "line": " dist/js/dependencies.js:31807"
         },
         {
             "message": "Missing item type\nReturns true if we are detecting long taps and have one",
-            "line": " dist/js/dependencies.js:31815"
+            "line": " dist/js/dependencies.js:31817"
         },
         {
             "message": "Missing item type\nStarts tracking the time between 2 finger releases, and keeps track of how many fingers we initially had up",
-            "line": " dist/js/dependencies.js:31829"
+            "line": " dist/js/dependencies.js:31831"
         },
         {
             "message": "Missing item type\nCancels the tracking of time between 2 finger releases, and resets counters",
-            "line": " dist/js/dependencies.js:31838"
+            "line": " dist/js/dependencies.js:31840"
         },
         {
             "message": "Missing item type\nChecks if we are in the threshold between 2 fingers being released",
-            "line": " dist/js/dependencies.js:31847"
+            "line": " dist/js/dependencies.js:31849"
         },
         {
             "message": "Missing item type\ngets a data flag to indicate that a touch is in progress",
-            "line": " dist/js/dependencies.js:31867"
+            "line": " dist/js/dependencies.js:31869"
         },
         {
             "message": "Missing item type\nSets a data flag to indicate that a touch is in progress",
-            "line": " dist/js/dependencies.js:31877"
+            "line": " dist/js/dependencies.js:31879"
         },
         {
             "message": "Missing item type\nCreates the finger data for the touch/finger in the event object.",
-            "line": " dist/js/dependencies.js:31913"
+            "line": " dist/js/dependencies.js:31915"
         },
         {
             "message": "Missing item type\nUpdates the finger data for a particular event object",
-            "line": " dist/js/dependencies.js:31941"
+            "line": " dist/js/dependencies.js:31943"
         },
         {
             "message": "Missing item type\nReturns a finger data object by its event ID.\nEach touch event has an identifier property, which is used\nto track repeat touches",
-            "line": " dist/js/dependencies.js:31964"
+            "line": " dist/js/dependencies.js:31966"
         },
         {
             "message": "Missing item type\nSets the maximum distance swiped in the given direction.\nIf the new value is lower than the current value, the max value is not changed.",
-            "line": " dist/js/dependencies.js:31977"
+            "line": " dist/js/dependencies.js:31979"
         },
         {
             "message": "Missing item type\ngets the maximum distance swiped in the given direction.",
-            "line": " dist/js/dependencies.js:31990"
+            "line": " dist/js/dependencies.js:31992"
         },
         {
             "message": "Missing item type\nCreats a map of directions to maximum swiped values.",
-            "line": " dist/js/dependencies.js:32001"
+            "line": " dist/js/dependencies.js:32003"
         },
         {
             "message": "Missing item type\nCreates a map maximum swiped values for a given swipe direction",
-            "line": " dist/js/dependencies.js:32016"
+            "line": " dist/js/dependencies.js:32018"
         },
         {
             "message": "Missing item type\nCalculate the duration of the swipe",
-            "line": " dist/js/dependencies.js:32034"
+            "line": " dist/js/dependencies.js:32036"
         },
         {
             "message": "Missing item type\nCalculate the distance between 2 touches (pinch)",
-            "line": " dist/js/dependencies.js:32043"
+            "line": " dist/js/dependencies.js:32045"
         },
         {
             "message": "Missing item type\nCalculate the zoom factor between the start and end distances",
-            "line": " dist/js/dependencies.js:32057"
+            "line": " dist/js/dependencies.js:32059"
         },
         {
             "message": "Missing item type\nReturns the pinch direction, either IN or OUT for the given points",
-            "line": " dist/js/dependencies.js:32070"
+            "line": " dist/js/dependencies.js:32072"
         },
         {
             "message": "Missing item type\nCalculate the length / distance of the swipe",
-            "line": " dist/js/dependencies.js:32085"
+            "line": " dist/js/dependencies.js:32087"
         },
         {
             "message": "Missing item type\nCalculate the angle of the swipe",
-            "line": " dist/js/dependencies.js:32096"
+            "line": " dist/js/dependencies.js:32098"
         },
         {
             "message": "Missing item type\nCalculate the direction of the swipe\nThis will also call calculateAngle to get the latest angle of swipe",
-            "line": " dist/js/dependencies.js:32117"
+            "line": " dist/js/dependencies.js:32119"
         },
         {
             "message": "Missing item type\nReturns a MS time stamp of the current time",
-            "line": " dist/js/dependencies.js:32148"
+            "line": " dist/js/dependencies.js:32150"
         },
         {
             "message": "Missing item type\nReturns a bounds object with left, right, top and bottom properties for the element specified.",
-            "line": " dist/js/dependencies.js:32160"
+            "line": " dist/js/dependencies.js:32162"
         },
         {
             "message": "Missing item type\nChecks if the point object is in the bounds object.",
-            "line": " dist/js/dependencies.js:32179"
+            "line": " dist/js/dependencies.js:32181"
         },
         {
             "message": "Missing item type\nChecks if the two points are equal",
-            "line": " dist/js/dependencies.js:32194"
+            "line": " dist/js/dependencies.js:32196"
         },
         {
             "message": "Missing item type",
-            "line": " dist/js/dependencies.js:36440"
+            "line": " dist/js/dependencies.js:36442"
         },
         {
             "message": "Missing item type\njsPDF - PDF Document creation from JavaScript\nVersion 1.0.272-git Built on 2014-09-29T15:09\n                          CommitID d4770725ca\n\nCopyright (c) 2010-2014 James Hall, https://github.com/MrRio/jsPDF\n              2010 Aaron Spike, https://github.com/acspike\n              2012 Willow Systems Corporation, willow-systems.com\n              2012 Pablo Hess, https://github.com/pablohess\n              2012 Florian Jenett, https://github.com/fjenett\n              2013 Warren Weckesser, https://github.com/warrenweckesser\n              2013 Youssef Beddad, https://github.com/lifof\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2013 Stefan Slonevskiy, https://github.com/stefslon\n              2013 Jeremy Morel, https://github.com/jmorel\n              2013 Christoph Hartmann, https://github.com/chris-rock\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Makes, https://github.com/dollaruw\n              2014 Diego Casorran, https://github.com/diegocr\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\nContributor(s):\n   siefkenj, ahwolf, rickygu, Midnith, saintclair, eaparango,\n   kim3er, mfo, alnorth,",
-            "line": " dist/js/dependencies.js:46774"
+            "line": " dist/js/dependencies.js:46776"
         },
         {
             "message": "Missing item type\njsPDF addHTML PlugIn\nCopyright (c) 2014 Diego Casorran\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
-            "line": " dist/js/dependencies.js:46817"
+            "line": " dist/js/dependencies.js:46819"
         },
         {
             "message": "Missing item type\njsPDF addImage plugin\nCopyright (c) 2012 Jason Siefken, https://github.com/siefkenj/\n              2013 Chris Dowling, https://github.com/gingerchris\n              2013 Trinh Ho, https://github.com/ineedfat\n              2013 Edwin Alejandro Perez, https://github.com/eaparango\n              2013 Norah Smith, https://github.com/burnburnrocket\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 James Robb, https://github.com/jamesbrobb",
-            "line": " dist/js/dependencies.js:46823"
+            "line": " dist/js/dependencies.js:46825"
         },
         {
             "message": "Missing item type\njsPDF Cell plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com\n              2013 Eduardo Menezes de Morais, eduardo.morais@usp.br\n              2013 Lee Driscoll, https://github.com/lsdriscoll\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 James Hall, james@parall.ax\n              2014 Diego Casorran, https://github.com/diegocr",
-            "line": " dist/js/dependencies.js:46833"
+            "line": " dist/js/dependencies.js:46835"
         },
         {
             "message": "Missing item type\njsPDF fromHTML plugin. BETA stage. API subject to change. Needs browser\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Juan Pablo Gaviria, https://github.com/juanpgaviria\n              2014 Diego Casorran, https://github.com/diegocr\n              2014 Daniel Husar, https://github.com/danielhusar\n              2014 Wolfgang Gassler, https://github.com/woolfg",
-            "line": " dist/js/dependencies.js:46842"
+            "line": " dist/js/dependencies.js:46844"
         },
         {
             "message": "Missing item type\njsPDF JavaScript plugin\nCopyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com",
-            "line": " dist/js/dependencies.js:46850"
+            "line": " dist/js/dependencies.js:46852"
         },
         {
             "message": "Missing item type\njsPDF PNG PlugIn\nCopyright (c) 2014 James Robb, https://github.com/jamesbrobb",
-            "line": " dist/js/dependencies.js:46854"
+            "line": " dist/js/dependencies.js:46856"
         },
         {
             "message": "Missing item type\njsPDF Silly SVG plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com",
-            "line": " dist/js/dependencies.js:46858"
+            "line": " dist/js/dependencies.js:46860"
         },
         {
             "message": "Missing item type\njsPDF split_text_to_size plugin - MIT license.\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\n              2014 Diego Casorran, https://github.com/diegocr",
-            "line": " dist/js/dependencies.js:46862"
+            "line": " dist/js/dependencies.js:46864"
         },
         {
             "message": "Missing item type\njsPDF standard_fonts_metrics plugin\nCopyright (c) 2012 Willow Systems Corporation, willow-systems.com\nMIT license.",
-            "line": " dist/js/dependencies.js:46867"
+            "line": " dist/js/dependencies.js:46869"
         },
         {
             "message": "Missing item type\njsPDF total_pages plugin\nCopyright (c) 2013 Eduardo Menezes de Morais, eduardo.morais@usp.br",
-            "line": " dist/js/dependencies.js:46872"
+            "line": " dist/js/dependencies.js:46874"
         },
         {
             "message": "Missing item type\nJavaScript Polyfill functions for jsPDF\nCollected from public resources by\nhttps://github.com/diegocr",
-            "line": " dist/js/dependencies.js:46936"
+            "line": " dist/js/dependencies.js:46938"
         },
         {
             "message": "Missing item type\njsPDF AutoTable plugin v2.0.14\nCopyright (c) 2014 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable\n\nLicensed under the MIT License.\nhttp://opensource.org/licenses/mit-license",
-            "line": " dist/js/dependencies.js:46945"
+            "line": " dist/js/dependencies.js:46947"
         },
         {
             "message": "Missing item type\nEditableForm utilites",
-            "line": " dist/js/dependencies.js:47635"
+            "line": " dist/js/dependencies.js:47637"
         },
         {
             "message": "Missing item type\nclassic JS inheritance function",
-            "line": " dist/js/dependencies.js:47643"
+            "line": " dist/js/dependencies.js:47645"
         },
         {
             "message": "Missing item type\nset caret position in input\nsee http://stackoverflow.com/questions/499126/jquery-set-cursor-position-in-text-area",
-            "line": " dist/js/dependencies.js:47654"
+            "line": " dist/js/dependencies.js:47656"
         },
         {
             "message": "Missing item type\nfunction to parse JSON in *single* quotes. (jquery automatically parse only double quotes)\nThat allows such code as: <a data-source=\"{'a': 'b', 'c': 'd'}\">\nsafe = true --> means no exception will be thrown\nfor details see http://stackoverflow.com/questions/7410348/how-to-set-json-format-to-html5-data-attributes-in-the-jquery",
-            "line": " dist/js/dependencies.js:47670"
+            "line": " dist/js/dependencies.js:47672"
         },
         {
             "message": "Missing item type\nslice object by specified keys",
-            "line": " dist/js/dependencies.js:47695"
+            "line": " dist/js/dependencies.js:47697"
         },
         {
             "message": "Missing item type\nmethod to escape html.",
-            "line": " dist/js/dependencies.js:47761"
+            "line": " dist/js/dependencies.js:47763"
         },
         {
             "message": "Missing item type\nEditable Inline \n---------------------",
-            "line": " dist/js/dependencies.js:48401"
+            "line": " dist/js/dependencies.js:48403"
         },
         {
             "message": "Missing item type\nmethod to escape html.",
-            "line": " dist/js/dependencies.js:49454"
+            "line": " dist/js/dependencies.js:49456"
         },
         {
             "message": "Missing item type\nattach handler to automatically submit form when value changed (useful when buttons not shown)",
-            "line": " dist/js/dependencies.js:49461"
+            "line": " dist/js/dependencies.js:49463"
         },
         {
             "message": "Missing item type\nAdditional actions when destroying element",
-            "line": " dist/js/dependencies.js:49468"
+            "line": " dist/js/dependencies.js:49470"
         },
         {
             "message": "Missing item type\nconvert data to array suitable for sourceData, e.g. [{value: 1, text: 'abc'}, {...}]",
-            "line": " dist/js/dependencies.js:49748"
+            "line": " dist/js/dependencies.js:49750"
         },
         {
             "message": "Missing item type\nCombodate - 1.0.5\nDropdown date and time picker.\nConverts text input into dropdowns to pick day, month, year, hour, minute and second.\nUses momentjs as datetime library http://momentjs.com.\nFor i18n include corresponding file from https://github.com/timrwood/moment/tree/master/lang \n\nConfusion at noon and midnight - see http://en.wikipedia.org/wiki/12-hour_clock#Confusion_at_noon_and_midnight\nIn combodate: \n12:00 pm --> 12:00 (24-h format, midday)\n12:00 am --> 00:00 (24-h format, midnight, start of day)\n\nDiffers from momentjs parse rules:\n00:00 pm, 12:00 pm --> 12:00 (24-h format, day not change)\n00:00 am, 12:00 am --> 00:00 (24-h format, day not change)\n\n\nAuthor: Vitaliy Potapov\nProject page: http://github.com/vitalets/combodate\nCopyright (c) 2012 Vitaliy Potapov. Released under MIT License.",
-            "line": " dist/js/dependencies.js:50940"
+            "line": " dist/js/dependencies.js:50942"
         },
         {
             "message": "Missing item type\nEditable Popover3 (for Bootstrap 3) \n---------------------\nrequires bootstrap-popover.js",
-            "line": " dist/js/dependencies.js:51688"
+            "line": " dist/js/dependencies.js:51690"
         },
         {
             "message": "Missing item type\nmove popover to new position. This function mainly copied from bootstrap-popover.",
-            "line": " dist/js/dependencies.js:51745"
+            "line": " dist/js/dependencies.js:51747"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: editable",
@@ -5804,11 +5804,11 @@
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: resizable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:3082"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:3062"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: swipeable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:3140"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:3120"
         }
     ]
 }

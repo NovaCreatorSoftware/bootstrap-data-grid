@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 07/08/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/09/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -3001,16 +3001,9 @@ $("[data-toggle=\"tablear\"]").tablear();
         onReorderRowsDrag: function(table, row) {
             return false;
         },
-        onReorderRowsDrop: function(table, row) {
+        onReorderRowsDrop: function(table, row, newOrder) {
             return false;
-        },
-        onReorderRow: function(newData) {
-             return false;
         }
-    });
-
-    $.extend($.fn.tablear.Constructor.EVENTS, {
-        'reorder-row.bs.table': 'onReorderRow'
     });
 
     var _initHeader = $.fn.tablear.Constructor.prototype.initHeader;
@@ -3044,6 +3037,15 @@ $("[data-toggle=\"tablear\"]").tablear();
         //isSearch = true;
     };
 
+    $.fn.tablear.Constructor.prototype.onDrop = function(table, droppedRow) {
+        //Call the user defined function
+    	var newOrder = $.map($(table).find("tbody tr"), function (val) {
+            //MCM commented return ($(val).data('level') + val.id).replace(/\s/g, '');
+        	return +$(val).data('row-id');
+        });
+        $(table).data(".rs.novacreator.bootstrap.datagrid").options.onReorderRowsDrop.apply(table, [table, droppedRow, newOrder]);
+    };
+    
     $.fn.tablear.Constructor.prototype.makeRowsReorderable = function() {
         var that = this;
         this.$element.tableDnD({
@@ -3054,28 +3056,6 @@ $("[data-toggle=\"tablear\"]").tablear();
             onDragStart: that.options.onReorderRowsDrag,
             dragHandle: that.options.dragHandle
         });
-    };
-
-    $.fn.tablear.Constructor.prototype.onDrop = function(table, droppedRow) {
-        var tableBs = $(table);
-        var tableBsData = tableBs.data('bootstrap.table');
-        var tableBsOptions = tableBs.data('bootstrap.table').options;
-        var row = null;
-        var newData = [];
-
-        for(var i = 0; i < table.tBodies[0].rows.length; i++) {
-            row = $(table.tBodies[0].rows[i]);
-            newData.push(tableBsOptions.data[row.data('index')]);
-            row.data('index', i).attr('data-index', i);
-        }
-
-        tableBsOptions.data = newData;
-
-        //Call the user defined function
-        tableBsOptions.onReorderRowsDrop.apply(table, [table, droppedRow]);
-
-        //Call the event reorder-row
-        tableBsData.trigger('reorder-row', newData);
     };
 })(jQuery);
 

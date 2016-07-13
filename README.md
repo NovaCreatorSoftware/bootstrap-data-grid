@@ -1,6 +1,6 @@
 #bootstrap-data-grid [![Build Status](https://travis-ci.org/NovaCreatorSoftware/bootstrap-data-grid.svg?branch=master)](https://travis-ci.org/NovaCreatorSoftware/bootstrap-data-grid) 
 
-TableAr - Nova Creator Bootstrap Data Grid
+TableAr - Nova Creator Bootstrap Data Grid [URL] (http://novacreatorsoftware.github.io/bootstrap-data-grid/) 
 
 Based on / Loosely inspired by:
 

@@ -85,9 +85,9 @@ module.exports = function (grunt) {
                     filter: 'isFile'
                 }, {
                 	expand: true,
-                	src: ['demo/*'],
-                	dest: '<%= folders.dist %>/',
-                	flatten: true
+                	cwd: 'demo/',
+                	src: ['**/*'],
+                	dest: '<%= folders.dist %>/'
                 }]
             }
         },

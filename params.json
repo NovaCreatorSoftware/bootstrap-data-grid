@@ -1,6 +1,0 @@
-{
-  "name": "Bootstrap-data-grid",
-  "tagline": "Bootstrap Data Grid",
-  "body": "#bootstrap-data-grid [![Build Status](https://travis-ci.org/NovaCreatorSoftware/bootstrap-data-grid.svg?branch=master)](https://travis-ci.org/NovaCreatorSoftware/bootstrap-data-grid) \r\n\r\nTableAr - Nova Creator Bootstrap Data Grid\r\n\r\nBased on / Loosely inspired by:\r\n\r\n* [handsontable] (https://github.com/handsontable/handsontable)\r\n* [hootsuite grid] (https://github.com/hootsuite/grid)\r\n* [bootsrap table] (http://issues.wenzhixin.net.cn/bootstrap-table/)\r\n* [jsGrid] (http://js-grid.com/)\r\n* [JQuery Gridmanager] (https://github.com/neokoenig/jQuery-gridmanager)\r\n* [LayoutIt Build] (http://www.layoutit.com/build)\r\n* [LayoutIt Build v2] (https://github.com/justjavac/layoutit)\r\n* Jetstrap\r\n* [JQGrid] (http://www.trirand.com/blog/)\r\n* [BS Grid] (http://www.pontikis.net/labs/bs_grid/demo/)\r\n* [JQuery Bootgrid] (http://www.jquery-bootgrid.com/)\r\n* [Ace] (https://ace.c9.io)\r\n\r\n##extensions\r\n#####editable\r\n#####exporter\r\n#####filter\r\n#####reorder columns\r\n#####reorder rows\r\n#####resize columns\r\n#####swipeable \r\n\r\n##useful commands\r\ngrunt build\r\nbower install moment-js --save",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}

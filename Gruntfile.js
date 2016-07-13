@@ -267,6 +267,34 @@ module.exports = function (grunt) {
                 tasks: [ 'build' ],
                 livereload: true
             }
+        },
+        
+        buildcontrol: {
+        	options: {
+        		dir: 'dist',
+        		commit: true,
+        		push: true,
+        		message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+        	},
+        	pages: {
+        		options: {
+        			remote: 'git@github.com:cristimanole/bootstrap-data-grid.git',
+        			branch: 'gh-pages'
+        		}
+        	},
+        	/*heroku: {
+        		options: {
+        			remote: 'git@heroku.com:example-heroku-webapp-666.git',
+        			branch: 'master',
+        			tag: pkg.version
+        		}
+        	},*/
+        	local: {
+        		options: {
+        			remote: '../',
+        			branch: 'build'
+        		}
+        	}
         }
     });
 
@@ -286,6 +314,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-nuget');
     grunt.loadNpmTasks('grunt-regex-replace');
+    grunt.loadNpmTasks('grunt-build-control');
 
     grunt.registerMultiTask('version', 'sets version tag', function () {
         var pkg = grunt.file.readJSON(this.data.src);
@@ -295,7 +324,8 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['build']);
     grunt.registerTask('api', ['clean:api', 'yuidoc']);
     grunt.registerTask('test', ['qunit']);
-    grunt.registerTask('build', ['clean:build', 'version', 'less', 'copy', 'bower_concat', 'concat', 'csslint', 'jshint', 'test']); //TODO
+    grunt.registerTask('build', ['clean:build', 'version', 'less', 'copy', 'bower_concat', 'concat', 'csslint', 'jshint', 'test']); 
     grunt.registerTask('release', ['build', 'api', 'cssmin', 'uglify', 'compress', 'nugetpack']);
+    //grunt.registerTask('site', ['buildcontrol']);
     grunt.registerTask('publish', ['nugetpush', 'exec:publish']);
 };

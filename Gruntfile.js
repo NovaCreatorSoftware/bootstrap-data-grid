@@ -278,7 +278,7 @@ module.exports = function (grunt) {
         	},
         	pages: {
         		options: {
-        			remote: 'git@github.com:NovaCreatorSoftware/bootstrap-data-grid.git',
+        			remote: 'cristimanole@github.com:NovaCreatorSoftware/bootstrap-data-grid.git',
         			branch: 'gh-pages'
         		}
         	},

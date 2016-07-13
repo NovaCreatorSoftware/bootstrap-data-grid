@@ -27,5 +27,7 @@ Based on / Loosely inspired by:
 #####swipeable 
 
 ##useful commands
-grunt build
 bower install moment-js --save
+grunt build = build
+grunt release = release
+grunt buildcontrol:pages = update gh-pages (website)

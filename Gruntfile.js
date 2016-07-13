@@ -83,6 +83,11 @@ module.exports = function (grunt) {
                     dest: '<%= folders.dist %>/img/',
                     flatten: true,
                     filter: 'isFile'
+                }, {
+                	expand: true,
+                	src: ['demo/*'],
+                	dest: '<%= folders.dist %>/',
+                	flatten: true
                 }]
             }
         },

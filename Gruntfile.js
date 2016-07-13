@@ -326,6 +326,5 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['qunit']);
     grunt.registerTask('build', ['clean:build', 'version', 'less', 'copy', 'bower_concat', 'concat', 'csslint', 'jshint', 'test']); 
     grunt.registerTask('release', ['build', 'api', 'cssmin', 'uglify', 'compress', 'nugetpack']);
-    //grunt.registerTask('site', ['buildcontrol']);
     grunt.registerTask('publish', ['nugetpush', 'exec:publish']);
 };

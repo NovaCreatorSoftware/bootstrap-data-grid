@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nova Creator Bootstrap Data Grid Demo</title>
+	<link href="css/bootstrap.css" rel="stylesheet"/>
+	<link href="../dist/css/dependencies.css" rel="stylesheet"/>
+	<link href="../dist/css/novacreator.bootstrap.datagrid.css" rel="stylesheet"/>
+	<style>
+		@-webkit-viewport { width: device-width; }
+		@-moz-viewport { width: device-width; }
+		@-ms-viewport { width: device-width; }
+		@-o-viewport { width: device-width; }
+		@viewport { width: device-width; }
+		body { padding-top: 70px; }
+		.column .text { color: #f00 !important; }
+		.cell { font-weight: bold; }
+		.someClass { cursor: move; }
+	</style>
+</head>
+<body>
+	<header id="header" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<span class="navbar-brand" data-i18n="title">Nova Creator Bootstrap Data Grid</span>
+			</div>
+			<nav id="menu" class="navbar-collapse collapse" role="navigation">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Basic Demo</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<table id="grid"
+		class="table table-condensed table-hover table-striped"
+		data-selection="true" data-multi-select="true" data-row-select="true"
+		data-keep-selection="true">
+		<thead>
+			<tr>
+				<th data-column-id="id" data-identifier="true" data-type="numeric"
+					data-css-class="dragHandle someClass"				
+					data-align="left" data-width="50px">ID</th> 
+				<th data-show-filter="input" data-column-id="name"
+					data-order="asc" data-align="left" data-header-align="left"
+					data-editable-mode="inline"	
+					data-editable="true">Name</th>
+				<th data-column-id="actions" data-formatter="actions"
+					data-header-align="center" data-align="center"
+					data-sortable="false" data-width="150px">Actions</th>
+				<th data-show-filter="select" data-column-id="dueDate"
+					data-css-class="cell" data-header-css-class="column"
+					data-header-align="center" data-align="center"
+					data-editable="true" data-editable-type="combodate" 
+					data-editable-format="YYYY-MM-DD" data-editable-viewformat="YYYY.MM.DD" data-editable-template="YYYY . MMM . D"					
+					data-filterable="true" data-width="200px">Due Date</th>
+				<th data-show-filter="select" data-column-id="actionDate"
+					data-css-class="cell" data-header-css-class="column"
+					data-header-align="center" data-align="center"
+					data-editable="true" data-editable-type="combodate" 
+					data-editable-format="YYYY-MM-DD" data-editable-viewformat="YYYY.MM.DD" data-editable-template="YYYY . MMM . D"					
+					data-filterable="true" data-width="200px">Action Date</th>
+				<th data-column-id="status" data-type="numeric" data-visible="false">Status</th>
+				<th data-column-id="priority" data-type="numeric" data-visible="false"
+					data-width="50px">Priority</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Some name 1</td>
+				<td></td>
+				<td>2014.11.12</td>
+				<td>2014.11.12</td>
+				<td>999</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Some name 2</td>
+				<td></td>
+				<td>2015.11.12</td>
+				<td>2015.11.12</td>
+				<td>999</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Some name 3</td>
+				<td></td>
+				<td>2016.11.12</td>
+				<td>2016.11.12</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>Some name 4</td>
+				<td></td>
+				<td>2017.11.12</td>
+				<td>2017.11.12</td>
+				<td>999</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>Some name 5</td>
+				<td></td>
+				<td>2018.11.12</td>
+				<td>2018.11.12</td>
+				<td>3</td>
+				<td>5</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<footer id="footer">&copy; Copyright 2015-2016, Nova Creator Software</footer>
+
+	<script src="https://use.fontawesome.com/18e1e569fb.js"></script>
+	<script src="js/moderniz.2.8.1.js"></script>
+	<!--
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    -->
+	<script src="../dist/js/dependencies.js"></script>
+	<script src="../dist/js/novacreator.bootstrap.datagrid.js"></script>
+	<script src="../dist/js/novacreator.bootstrap.datagrid.fa.js"></script>
+	<script>
+		$(function() {
+			var grid = $("#grid").tablear({
+				formatters: {
+					"actions": function(column, row) {
+						return "<button type=\"button\" class=\"btn btn-sm btn-default action-x\" data-row-id=\"" + 
+							row.id + "\"><span class=\"fa fa-times-circle\" style=\"font-size:2em;\"></span></button> " + 
+							"<button type=\"button\" class=\"btn btn-sm btn-default action-ok\" data-row-id=\"" + 
+							row.id + "\"><span class=\"fa fa-check-circle\" style=\"font-size:2em;\"></span></button>";
+					}
+				},
+				rowCount: [-1, 10, 50, 75],
+				showExport: true,
+				showFilter: true,
+				reorderableColumns: true,
+				reorderableRows: true,
+				dragHandle: '.dragHandle',
+				resizable: true,
+				editable: true,
+				swipeable: true,
+				swipeableOptions: {
+					trigger: 'tbody tr td:nth-child(3)',
+				},
+				onSwipe: function() {
+					alert('SWIPE!');
+				}
+			}).on("load.rs.novacreator.bootstrap.datagrid", function() {
+				//alert('data loaded');
+			}).on("loaded.rs.novacreator.bootstrap.datagrid", function() {
+				grid.find(".action-x").off("click").on("click", function(e) {
+					alert("You pressed x on row: " + $(this).data("row-id"));
+				}).end().find(".action-ok").off("click").on("click", function(e) {
+					alert("You pressed ok on row: " + $(this).data("row-id"));
+				});
+			});
+
+			$("#grid").tablear("clear");
+			setTimeout(function() { //simulate a row added later after
+ 				$("#grid").tablear("append", [{
+					id: '',
+					name: '',
+					dueDate: '2020.06.06',
+					actionDate: '',
+					status: '',
+					priority: ''
+				}]);
+			}, 1000);
+			setTimeout(function() { //simulate a row added later after
+ 				$("#grid").tablear("append", [{
+					id: '666',
+					name: '',
+					dueDate: '',
+					actionDate: '',
+					status: '',
+					priority: ''
+				}]);
+			}, 2000);
+		});
+	</script>
+</body>
+</html>

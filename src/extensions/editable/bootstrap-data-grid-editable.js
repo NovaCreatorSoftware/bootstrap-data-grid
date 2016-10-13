@@ -76,7 +76,6 @@
                     ' data-pk="' + row.id + '"',
                     ' data-value="' + result + '"',
                     editableDataMarkup.join(''),
-                    ' data-max-year="2016" ',
                     '>' + '</a>'
                 ].join('');
             };

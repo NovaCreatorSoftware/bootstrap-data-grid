@@ -108,16 +108,20 @@
             // so a bit of help is needed            
             var aElements = that.$element.find('a[data-name="' + column.field + '"]');
             aElements.each(function() {
-            	var comboDate = {};
+            	var combodateData = {};
             	var maxYear = $(this).data("maxYear");
+            	maxYear && (combodateData["maxYear"] = maxYear);
             	var minYear = $(this).data("minYear");
-            	maxYear && (comboDate["maxYear"] = maxYear);
-            	minYear && (comboDate["minYear"] = minYear);
+            	minYear && (combodateData["minYear"] = minYear);
+            	var yearDescending = $(this).data("yearDescending");
+            	if(typeof yearDescending != 'undefined') {
+            		combodateData["yearDescending"] = yearDescending;
+            	}
             	var placement = 'top';
             	if(columnIndex == lastVisibleColumn) {
             		placement = 'left';
             	}
-            	$(this).editable({ combodate: comboDate, placement: placement });
+            	$(this).editable({ combodate: combodateData, placement: placement });
             });
             aElements.off('save').on('save', that, function(e, params) {
             	var Grid = e.data;

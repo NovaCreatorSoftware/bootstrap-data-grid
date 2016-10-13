@@ -2209,16 +2209,20 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             // so a bit of help is needed            
             var aElements = that.$element.find(&#x27;a[data-name=&quot;&#x27; + column.field + &#x27;&quot;]&#x27;);
             aElements.each(function() {
-            	var comboDate = {};
+            	var combodateData = {};
             	var maxYear = $(this).data(&quot;maxYear&quot;);
+            	maxYear &amp;&amp; (combodateData[&quot;maxYear&quot;] = maxYear);
             	var minYear = $(this).data(&quot;minYear&quot;);
-            	maxYear &amp;&amp; (comboDate[&quot;maxYear&quot;] = maxYear);
-            	minYear &amp;&amp; (comboDate[&quot;minYear&quot;] = minYear);
+            	minYear &amp;&amp; (combodateData[&quot;minYear&quot;] = minYear);
+            	var yearDescending = $(this).data(&quot;yearDescending&quot;);
+            	if(typeof yearDescending != &#x27;undefined&#x27;) {
+            		combodateData[&quot;yearDescending&quot;] = yearDescending;
+            	}
             	var placement = &#x27;top&#x27;;
             	if(columnIndex == lastVisibleColumn) {
             		placement = &#x27;left&#x27;;
             	}
-            	$(this).editable({ combodate: comboDate, placement: placement });
+            	$(this).editable({ combodate: combodateData, placement: placement });
             });
             aElements.off(&#x27;save&#x27;).on(&#x27;save&#x27;, that, function(e, params) {
             	var Grid = e.data;

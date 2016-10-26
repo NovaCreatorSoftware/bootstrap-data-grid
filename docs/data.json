@@ -378,7 +378,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1057,
+            "line": 1068,
             "description": "Represents the Tablear Grid plugin.",
             "is_constructor": 1,
             "params": [
@@ -405,7 +405,7 @@
             "extension_for": [],
             "namespace": "",
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1097,
+            "line": 1108,
             "description": "An object that represents the default settings.",
             "static": 1,
             "example": [
@@ -4249,7 +4249,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1116,
+            "line": 1127,
             "description": "Enables row selection (to enable multi selection see also `multiSelect`). Default value is `false`.",
             "itemtype": "property",
             "name": "selection",
@@ -4260,7 +4260,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1127,
+            "line": 1138,
             "description": "Enables multi selection (`selection` must be set to `true` as well). Default value is `false`.",
             "itemtype": "property",
             "name": "multiSelect",
@@ -4271,7 +4271,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1138,
+            "line": 1149,
             "description": "Enables entire row click selection (`selection` must be set to `true` as well). Default value is `false`.",
             "itemtype": "property",
             "name": "rowSelect",
@@ -4282,7 +4282,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1149,
+            "line": 1160,
             "description": "Defines whether the row selection is saved internally on filtering, paging and sorting\n(even if the selected rows are not visible).",
             "itemtype": "property",
             "name": "keepSelection",
@@ -4293,7 +4293,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1165,
+            "line": 1176,
             "description": "General search settings to configure the search field behaviour.",
             "itemtype": "property",
             "name": "searchSettings",
@@ -4303,7 +4303,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1174,
+            "line": 1185,
             "description": "The time in milliseconds to wait before search gets executed.",
             "itemtype": "property",
             "name": "delay",
@@ -4313,7 +4313,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1184,
+            "line": 1195,
             "description": "The characters to type before the search gets executed.",
             "itemtype": "property",
             "name": "characters",
@@ -4323,7 +4323,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1195,
+            "line": 1206,
             "description": "Defines whether the data shall be loaded via an asynchronous HTTP (Ajax) request.",
             "itemtype": "property",
             "name": "ajax",
@@ -4333,7 +4333,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1205,
+            "line": 1216,
             "description": "Ajax request settings that shall be used for server-side communication.\nAll setting except data, error, success and url can be overridden.\nFor the full list of settings go to http://api.jquery.com/jQuery.ajax/.",
             "itemtype": "property",
             "name": "ajaxSettings",
@@ -4343,7 +4343,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1216,
+            "line": 1227,
             "description": "Specifies the HTTP method which shall be used when sending data to the server.\nGo to http://api.jquery.com/jQuery.ajax/ for more details.\nThis setting is overriden for backward compatibility.",
             "itemtype": "property",
             "name": "method",
@@ -4353,7 +4353,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1229,
+            "line": 1240,
             "description": "Enriches the request object with additional properties. Either a `PlainObject` or a `Function`\nthat returns a `PlainObject` can be passed. Default value is `{}`.",
             "itemtype": "property",
             "name": "post",
@@ -4365,7 +4365,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1241,
+            "line": 1252,
             "description": "Sets the data URL to a data service (e.g. a REST service). Either a `String` or a `Function`\nthat returns a `String` can be passed. Default value is `\"\"`.",
             "itemtype": "property",
             "name": "url",
@@ -4375,7 +4375,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1252,
+            "line": 1263,
             "description": "Defines whether the search is case sensitive or insensitive.",
             "itemtype": "property",
             "name": "caseSensitive",
@@ -4386,7 +4386,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1265,
+            "line": 1276,
             "description": "Transforms the JSON request object in whatever is needed on the server-side implementation.",
             "itemtype": "property",
             "name": "requestHandler",
@@ -4397,7 +4397,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1276,
+            "line": 1287,
             "description": "Transforms the response object into the expected JSON response object.",
             "itemtype": "property",
             "name": "responseHandler",
@@ -4408,7 +4408,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1287,
+            "line": 1298,
             "description": "A list of converters.",
             "itemtype": "property",
             "name": "converters",
@@ -4418,7 +4418,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1307,
+            "line": 1318,
             "description": "Contains all css classes.",
             "itemtype": "property",
             "name": "css",
@@ -4427,7 +4427,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1343,
+            "line": 1354,
             "description": "CSS class to select the parent div which activates responsive mode.",
             "itemtype": "property",
             "name": "responsiveTable",
@@ -4438,7 +4438,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1360,
+            "line": 1371,
             "description": "CSS class to highlight selected rows.",
             "itemtype": "property",
             "name": "selected",
@@ -4449,7 +4449,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1375,
+            "line": 1386,
             "description": "A dictionary of formatters.",
             "itemtype": "property",
             "name": "formatters",
@@ -4459,7 +4459,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1385,
+            "line": 1396,
             "description": "Specifies the mapping between colorIndex (row.colorIndex) and contextual classes to color rows.",
             "itemtype": "property",
             "name": "colorMapping",
@@ -4469,7 +4469,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1394,
+            "line": 1405,
             "description": "Specifies a successful or positive action.",
             "itemtype": "property",
             "name": "0",
@@ -4478,7 +4478,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1403,
+            "line": 1414,
             "description": "Specifies a neutral informative change or action.",
             "itemtype": "property",
             "name": "1",
@@ -4487,7 +4487,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1412,
+            "line": 1423,
             "description": "Specifies a warning that might need attention.",
             "itemtype": "property",
             "name": "2",
@@ -4496,7 +4496,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1421,
+            "line": 1432,
             "description": "Specifies a dangerous or potentially negative action.",
             "itemtype": "property",
             "name": "3",
@@ -4505,7 +4505,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1473,
+            "line": 1484,
             "description": "Contains all templates.",
             "itemtype": "property",
             "name": "templates",
@@ -4514,7 +4514,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1546,
+            "line": 1557,
             "description": "Appends rows.",
             "itemtype": "method",
             "name": "append",
@@ -4530,7 +4530,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1571,
+            "line": 1582,
             "description": "Removes all rows.",
             "itemtype": "method",
             "name": "clear",
@@ -4539,7 +4539,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1592,
+            "line": 1603,
             "description": "Removes the control functionality completely and transforms the current state to the initial HTML structure.",
             "itemtype": "method",
             "name": "destroy",
@@ -4548,7 +4548,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1610,
+            "line": 1621,
             "description": "Resets the state and reloads rows.",
             "itemtype": "method",
             "name": "reload",
@@ -4557,7 +4557,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1622,
+            "line": 1633,
             "description": "Removes rows by ids. Removes selected rows if no ids are provided.",
             "itemtype": "method",
             "name": "remove",
@@ -4574,7 +4574,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1656,
+            "line": 1667,
             "description": "Searches in all rows for a specific phrase (but only in visible cells). \nThe search filter will be reset if no argument is provided.",
             "itemtype": "method",
             "name": "search",
@@ -4591,7 +4591,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1675,
+            "line": 1686,
             "description": "Selects rows by ids. Selects all visible rows if no ids are provided.\nIn server-side scenarios only visible rows are selectable.",
             "itemtype": "method",
             "name": "select",
@@ -4608,7 +4608,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1728,
+            "line": 1739,
             "description": "Deselects rows by ids. Deselects all visible rows if no ids are provided.\nIn server-side scenarios only visible rows are deselectable.",
             "itemtype": "method",
             "name": "deselect",
@@ -4625,7 +4625,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1772,
+            "line": 1783,
             "description": "Sorts the rows by a given sort descriptor dictionary. \nThe sort filter will be reseted, if no argument is provided.",
             "itemtype": "method",
             "name": "sort",
@@ -4642,7 +4642,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1794,
+            "line": 1805,
             "description": "Gets a list of the column settings.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getColumnSettings",
@@ -4655,7 +4655,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1807,
+            "line": 1818,
             "description": "Gets the column settings for the columnId\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getColumnSettings",
@@ -4668,7 +4668,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1826,
+            "line": 1837,
             "description": "Gets the current page index.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getCurrentPage",
@@ -4681,7 +4681,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1839,
+            "line": 1850,
             "description": "Gets the current rows.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getCurrentPage",
@@ -4694,7 +4694,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1852,
+            "line": 1863,
             "description": "Gets a number represents the row count per page.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getRowCount",
@@ -4707,7 +4707,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1865,
+            "line": 1876,
             "description": "Gets the actual search phrase.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getSearchPhrase",
@@ -4720,7 +4720,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1878,
+            "line": 1889,
             "description": "Gets the complete list of currently selected rows.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getSelectedRows",
@@ -4733,7 +4733,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1891,
+            "line": 1902,
             "description": "Gets the sort dictionary which represents the state of column sorting.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getSortDictionary",
@@ -4746,7 +4746,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1904,
+            "line": 1915,
             "description": "Gets a number represents the total page count.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getTotalPageCount",
@@ -4759,7 +4759,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1940,
+            "line": 1951,
             "description": "Gets a number represents the total row count.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getTotalRowCount",
@@ -4772,43 +4772,43 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1997,
+            "line": 2008,
             "description": "Nova Creator Boostrap Data Grid Extension: editable",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2156,
+            "line": 2167,
             "description": "Nova Creator Boostrap Data Grid Extension: exporter",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2267,
+            "line": 2278,
             "description": "Nova Creator Boostrap Data Grid Extension: filters",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2866,
+            "line": 2877,
             "description": "Nova Creator Boostrap Data Grid Extension: reorder-columns",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2980,
+            "line": 2991,
             "description": "Nova Creator Boostrap Data Grid Extension: reorder-rows",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 3064,
+            "line": 3075,
             "description": "Nova Creator Boostrap Data Grid Extension: resizable",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 3122,
+            "line": 3133,
             "description": "Nova Creator Boostrap Data Grid Extension: swipeable",
             "class": "defaults"
         }
@@ -5784,31 +5784,31 @@
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: editable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:1997"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2008"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: exporter",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2156"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2167"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: filters",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2267"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2278"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: reorder-columns",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2866"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2877"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: reorder-rows",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2980"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2991"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: resizable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:3064"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:3075"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: swipeable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:3122"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:3133"
         }
     ]
 }

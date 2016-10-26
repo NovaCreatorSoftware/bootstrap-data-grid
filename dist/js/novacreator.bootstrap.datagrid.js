@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 10/13/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 10/27/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -734,6 +734,17 @@ function registerRowEvents(tbody) { // jshint ignore:line
             }
         });
     }
+
+    tbody.off("dblclick" + namespace, "> tr").on("dblclick" + namespace, "> tr", function(e) {
+        if($(e.target).is("td")) { //don't trigger on links and stuff
+            e.stopPropagation();
+            var $this = $(this);
+            var id = (that.identifier == null) ? $this.data("row-id") : that.converter.from($this.data("row-id") + "");
+            var row = (that.identifier == null) ? that.currentRows[id] :
+                that.currentRows.first(function (item) { return item[that.identifier] === id; });
+            that.$element.trigger("dblclick" + namespace, [that.columns, row]);
+        }
+    });
 
     tbody.off("click" + namespace, "> tr").on("click" + namespace, "> tr", function(e) {
         if($(e.target).is("td")) { //don't trigger on links and stuff

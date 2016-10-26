@@ -725,6 +725,17 @@ function registerRowEvents(tbody) { // jshint ignore:line
         });
     }
 
+    tbody.off("dblclick" + namespace, "> tr").on("dblclick" + namespace, "> tr", function(e) {
+        if($(e.target).is("td")) { //don't trigger on links and stuff
+            e.stopPropagation();
+            var $this = $(this);
+            var id = (that.identifier == null) ? $this.data("row-id") : that.converter.from($this.data("row-id") + "");
+            var row = (that.identifier == null) ? that.currentRows[id] :
+                that.currentRows.first(function (item) { return item[that.identifier] === id; });
+            that.$element.trigger("dblclick" + namespace, [that.columns, row]);
+        }
+    });
+
     tbody.off("click" + namespace, "> tr").on("click" + namespace, "> tr", function(e) {
         if($(e.target).is("td")) { //don't trigger on links and stuff
             e.stopPropagation();

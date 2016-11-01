@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 10/27/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 11/01/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -2139,8 +2139,9 @@ $("[data-toggle=\"tablear\"]").tablear();
             		row = Grid.getRowById(0);
             	}
             	$(this).data('value', params.submitValue);
+            	var oldValue = row[columnId]; 
             	row[columnId] = params.submitValue;
-            	Grid.options.onEditableSave(columnId, row, row[columnId], $(this));
+            	Grid.options.onEditableSave(columnId, row, oldValue, $(this));
             });
             aElements.off('shown').on('shown', that, function(e, editable) {
             	var Grid = e.data;

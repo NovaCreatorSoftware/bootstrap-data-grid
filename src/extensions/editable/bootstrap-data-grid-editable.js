@@ -132,8 +132,9 @@
             		row = Grid.getRowById(0);
             	}
             	$(this).data('value', params.submitValue);
+            	var oldValue = row[columnId]; 
             	row[columnId] = params.submitValue;
-            	Grid.options.onEditableSave(columnId, row, row[columnId], $(this));
+            	Grid.options.onEditableSave(columnId, row, oldValue, $(this));
             });
             aElements.off('shown').on('shown', that, function(e, editable) {
             	var Grid = e.data;

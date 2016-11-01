@@ -104,7 +104,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 10/27/2016
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 11/01/2016
  * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -2244,8 +2244,9 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             		row = Grid.getRowById(0);
             	}
             	$(this).data(&#x27;value&#x27;, params.submitValue);
+            	var oldValue = row[columnId]; 
             	row[columnId] = params.submitValue;
-            	Grid.options.onEditableSave(columnId, row, row[columnId], $(this));
+            	Grid.options.onEditableSave(columnId, row, oldValue, $(this));
             });
             aElements.off(&#x27;shown&#x27;).on(&#x27;shown&#x27;, that, function(e, editable) {
             	var Grid = e.data;

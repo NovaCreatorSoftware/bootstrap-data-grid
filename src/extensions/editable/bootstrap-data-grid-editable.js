@@ -38,6 +38,14 @@
             return;
         }
 
+        var identifier;
+        $.each(this.columns, function (i, column) {
+        	if(column.identifier) {
+        		identifier = column.id;
+            	return false;
+        	}
+        });
+
         $.each(this.columns, function (i, column) {
             if(!column.editable) {
                 return;
@@ -73,7 +81,7 @@
 
                 return ['<a href="javascript:void(0)"',
                     ' data-name="' + column.field + '"',
-                    ' data-pk="' + row.id + '"',
+                    ' data-pk="' + row[identifier] + '"',
                     ' data-value="' + result + '"',
                     editableDataMarkup.join(''),
                     '>' + '</a>'

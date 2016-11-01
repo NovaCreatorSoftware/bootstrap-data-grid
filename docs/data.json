@@ -4759,7 +4759,7 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 1951,
+            "line": 1956,
             "description": "Gets a number represents the total row count.\nThis method returns only for the first grid instance a value.\nTherefore be sure that only one grid instance is retrieved by your selector.",
             "itemtype": "method",
             "name": "getTotalRowCount",
@@ -4772,43 +4772,43 @@
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2008,
+            "line": 2013,
             "description": "Nova Creator Boostrap Data Grid Extension: editable",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2168,
+            "line": 2181,
             "description": "Nova Creator Boostrap Data Grid Extension: exporter",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2279,
+            "line": 2292,
             "description": "Nova Creator Boostrap Data Grid Extension: filters",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2878,
+            "line": 2891,
             "description": "Nova Creator Boostrap Data Grid Extension: reorder-columns",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 2992,
+            "line": 3005,
             "description": "Nova Creator Boostrap Data Grid Extension: reorder-rows",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 3076,
+            "line": 3089,
             "description": "Nova Creator Boostrap Data Grid Extension: resizable",
             "class": "defaults"
         },
         {
             "file": "dist/js/novacreator.bootstrap.datagrid.js",
-            "line": 3134,
+            "line": 3147,
             "description": "Nova Creator Boostrap Data Grid Extension: swipeable",
             "class": "defaults"
         }
@@ -5784,31 +5784,31 @@
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: editable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2008"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2013"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: exporter",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2168"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2181"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: filters",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2279"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2292"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: reorder-columns",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2878"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:2891"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: reorder-rows",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:2992"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:3005"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: resizable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:3076"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:3089"
         },
         {
             "message": "Missing item type\nNova Creator Boostrap Data Grid Extension: swipeable",
-            "line": " dist/js/novacreator.bootstrap.datagrid.js:3134"
+            "line": " dist/js/novacreator.bootstrap.datagrid.js:3147"
         }
     ]
 }

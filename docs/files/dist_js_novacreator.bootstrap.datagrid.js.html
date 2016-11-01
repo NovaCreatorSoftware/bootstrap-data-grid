@@ -2045,10 +2045,15 @@ Grid.prototype.getRowById = function(rowId) {
     var that = this;
     var foundRow;
     $.each(that.rows, function (i, row) {
-        if(row.id === rowId) {
-            foundRow = row;
-            return false;
-        }
+    	if(that.identifier) {
+	        if(row[that.identifier] === rowId) {
+	            foundRow = row;
+	            return false;
+	        }
+    	} else if(row.id === rowId) {
+    		foundRow = row;
+    		return false;
+    	}
     });
     return foundRow;
 };
@@ -2150,6 +2155,14 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             return;
         }
 
+        var identifier;
+        $.each(this.columns, function (i, column) {
+        	if(column.identifier) {
+        		identifier = column.id;
+            	return false;
+        	}
+        });
+
         $.each(this.columns, function (i, column) {
             if(!column.editable) {
                 return;
@@ -2185,7 +2198,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 
                 return [&#x27;&lt;a href=&quot;javascript:void(0)&quot;&#x27;,
                     &#x27; data-name=&quot;&#x27; + column.field + &#x27;&quot;&#x27;,
-                    &#x27; data-pk=&quot;&#x27; + row.id + &#x27;&quot;&#x27;,
+                    &#x27; data-pk=&quot;&#x27; + row[identifier] + &#x27;&quot;&#x27;,
                     &#x27; data-value=&quot;&#x27; + result + &#x27;&quot;&#x27;,
                     editableDataMarkup.join(&#x27;&#x27;),
                     &#x27;&gt;&#x27; + &#x27;&lt;/a&gt;&#x27;

@@ -1940,10 +1940,15 @@ Grid.prototype.getRowById = function(rowId) {
     var that = this;
     var foundRow;
     $.each(that.rows, function (i, row) {
-        if(row.id === rowId) {
-            foundRow = row;
-            return false;
-        }
+    	if(that.identifier) {
+	        if(row[that.identifier] === rowId) {
+	            foundRow = row;
+	            return false;
+	        }
+    	} else if(row.id === rowId) {
+    		foundRow = row;
+    		return false;
+    	}
     });
     return foundRow;
 };
@@ -2045,6 +2050,14 @@ $("[data-toggle=\"tablear\"]").tablear();
             return;
         }
 
+        var identifier;
+        $.each(this.columns, function (i, column) {
+        	if(column.identifier) {
+        		identifier = column.id;
+            	return false;
+        	}
+        });
+
         $.each(this.columns, function (i, column) {
             if(!column.editable) {
                 return;
@@ -2080,7 +2093,7 @@ $("[data-toggle=\"tablear\"]").tablear();
 
                 return ['<a href="javascript:void(0)"',
                     ' data-name="' + column.field + '"',
-                    ' data-pk="' + row.id + '"',
+                    ' data-pk="' + row[identifier] + '"',
                     ' data-value="' + result + '"',
                     editableDataMarkup.join(''),
                     '>' + '</a>'

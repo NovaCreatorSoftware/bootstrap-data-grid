@@ -876,10 +876,15 @@ Grid.prototype.getRowById = function(rowId) {
     var that = this;
     var foundRow;
     $.each(that.rows, function (i, row) {
-        if(row.id === rowId) {
-            foundRow = row;
-            return false;
-        }
+    	if(that.identifier) {
+	        if(row[that.identifier] === rowId) {
+	            foundRow = row;
+	            return false;
+	        }
+    	} else if(row.id === rowId) {
+    		foundRow = row;
+    		return false;
+    	}
     });
     return foundRow;
 };

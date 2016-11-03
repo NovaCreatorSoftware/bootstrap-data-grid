@@ -27,10 +27,10 @@ Based on / Loosely inspired by:
 #####swipeable 
 
 ##useful commands
-bower install moment-js --save
-grunt build = build
-grunt release = release
-grunt buildcontrol:pages = update gh-pages (website)
+* bower install moment-js --save
+* grunt build = build
+* grunt release = release
+* grunt buildcontrol:pages = update gh-pages (website)
 
 ##note to self
 eclipse user really needs to be git, no password, set to ssh protocol. and ssh key that's in github selected. 

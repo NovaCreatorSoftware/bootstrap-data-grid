@@ -53,7 +53,7 @@
         "jquery-ui": "jqueryui#^1.11.4",
         "bootstrap": ">=3.3.6",
         "tableExport.jquery.plugin": "^1.5.1",
-        "dragtable": "^2.0.14",
+        "dragtable": "^2.0.15",
         "col-resizable": "*",
         "TableDnD": "^0.9.1",
         "x-editable": "^1.5.1",

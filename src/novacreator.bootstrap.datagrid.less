@@ -20,7 +20,7 @@
     white-space: inherit !important;
 }
 
-.tablear-header, .tablear-footer {
+.tablear-table .tablear-header, .tablear-table .tablear-footer {
     margin: 15px 0;
 
     a { 
@@ -56,7 +56,7 @@
     }
 }
 
-.tablear-header .actionBar, .tablear-footer .infoBar {
+.tablear-table .tablear-header .actionBar, .tablear-table .tablear-footer .infoBar {
     text-align: right;
 
     .btn-group > .btn-group { 
@@ -164,25 +164,25 @@
 }
 
 //dragtable
-.dragtable-sortable { 
+.tablear-table .dragtable-sortable { 
     list-style-type: none; margin: 0; padding: 0; -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none; user-select: none; 
 }
-.dragtable-sortable li {
+.tablear-table .dragtable-sortable li {
     margin: 0; padding: 0; float: left; font-size: 1em; background: white; 
 }
 
-.dragtable-sortable th, .dragtable-sortable td{
+.tablear-table .dragtable-sortable th, .tablear-table .dragtable-sortable td{
     border-left: 0;
 }
 
-.dragtable-sortable li:first-child th, .dragtable-sortable li:first-child td {
+.tablear-table .dragtable-sortable li:first-child th, .tablear-table .dragtable-sortable li:first-child td {
     border-left: 1px solid #CCC; 
 }
 
-.ui-sortable-helper {
+.tablear-table .ui-sortable-helper {
     opacity: 0.7;filter: alpha(opacity=70);
 }
-.ui-sortable-placeholder { 
+.tablear-table .ui-sortable-placeholder { 
     -moz-box-shadow: 4px 5px 4px #C6C6C6 inset;
     -webkit-box-shadow: 4px 5px 4px #C6C6C6 inset;
     box-shadow: 4px 5px 4px #C6C6C6 inset;
@@ -193,11 +193,11 @@
     visibility: visible !important;
 }
 //.ui-sortable-placeholder * { 
-.ui-sortable-placeholder * { 
+.tablear-table .ui-sortable-placeholder * { 
     opacity: 0.0; visibility: hidden; 
 }
 
-.reorder_rows_onDragClass td {
+.tablear-table .reorder_rows_onDragClass td {
     background-color: #eee;
     -webkit-box-shadow: 11px 5px 12px 2px #333, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
     -webkit-box-shadow: 6px 3px 5px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
@@ -207,7 +207,7 @@
     position: relative;
 }
 
-.reorder_rows_onDragClass td:last-child {
+.tablear-table .reorder_rows_onDragClass td:last-child {
     -webkit-box-shadow: 8px 7px 12px 0 #333, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
     -webkit-box-shadow: 1px 8px 6px -4px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
     -moz-box-shadow: 0 9px 4px -4px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset, -1px 0 0 #ccc inset;
@@ -217,12 +217,12 @@
 }
 
 /*make editable fill the parent size (and use ~ to prevent less to actually do a calculation)*/
-.editable-container.editable-inline,
-.editable-container.editable-inline .control-group.form-group,
-.editable-container.editable-inline .control-group.form-group .editable-input,
-.editable-container.editable-inline .control-group.form-group .editable-input textarea,
-.editable-container.editable-inline .control-group.form-group .editable-input select,
-.editable-container.editable-inline .control-group.form-group .editable-input input:not([type=radio]):not([type=checkbox]):not([type=submit]) {
+.tablear-table .editable-container.editable-inline,
+.tablear-table .editable-container.editable-inline .control-group.form-group,
+.tablear-table .editable-container.editable-inline .control-group.form-group .editable-input,
+.tablear-table .editable-container.editable-inline .control-group.form-group .editable-input textarea,
+.tablear-table .editable-container.editable-inline .control-group.form-group .editable-input select,
+.tablear-table .editable-container.editable-inline .control-group.form-group .editable-input input:not([type=radio]):not([type=checkbox]):not([type=submit]) {
 	width: -moz-calc(~"100% - 30px");
 	width: -webkit-calc(~"100% - 30px");
 	width: calc(~"100% - 30px");

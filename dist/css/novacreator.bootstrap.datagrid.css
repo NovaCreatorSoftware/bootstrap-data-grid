@@ -1,78 +1,78 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 11/01/2016
- * Copyright (c) 2015-2016 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 01/18/2017
+ * Copyright (c) 2015-2017 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
-.tablear-header,
-.tablear-footer {
+.tablear-table .tablear-header,
+.tablear-table .tablear-footer {
   margin: 15px 0;
 }
-.tablear-header a,
-.tablear-footer a {
+.tablear-table .tablear-header a,
+.tablear-table .tablear-footer a {
   outline: 0;
 }
-.tablear-header .search,
-.tablear-footer .search {
+.tablear-table .tablear-header .search,
+.tablear-table .tablear-footer .search {
   display: inline-block;
   margin: 0 20px 0 0;
   vertical-align: middle;
   width: 180px;
 }
-.tablear-header .search .glyphicon,
-.tablear-footer .search .glyphicon {
+.tablear-table .tablear-header .search .glyphicon,
+.tablear-table .tablear-footer .search .glyphicon {
   top: 0;
 }
-.tablear-header .search .fa,
-.tablear-footer .search .fa {
+.tablear-table .tablear-header .search .fa,
+.tablear-table .tablear-footer .search .fa {
   display: table-cell;
 }
-.tablear-header .search.search-field::-ms-clear,
-.tablear-footer .search.search-field::-ms-clear,
-.tablear-header .search .search-field::-ms-clear,
-.tablear-footer .search .search-field::-ms-clear {
+.tablear-table .tablear-header .search.search-field::-ms-clear,
+.tablear-table .tablear-footer .search.search-field::-ms-clear,
+.tablear-table .tablear-header .search .search-field::-ms-clear,
+.tablear-table .tablear-footer .search .search-field::-ms-clear {
   display: none;
 }
-.tablear-header .actions,
-.tablear-footer .actions {
+.tablear-table .tablear-header .actions,
+.tablear-table .tablear-footer .actions {
   margin: 0 20px 0 0;
 }
-.tablear-header .pagination,
-.tablear-footer .pagination {
+.tablear-table .tablear-header .pagination,
+.tablear-table .tablear-footer .pagination {
   margin: 0 !important;
 }
-.tablear-header .actionBar,
-.tablear-footer .infoBar {
+.tablear-table .tablear-header .actionBar,
+.tablear-table .tablear-footer .infoBar {
   text-align: right;
 }
-.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu,
-.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu {
+.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu,
+.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu {
   text-align: left;
 }
-.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item,
-.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item {
+.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item,
+.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item {
   cursor: pointer;
   display: block;
   margin: 0;
   padding: 3px 20px;
   white-space: nowrap;
 }
-.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
-.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
-.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
-.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
+.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
+.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
   color: #262626;
   text-decoration: none;
   background-color: #f5f5f5;
 }
-.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
-.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
-.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox,
-.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox {
+.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox,
+.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox {
   margin: 0 2px 4px 0;
   vertical-align: middle;
 }
-.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled,
-.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled {
+.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled,
+.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled {
   cursor: not-allowed;
 }
 .tablear-table {
@@ -151,7 +151,7 @@
   text-overflow: inherit !important;
   white-space: inherit !important;
 }
-.dragtable-sortable {
+.tablear-table .dragtable-sortable {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -160,26 +160,26 @@
   -webkit-user-select: none;
   user-select: none;
 }
-.dragtable-sortable li {
+.tablear-table .dragtable-sortable li {
   margin: 0;
   padding: 0;
   float: left;
   font-size: 1em;
   background: white;
 }
-.dragtable-sortable th,
-.dragtable-sortable td {
+.tablear-table .dragtable-sortable th,
+.tablear-table .dragtable-sortable td {
   border-left: 0;
 }
-.dragtable-sortable li:first-child th,
-.dragtable-sortable li:first-child td {
+.tablear-table .dragtable-sortable li:first-child th,
+.tablear-table .dragtable-sortable li:first-child td {
   border-left: 1px solid #CCC;
 }
-.ui-sortable-helper {
+.tablear-table .ui-sortable-helper {
   opacity: 0.7;
   filter: alpha(opacity=70);
 }
-.ui-sortable-placeholder {
+.tablear-table .ui-sortable-placeholder {
   -moz-box-shadow: 4px 5px 4px #C6C6C6 inset;
   -webkit-box-shadow: 4px 5px 4px #C6C6C6 inset;
   box-shadow: 4px 5px 4px #C6C6C6 inset;
@@ -188,11 +188,11 @@
   background: #EFEFEF !important;
   visibility: visible !important;
 }
-.ui-sortable-placeholder * {
+.tablear-table .ui-sortable-placeholder * {
   opacity: 0.0;
   visibility: hidden;
 }
-.reorder_rows_onDragClass td {
+.tablear-table .reorder_rows_onDragClass td {
   background-color: #eee;
   -webkit-box-shadow: 11px 5px 12px 2px #333, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
   -webkit-box-shadow: 6px 3px 5px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
@@ -201,7 +201,7 @@
   z-index: 2;
   position: relative;
 }
-.reorder_rows_onDragClass td:last-child {
+.tablear-table .reorder_rows_onDragClass td:last-child {
   -webkit-box-shadow: 8px 7px 12px 0 #333, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
   -webkit-box-shadow: 1px 8px 6px -4px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset;
   -moz-box-shadow: 0 9px 4px -4px #555, 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset, -1px 0 0 #ccc inset;
@@ -210,12 +210,12 @@
   position: relative;
 }
 /*make editable fill the parent size (and use ~ to prevent less to actually do a calculation)*/
-.editable-container.editable-inline,
-.editable-container.editable-inline .control-group.form-group,
-.editable-container.editable-inline .control-group.form-group .editable-input,
-.editable-container.editable-inline .control-group.form-group .editable-input textarea,
-.editable-container.editable-inline .control-group.form-group .editable-input select,
-.editable-container.editable-inline .control-group.form-group .editable-input input:not([type=radio]):not([type=checkbox]):not([type=submit]) {
+.tablear-table .editable-container.editable-inline,
+.tablear-table .editable-container.editable-inline .control-group.form-group,
+.tablear-table .editable-container.editable-inline .control-group.form-group .editable-input,
+.tablear-table .editable-container.editable-inline .control-group.form-group .editable-input textarea,
+.tablear-table .editable-container.editable-inline .control-group.form-group .editable-input select,
+.tablear-table .editable-container.editable-inline .control-group.form-group .editable-input input:not([type=radio]):not([type=checkbox]):not([type=submit]) {
   width: -moz-calc(100% - 30px);
   width: -webkit-calc(100% - 30px);
   width: calc(100% - 30px);

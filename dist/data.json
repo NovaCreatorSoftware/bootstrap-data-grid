@@ -26,7 +26,12 @@
       "id": "49bad60a-bbf7-42bf-b040-d901805ccbf1",
       "sender": "test@test.de",
       "received": "2014-04-15 11:23:06Z"
-    }
+    },
+    {
+      "id": "49bad60a-bbf7-42bf-b040-d901805ccbf1",
+      "sender": "test@test.de",
+      "received": "2020-04-15 11:23:06Z"
+    }    
   ],
-  "total": 5
+  "total": 6
 }

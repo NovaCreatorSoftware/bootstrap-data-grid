@@ -3,76 +3,76 @@
  * Copyright (c) 2015-2017 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
-.tablear-table .tablear-header,
-.tablear-table .tablear-footer {
+.tablear-header,
+.tablear-footer {
   margin: 15px 0;
 }
-.tablear-table .tablear-header a,
-.tablear-table .tablear-footer a {
+.tablear-header a,
+.tablear-footer a {
   outline: 0;
 }
-.tablear-table .tablear-header .search,
-.tablear-table .tablear-footer .search {
+.tablear-header .search,
+.tablear-footer .search {
   display: inline-block;
   margin: 0 20px 0 0;
   vertical-align: middle;
   width: 180px;
 }
-.tablear-table .tablear-header .search .glyphicon,
-.tablear-table .tablear-footer .search .glyphicon {
+.tablear-header .search .glyphicon,
+.tablear-footer .search .glyphicon {
   top: 0;
 }
-.tablear-table .tablear-header .search .fa,
-.tablear-table .tablear-footer .search .fa {
+.tablear-header .search .fa,
+.tablear-footer .search .fa {
   display: table-cell;
 }
-.tablear-table .tablear-header .search.search-field::-ms-clear,
-.tablear-table .tablear-footer .search.search-field::-ms-clear,
-.tablear-table .tablear-header .search .search-field::-ms-clear,
-.tablear-table .tablear-footer .search .search-field::-ms-clear {
+.tablear-header .search.search-field::-ms-clear,
+.tablear-footer .search.search-field::-ms-clear,
+.tablear-header .search .search-field::-ms-clear,
+.tablear-footer .search .search-field::-ms-clear {
   display: none;
 }
-.tablear-table .tablear-header .actions,
-.tablear-table .tablear-footer .actions {
+.tablear-header .actions,
+.tablear-footer .actions {
   margin: 0 20px 0 0;
 }
-.tablear-table .tablear-header .pagination,
-.tablear-table .tablear-footer .pagination {
+.tablear-header .pagination,
+.tablear-footer .pagination {
   margin: 0 !important;
 }
-.tablear-table .tablear-header .actionBar,
-.tablear-table .tablear-footer .infoBar {
+.tablear-header .actionBar,
+.tablear-footer .infoBar {
   text-align: right;
 }
-.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu,
-.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu {
   text-align: left;
 }
-.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item,
-.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item {
   cursor: pointer;
   display: block;
   margin: 0;
   padding: 3px 20px;
   white-space: nowrap;
 }
-.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
-.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
-.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
-.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
   color: #262626;
   text-decoration: none;
   background-color: #f5f5f5;
 }
-.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
-.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
-.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox,
-.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox {
   margin: 0 2px 4px 0;
   vertical-align: middle;
 }
-.tablear-table .tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled,
-.tablear-table .tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled {
+.tablear-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled,
+.tablear-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled {
   cursor: not-allowed;
 }
 .tablear-table {

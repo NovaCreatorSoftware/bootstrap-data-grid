@@ -332,19 +332,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.</p>
 
                             </li>
                             <li class="index-item event">
-                                <a href="#event_rendering">rendering</a>
-
-                            </li>
-                            <li class="index-item event">
-                                <a href="#event_rendered">rendered</a>
-
-                            </li>
-                            <li class="index-item event">
                                 <a href="#event_cancel">cancel</a>
-
-                            </li>
-                            <li class="index-item event">
-                                <a href="#event_show">show</a>
 
                             </li>
                             <li class="index-item event">
@@ -352,7 +340,19 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.</p>
 
                             </li>
                             <li class="index-item event">
+                                <a href="#event_rendered">rendered</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_rendering">rendering</a>
+
+                            </li>
+                            <li class="index-item event">
                                 <a href="#event_save">save</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_show">show</a>
 
                             </li>
                     </ul>
@@ -1380,14 +1380,14 @@ These properties are read only, attempting to change them will not alter the val
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/dist_js_dependencies.js.html#l32365"><code>dist&#x2F;js&#x2F;dependencies.js:32365</code></a>
+                            <a href="../files/dist_js_dependencies.js.html#l32221"><code>dist&#x2F;js&#x2F;dependencies.js:32221</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            <p>A click / tap handler triggered when a user simply clicks or taps, rather than swipes on an element.</p>
+                            <p>A catch all handler that is triggered for all swipe directions.</p>
                     
                         </div>
                     
@@ -1407,12 +1407,67 @@ These properties are read only, attempting to change them will not alter the val
                     
                                     </li>
                                     <li class="param">
-                                            <code class="param-name">target</code>
-                                            <span class="type">DomObject</span>
+                                            <code class="param-name">direction</code>
+                                            <span class="type">Int</span>
                     
                     
                                         <div class="param-description">
-                                            <p>The element clicked on.</p>
+                                            <p>The direction the user swiped in. See {@link $.fn.swipe.directions}</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">distance</code>
+                                            <span class="type">Int</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The distance the user swiped</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">duration</code>
+                                            <span class="type">Int</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The duration of the swipe in milliseconds</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">fingerCount</code>
+                                            <span class="type">Int</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The number of fingers used. See {@link $.fn.swipe.fingers}</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">fingerData</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The coordinates of fingers in event</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                    <li class="param">
+                                            <code class="param-name">currentDirection</code>
+                                            <span class="type">String</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>The current direction the user is swiping.</p>
                     
                                         </div>
                     
@@ -1433,14 +1488,14 @@ These properties are read only, attempting to change them will not alter the val
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/dist_js_dependencies.js.html#l32221"><code>dist&#x2F;js&#x2F;dependencies.js:32221</code></a>
+                            <a href="../files/dist_js_dependencies.js.html#l32238"><code>dist&#x2F;js&#x2F;dependencies.js:32238</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            <p>A catch all handler that is triggered for all swipe directions.</p>
+                            <p>A handler that is triggered for &quot;left&quot; swipes.</p>
                     
                         </div>
                     
@@ -2367,14 +2422,14 @@ These properties are read only, attempting to change them will not alter the val
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/dist_js_dependencies.js.html#l32238"><code>dist&#x2F;js&#x2F;dependencies.js:32238</code></a>
+                            <a href="../files/dist_js_dependencies.js.html#l32365"><code>dist&#x2F;js&#x2F;dependencies.js:32365</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            <p>A handler that is triggered for &quot;left&quot; swipes.</p>
+                            <p>A click / tap handler triggered when a user simply clicks or taps, rather than swipes on an element.</p>
                     
                         </div>
                     
@@ -2394,67 +2449,12 @@ These properties are read only, attempting to change them will not alter the val
                     
                                     </li>
                                     <li class="param">
-                                            <code class="param-name">direction</code>
-                                            <span class="type">Int</span>
+                                            <code class="param-name">target</code>
+                                            <span class="type">DomObject</span>
                     
                     
                                         <div class="param-description">
-                                            <p>The direction the user swiped in. See {@link $.fn.swipe.directions}</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                    <li class="param">
-                                            <code class="param-name">distance</code>
-                                            <span class="type">Int</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>The distance the user swiped</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                    <li class="param">
-                                            <code class="param-name">duration</code>
-                                            <span class="type">Int</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>The duration of the swipe in milliseconds</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                    <li class="param">
-                                            <code class="param-name">fingerCount</code>
-                                            <span class="type">Int</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>The number of fingers used. See {@link $.fn.swipe.fingers}</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                    <li class="param">
-                                            <code class="param-name">fingerData</code>
-                                            <span class="type">Object</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>The coordinates of fingers in event</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                    <li class="param">
-                                            <code class="param-name">currentDirection</code>
-                                            <span class="type">String</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>The current direction the user is swiping.</p>
+                                            <p>The element clicked on.</p>
                     
                                         </div>
                     
@@ -2628,8 +2628,8 @@ These properties are read only, attempting to change them will not alter the val
                     
                     
                     </div>
-                    <div id="event_rendering" class="events item">
-                        <h3 class="name"><code>rendering</code></h3>
+                    <div id="event_cancel" class="events item">
+                        <h3 class="name"><code>cancel</code></h3>
                         <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
                     
                     
@@ -2639,14 +2639,56 @@ These properties are read only, attempting to change them will not alter the val
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/dist_js_dependencies.js.html#l47079"><code>dist&#x2F;js&#x2F;dependencies.js:47079</code></a>
+                            <a href="../files/dist_js_dependencies.js.html#l47138"><code>dist&#x2F;js&#x2F;dependencies.js:47138</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            <p>Fired when rendering starts</p>
+                            <p>Fired when form was cancelled by user</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">event</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>event object</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_nochange" class="events item">
+                        <h3 class="name"><code>nochange</code></h3>
+                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/dist_js_dependencies.js.html#l47232"><code>dist&#x2F;js&#x2F;dependencies.js:47232</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Fired when value not changed but form is submitted. Requires savenochange = false.</p>
                     
                         </div>
                     
@@ -2712,8 +2754,8 @@ These properties are read only, attempting to change them will not alter the val
                     
                     
                     </div>
-                    <div id="event_cancel" class="events item">
-                        <h3 class="name"><code>cancel</code></h3>
+                    <div id="event_rendering" class="events item">
+                        <h3 class="name"><code>rendering</code></h3>
                         <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
                     
                     
@@ -2723,98 +2765,14 @@ These properties are read only, attempting to change them will not alter the val
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/dist_js_dependencies.js.html#l47138"><code>dist&#x2F;js&#x2F;dependencies.js:47138</code></a>
+                            <a href="../files/dist_js_dependencies.js.html#l47079"><code>dist&#x2F;js&#x2F;dependencies.js:47079</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            <p>Fired when form was cancelled by user</p>
-                    
-                        </div>
-                    
-                            <div class="params">
-                                <h4>Event Payload:</h4>
-                    
-                                <ul class="params-list">
-                                    <li class="param">
-                                            <code class="param-name">event</code>
-                                            <span class="type">Object</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>event object</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                </ul>
-                            </div>
-                    
-                    
-                    </div>
-                    <div id="event_show" class="events item">
-                        <h3 class="name"><code>show</code></h3>
-                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
-                    
-                    
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/dist_js_dependencies.js.html#l47174"><code>dist&#x2F;js&#x2F;dependencies.js:47174</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>Fired when form is shown</p>
-                    
-                        </div>
-                    
-                            <div class="params">
-                                <h4>Event Payload:</h4>
-                    
-                                <ul class="params-list">
-                                    <li class="param">
-                                            <code class="param-name">event</code>
-                                            <span class="type">Object</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>event object</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                </ul>
-                            </div>
-                    
-                    
-                    </div>
-                    <div id="event_nochange" class="events item">
-                        <h3 class="name"><code>nochange</code></h3>
-                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
-                    
-                    
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/dist_js_dependencies.js.html#l47232"><code>dist&#x2F;js&#x2F;dependencies.js:47232</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>Fired when value not changed but form is submitted. Requires savenochange = false.</p>
+                            <p>Fired when rendering starts</p>
                     
                         </div>
                     
@@ -2932,6 +2890,48 @@ These properties are read only, attempting to change them will not alter the val
                     
                                 </div>
                             </div>
+                    </div>
+                    <div id="event_show" class="events item">
+                        <h3 class="name"><code>show</code></h3>
+                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/dist_js_dependencies.js.html#l47174"><code>dist&#x2F;js&#x2F;dependencies.js:47174</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Fired when form is shown</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">event</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>event object</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
                     </div>
             </div>
     </div>

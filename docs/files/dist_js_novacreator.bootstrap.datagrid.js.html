@@ -104,8 +104,8 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 01/18/2017
- * Copyright (c) 2015-2017 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/18/2020
+ * Copyright (c) 2015-2020 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
 ;(function ($, window, undefined)
@@ -2123,7 +2123,8 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 (function ($) {
     &#x27;use strict&#x27;; // jshint ignore:line
 
-    $.extend($.fn.tablear.Constructor.defaults, {
+    // noinspection JSUnusedLocalSymbols
+	$.extend($.fn.tablear.Constructor.defaults, {
         editable: true,
         onEditableInit: function (){
             return false;
@@ -2174,10 +2175,10 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
 
             var processDataOptions = function(key, value) {
             	// Replace camel case with dashes.
-            	var dashKey = key.replace(/([A-Z])/g, function($1) { 
+            	var dashKey = key.replace(/([A-Z])/g, function($1) {
             		return &quot;-&quot; + $1.toLowerCase();
             	});
-            	if(dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
+            	if(dashKey.slice(0, editableDataPrefix.length) === editableDataPrefix) {
             		var dataKey = dashKey.replace(editableDataPrefix, &#x27;data-&#x27;);
             		editableOptions[dataKey] = value;
             	}
@@ -2188,12 +2189,13 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             var _formatter = column.formatter;
             column.formatter = function(value, row, index) {
                 //var result = _formatter ? _formatter(value, row, index) : value;
-                var result = row[value.field];
+	            var result = _formatter ? _formatter(value, row, index) : row[value.field].replace(/&quot;/g, &quot;&amp;quot;&quot;); //escape quote
 
                 $.each(column, processDataOptions);
 
-                $.each(editableOptions, function(key, value) {
-                    editableDataMarkup.push(&#x27; &#x27; + key + &#x27;=&quot;&#x27; + value + &#x27;&quot;&#x27;);
+	            editableDataMarkup = [];
+                $.each(editableOptions, function(editableKey, editableValue) {
+                    editableDataMarkup.push(&#x27; &#x27; + editableKey + &#x27;=&quot;&#x27; + editableValue + &#x27;&quot;&#x27;);
                 });
 
                 return [&#x27;&lt;a href=&quot;javascript:void(0)&quot;&#x27;,
@@ -2243,7 +2245,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             		combodateData[&quot;yearDescending&quot;] = yearDescending;
             	}
             	var placement = &#x27;top&#x27;;
-            	if(columnIndex == lastVisibleColumn) {
+            	if(columnIndex === lastVisibleColumn) {
             		placement = &#x27;left&#x27;;
             	}
             	$(this).editable({ combodate: combodateData, placement: placement });
@@ -2251,13 +2253,13 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             aElements.off(&#x27;save&#x27;).on(&#x27;save&#x27;, that, function(e, params) {
             	var Grid = e.data;
             	var columnId = $(e.currentTarget).data(&#x27;name&#x27;);
-            	var column = Grid.getColumnById(columnId);
+            	//var column = Grid.getColumnById(columnId);
             	var row = Grid.getRowById($(e.currentTarget).data(&#x27;pk&#x27;));
             	if(!row) {
             		row = Grid.getRowById(0);
             	}
             	$(this).data(&#x27;value&#x27;, params.submitValue);
-            	var oldValue = row[columnId]; 
+            	var oldValue = row[columnId];
             	row[columnId] = params.submitValue;
             	Grid.options.onEditableSave(columnId, row, oldValue, $(this));
             });

@@ -1,6 +1,6 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 01/18/2017
- * Copyright (c) 2015-2017 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/18/2020
+ * Copyright (c) 2015-2020 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
 ;(function ($, window, undefined)
@@ -2018,7 +2018,8 @@ $("[data-toggle=\"tablear\"]").tablear();
 (function ($) {
     'use strict'; // jshint ignore:line
 
-    $.extend($.fn.tablear.Constructor.defaults, {
+    // noinspection JSUnusedLocalSymbols
+	$.extend($.fn.tablear.Constructor.defaults, {
         editable: true,
         onEditableInit: function (){
             return false;
@@ -2069,10 +2070,10 @@ $("[data-toggle=\"tablear\"]").tablear();
 
             var processDataOptions = function(key, value) {
             	// Replace camel case with dashes.
-            	var dashKey = key.replace(/([A-Z])/g, function($1) { 
+            	var dashKey = key.replace(/([A-Z])/g, function($1) {
             		return "-" + $1.toLowerCase();
             	});
-            	if(dashKey.slice(0, editableDataPrefix.length) == editableDataPrefix) {
+            	if(dashKey.slice(0, editableDataPrefix.length) === editableDataPrefix) {
             		var dataKey = dashKey.replace(editableDataPrefix, 'data-');
             		editableOptions[dataKey] = value;
             	}
@@ -2083,12 +2084,13 @@ $("[data-toggle=\"tablear\"]").tablear();
             var _formatter = column.formatter;
             column.formatter = function(value, row, index) {
                 //var result = _formatter ? _formatter(value, row, index) : value;
-                var result = row[value.field];
+	            var result = _formatter ? _formatter(value, row, index) : row[value.field].replace(/"/g, "&quot;"); //escape quote
 
                 $.each(column, processDataOptions);
 
-                $.each(editableOptions, function(key, value) {
-                    editableDataMarkup.push(' ' + key + '="' + value + '"');
+	            editableDataMarkup = [];
+                $.each(editableOptions, function(editableKey, editableValue) {
+                    editableDataMarkup.push(' ' + editableKey + '="' + editableValue + '"');
                 });
 
                 return ['<a href="javascript:void(0)"',
@@ -2138,7 +2140,7 @@ $("[data-toggle=\"tablear\"]").tablear();
             		combodateData["yearDescending"] = yearDescending;
             	}
             	var placement = 'top';
-            	if(columnIndex == lastVisibleColumn) {
+            	if(columnIndex === lastVisibleColumn) {
             		placement = 'left';
             	}
             	$(this).editable({ combodate: combodateData, placement: placement });
@@ -2146,13 +2148,13 @@ $("[data-toggle=\"tablear\"]").tablear();
             aElements.off('save').on('save', that, function(e, params) {
             	var Grid = e.data;
             	var columnId = $(e.currentTarget).data('name');
-            	var column = Grid.getColumnById(columnId);
+            	//var column = Grid.getColumnById(columnId);
             	var row = Grid.getRowById($(e.currentTarget).data('pk'));
             	if(!row) {
             		row = Grid.getRowById(0);
             	}
             	$(this).data('value', params.submitValue);
-            	var oldValue = row[columnId]; 
+            	var oldValue = row[columnId];
             	row[columnId] = params.submitValue;
             	Grid.options.onEditableSave(columnId, row, oldValue, $(this));
             });

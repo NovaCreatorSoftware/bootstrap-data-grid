@@ -302,24 +302,12 @@ Applied as jQuery method.</p>
                     <h3>Events</h3>
 
                     <ul class="index-list events">
-                            <li class="index-item event">
-                                <a href="#event_hidden">hidden</a>
-
-                            </li>
-                            <li class="index-item event inherited">
-                                <a href="#event_save">save</a>
-
-                            </li>
-                            <li class="index-item event">
-                                <a href="#event_shown">shown</a>
-
-                            </li>
-                            <li class="index-item event inherited inherited">
-                                <a href="#event_"></a>
-
-                            </li>
                             <li class="index-item event inherited">
                                 <a href="#event_cancel">cancel</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_hidden">hidden</a>
 
                             </li>
                             <li class="index-item event inherited">
@@ -335,7 +323,19 @@ Applied as jQuery method.</p>
 
                             </li>
                             <li class="index-item event inherited">
+                                <a href="#event_save">save</a>
+
+                            </li>
+                            <li class="index-item event inherited">
                                 <a href="#event_show">show</a>
+
+                            </li>
+                            <li class="index-item event">
+                                <a href="#event_shown">shown</a>
+
+                            </li>
+                            <li class="index-item event inherited inherited">
+                                <a href="#event_"></a>
 
                             </li>
                     </ul>
@@ -1714,6 +1714,48 @@ These properties are read only, attempting to change them will not alter the val
             <div id="events" class="api-class-tabpanel">
                 <h2 class="off-left">Events</h2>
 
+                    <div id="event_cancel" class="events item inherited">
+                        <h3 class="name"><code>cancel</code></h3>
+                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Editableform.html#event_cancel">editableform</a>:
+                            <a href="../files/dist_js_dependencies.js.html#l47138"><code>dist&#x2F;js&#x2F;dependencies.js:47138</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Fired when form was cancelled by user</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">event</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>event object</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
                     <div id="event_hidden" class="events item">
                         <h3 class="name"><code>hidden</code></h3>
                         <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
@@ -1781,6 +1823,132 @@ These properties are read only, attempting to change them will not alter the val
                     
                                 </div>
                             </div>
+                    </div>
+                    <div id="event_nochange" class="events item inherited">
+                        <h3 class="name"><code>nochange</code></h3>
+                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Editableform.html#event_nochange">editableform</a>:
+                            <a href="../files/dist_js_dependencies.js.html#l47232"><code>dist&#x2F;js&#x2F;dependencies.js:47232</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Fired when value not changed but form is submitted. Requires savenochange = false.</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">event</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>event object</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_rendered" class="events item inherited">
+                        <h3 class="name"><code>rendered</code></h3>
+                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Editableform.html#event_rendered">editableform</a>:
+                            <a href="../files/dist_js_dependencies.js.html#l47122"><code>dist&#x2F;js&#x2F;dependencies.js:47122</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Fired when form is rendered</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">event</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>event object</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
+                    </div>
+                    <div id="event_rendering" class="events item inherited">
+                        <h3 class="name"><code>rendering</code></h3>
+                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Editableform.html#event_rendering">editableform</a>:
+                            <a href="../files/dist_js_dependencies.js.html#l47079"><code>dist&#x2F;js&#x2F;dependencies.js:47079</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Fired when rendering starts</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">event</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>event object</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
                     </div>
                     <div id="event_save" class="events item">
                         <h3 class="name"><code>save</code></h3>
@@ -1875,6 +2043,48 @@ These properties are read only, attempting to change them will not alter the val
                     
                                 </div>
                             </div>
+                    </div>
+                    <div id="event_show" class="events item inherited">
+                        <h3 class="name"><code>show</code></h3>
+                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Editableform.html#event_show">editableform</a>:
+                            <a href="../files/dist_js_dependencies.js.html#l47174"><code>dist&#x2F;js&#x2F;dependencies.js:47174</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Fired when form is shown</p>
+                    
+                        </div>
+                    
+                            <div class="params">
+                                <h4>Event Payload:</h4>
+                    
+                                <ul class="params-list">
+                                    <li class="param">
+                                            <code class="param-name">event</code>
+                                            <span class="type">Object</span>
+                    
+                    
+                                        <div class="param-description">
+                                            <p>event object</p>
+                    
+                                        </div>
+                    
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                    
                     </div>
                     <div id="event_shown" class="events item">
                         <h3 class="name"><code>shown</code></h3>
@@ -2032,216 +2242,6 @@ These properties are read only, attempting to change them will not alter the val
                     
                                         <div class="param-description">
                                             <p>The current direction the user is swiping.</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                </ul>
-                            </div>
-                    
-                    
-                    </div>
-                    <div id="event_cancel" class="events item inherited">
-                        <h3 class="name"><code>cancel</code></h3>
-                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
-                    
-                    
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="../classes/Editableform.html#event_cancel">editableform</a>:
-                            <a href="../files/dist_js_dependencies.js.html#l47138"><code>dist&#x2F;js&#x2F;dependencies.js:47138</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>Fired when form was cancelled by user</p>
-                    
-                        </div>
-                    
-                            <div class="params">
-                                <h4>Event Payload:</h4>
-                    
-                                <ul class="params-list">
-                                    <li class="param">
-                                            <code class="param-name">event</code>
-                                            <span class="type">Object</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>event object</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                </ul>
-                            </div>
-                    
-                    
-                    </div>
-                    <div id="event_nochange" class="events item inherited">
-                        <h3 class="name"><code>nochange</code></h3>
-                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
-                    
-                    
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="../classes/Editableform.html#event_nochange">editableform</a>:
-                            <a href="../files/dist_js_dependencies.js.html#l47232"><code>dist&#x2F;js&#x2F;dependencies.js:47232</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>Fired when value not changed but form is submitted. Requires savenochange = false.</p>
-                    
-                        </div>
-                    
-                            <div class="params">
-                                <h4>Event Payload:</h4>
-                    
-                                <ul class="params-list">
-                                    <li class="param">
-                                            <code class="param-name">event</code>
-                                            <span class="type">Object</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>event object</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                </ul>
-                            </div>
-                    
-                    
-                    </div>
-                    <div id="event_rendered" class="events item inherited">
-                        <h3 class="name"><code>rendered</code></h3>
-                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
-                    
-                    
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="../classes/Editableform.html#event_rendered">editableform</a>:
-                            <a href="../files/dist_js_dependencies.js.html#l47122"><code>dist&#x2F;js&#x2F;dependencies.js:47122</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>Fired when form is rendered</p>
-                    
-                        </div>
-                    
-                            <div class="params">
-                                <h4>Event Payload:</h4>
-                    
-                                <ul class="params-list">
-                                    <li class="param">
-                                            <code class="param-name">event</code>
-                                            <span class="type">Object</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>event object</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                </ul>
-                            </div>
-                    
-                    
-                    </div>
-                    <div id="event_rendering" class="events item inherited">
-                        <h3 class="name"><code>rendering</code></h3>
-                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
-                    
-                    
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="../classes/Editableform.html#event_rendering">editableform</a>:
-                            <a href="../files/dist_js_dependencies.js.html#l47079"><code>dist&#x2F;js&#x2F;dependencies.js:47079</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>Fired when rendering starts</p>
-                    
-                        </div>
-                    
-                            <div class="params">
-                                <h4>Event Payload:</h4>
-                    
-                                <ul class="params-list">
-                                    <li class="param">
-                                            <code class="param-name">event</code>
-                                            <span class="type">Object</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>event object</p>
-                    
-                                        </div>
-                    
-                                    </li>
-                                </ul>
-                            </div>
-                    
-                    
-                    </div>
-                    <div id="event_show" class="events item inherited">
-                        <h3 class="name"><code>show</code></h3>
-                        <span class="type"><a href="../classes/.html" class="crosslink"></a></span>
-                    
-                    
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="../classes/Editableform.html#event_show">editableform</a>:
-                            <a href="../files/dist_js_dependencies.js.html#l47174"><code>dist&#x2F;js&#x2F;dependencies.js:47174</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>Fired when form is shown</p>
-                    
-                        </div>
-                    
-                            <div class="params">
-                                <h4>Event Payload:</h4>
-                    
-                                <ul class="params-list">
-                                    <li class="param">
-                                            <code class="param-name">event</code>
-                                            <span class="type">Object</span>
-                    
-                    
-                                        <div class="param-description">
-                                            <p>event object</p>
                     
                                         </div>
                     

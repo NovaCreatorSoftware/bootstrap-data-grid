@@ -1490,7 +1490,8 @@ Grid.defaults = {
      **/
     templates: {
         actionButton: "<button class=\"btn btn-default\" type=\"button\" title=\"{{ctx.text}}\">{{ctx.content}}</button>",
-        actionDropDown: "<div class=\"{{css.dropDownMenu}}\"><button class=\"btn btn-default dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\"><span class=\"{{css.dropDownMenuText}}\">{{ctx.content}}</span> <span class=\"caret\"></span></button><ul class=\"{{css.dropDownMenuItems}}\" role=\"menu\"></ul></div>",
+        // actionDropDown: "<div class=\"{{css.dropDownMenu}}\"><button class=\"btn btn-default dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\"><span class=\"{{css.dropDownMenuText}}\">{{ctx.content}}</span> <span class=\"caret\"></span></button><ul class=\"{{css.dropDownMenuItems}}\" role=\"menu\"></ul></div>",
+        actionDropDown: "<div class=\"{{css.dropDownMenu}}\"><button class=\"btn btn-default dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\"><span class=\"{{css.dropDownMenuText}}\">{{ctx.content}}</span> </button><ul class=\"{{css.dropDownMenuItems}}\" role=\"menu\"></ul></div>",
         actionDropDownItem: "<li><a data-action=\"{{ctx.action}}\" class=\"{{css.dropDownItem}} {{css.dropDownItemButton}}\">{{ctx.text}}</a></li>",
         actionDropDownCheckboxItem: "<li><label class=\"{{css.dropDownItem}}\"><input name=\"{{ctx.name}}\" type=\"checkbox\" value=\"1\" class=\"{{css.dropDownItemCheckbox}}\" {{ctx.checked}} /> {{ctx.label}}</label></li>",
         actions: "<div class=\"{{css.actions}}\"></div>",
@@ -2096,7 +2097,8 @@ $("[data-toggle=\"tablear\"]").tablear();
                 return ['<a href="javascript:void(0)"',
                     ' data-name="' + column.field + '"',
                     ' data-pk="' + row[identifier] + '"',
-                    ' data-value="' + result + '"',
+                    //' data-value="' + result + '"',
+	                (result ? (' data-value="' + result + '"') : ''),
                     editableDataMarkup.join(''),
                     '>' + '</a>'
                 ].join('');
@@ -2235,7 +2237,8 @@ $("[data-toggle=\"tablear\"]").tablear();
                             'title="' + this.options.locales.formatExport() + '" ' +
                             'data-toggle="dropdown" type="button">',
                             sprintf('<i class="%s %s"></i> ', this.options.css.icon, this.options.css.exportIcon),
-                            '<span class="caret"></span>',
+
+                    //'<span class="caret"></span>',
                         '</button>',
                         '<ul class="dropdown-menu" role="menu">',
                         '</ul>',

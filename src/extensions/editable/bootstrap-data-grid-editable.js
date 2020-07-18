@@ -84,7 +84,8 @@
                 return ['<a href="javascript:void(0)"',
                     ' data-name="' + column.field + '"',
                     ' data-pk="' + row[identifier] + '"',
-                    ' data-value="' + result + '"',
+                    //' data-value="' + result + '"',
+	                (result ? (' data-value="' + result + '"') : ''),
                     editableDataMarkup.join(''),
                     '>' + '</a>'
                 ].join('');

@@ -53,7 +53,8 @@
                             'title="' + this.options.locales.formatExport() + '" ' +
                             'data-toggle="dropdown" type="button">',
                             sprintf('<i class="%s %s"></i> ', this.options.css.icon, this.options.css.exportIcon),
-                            '<span class="caret"></span>',
+
+                    //'<span class="caret"></span>',
                         '</button>',
                         '<ul class="dropdown-menu" role="menu">',
                         '</ul>',

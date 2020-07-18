@@ -1595,7 +1595,8 @@ Grid.defaults = {
      **/
     templates: {
         actionButton: &quot;&lt;button class=\&quot;btn btn-default\&quot; type=\&quot;button\&quot; title=\&quot;{{ctx.text}}\&quot;&gt;{{ctx.content}}&lt;/button&gt;&quot;,
-        actionDropDown: &quot;&lt;div class=\&quot;{{css.dropDownMenu}}\&quot;&gt;&lt;button class=\&quot;btn btn-default dropdown-toggle\&quot; type=\&quot;button\&quot; data-toggle=\&quot;dropdown\&quot;&gt;&lt;span class=\&quot;{{css.dropDownMenuText}}\&quot;&gt;{{ctx.content}}&lt;/span&gt; &lt;span class=\&quot;caret\&quot;&gt;&lt;/span&gt;&lt;/button&gt;&lt;ul class=\&quot;{{css.dropDownMenuItems}}\&quot; role=\&quot;menu\&quot;&gt;&lt;/ul&gt;&lt;/div&gt;&quot;,
+        // actionDropDown: &quot;&lt;div class=\&quot;{{css.dropDownMenu}}\&quot;&gt;&lt;button class=\&quot;btn btn-default dropdown-toggle\&quot; type=\&quot;button\&quot; data-toggle=\&quot;dropdown\&quot;&gt;&lt;span class=\&quot;{{css.dropDownMenuText}}\&quot;&gt;{{ctx.content}}&lt;/span&gt; &lt;span class=\&quot;caret\&quot;&gt;&lt;/span&gt;&lt;/button&gt;&lt;ul class=\&quot;{{css.dropDownMenuItems}}\&quot; role=\&quot;menu\&quot;&gt;&lt;/ul&gt;&lt;/div&gt;&quot;,
+        actionDropDown: &quot;&lt;div class=\&quot;{{css.dropDownMenu}}\&quot;&gt;&lt;button class=\&quot;btn btn-default dropdown-toggle\&quot; type=\&quot;button\&quot; data-toggle=\&quot;dropdown\&quot;&gt;&lt;span class=\&quot;{{css.dropDownMenuText}}\&quot;&gt;{{ctx.content}}&lt;/span&gt; &lt;/button&gt;&lt;ul class=\&quot;{{css.dropDownMenuItems}}\&quot; role=\&quot;menu\&quot;&gt;&lt;/ul&gt;&lt;/div&gt;&quot;,
         actionDropDownItem: &quot;&lt;li&gt;&lt;a data-action=\&quot;{{ctx.action}}\&quot; class=\&quot;{{css.dropDownItem}} {{css.dropDownItemButton}}\&quot;&gt;{{ctx.text}}&lt;/a&gt;&lt;/li&gt;&quot;,
         actionDropDownCheckboxItem: &quot;&lt;li&gt;&lt;label class=\&quot;{{css.dropDownItem}}\&quot;&gt;&lt;input name=\&quot;{{ctx.name}}\&quot; type=\&quot;checkbox\&quot; value=\&quot;1\&quot; class=\&quot;{{css.dropDownItemCheckbox}}\&quot; {{ctx.checked}} /&gt; {{ctx.label}}&lt;/label&gt;&lt;/li&gt;&quot;,
         actions: &quot;&lt;div class=\&quot;{{css.actions}}\&quot;&gt;&lt;/div&gt;&quot;,
@@ -2201,7 +2202,8 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
                 return [&#x27;&lt;a href=&quot;javascript:void(0)&quot;&#x27;,
                     &#x27; data-name=&quot;&#x27; + column.field + &#x27;&quot;&#x27;,
                     &#x27; data-pk=&quot;&#x27; + row[identifier] + &#x27;&quot;&#x27;,
-                    &#x27; data-value=&quot;&#x27; + result + &#x27;&quot;&#x27;,
+                    //&#x27; data-value=&quot;&#x27; + result + &#x27;&quot;&#x27;,
+	                (result ? (&#x27; data-value=&quot;&#x27; + result + &#x27;&quot;&#x27;) : &#x27;&#x27;),
                     editableDataMarkup.join(&#x27;&#x27;),
                     &#x27;&gt;&#x27; + &#x27;&lt;/a&gt;&#x27;
                 ].join(&#x27;&#x27;);
@@ -2340,7 +2342,8 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
                             &#x27;title=&quot;&#x27; + this.options.locales.formatExport() + &#x27;&quot; &#x27; +
                             &#x27;data-toggle=&quot;dropdown&quot; type=&quot;button&quot;&gt;&#x27;,
                             sprintf(&#x27;&lt;i class=&quot;%s %s&quot;&gt;&lt;/i&gt; &#x27;, this.options.css.icon, this.options.css.exportIcon),
-                            &#x27;&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&#x27;,
+
+                    //&#x27;&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&#x27;,
                         &#x27;&lt;/button&gt;&#x27;,
                         &#x27;&lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot;&gt;&#x27;,
                         &#x27;&lt;/ul&gt;&#x27;,

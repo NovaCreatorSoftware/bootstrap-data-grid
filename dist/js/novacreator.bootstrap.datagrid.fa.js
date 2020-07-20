@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 07/18/2020
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/20/2020
  * Copyright (c) 2015-2020 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */

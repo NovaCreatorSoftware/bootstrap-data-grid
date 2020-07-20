@@ -72,7 +72,10 @@
             var _formatter = column.formatter;
             column.formatter = function(value, row, index) {
                 //var result = _formatter ? _formatter(value, row, index) : value;
-	            var result = _formatter ? _formatter(value, row, index) : row[value.field].replace(/"/g, "&quot;"); //escape quote
+	            var result = _formatter ? _formatter(value, row, index) : row[value.field];
+	            if(result) {
+	            	result = result.replace(/"/g, "&quot;"); //escape quote
+	            }
 
                 $.each(column, processDataOptions);
 

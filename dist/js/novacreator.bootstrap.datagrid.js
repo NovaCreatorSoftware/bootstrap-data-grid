@@ -1,5 +1,5 @@
 /*! 
- * Nova Creator Bootstrap Datagrid v1.0.0 - 07/18/2020
+ * Nova Creator Bootstrap Datagrid v1.0.0 - 07/20/2020
  * Copyright (c) 2015-2020 Nova Creator Software (https://github.com/NovaCreatorSoftware/bootstrap-data-grid)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
@@ -2085,7 +2085,10 @@ $("[data-toggle=\"tablear\"]").tablear();
             var _formatter = column.formatter;
             column.formatter = function(value, row, index) {
                 //var result = _formatter ? _formatter(value, row, index) : value;
-	            var result = _formatter ? _formatter(value, row, index) : row[value.field].replace(/"/g, "&quot;"); //escape quote
+	            var result = _formatter ? _formatter(value, row, index) : row[value.field];
+	            if(result) {
+	            	result = result.replace(/"/g, "&quot;"); //escape quote
+	            }
 
                 $.each(column, processDataOptions);
 

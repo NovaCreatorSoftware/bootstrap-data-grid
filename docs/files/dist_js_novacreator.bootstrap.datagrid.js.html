@@ -2194,7 +2194,7 @@ $(&quot;[data-toggle=\&quot;tablear\&quot;]&quot;).tablear();
             column.formatter = function(value, row, index) {
                 //var result = _formatter ? _formatter(value, row, index) : value;
 	            var result = _formatter ? _formatter(value, row, index) : row[value.field];
-	            if(result) {
+	            if(result &amp;&amp; (typeof result === &#x27;string&#x27; || result instanceof String)) {
 	            	result = result.replace(/&quot;/g, &quot;&amp;quot;&quot;); //escape quote
 	            }
 

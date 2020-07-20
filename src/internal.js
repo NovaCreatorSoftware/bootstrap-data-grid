@@ -419,6 +419,9 @@ function loadData() { // jshint ignore:line
             var column = that.columns[i];
             var value = column.converter.to(row[column.id]);
             if(column.showFilter) {
+                if(!column.filterValue) {
+                    return true;
+                }
                 var filterPattern = new RegExp(column.filterValue, (that.options.caseSensitive) ? "g" : "gi");
                 if(value && value.search(filterPattern) <= -1) {
                     return false;
